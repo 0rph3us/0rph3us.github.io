@@ -1,0 +1,33 @@
+---
+layout: post
+title: amarok, KDE und Co
+categories:
+- Solaris
+- Tools
+tags:
+- amarok
+- KDE
+- OpenSolaris
+- pkg
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+  jd_tweet_this: ''
+  wp_jd_wp: http://0rpheus.net/?p=3092
+  wp_jd_target: http://0rpheus.net/?p=3092
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von <a href="http://blog.hajma.cz/">Pavel Heimlich</a> betreut. Er hat dafür ein eigenes Repo. Ich nutze nur <a href="http://amarok.kde.org/">amarok</a>, welches ich an eine mysql-DB gebunden habe.</p>
+<p>
+Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an <a href="http://www.opensolaris.org/jive/thread.jspa?threadID=130031&tstart=0">dbus</a>. Mein aktueller Build 142 macht das ganze sicher auch besser...</p>
+<p>
+Der primäre Server ist <a href="http://solaris.bionicmutton.org:10000/">http://solaris.bionicmutton.org:10000/</a> Die nimmt keine neuen Verbindungen mehr an, wenn seine Downloadgeschwindigkeit ca. 100kBit/s ist. Ich habe gute Erfahrungen mit den Mirror gemacht: <a href="http://pkg.osladil.cz:30000/">http://pkg.osladil.cz:30000/</a>. Vielleicht kommt das mal in die offizellen Repos mit rein, die sind aber auch nicht gerade schnell....</p>
+<p>
+Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf meinen Build 142. Ich hoffe, dass Illumos bals aus den Puschen kommt...</p>

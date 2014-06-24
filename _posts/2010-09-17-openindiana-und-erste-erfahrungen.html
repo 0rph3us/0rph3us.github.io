@@ -1,0 +1,103 @@
+---
+layout: post
+title: OpenIndiana und erste Erfahrungen
+categories:
+- Solaris
+tags:
+- enigmail
+- hack
+- Illumos
+- OpenIndiana
+- OpenSolaris
+- pkg
+- problem
+- Tastatur
+- thunderbird
+- update
+- upgrade
+status: publish
+type: post
+published: true
+meta:
+  _jd_wp_twitter: ''
+  _wp_jd_target: http://0rpheus.net/?p=4272
+  _wp_jd_url: ''
+  _wp_jd_yourls: ''
+  _wp_jd_wp: http://0rpheus.net/?p=4272
+  _wp_jd_bitly: ''
+  _wp_jd_clig: ''
+  _jd_twitter: ''
+  _jd_tweet_this: ''
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Ich habe es endlich geschafft: ein Update auf <strong><a href="http://openindiana.org/">OpenIndiana</a></strong> Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen</p>
+<h4>Update auf OpenIndiana</h4>
+<p>Man findet <a href="http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris">hier</a> auch die orginale Anleitung zum Update.</p>
+<ol>
+<li>update auf Build 134 bzw. Build 134 booten (wie man bootet zeige ich nicht ;-) )
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg install SUNWipkg SUNWipkg-um SUNWipkg-gui
+rennecke@walhalla ~ % pfexec pkg set-publisher -O http://pkg.openindiana.org/legacy opensolaris.org
+rennecke@walhalla ~ % pfexec pkg image-update
+             </pre>
+</li>
+<li> Update auf OpenIndiana
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg set-publisher --non-sticky opensolaris.org
+rennecke@walhalla ~ % pfexec pkg set-publisher -p http://pkg.openindiana.org/dev
+rennecke@walhalla ~ % pfexec pkg set-publisher -P openindiana.org
+rennecke@walhalla ~ % pfexec pkg uninstall entire
+rennecke@walhalla ~ % pfexec pkg uninstall thunderbird # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg uninstall songbird    # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg image-update
+</pre>
+</li>
+</ol>
+<h4>Troubleshooting</h4>
+<ul>
+<li>Ich bekomme folgende Fehler
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       183/838  8825/40200  120.2/648.9  
+
+Fehler beim Abrufen von Paket oder Dateidaten für
+den angeforderten Vorgang.
+Details folgen:
+
+Invalid content path usr/lib/thunderbird/thunderbird-bin: chash failure: expected: 64fd9c1561c244e0563dfc675dbd3a8c3c86f469 computed: 9179b65e28cc293105c6368ee818f1729eb7f991. (happened 4 times)
+</pre>
+<p>oder</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       190/838  7945/40200  131.8/648.9  
+
+Errors were encountered while attempting to retrieve package or file data for
+the requested operation.
+Details follow:
+
+Framework error: code: 18 reason: transfer closed with 13603900 bytes remaining to read
+URL: 'http://pkg.openindiana.org/dev/file/0/c5df73fea1fb6f63f0f17cf5e996e8525fc1a4f4'. (happened 4 times)
+</pre>
+<p>Dann einfach das betreffende Paket deinstallieren und später wieder installieren.</p>
+</li>
+<li> Firefox und Thunderbird gehen nicht. Das Problem ist die Lokalisierung.
+<p><br class="spacer_" /></p>
+<pre lang="bash">rennecke@walhalla ~ % export LANG=C
+rennecke@walhalla ~ % firefox &amp;
+</pre>
+</li>
+<li>Ich habe das falsche Tastaturlayout
+<pre lang="bash">rennecke@trantor ~ $ setxkbmap de           # setzt das persönlich Layout auf de
+rennecke@trantor ~ $ cat .Xkbmap            # Datei wird ausgewertet, beim starten der Sitzung
+de
+</pre>
+<p>Die ganzen anderen Möglichkeiten (welche solaristypisch sind) haben bei mir nicht funktioniert.</p>
+</li>
+<li>Enigmail bei Thunderbird funktioniert nicht mehr. Einfach auf der <a href="http://enigmail.mozdev.org/download/download-static.php">Webseite</a> das Plugin herunter laden und installieren</li>
+</ul>
