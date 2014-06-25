@@ -21,6 +21,13 @@ h1, h2, h3, h4 {
   background-color: #fdcd60;
 }
 
+i.glyphicon-open {
+font-family: Glyphicons Halflings;
+}
+
+i.glyphicon-tags {
+font-family: Glyphicons Halflings;
+}
 
 
 /* posts index */
