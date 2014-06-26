@@ -8,3 +8,6 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+mathjax/*
+assets/themes/hooligan/fonts/*
