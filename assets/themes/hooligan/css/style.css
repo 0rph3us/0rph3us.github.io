@@ -1,5 +1,19 @@
-@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
-@import url(http://fonts.googleapis.com/css?family=Oxygen);
+@font-face {
+  font-family: 'Advent Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Advent Pro Regular'), local('AdventPro-Regular'), url(../fonts/rT9jpj7pBpZV6AmssbZKkxsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oxygen'), local('Oxygen-Regular'), url(../fonts/RzoNiRR1p2Mqyyz2RwqSMw.woff) format('woff');
+}
+
+
+
 /* Partials */
 /* Theme Vars */
 /* Compass Vars */
