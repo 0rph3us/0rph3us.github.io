@@ -62,7 +62,7 @@ Usage:
       <ul>
     {% endif %}
   
-    <li><span>{{ post.date | date: "%-m. " }} {{this_month}} {{ post.date | date: "%Y " }} </span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date: "%-d. " }} {{this_month}} {{ post.date | date: "%Y " }} </span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   
     {% if forloop.last %}
       </ul>
