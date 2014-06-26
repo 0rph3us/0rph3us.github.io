@@ -13,13 +13,13 @@
     <hr>
     <div class="pagination btn-group">
       {% if page.previous %}
-        <a class="btn prev" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a>
+        <a class="btn prev" href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Neuer</a>
       {% else %}
         <a class="btn disabled prev">&larr; Previous</a>
       {% endif %}
-        <a class="btn" href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archive</a>
+        <a class="btn" href="{{ BASE_PATH }}{{ site.JB.archive_path }}">Archiv</a>
       {% if page.next %}
-        <a class="btn next" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a>
+        <a class="btn next" href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">&Auml;lter &rarr;</a>
       {% else %}
         <a class="btn next disabled">Next &rarr;</a>
       {% endif %}
@@ -30,16 +30,16 @@
   
   <div class="span4">
     <section>
-      <h4>Veröffentlicht</h4>
-      <div class="date"><span>{{ page.date | date_to_long_string }}</span></div>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>{{ page.date | date: "%d.%m.%Y" }}</span></div>
     </section>
     <section>
-      <h4>Geändert</h4>
+      <h4>Letzte &Auml;nderung</h4>
       <div class="date"><span></span>{% last_modified_at %d.%m.%Y %H:%M Uhr %}</div>
     </section>
     {% if page.category %}
       <section>
-        <h4>Category</h4>
+        <h4>Kategorie</h4>
         <span class="category">
           {{ page.category }}
         </span>
