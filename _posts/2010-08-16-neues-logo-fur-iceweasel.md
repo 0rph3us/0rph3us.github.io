@@ -23,5 +23,9 @@ author:
   first_name: Michael
   last_name: Rennecke
 ---
-<p>Es werden <a href="http://mozilla.debian.net/en-US/logos/">neue Logos</a> f&uuml;r Ice[weasel | ape | dove] gesucht. Ich habe mir mit Martin, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus </p>
-<p><a href="http://0rpheus.net/uploads/2010/08/Iceweasel.png"><img src="assets/Iceweasel.png" alt="Iceweasel-Logo" title="Iceweasel" width="372" height="297" class="aligncenter size-full wp-image-3422" /></a></p>
+
+Es werden [neue Logos](http://mozilla.debian.net/en-US/logos/) f&uuml;r Ice[weasel | ape | dove] gesucht. 
+Ich habe mir mit [Martin](http://binfalse.de), einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:
+
+{% lightbox AUTOxAUTO Iceweasel.png group:"ice" caption:"alternatives Iceweasel-Logo" alt="alternatives Iceweasel-Logo" %}
+

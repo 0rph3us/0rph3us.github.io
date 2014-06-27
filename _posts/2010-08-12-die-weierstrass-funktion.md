@@ -4,7 +4,7 @@ title: Die Weierstraß-Funktion
 categories:
 - sonstiges
 tags:
-- nicht diffenzierbar
+- diffenzierbar
 - stetig
 - weierstraß
 status: publish
@@ -19,7 +19,7 @@ author:
   first_name: Michael
   last_name: Rennecke
 ---
-Ich habe mich heute an mein Proseminar in Analysis erinnert.  Ein Thema war eine überall stetige, aber niergendwo diffenzierbare Funktion.
+Ich habe mich heute an mein Proseminar in Analysis erinnert.  Ein Thema war eine überall stetige, aber nirgendwo diffenzierbare Funktion.
 Das es eine solche Funktion gibt war lange Zeit unbekannt.
 
 Aus der Diffenzierbarkeit folgt die Stetigkeit. Diese Umkehrung dieser Aussage gibt nicht. Ein Beipiel ist die Betragsfunktion.
@@ -32,7 +32,7 @@ Das ist nicht die Orginale Funktion von ihm, welche er zuerst vorgestellt hat. D
 Die Zacken im Plot entstehen, weil die Summe nicht bis Unendlich läuft. Aus Gründen der Zahlendarstellung im Rechner,
 habe ich die Summe nur bis 50 laufen lassen.
 
-![Plots der Weierstraß- und Sinusfunktion](/uploads/weierstrass.png)
+{% lightbox 200xAUTO weierstrass.png group:"test_group" caption:"Plots der Weierstraß- und Sinusfunktion" alt="test image" %}
 
 Seine erste Funktion sah wie folgt aus:
 
