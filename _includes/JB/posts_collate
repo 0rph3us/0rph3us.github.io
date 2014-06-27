@@ -26,43 +26,13 @@ Usage:
     {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
     {% capture next_month %}{{ post.previous.date | date: "%-m" }}{% endcapture %}
 
-    {% case this_month %}
-      {% when '1' %} {% assign this_month = "Januar"  %}
-      {% when '2' %} {% assign this_month = "Februar" %}
-      {% when '3' %} {% assign this_month = "M&auml;rz" %}
-      {% when '4' %} {% assign this_month = "April" %}
-      {% when '5' %} {% assign this_month = "Mai" %}
-      {% when '6' %} {% assign this_month = "Juni" %}
-      {% when '7' %} {% assign this_month = "Juli" %}
-      {% when '8' %} {% assign this_month = "August" %}
-      {% when '9' %} {% assign this_month = "September" %}
-      {% when '10' %} {% assign this_month = "Oktober" %}
-      {% when '11' %} {% assign this_month = "November" %}
-      {% when '12' %} {% assign this_month = "Dezember" %}
-    {% endcase %}
-
-    {% case next_month %}
-      {% when '1' %} {% assign next_month = "Januar"  %}
-      {% when '2' %} {% assign next_month = "Februar" %}
-      {% when '3' %} {% assign next_month = "M&auml;rz" %}
-      {% when '4' %} {% assign next_month = "April" %}
-      {% when '5' %} {% assign next_month = "Mai" %}
-      {% when '6' %} {% assign next_month = "Juni" %}
-      {% when '7' %} {% assign next_month = "Juli" %}
-      {% when '8' %} {% assign next_month = "August" %}
-      {% when '9' %} {% assign next_month = "September" %}
-      {% when '10' %} {% assign next_month = "Oktober" %}
-      {% when '11' %} {% assign next_month = "November" %}
-      {% when '12' %} {% assign next_month = "Dezember" %}
-    {% endcase %}
-
     {% if forloop.first %}
       <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
+      <h3>{{ post.date | date_to_german_month }}</h3>
       <ul>
     {% endif %}
   
-    <li><span>{{ post.date | date: "%-d. " }} {{this_month}} {{ post.date | date: "%Y " }} </span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date_to_german }} </span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   
     {% if forloop.last %}
       </ul>
@@ -70,12 +40,12 @@ Usage:
       {% if this_year != next_year %}
         </ul>
         <h2>{{next_year}}</h2>
-        <h3>{{next_month}}</h3>
+        <h3>{{ post.previous.date | date_to_german_month }}</h3>
         <ul>
       {% else %}    
         {% if this_month != next_month %}
           </ul>
-          <h3>{{next_month}}</h3>
+          <h3>{{ post.previous.date | date_to_german_month }}</h3>
           <ul>
         {% endif %}
       {% endif %}
