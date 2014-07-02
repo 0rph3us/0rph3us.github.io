@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Über mich"
+tagline: Michael Rennecke
 group: navigation
 description: ""
 ---
