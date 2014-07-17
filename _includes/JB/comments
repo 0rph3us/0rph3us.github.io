@@ -9,6 +9,8 @@
   {% include JB/comments-providers/intensedebate %}
 {% when "facebook" %}
   {% include JB/comments-providers/facebook %}
+{% when "juvia" %}
+  {% include JB/comments-providers/juvia %}
 {% when "custom" %}
   {% include custom/comments %}
 {% endcase %}
