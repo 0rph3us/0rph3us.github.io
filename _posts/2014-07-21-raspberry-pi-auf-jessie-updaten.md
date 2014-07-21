@@ -5,7 +5,7 @@ description: ""
 category:
  - Linux
  - Raspberry Pi
-tags: [debian, Jessie, Raspberry Pi, Raspbian]
+tags: [Debian, Jessie, Raspberry Pi, Raspbian]
 ---
 {% include JB/setup %}
 

@@ -4,29 +4,15 @@ title: Briefvorlage mit LaTeX
 categories:
 - privat
 - Programmieren
-- sonstiges
+- LaTeX
 tags:
 - Brief
-- latex
 - Mobil
 - Telefon
 status: publish
 type: post
 published: true
-meta:
-  _jd_post_meta_fixed: 'true'
-  _jd_wp_twitter: ''
-  _wp_jd_target: ''
-  _wp_jd_url: ''
-  _wp_jd_yourls: ''
-  _wp_jd_wp: ''
-  _wp_jd_bitly: ''
-  _wp_jd_clig: ''
-  _jd_twitter: ''
-  _jd_tweet_this: 'yes'
-  _edit_last: '2'
 author:
-  login: rennecke
   email: michael.rennecke@gmail.com
   display_name: Michael Rennecke
   first_name: Michael
