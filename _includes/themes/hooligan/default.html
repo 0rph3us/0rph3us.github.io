@@ -102,6 +102,13 @@
                   </a>
                 </li>
                 {% endif %}
+                {% if site.author.rssfeed %}
+                <li>
+                  <a href="{{ site.author.rssfeed }}" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                {% endif %}
               </ul>
             </div>
           </div>
