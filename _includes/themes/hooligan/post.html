@@ -40,7 +40,7 @@
       <section>
         <h4>Kategorie</h4>
         <span class="category">
-          {{ page.category }}
+          {{ page.category  | join: ', ' }}
         </span>
       </section>
     {% endif %}     
