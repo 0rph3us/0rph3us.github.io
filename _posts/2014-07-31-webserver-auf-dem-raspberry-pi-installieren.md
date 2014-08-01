@@ -33,10 +33,11 @@ Damit Nginx php ausliefern kann benötigt man php auf seinen Rechner sowie den
 PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederrum statisches HTML generieren
 und an den Nginx weiter geben.
 
-## Installation von Nginx ##
+## Nginx mit php installieren und einrichten ##
 
-Vor der Installtion von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ich jeden dazu täglich
-sein System zu aktualisieren, gerade, wenn der Rechner öffentlich erreichbar ist.
+Vor der Installtion von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein 
+sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
+gerade wenn sie öffentlich erreichbar sind.
 
 {% highlight bash %}
 # zu root werden
@@ -46,12 +47,77 @@ apt-get update
 apt-get upgrade
 
 apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
-{% endhighlight %}x
+{% endhighlight %}
+
+### Nginx konfigurieren ####
+
+Wenn man nur einen virtuellen Host einrichten möchte, kann man die gesamte Konfiguration in der
+`/etc/nginx/ningx.conf` erledigen. Das Aufteilen der Konfiguration in mehrere Dateien macht diese
+übersichtlicher. Somit ist es auch möglich virtuelle Host zu aktivieren und zu deaktivieren.
+
+Meine Empfehlung ist, dass jede Applikation/Seite ein eigener Host ist. So hat jede Applikation
+ihr eigenes Log-File und eine überlichtliche Konfiguration.
+Der Nachteil ist, dass man mehrere (Sub) Domains benötigt. Das ist nicht
+mit allen Dyndns Anbietern möglich.
+
+Konfigurationen, welche global gültig sind, schreibe ich auch
+in die `/etc/nginx/ningx.conf`. Das sind z.B. ssl-Offloading, Redirekt zu https und die 
+ssl-Konfiguration.
 
 
+Das ist eine exemplarische Konfiguration eines Host, welcher php ausführt und auf Port 80 lauscht.
+Der Host lauscht auf die Namen *localhost* und *awesomephp.example.com*. Port 80 ist der
+Standartport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
+wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.
+
+{% highlight nginx %}
+server {
+    listen 80;
+    server_name localhost awesomephp.example.com;
+    
+    root /var/www/awesomephp;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
+
+    access_log      /var/log/nginx/awesome.access.log;
+    error_log       /var/log/nginx/awesome.error.log;
+}
+{% endhighlight %}
+
+Nachdem der Nnginx konfiguriert ist muss man die Konfiguration nur noch neu laden.
+
+{% highlight bash %}
+service nginx reload
+{% endhighlight %}
+
+### Test der Konfiguration ###
+
+Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
+folgenden Minimalbeispiel testen: 
+
+{% highlight bash %}
+mkdir -p /var/www/awesomephp
+echo "<? phpinfo(); />" > /var/www/awesomephp/info.php
+{% endhighlight %}
+
+Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser `http://192.168.1.100/info.php` aufrufen
+und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
+192.168.1.100 hat.
 
 [Apache]: http://apache.org
-[lighttpd]: 
+[lighttpd]: http://lol.org
 [Nginx]: http://nginx.org
-[Passanger]: 
-[Raspberry Pi]: http://raspberrypi.org
+[Passanger]: http://nix.org
+[Raspberry Pi]: http://www.raspberrypi.org/
