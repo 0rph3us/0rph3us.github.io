@@ -7,17 +7,14 @@ tags:
 - diffenzierbar
 - stetig
 - weierstraß
-status: publish
 type: post
-published: true
-meta:
-  _edit_last: '2'
 author:
   login: rennecke
   email: michael.rennecke@gmail.com
   display_name: Michael Rennecke
   first_name: Michael
   last_name: Rennecke
+mathjax: true
 ---
 Ich habe mich heute an mein Proseminar in Analysis erinnert.  Ein Thema war eine überall stetige, aber nirgendwo diffenzierbare Funktion.
 Das es eine solche Funktion gibt war lange Zeit unbekannt.

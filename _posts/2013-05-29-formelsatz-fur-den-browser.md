@@ -6,15 +6,14 @@ categories:
 tags:
 - latex
 - MathJax
-status: publish
 type: post
-published: true
 author:
   login: rennecke
   email: michael.rennecke@gmail.com
   display_name: Michael Rennecke
   first_name: Michael
   last_name: Rennecke
+mathjax: true
 ---
 
 Ich habe [MathJax](http://www.mathjax.org/) entdeckt, damit kann man relativ einfach Formelsatz auch auf Webseiten machen. Das ganze gibt es auch als Wordpress-Plugin.
