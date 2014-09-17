@@ -116,8 +116,8 @@ Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser `http://192.168.
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
 192.168.1.100 hat.
 
-[Apache]: http://apache.org
-[lighttpd]: http://lol.org
+[Apache]: http://httpd.apache.org/
+[lighttpd]: http://www.lighttpd.net/
 [Nginx]: http://nginx.org
-[Passanger]: http://nix.org
+[Passanger]: https://www.phusionpassenger.com/
 [Raspberry Pi]: http://www.raspberrypi.org/
