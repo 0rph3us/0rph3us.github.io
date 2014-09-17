@@ -148,7 +148,7 @@ folgende Ports (80 und 443) im Router freigegeben werden.
 [dazugehörige git-Repository]: https://github.com/mboinet/ttrss-mobile
 [Feed]: http://de.wikipedia.org/wiki/Web-Feed
 [Feedly]: http://feedly.com/
-[Rasberry Pi]: http://www.raspberrypi.org/
+[Raspberry Pi]: http://www.raspberrypi.org/
 [Tiny Tiny RSS]: http://tt-rss.org/
 [MySQL]: http://www.mysql.de/
 [Nginx]: http://nginx.org/
