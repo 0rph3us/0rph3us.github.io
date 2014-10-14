@@ -52,6 +52,32 @@ cd Adafruit_Python_DHT
 sudo python setup.py install
 {% endhighlight %}
 
+Im `examples` Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss 
+bedenken, dass der Code als `root` bzw. mit `sudo` ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift.
+
+{% highlight python %}
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_DHT
+
+# GPIO pin for DTH-22
+pin = 4
+
+# Try to grab a sensor reading.  Use the read_retry method which will retry up
+# to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+
+if humidity is None or temperature is None:
+    print 'Failed to get reading DTH-22. Try again!'
+else:
+    print "Temperature: %8.2f°C" % temperature
+    print "Humidity:    %8.2f%%" % humidity
+{% endhighlight %}
+
 
 
 [Pullup-Widerstand]: http://www.elektronik-kompendium.de/public/schaerer/pullr.htm
