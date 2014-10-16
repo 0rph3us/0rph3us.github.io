@@ -31,7 +31,7 @@ nur mit 3,3V Spannung versorgen, da die Logik des Raspberri Pi nur 3,3V verträg
 {% lightbox 300xAUTO dht22_pi.png group:"dht22_group" caption:"Steckbrett mit DHT22 und Raspberry Pi" alt="Steckbrett mit DHT22 und Raspberry Pi" %}
 
 Auf den roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
-DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin 4 des Raspberry Pi betrieben. 
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. 
 
 ### Belegung DHT22 ###
  - Pin 1: 3,3V
@@ -55,7 +55,8 @@ sudo python setup.py install
 Im `examples` Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
 ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss 
 bedenken, dass der Code als `root` bzw. mit `sudo` ausgeführt werden, da man
-direkt auf die Hardware des Raspberry Pi zugreift.
+direkt auf die Hardware des Raspberry Pi zugreift. [Hier] findet man Nummerierung
+der Pins.
 
 {% highlight python %}
 #!/usr/bin/python
@@ -65,6 +66,7 @@ direkt auf die Hardware des Raspberry Pi zugreift.
 import Adafruit_DHT
 
 # GPIO pin for DTH-22
+# see http://pi.gadgetoid.com/pinout
 pin = 4
 
 # Try to grab a sensor reading.  Use the read_retry method which will retry up
@@ -82,3 +84,4 @@ else:
 
 [Pullup-Widerstand]: http://www.elektronik-kompendium.de/public/schaerer/pullr.htm
 [Bibliothek]: https://github.com/adafruit/Adafruit_Python_DHT.git
+[Hier]: http://pi.gadgetoid.com/pinout
