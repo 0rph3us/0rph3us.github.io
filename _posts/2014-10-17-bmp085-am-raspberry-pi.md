@@ -35,7 +35,7 @@ bei denen man die Pins noch anlöten muss.
 
 {% lightbox 300xAUTO bmp085_pi.png group:"bmp085_group" caption:"Steckbrett mit BMP085 und Raspberry Pi" alt="Steckbrett mit BMP085 und Raspberry Pi" %}
 
-Auf den roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse.
+An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 
 orange SDA (Serial Data) und violett SCL (Serial Clock) ist. [Hier] findet man ein
 paar mehr technische Informationen zum I²C-Bus

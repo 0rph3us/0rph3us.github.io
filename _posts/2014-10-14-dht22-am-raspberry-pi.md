@@ -30,7 +30,7 @@ nur mit 3,3V Spannung versorgen, da die Logik des Raspberri Pi nur 3,3V verträg
 
 {% lightbox 300xAUTO dht22_pi.png group:"dht22_group" caption:"Steckbrett mit DHT22 und Raspberry Pi" alt="Steckbrett mit DHT22 und Raspberry Pi" %}
 
-Auf den roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. 
 
 ### Belegung DHT22 ###
