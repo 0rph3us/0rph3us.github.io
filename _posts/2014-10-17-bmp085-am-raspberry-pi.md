@@ -94,7 +94,7 @@ temp   = bmp085.read_temperature()
 pressure = bmp085.read_pressure()
 
 # calculate hPa
-pressure = pressure / 100
+pressure = pressure / 100.0
 
 print "Temperature:  {:8.2f} °C".format(temp)
 print "Pressure:     {:8.2f} hPa".format(pressure)
