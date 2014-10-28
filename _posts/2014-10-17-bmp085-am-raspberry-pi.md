@@ -42,10 +42,10 @@ paar mehr technische Informationen zum I²C-Bus
 
 ## Programmierung ##
 
-### Betriebssystem vorbeiten ###
+### Betriebssystem vorbereiten ###
 
 Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
-installieren. Unter Raspbian und Debian ist alles in den Standart-Paketquellen verfügbar.
+installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.
 
 {% highlight bash %}
 sudo apt-get update
