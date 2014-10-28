@@ -13,6 +13,68 @@
 }
 
 
+.juvia-field .juvia-input, .juvia-textarea-field {
+margin-bottom: 0.5em;
+}
+
+.juvia-textarea-field textarea {
+width: 50em;
+height: 15em;
+}
+
+.juvia-help-content {
+position: absolute;
+font-size: 90%;
+width: 14em;
+border: solid 1px black;
+background: #ffffe0;
+border: solid 1px #ffddaa;
+padding: 8px;
+box-shadow: 3px 3px 5px #888;
+-moz-box-shadow: 3px 3px 5px #888;
+-webkit-box-shadow: 3px 3px 5px #888;
+}
+
+.juvia-metadata {
+margin: 0 0 9px;
+background: #202020;
+background-color: rgba(0, 0, 0, 0.3);
+border: 1px solid #ccc;
+border: 1px solid rgba(0,0,0,0.15);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.juvia-comment .juvia-avatar {
+float: left;
+margin-top: -8px;
+margin-left: -92px;
+}
+
+.juvia-comment {
+min-height: 64px;
+margin-bottom: 30px;
+}
+
+.juvia-comment .juvia-metadata {
+margin-left: 84px;
+position: relative; 
+margin-bottom: 0.5em;
+padding: 8px;
+}
+
+.juvia-comment .juvia-creation-date {
+position: absolute;
+right: 12px;
+top: 10px;
+font-size: 70%;
+}
+
+.juvia-comment .juvia-data {
+margin-left: 92px;
+}
+
 
 /* Partials */
 /* Theme Vars */
@@ -27,7 +89,7 @@ html, body {
 /* line 18, ../_sass/_base.scss */
 body {
   color: #bbb;
-  text-shadow: 1px 1px 1px #000;
+  /* text-shadow: 1px 1px 1px #000; */
   height: 100%;
   font-family: 'Oxygen', sans-serif;
   font-size: 14px;
