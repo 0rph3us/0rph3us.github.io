@@ -24,7 +24,7 @@ installieren, nur um meinen 20 News-Seiten zu folgen. Das ganze im Browser zu
 lesen kann auf mobilen Devices nervig werden, entweder ist die mobile Seite nicht
 wirklich brauchbar oder man hat zu viele Seite, welche man lesen möchte.
 
-Da viele Seiten einen [Feed] anbieten, kann man diese abonieren und in einen
+Da viele Seiten einen [Feed] anbieten, kann man diese abonnieren und in einen
 Feed-Reader zusammen führen. Es gibt Menschen, wie mich, die keinen Reader wie
 [Feedly] nutzen möchten. 
 
@@ -78,7 +78,7 @@ mysql_secure_installation
 
 ## Tiny Tiny RSS installieren ##
 
-Man läd sich die [aktuellste Version] von [Tiny Tiny RSS] in das Document Root-Verzeichnis
+Man lädt sich die [aktuellste Version] von [Tiny Tiny RSS] in das Document Root-Verzeichnis
 von Nginx und entpackt es
 
 {% highlight bash %}
@@ -95,7 +95,7 @@ rm 1.13.tar.gz
 Nachdem man das alles gemacht hat, führt man die Installation von Tiny Tiny RSS im Browser fort. Dazu
 `http(s)://IP/tt-rss/install/`
 Dort wählen wir MySQL in dem Feld *Database type*, geben als *Username* und *Database name* 
-*ttrss* an und geben das Passwort, welches dür den MySQL Benutzer *ttrss* angelegt hat, 
+*ttrss* an und geben das Passwort, welches für den MySQL Benutzer *ttrss* angelegt hat, 
 in das Feld *Password* ein. Der Port ist 3306. In das Feld *Host name* schreiben wir 127.0.0.1 
 Anschließend klicken wir auf *Test configuration*.
 
@@ -122,7 +122,7 @@ Dazu muss man die folgende Zeile in die `crontab` von `root` eintragen:
 Es gibt zwei Android Clients für Tiny Tiny RSS. Diese haben beide den Nachteil, dass sie unter Umständen
 Probleme mit den Ciphers der SSL Verschlüsselung haben. Da das bei mir der Fall war bin ich auf eine HTML
 App umgestiegen, welche auch noch auf meinen Raspberry Pi läuft. Dazu muss man nur [dieses Archiv] herunter
-laden und entpacken, alternativ kann man auch das [dazugehörige git-Repository] clonen.
+laden und entpacken, alternativ kann man auch das [dazugehörige git-Repository] klonen.
 
 Man muss vorher sicherstellen, dass der API-Zugriff zu Tiny Tiny RSS erlaubt ist. Man loggt sich als ersten
 in TT-RSS ein und klickt dann auf *Aktionen* -> *Einstellungen* und *Aktiviere API-Zugang* muss ein grünes
