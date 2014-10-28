@@ -13,7 +13,7 @@ tags:
 ---
 {% include JB/setup %}
 
-Heute habe ich festgestellt, dass google den [Chrome]-Browser (Version 37.0.2062.94 (64-bit)) 
+Heute habe ich festgestellt, dass Google den [Chrome]-Browser (Version 37.0.2062.94 (64-Bit)) 
 verhunzt hat. Es gibt jetzt einen **Privacy Error** wenn eine Seite, wie dieser Blog, 
 ein selbst signiertes SSL-Zertifikat benutzt. Bis jetzt gab es einen **SSL Error**
 
@@ -43,11 +43,11 @@ ein selbst signiertes SSL-Zertifikat benutzt. Bis jetzt gab es einen **SSL Error
     advanced    Back to safety
 
 
-Diese Meldung finde ich unter aller Sau! Verdient google auch an den Zertifikatverkäufen oder weswegen
+Diese Meldung finde ich unter aller Sau! Verdient Google auch an den Zertifikatverkäufen oder weswegen
 muss der Hinweis so drastisch ausfallen, dass ein nicht technikaffiner Nutzer nicht mehr auf meinen
 Blog kommt? Erst wenn man *advanced* ausklappt hat man die Möglichkeit auf die Seit zu kommen. In
 Zeiten von Abhörskandalen darf man nicht selbst signierte Zertifikate boykottieren. So wächst nur
-die Hemmschwelle SSL einzusetzten.
+die Hemmschwelle SSL einzusetzen.
 
 
 
