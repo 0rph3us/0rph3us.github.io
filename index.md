@@ -6,7 +6,7 @@ tagline: Ein alter alter Blog mit neuer Technik
 {% include JB/setup %}
 
 Ich habe mich entschlossen, meinen alten [Wordpress](http://wpde.org/)-Blog einzudampfen. Ich
-fand Wordpress schon immer recht schwergewichtig, aber ich kanne bis jetzt keine Alternative um einen
+fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen
 "gut" aussehenden Blog mit "wenig" Arbeit zu pflegen. 
 
 
