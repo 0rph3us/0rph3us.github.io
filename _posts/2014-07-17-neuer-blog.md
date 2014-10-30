@@ -23,12 +23,12 @@ Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.
 
 ## Der Alte ##
 Ich habe bzw. bin noch dabei die gesamten Inhalte des alten Wordpress zu portieren. Das meiste habe
-ich automatisch migiert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
+ich automatisch migriert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
 die alten Posts überarbeiten.
 
 
 ## Technik ##
-Die erste Version des Blogs wird auf meinen Rasberry Pi laufen. Als Webserver verwende ich Nginx, außerdem 
+Die erste Version des Blogs wird auf meinen Raspberry Pi laufen. Als Webserver verwende ich Nginx, außerdem 
 verwende ich Varnish zum cachen. Ich hoffe, dass mit diesem Setup die Geschwindigkeit des Blog 
 erträglich bleibt. 
 
