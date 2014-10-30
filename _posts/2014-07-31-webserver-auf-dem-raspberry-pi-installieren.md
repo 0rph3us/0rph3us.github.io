@@ -17,9 +17,9 @@ tags:
 Da man auf dem [Raspberry Pi] nicht sehr viele Ressourcen zur Verfügung hat, scheidet [Apache] als
 Webserver für mich aus. Ich habe [lighttpd] und [Nginx] ausprobiert. Von [lighttpd] war ich am 
 Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizierter wurde, war
-ich nicht mehr in Lage in die Ideen mit [lighttpd] umzusetzten. Die Ursache liegt weniger im
+ich nicht mehr in Lage in die Ideen mit [lighttpd] umzusetzen. Die Ursache liegt weniger im
 Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonfigurationen sowie der
-Default-Konfiguration wenn man [lighttpd] bei Raspbian installiert. Den entgültigen *Todesstoß* hat
+Default-Konfiguration wenn man [lighttpd] bei Raspbian installiert. Den endgültigen *Todesstoß* hat
 [lighttpd] bekommen, als ich [Passenger] ausprobieren wollte. Für [Apache] und [Nginx] gibt es fertige
 [Passanger]-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass [lighttpd] schlechter
 als [Nginx] ist, aber ich bin bei "komplexen" Setups mit mehreren virtuellen Hosts und rewrite-Magie
@@ -28,14 +28,14 @@ besser mit [Nginx] zurecht gekommen.
 Im folgenden werde ich mich auf [Nginx] ("Engine-X") konzentrieren. da es für ihn sehr viele Tutorials
 gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den [Raspberry Pi].
 
-Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statiche Inhalte ausliefert.
+Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
 Damit Nginx php ausliefern kann benötigt man php auf seinen Rechner sowie den 
-PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederrum statisches HTML generieren
+PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederum statisches HTML generieren
 und an den Nginx weiter geben.
 
 ## Nginx mit php installieren und einrichten ##
 
-Vor der Installtion von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein 
+Vor der Installation von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein 
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
 gerade wenn sie öffentlich erreichbar sind.
 
@@ -56,7 +56,7 @@ Wenn man nur einen virtuellen Host einrichten möchte, kann man die gesamte Konf
 übersichtlicher. Somit ist es auch möglich virtuelle Host zu aktivieren und zu deaktivieren.
 
 Meine Empfehlung ist, dass jede Applikation/Seite ein eigener Host ist. So hat jede Applikation
-ihr eigenes Log-File und eine überlichtliche Konfiguration.
+ihr eigenes Log-File und eine übersichtliche Konfiguration.
 Der Nachteil ist, dass man mehrere (Sub) Domains benötigt. Das ist nicht
 mit allen Dyndns Anbietern möglich.
 
@@ -67,7 +67,7 @@ ssl-Konfiguration.
 
 Das ist eine exemplarische Konfiguration eines Host, welcher php ausführt und auf Port 80 lauscht.
 Der Host lauscht auf die Namen *localhost* und *awesomephp.example.com*. Port 80 ist der
-Standartport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
+Standardport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
 wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.
 
 {% highlight nginx %}
@@ -96,7 +96,7 @@ server {
 }
 {% endhighlight %}
 
-Nachdem der Nnginx konfiguriert ist muss man die Konfiguration nur noch neu laden.
+Nachdem der Nginx konfiguriert ist muss man die Konfiguration nur noch neu laden.
 
 {% highlight bash %}
 service nginx reload
