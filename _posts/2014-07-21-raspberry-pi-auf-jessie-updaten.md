@@ -11,7 +11,7 @@ tags: [Debian, Jessie, Raspberry Pi, Raspbian]
 
 
 Das aktuell Raspbian basiert auf Debian 7 "Wheezy". Seit einiger Zeit gibt
-es auch Raspberian Pakete für Debian 8 "Jessie". Jessie ist der Nachfolger von "Wheezy".
+es auch Raspbian Pakete für Debian 8 "Jessie". Jessie ist der Nachfolger von "Wheezy".
 Die Pakete von "Jessie" sind um einiges aktueller, als die von "Wheezy". Das bedeutet
 aber, dass sie nicht unbedingt so stabil sein können. Ich habe bis jetzt noch keine
 negativen Erfahrungen gemacht.
@@ -24,8 +24,8 @@ loggt sie als **root** ein,  man schreibt `sudo` vor jedes Komando oder man öff
 root-Shell mit `sudo -i`.
 
 Man muss die `/etc/apt/sources.list` editieren. Dazu öffnet man sie mit einem Editor 
-der Wahl (ich preferiere vi ;-)) und man ändert alle vorkommen von **wheezy** in **jessie**. 
-Das ganze lässt sich auch automatrisch mit `sed` machen.
+der Wahl (ich bevorzuge vi ;-)) und man ändert alle vorkommen von **wheezy** in **jessie**. 
+Das ganze lässt sich auch automatisch mit `sed` machen.
 
 {% highlight bash %} 
 cp /etc/apt/sources.list{,.$(date +%F)} && sed -e 's/wheezy/jessie/g' -i /etc/apt/sources.list
