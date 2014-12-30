@@ -24,5 +24,5 @@ und die Pflege der Module.
 [MLU]: http://uni-halle.de
 [Instituts für Informatik]: http://informatik.uni-halle.de
 [Spreadshirt]: http://www.spreadshirt.de/
-[DevOp]: en.wikipedia.org/wiki/DevOps
+[DevOp]: http://en.wikipedia.org/wiki/DevOps
 [Puppet]: http://docs.puppetlabs.com/#puppetpuppet
