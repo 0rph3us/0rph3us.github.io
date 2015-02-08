@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Probleme mit dem SunRay-Server - 
+      
+      0rph3us
+    </title>
+    
+    <meta name="author" content="Michael Rennecke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css/zocial.stripped.css">
+    <link href="/assets/themes/hooligan/css/syntax.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+
+    
+<!-- 
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/lightbox.min.js"></script>
+-->
+
+    <!-- jquery-1.11.1.min.js and lightbox.min.js -->
+    <script type="text/javascript" src="/js/a63bb257b0d48f7901f938d2f1217cbb.js"></script>
+
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">0rph3us</a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                
+                
+                
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">Über mich</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archiv</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Kategorien</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Seiten</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+              </ul>
+              <ul class="nav pull-right social visible-desktop">
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="https://github.com/0rph3us" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</span>
+                  </a>
+                </li>
+                
+                
+                
+                <li>
+                  <a href="https://twitter.com/0rph3us" class="zocial twitter icon" target="_blank">
+                    <span class="hidden-desktop">Twitter</span>
+                  </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                  <a href="https://0rph3us.github.io/rss.xml" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="content">
+          
+<div class="page-header">
+  <h1>
+    Probleme mit dem SunRay-Server 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>Ich habe heute etwas l&auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der <a href="http://www.sun-rays.org/">SunRay</a>-Server nicht l&auml;uft.</p>
+<p>
+Ein Fehler war schnell gefunden: Der <a href="http://projects.gnome.org/gdm/">gdm</a> lief nicht.</p>
+<pre lang="bash">
+sunray ~ # svcs -a | grep gdm
+disabled       11:38:23 svc:/application/gdm2-login:default
+sunray ~ # svcadm enable svc:/application/gdm2-login:default
+</pre>
+<p>
+Nun konnte man sich via <a href="http://www.opengroup.org/cde/">CDE</a> einloggen, aber nicht mit dem <a href="http://www.sun.com/software/solaris/javadesktopsystem.xml">Java Desktop</a>, welcher auf <a href="http://www.gnome.org/">gnome</a> basiert. Nach nervigen Suchen hat sich auch <a href="https://users.informatik.uni-halle.de/~ruttkies/RforRocks/">Rumpel</a> zu mir gesetzt. Dabei ist mir aufgefallen, dass in <tt>/tmp</tt> nur <tt>root</tt> schreiben darf, nachdem in <tt>/tmp</tt> wieder jeder schreiben durfte, lief wieder alles korrekt.</p>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/tools/2011/02/22/mercurial/" title="Mercurial">&larr; &Auml;lter</a>
+      
+        <a class="btn" href="/archive.html">Archiv</a>
+      
+        <a class="btn next" href="/privat/sonstiges/2011/02/28/richtfest-einer-mensa-in-halle/" title="Richtfest einer Mensa in Halle">Neuer &rarr;</a>
+      
+    </div>
+    
+
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>28.02.2011</span></div>
+    </section>
+    <section>
+      <h4>Letzte &Auml;nderung</h4>
+      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#tmp-ref">tmp <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#SunRay-ref">SunRay <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Sun Ray-ref">Sun Ray <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Solaris-ref">Solaris <span>9</span></a></li>
+     
+    	<li><a href="/tags.html#Java Desktop-ref">Java Desktop <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#gnome-ref">gnome <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#gdm-ref">gdm <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+      <div class="footer-push"></div>
+    </div><!--/.page-wrap -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2015 Michael Rennecke, some rights reserved</p>
+        <p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+      </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="/assets/themes/hooligan/js/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
+

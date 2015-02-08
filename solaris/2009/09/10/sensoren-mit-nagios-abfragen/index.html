@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        Sensoren mit Nagios abfragen - 
+      
+      0rph3us
+    </title>
+    
+    <meta name="author" content="Michael Rennecke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css/zocial.stripped.css">
+    <link href="/assets/themes/hooligan/css/syntax.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+
+    
+<!-- 
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/lightbox.min.js"></script>
+-->
+
+    <!-- jquery-1.11.1.min.js and lightbox.min.js -->
+    <script type="text/javascript" src="/js/a63bb257b0d48f7901f938d2f1217cbb.js"></script>
+
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">0rph3us</a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                
+                
+                
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">Über mich</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archiv</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Kategorien</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Seiten</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+              </ul>
+              <ul class="nav pull-right social visible-desktop">
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="https://github.com/0rph3us" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</span>
+                  </a>
+                </li>
+                
+                
+                
+                <li>
+                  <a href="https://twitter.com/0rph3us" class="zocial twitter icon" target="_blank">
+                    <span class="hidden-desktop">Twitter</span>
+                  </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                  <a href="https://0rph3us.github.io/rss.xml" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="content">
+          
+<div class="page-header">
+  <h1>
+    Sensoren mit Nagios abfragen 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>Ich wollte verschiedene Sparc-Rechner mit <a href="http://www.nagios.org/">Nagios</a> überwachen. Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.</p>
+<p>Es funktioniert ganz gut, wenn jemand Probleme mit dem Plugin hat, dann kann ich versuchen es zu verbessern. Man kann das <a href="http://blogs.sun.com/rennecke/resource/stuff/check_solaris_sensors">Plugin auch hier</a> herunter laden. Ich parse die Ausgabe von <tt>prtpicl</tt>. Wenn die Temperatur <strong>HighWarningThreshold  $warn</strong> übersteigt, dann wird warning zurück gegeben. Wenn <strong>HighWarningThreshold </strong>überschritten wird, dann gibt das Plugin critical zurück.</p>
+<pre lang="perl">
+#!/usr/bin/perl -w
+
+# File:    check_solaris_sensors
+# Purpose: prtpicl output parser
+# Author:  Michael Rennecke michael.rennecke@sun.com
+# Date:    2009/07/08
+# Version: 0.2
+
+use strict;
+
+my $warn        = 15;
+my $prtpicl     = "/usr/sbin/prtpicl";
+my @diag        = ();
+my @sensor_data = ();
+my $state       = 0;
+my $output      = "";
+
+unless(open(DIAG, "$prtpicl -v -c temperature-sensor | ")) {
+    print STDERR "Initialization error - Can't execute  $prtpicl -v -c temperature-sensor!\n";
+    exit(3);
+}
+
+while(){
+    push(@diag, $_);
+}
+close(DIAG);
+
+unless( @diag &gt; 0) {
+    print STDERR "Can't find any temperature-sensor!\n";
+    exit(3);
+}
+
+sub change_state {
+    if ($_[0] &gt; $state) {
+        $state = $_[0];
+    }
+}
+
+my $sensor      = undef;
+my $warning     = undef;
+my $critical    = undef;
+my $temperature = undef;
+my $get_temp    = 0;
+
+foreach my $line (@diag) {
+
+    $get_temp = 0;
+
+    if ($line =~ /\s*([a-zA-Z0-9_]+)\s*\(temperature-sensor/) {
+        $sensor = $1;
+    } elsif ($line =~ /:HighWarningThreshold\s*(\d+)/) {
+        $warning = $1;
+    } elsif ($line =~ /:Temperature\s*(\d+)/) {
+        $temperature = $1;
+        $get_temp = 1;
+    }
+
+    if ($get_temp == 1) {
+        if ($temperature &lt;= $warning - $warn) {
+            &amp;change_state(0);
+        } elsif ($temperature &lt;= $warning) {
+            &amp;change_state(1);
+        } else {
+            &amp;change_state(2);
+        }
+    $output = "$output $sensor: ${temperature}°C ";
+    }
+
+}
+
+if ($state == 0) {
+    $output = "Temperature OK --$output \n";
+} elsif ($state == 1) {
+    $output = "Temperature WARNING --$output \n";
+} elsif ($state == 2) {
+    $output = "Temperature CRITICAL --$output \n";
+} else {
+    $output = "Temperature UNKNOWN --$output \n";
+}
+
+print STDOUT "$output";
+exit ($state);
+</pre>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/solaris/2009/09/06/open-solaris-gespraechiger-beim-booten-machen/" title="Open Solaris gesprächiger beim booten machen">&larr; &Auml;lter</a>
+      
+        <a class="btn" href="/archive.html">Archiv</a>
+      
+        <a class="btn next" href="/solaris/tools/2009/09/23/sshfs-fur-opensolaris/" title="sshfs für OpenSolaris">Neuer &rarr;</a>
+      
+    </div>
+    
+
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>10.09.2009</span></div>
+    </section>
+    <section>
+      <h4>Letzte &Auml;nderung</h4>
+      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#Sparc-ref">Sparc <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#Solaris-ref">Solaris <span>9</span></a></li>
+     
+    	<li><a href="/tags.html#nagios-ref">nagios <span>1</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+      <div class="footer-push"></div>
+    </div><!--/.page-wrap -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2015 Michael Rennecke, some rights reserved</p>
+        <p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+      </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="/assets/themes/hooligan/js/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
+

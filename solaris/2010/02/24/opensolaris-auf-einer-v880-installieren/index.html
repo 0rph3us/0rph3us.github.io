@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        OpenSolaris auf einer V880 installieren - 
+      
+      0rph3us
+    </title>
+    
+    <meta name="author" content="Michael Rennecke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css/zocial.stripped.css">
+    <link href="/assets/themes/hooligan/css/syntax.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+
+    
+<!-- 
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/lightbox.min.js"></script>
+-->
+
+    <!-- jquery-1.11.1.min.js and lightbox.min.js -->
+    <script type="text/javascript" src="/js/a63bb257b0d48f7901f938d2f1217cbb.js"></script>
+
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">0rph3us</a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                
+                
+                
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">Über mich</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archiv</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Kategorien</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Seiten</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+              </ul>
+              <ul class="nav pull-right social visible-desktop">
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="https://github.com/0rph3us" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</span>
+                  </a>
+                </li>
+                
+                
+                
+                <li>
+                  <a href="https://twitter.com/0rph3us" class="zocial twitter icon" target="_blank">
+                    <span class="hidden-desktop">Twitter</span>
+                  </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                  <a href="https://0rph3us.github.io/rss.xml" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="content">
+          
+<div class="page-header">
+  <h1>
+    OpenSolaris auf einer V880 installieren 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>Ich habe heute OpenSolaris auf einer <a href="http://sunsolve.sun.com/handbook_pub/validateUser.do?target=Systems/SunFire880/SunFire880">SunFire V880</a> installiert. Das ganze war nicht ganz so trivial wie ich mir das gedacht habe. Ich habe dazu den <a href="http://hub.opensolaris.org/bin/view/Project+caiman/TextInstallerProject">Textinstaller</a> benutzt. Diese basiert auf Build 131. Man kann sich das Image z.B. von <a href="http://www.genunix.org/">genunix.org</a> herunter laden.<br />
+Hier war mein erster Fehler, ich hatte nich geprüft ob die Checksumme stimmt. Aber irgendwie wollte die Installation auch bei dem 3. Versuch nicht klappen. Die rettende Idee, war einmal die Checksumme vom Image zu bestimmen. Nun habe ich gesehen, dass diese nicht gestimmt hat.<br />
+Nachdem ich ein ganze Image auf eine DVD gebrannt ließ sich OpenSolaris auch installieren. Das Netzwerk kann man zur Zeit nur via DHCP konfigurieren, was ich nicht wollte. Nachdem die Installation fertig war, habe ich mit <a href="https://blog.binfalse.de/">Martin</a> das Netzwerk konfiguriert.   Das macht man wie folgt:</p>
+<pre lang="bash">jack@dijkstra ~ $  cat /etc/nwam/llp
+eri0 dhcp
+ge0 static 192.168.1.100/25
+</pre>
+<p>Die default-Route setzt man in der /etc/defaultrouter:</p>
+<pre lang="bash">
+jack@dijkstra ~ $  cat /etc/defaultrouter
+192.168.1.126
+</pre>
+<p>Als nächstes stand das spiegeln des rpool auf den Plan. Dazu habe ich mit format -e der 2. Platte ein SMI-Label verpasst und die ganze Platte in Slice 0 gepackt.</p>
+<pre lang="bash">jack@dijkstra ~ $ pfexec zpool attach -f rpool c1t0d0s0 c1t1d0s0</pre>
+<p>Abschließend muss man noch die Platte bootbar machen:</p>
+<pre lang="bash">jack@dijkstra ~ $ pfexec installboot -F zfs /usr/platform/`uname -i`/lib/fs/zfs/bootblk /dev/rdsk/c1t1d0s0</pre>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/solaris/2010/02/19/zonen-retten/" title="Zonen retten">&larr; &Auml;lter</a>
+      
+        <a class="btn" href="/archive.html">Archiv</a>
+      
+        <a class="btn next" href="/solaris/2010/03/12/mplayer-fuer-opensolaris/" title="mplayer für OpenSolaris">Neuer &rarr;</a>
+      
+    </div>
+    
+
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>24.02.2010</span></div>
+    </section>
+    <section>
+      <h4>Letzte &Auml;nderung</h4>
+      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#Sparc-ref">Sparc <span>7</span></a></li>
+     
+    	<li><a href="/tags.html#OpenSolaris-ref">OpenSolaris <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#Netzwerk-ref">Netzwerk <span>4</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+      <div class="footer-push"></div>
+    </div><!--/.page-wrap -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2015 Michael Rennecke, some rights reserved</p>
+        <p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+      </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="/assets/themes/hooligan/js/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
+

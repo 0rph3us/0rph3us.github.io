@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        OpenIndiana und erste Erfahrungen - 
+      
+      0rph3us
+    </title>
+    
+    <meta name="author" content="Michael Rennecke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css/zocial.stripped.css">
+    <link href="/assets/themes/hooligan/css/syntax.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+
+    
+<!-- 
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/lightbox.min.js"></script>
+-->
+
+    <!-- jquery-1.11.1.min.js and lightbox.min.js -->
+    <script type="text/javascript" src="/js/a63bb257b0d48f7901f938d2f1217cbb.js"></script>
+
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">0rph3us</a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                
+                
+                
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">Über mich</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archiv</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Kategorien</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Seiten</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+              </ul>
+              <ul class="nav pull-right social visible-desktop">
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="https://github.com/0rph3us" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</span>
+                  </a>
+                </li>
+                
+                
+                
+                <li>
+                  <a href="https://twitter.com/0rph3us" class="zocial twitter icon" target="_blank">
+                    <span class="hidden-desktop">Twitter</span>
+                  </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                  <a href="https://0rph3us.github.io/rss.xml" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="content">
+          
+<div class="page-header">
+  <h1>
+    OpenIndiana und erste Erfahrungen 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p>Ich habe es endlich geschafft: ein Update auf <strong><a href="http://openindiana.org/">OpenIndiana</a></strong> Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen</p>
+<h4>Update auf OpenIndiana</h4>
+<p>Man findet <a href="http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris">hier</a> auch die orginale Anleitung zum Update.</p>
+<ol>
+<li>update auf Build 134 bzw. Build 134 booten (wie man bootet zeige ich nicht ;-) )
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg install SUNWipkg SUNWipkg-um SUNWipkg-gui
+rennecke@walhalla ~ % pfexec pkg set-publisher -O http://pkg.openindiana.org/legacy opensolaris.org
+rennecke@walhalla ~ % pfexec pkg image-update
+             </pre>
+</li>
+<li> Update auf OpenIndiana
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg set-publisher --non-sticky opensolaris.org
+rennecke@walhalla ~ % pfexec pkg set-publisher -p http://pkg.openindiana.org/dev
+rennecke@walhalla ~ % pfexec pkg set-publisher -P openindiana.org
+rennecke@walhalla ~ % pfexec pkg uninstall entire
+rennecke@walhalla ~ % pfexec pkg uninstall thunderbird # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg uninstall songbird    # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg image-update
+</pre>
+</li>
+</ol>
+<h4>Troubleshooting</h4>
+<ul>
+<li>Ich bekomme folgende Fehler
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       183/838  8825/40200  120.2/648.9  
+
+Fehler beim Abrufen von Paket oder Dateidaten für
+den angeforderten Vorgang.
+Details folgen:
+
+Invalid content path usr/lib/thunderbird/thunderbird-bin: chash failure: expected: 64fd9c1561c244e0563dfc675dbd3a8c3c86f469 computed: 9179b65e28cc293105c6368ee818f1729eb7f991. (happened 4 times)
+</pre>
+<p>oder</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       190/838  7945/40200  131.8/648.9  
+
+Errors were encountered while attempting to retrieve package or file data for
+the requested operation.
+Details follow:
+
+Framework error: code: 18 reason: transfer closed with 13603900 bytes remaining to read
+URL: 'http://pkg.openindiana.org/dev/file/0/c5df73fea1fb6f63f0f17cf5e996e8525fc1a4f4'. (happened 4 times)
+</pre>
+<p>Dann einfach das betreffende Paket deinstallieren und später wieder installieren.</p>
+</li>
+<li> Firefox und Thunderbird gehen nicht. Das Problem ist die Lokalisierung.
+<p><br class="spacer_" /></p>
+<pre lang="bash">rennecke@walhalla ~ % export LANG=C
+rennecke@walhalla ~ % firefox &amp;
+</pre>
+</li>
+<li>Ich habe das falsche Tastaturlayout
+<pre lang="bash">rennecke@trantor ~ $ setxkbmap de           # setzt das persönlich Layout auf de
+rennecke@trantor ~ $ cat .Xkbmap            # Datei wird ausgewertet, beim starten der Sitzung
+de
+</pre>
+<p>Die ganzen anderen Möglichkeiten (welche solaristypisch sind) haben bei mir nicht funktioniert.</p>
+</li>
+<li>Enigmail bei Thunderbird funktioniert nicht mehr. Einfach auf der <a href="http://enigmail.mozdev.org/download/download-static.php">Webseite</a> das Plugin herunter laden und installieren</li>
+</ul>
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/privat/sonstiges/2010/09/07/meine-canon-eos-40d/" title="Meine Canon EOS 40D">&larr; &Auml;lter</a>
+      
+        <a class="btn" href="/archive.html">Archiv</a>
+      
+        <a class="btn next" href="/solaris/2010/10/22/platz-sparen-mit-zfs/" title="Platz sparen mit zfs">Neuer &rarr;</a>
+      
+    </div>
+    
+
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>17.09.2010</span></div>
+    </section>
+    <section>
+      <h4>Letzte &Auml;nderung</h4>
+      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+    </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#upgrade-ref">upgrade <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#update-ref">update <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#thunderbird-ref">thunderbird <span>6</span></a></li>
+     
+    	<li><a href="/tags.html#Tastatur-ref">Tastatur <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#problem-ref">problem <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#pkg-ref">pkg <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#OpenSolaris-ref">OpenSolaris <span>25</span></a></li>
+     
+    	<li><a href="/tags.html#OpenIndiana-ref">OpenIndiana <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#Illumos-ref">Illumos <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#hack-ref">hack <span>8</span></a></li>
+     
+    	<li><a href="/tags.html#enigmail-ref">enigmail <span>4</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+      <div class="footer-push"></div>
+    </div><!--/.page-wrap -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2015 Michael Rennecke, some rights reserved</p>
+        <p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+      </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="/assets/themes/hooligan/js/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
+

@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      
+        DHT22 am Raspberry Pi - 
+      
+      0rph3us
+    </title>
+    <meta name="description" content="">
+    <meta name="author" content="Michael Rennecke">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/hooligan/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/hooligan/css/zocial.stripped.css">
+    <link href="/assets/themes/hooligan/css/syntax.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/darkstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="/assets/themes/hooligan/css/lightbox.css" rel="stylesheet" type="text/css" media="all" />
+
+    
+<!-- 
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/lightbox.min.js"></script>
+-->
+
+    <!-- jquery-1.11.1.min.js and lightbox.min.js -->
+    <script type="text/javascript" src="/js/a63bb257b0d48f7901f938d2f1217cbb.js"></script>
+
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+  </head>
+
+  <body>
+    <div id="page-wrap">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">0rph3us</a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                
+                
+                
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">Über mich</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archiv</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Kategorien</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Seiten</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+              </ul>
+              <ul class="nav pull-right social visible-desktop">
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="https://github.com/0rph3us" class="zocial github icon" target="_blank">
+                    <span class="hidden-desktop">Github</span>
+                  </a>
+                </li>
+                
+                
+                
+                <li>
+                  <a href="https://twitter.com/0rph3us" class="zocial twitter icon" target="_blank">
+                    <span class="hidden-desktop">Twitter</span>
+                  </a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                  <a href="https://0rph3us.github.io/rss.xml" class="zocial rss icon" target="_blank">
+                    <span class="hidden-desktop">RSS Feed</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="content">
+          
+<div class="page-header">
+  <h1>
+    DHT22 am Raspberry Pi 
+    
+  </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    
+<h2 id="was-kann-der-dht22">Was kann der DHT22?</h2>
+<ul>
+  <li>kostet zwischen 6€ und 9€</li>
+  <li>3,3 - 5V Eingangsspannung</li>
+  <li>max. 2.5 mA (während der Datenübertragung)</li>
+  <li>40-50 µA Standby-Strom</li>
+  <li>Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit</li>
+  <li>Temperaturbereich: -40 bis 80°C ± 0,5°C</li>
+  <li>Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)</li>
+</ul>
+
+<h2 id="aufbau">Aufbau</h2>
+<p>Um den DHT22 am Raspberry Pi zu betreiben ist noch ein <a href="http://www.elektronik-kompendium.de/public/schaerer/pullr.htm">Pullup-Widerstand</a> von 4,7 bis 10kΩ nötig.
+Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
+nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.</p>
+
+<p><a href="/uploads/images/dht22_pi.png" title="Steckbrett mit DHT22 und Raspberry Pi" data-lightbox="dht22_group"><img src="/generated/dht22_pi-300x252-844234.png" alt="Steckbrett mit DHT22 und Raspberry Pi" /></a></p>
+
+<p>Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. </p>
+
+<h3 id="belegung-dht22">Belegung DHT22</h3>
+<ul>
+  <li>Pin 1: 3,3V</li>
+  <li>Pin 2: Daten</li>
+  <li>Pin 3: frei</li>
+  <li>Pin 4: Masse</li>
+</ul>
+
+<h2 id="programmierung">Programmierung</h2>
+<p>Es gibt von Adafruit eine Python-<a href="https://github.com/adafruit/Adafruit_Python_DHT.git">Bibliothek</a>, welche sehr einfach zu nutzen ist, um den Sensor
+abzufragen.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update
+sudo apt-get install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+<span class="nb">cd </span>Adafruit_Python_DHT
+sudo python setup.py install</code></pre></div>
+
+<p>Im <code>examples</code> Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss 
+bedenken, dass der Code als <code>root</code> bzw. mit <code>sudo</code> ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift. <a href="http://pi.gadgetoid.com/pinout">Hier</a> findet man Nummerierung
+der Pins.</p>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="c">#!/usr/bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c">#</span>
+
+<span class="kn">import</span> <span class="nn">Adafruit_DHT</span>
+
+<span class="c"># GPIO pin for DTH-22</span>
+<span class="c"># see http://pi.gadgetoid.com/pinout</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c"># Try to grab a sensor reading.  Use the read_retry method which will retry up</span>
+<span class="c"># to 15 times to get a sensor reading (waiting 2 seconds between each retry).</span>
+<span class="n">humidity</span><span class="p">,</span> <span class="n">temperature</span> <span class="o">=</span> <span class="n">Adafruit_DHT</span><span class="o">.</span><span class="n">read_retry</span><span class="p">(</span><span class="n">Adafruit_DHT</span><span class="o">.</span><span class="n">DHT22</span><span class="p">,</span> <span class="n">pin</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">humidity</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">temperature</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&#39;Failed to get reading DTH-22. Try again!&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Temperature: </span><span class="si">%8.2f</span><span class="s">°C&quot;</span> <span class="o">%</span> <span class="n">temperature</span>
+    <span class="k">print</span> <span class="s">&quot;Humidity:    </span><span class="si">%8.2f%%</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">humidity</span></code></pre></div>
+
+
+    <hr>
+    <div class="pagination btn-group">
+      
+        <a class="btn prev" href="/raspberry%20pi/linux/2014/09/17/rss-reader-selbst-betreiben/" title="RSS Reader selbst betreiben">&larr; &Auml;lter</a>
+      
+        <a class="btn" href="/archive.html">Archiv</a>
+      
+        <a class="btn next" href="/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/" title="BMP085 am Raspberry Pi">Neuer &rarr;</a>
+      
+    </div>
+    
+
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <section>
+      <h4>Ver&ouml;ffentlicht</h4>
+      <div class="date"><span>14.10.2014</span></div>
+    </section>
+    <section>
+      <h4>Letzte &Auml;nderung</h4>
+      <div class="date"><span></span>28.10.2014 17:28 Uhr</div>
+    </section>
+    
+      <section>
+        <h4>Kategorie</h4>
+        <span class="category">
+          Raspberry Pi, Elektronik, Programmieren
+        </span>
+      </section>
+         
+    
+      <section>
+        <h4>Tags</h4>
+        <ul class="tag_box">
+          
+          
+
+
+  
+     
+    	<li><a href="/tags.html#git-ref">git <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#Sensor-ref">Sensor <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#DTH22-ref">DTH22 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#python-ref">python <span>2</span></a></li>
+    
+  
+
+
+
+        </ul>
+      </section>
+             
+  </div>
+</div>
+
+
+        </div>
+        <hr>
+      </div> <!-- /container -->
+
+      <div class="footer-push"></div>
+    </div><!--/.page-wrap -->
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2015 Michael Rennecke, some rights reserved</p>
+        <p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+      </div>
+    </footer>
+
+    <script>window.jQuery || document.write('<script src="/assets/themes/hooligan/js/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="/assets/themes/hooligan/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
+
