@@ -1,0 +1,46 @@
+---
+layout: post
+title: Probleme mit dem SunRay-Server
+categories:
+- Solaris
+tags:
+- gdm
+- gnome
+- Java Desktop
+- Solaris
+- Sun Ray
+- SunRay
+- tmp
+status: publish
+type: post
+published: true
+meta:
+  _jd_post_meta_fixed: 'true'
+  _jd_wp_twitter: ''
+  _wp_jd_target: http://0rpheus.net/?p=5261
+  _wp_jd_url: ''
+  _wp_jd_yourls: ''
+  _wp_jd_wp: http://0rpheus.net/?p=5261
+  _wp_jd_bitly: ''
+  _wp_jd_clig: ''
+  _jd_twitter: ''
+  _jd_tweet_this: ''
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Ich habe heute etwas l&auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der <a href="http://www.sun-rays.org/">SunRay</a>-Server nicht l&auml;uft.</p>
+<p>
+Ein Fehler war schnell gefunden: Der <a href="http://projects.gnome.org/gdm/">gdm</a> lief nicht.</p>
+<pre lang="bash">
+sunray ~ # svcs -a | grep gdm
+disabled       11:38:23 svc:/application/gdm2-login:default
+sunray ~ # svcadm enable svc:/application/gdm2-login:default
+</pre>
+<p>
+Nun konnte man sich via <a href="http://www.opengroup.org/cde/">CDE</a> einloggen, aber nicht mit dem <a href="http://www.sun.com/software/solaris/javadesktopsystem.xml">Java Desktop</a>, welcher auf <a href="http://www.gnome.org/">gnome</a> basiert. Nach nervigen Suchen hat sich auch <a href="https://users.informatik.uni-halle.de/~ruttkies/RforRocks/">Rumpel</a> zu mir gesetzt. Dabei ist mir aufgefallen, dass in <tt>/tmp</tt> nur <tt>root</tt> schreiben darf, nachdem in <tt>/tmp</tt> wieder jeder schreiben durfte, lief wieder alles korrekt.</p>
