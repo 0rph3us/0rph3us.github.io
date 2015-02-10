@@ -1,9 +1,9 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:categories/:year/:month/:day/:title/
 markdown: kramdown
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "History.markdown"]
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -16,6 +16,8 @@ author :
   github : 0rph3us
   twitter : 0rph3us
   feedburner : 
+  rssfeed :  https://0rph3us.github.io/rss.xml
+#  rssfeed :  https://blog.rennecke.dyndns.dk/rss.xml
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -25,7 +27,7 @@ author :
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : https://rennecke.dyndns.dk/
+production_url : https://0rph3us.github.io
 
 lightbox:
   source: /uploads/images
@@ -49,11 +51,17 @@ gems:
   - coffee-script
   - mini_magick
 
+jekyll-press:
+  exclude: ['atom.xml', 'js/'] # Exclude files from processing - file name, glob pattern or array of file names and glob patterns
+  js_options: {}      # js minifier options
+  css_options: {}     # css minifier options
+  html_options: {}    # html minifier options
 
-assets:
-  cache: true
-  js_compressor:  uglifier
-  css_compressor: sass
+#assets:
+#  cache: true
+
+#  js_compressor:  uglifier
+#  css_compressor: sass
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
@@ -108,7 +116,10 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : juvia
+    provider : no_juvia
+    juvia:
+      host: 'https://blog.rennecke.dyndns.dk'
+      site_key: 'kkgc9zhzr2tf1108bqb731h0n1zwu9l'
     disqus :
       short_name : 
     livefyre :
