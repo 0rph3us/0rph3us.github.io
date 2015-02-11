@@ -58,7 +58,28 @@ Initialized empty Git repository in /home/rennecke/.password-store/.git/
 1 file changed, 1 insertion(+) 
 create mode 100644 .gpg-id
 {% endhighlight %}
-Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen.
+Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen. Nun kann alle Möglichkeiten
+von git nutzen. Die `<parameter>` von `pass git <parameter>` sind alle möglichen Parameter, welche git
+aktzeptiert, `pass` alles was nach git kommt 1:1 an `git` weiter.
+
+An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
+kann sich [hier] einen Überblick verschaffen.
+
+
+### Android App
+
+Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Passwort Store]. Sie überzeugt mich, durch ein
+gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
+ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich [OpenKeychain]. OpenKeychain unterstüzt selbstverständlich
+auch mit einem Passwort gesicherte private Schlüssel.
+
+
+### Nachtrag
+
+Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
+Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
+falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn 
+man täglich diese Schlüssel nutzt.
 
 
 [KeePass 2]: http://keepass.info/
@@ -66,3 +87,6 @@ Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen.
 [pass]: http://www.passwordstore.org/
 [GnuPG]: https://www.gnupg.org/
 [git]: http://git-scm.com/
+[hier]: http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE
+[Password Store]: https://github.com/zeapo/Android-Password-Store
+[OpenKeychain]: http://www.openkeychain.org/
