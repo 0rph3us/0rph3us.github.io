@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        "Sichere" Captchas programmieren - 
+        Password Manager - 
       
       0rph3us
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Michael Rennecke">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -167,106 +167,87 @@
           
 <div class="page-header">
   <h1>
-    "Sichere" Captchas programmieren 
+    Password Manager 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>
-Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>, oder <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> benutzen. Persönlich habe ich eine Abneigung gegen <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a> und <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>. <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen <a href="http://www.w3.org/TR/xhtml1/">xhtml 1.0 strict</a>-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.</p>
-<h2>Wie komme ich zum sicheren Captcha</h2>
-<p>Wenn ich auf Sessions verzichten möchte, so muss ich die Lösung des Captcha mit auf die Seite schreiben. Das kann man in einen <em>nicht sichtbaren</em> Feld machen. Damit man dieses Feld nicht so einfach auslesen kann, schreibt man einen <a href="http://burtleburtle.net/bob/hash/index.html">Hash</a> hinein bzw. man verschlüsselt den Inhalt.</p>
-<pre lang="php" line="1">
-define(KEY, "Ich bin ein Key");
-define(IV, "KlyV6gxG3MOPzlfuj8azF6sKKTnsdsiN58i0zjHA0EU=");
+    
+<p>Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+außerdem sollte man es regelmäßig wechseln und dann muss es auch noch <em>komplex</em> sein. Da ich mir
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanger. Es gibt eine ganze Reihe
+von solchen Tools, aber keins hat mich mich bis überzeugt.</p>
 
-function Crypt($plaintext){
-    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+<h3 id="meine-anforderungen-sind">Meine Anforderungen sind</h3>
+<ul>
+  <li>einfach zu bedienen</li>
+  <li>einfache synchronisation zwischen mehreren Geräten</li>
+  <li>leichtgewichtig</li>
+  <li>eine GUI ist nicht nötig</li>
+  <li>Windowsunterstützung ist mir egal, da ich kein Windows nutze</li>
+</ul>
 
-    $iv = base64_decode(IV);
-    $ks = mcrypt_enc_get_key_size($td);
+<p><a href="http://keepass.info/">KeePass 2</a> würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass 
+es recht schwergewichtig ist, weil ich dafür noch <a href="http://www.mono-project.com/">Mono</a> benötige, was ich sonst nicht auf meinen Rechnern habe. </p>
 
-     /* Create key */
-    $key = substr(md5(KEY), 0, $ks);
+<h2 id="pass---der-standard-unix-passwortmanager">pass - Der Standard Unix Passwortmanager</h2>
 
-    /* Intialize encryption */
-    mcrypt_generic_init($td, $key, $iv);
+<p>Nachdem ich <a href="http://www.passwordstore.org/">pass</a> gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange. 
+Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit <a href="https://www.gnupg.org/">GnuPG</a> verschlüsselt und bei Bedarf
+in einen <a href="http://git-scm.com/">git</a>-Repository versioniert. Durch die Verwendung von git ist es auch möglich die Passwörter über
+verschiedene Clients hinweg zu sychronisieren. </p>
 
-    /* Encrypt data */
-    $encrypted = mcrypt_generic($td, $plaintext);
+<p>Man kann <a href="http://www.passwordstore.org/">pass</a> über die Paketverwaltung der meisten Distributionen installieren. Es ist auch ohne weiteres
+möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass <em>nur</em> ein Shell-Skript
+ist, welches einige Standarttools sowie GnuPG und git nutzt.</p>
 
-    /* Terminate decryption handle and close module */
-    mcrypt_generic_deinit($td);
-    mcrypt_module_close($td);
+<h3 id="anwendung">Anwendung</h3>
 
-    return base64_encode($encrypted);
-}
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">pass init EE75C6FE
+mkdir: created directory ‘/home/rennecke/.password-store’
+Password store initialized <span class="k">for</span> EE75C6FE Password Storage Key.</code></pre></div>
 
-function Decrypt($chiffre){
-    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+<p>Es wird eine leere Passwortdatenbank erstellt und zum verschküsseln der Passwörter wird der GnuPG Key <code>EE75C6FE</code>
+verwenden. Man kann den Key auch mit der dazugehörigen Emailadresse angeben.</p>
 
-    $iv = base64_decode(IV);
-    $ks = mcrypt_enc_get_key_size($td);
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">pass git init 
+Initialized empty Git repository in /home/rennecke/.password-store/.git/ 
+<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> 998c8fd<span class="o">]</span> Added current contents of password store. 
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span> 
+create mode <span class="m">100644</span> .gpg-id</code></pre></div>
 
-     /* Create key */
-    $key = substr(md5(KEY), 0, $ks);
+<p>Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen. Nun kann alle Möglichkeiten
+von git nutzen. Die <code>&lt;parameter&gt;</code> von <code>pass git &lt;parameter&gt;</code> sind alle möglichen Parameter, welche git
+aktzeptiert, <code>pass</code> alles was nach git kommt 1:1 an <code>git</code> weiter.</p>
 
-    $chiffre = base64_decode($chiffre);
-    mcrypt_generic_init($td, $key, $iv);
-    $plaintext = mdecrypt_generic($td, $chiffre);
+<p>An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
+kann sich <a href="http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE">hier</a> einen Überblick verschaffen.</p>
 
-    mcrypt_generic_deinit($td);
-    mcrypt_module_close($td);
+<h3 id="android-app">Android App</h3>
 
-    return $plaintext;
-}
+<p>Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Passwort Store]. Sie überzeugt mich, durch ein
+gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
+ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich <a href="http://www.openkeychain.org/">OpenKeychain</a>. OpenKeychain unterstüzt selbstverständlich
+auch mit einem Passwort gesicherte private Schlüssel.</p>
 
-function draw_captcha_form(){
-    .....
-    $time = time() + 60*30;
-    $captchaSolution = "Test"
-    echo "\t\n\tBitte Captcha lösen<br />\n";
-    // erzeuge ein Captcha
-    echo "\t\n";
-    echo "\t" . '
-<input name="captvalue" id="captvalue" value="" size="40" tabindex="4" type="text" />' . "\n";
-    echo "\t"    . '
-<input name="captcha" value="'. Crypt($time . "~" . $captchaSolution . "~" . $REMOTE_ADDR) . '" type="hidden"/>' . "\n";
-}
+<h3 id="nachtrag">Nachtrag</h3>
 
-function check_post($) {
-    ....
-    $captcha = $_POST['captvalue'];
-    list($timeOld, $secret, $addr) = explode('~',Decrypt($_POST['captcha']));
-    ....
-    if($timeOld <= time()){
-            echo "Deine Zeit ist abgelaufen";
-            return;
-    }
-    if($addr != $REMOTE_ADDR){
-            echo "Falsche IP";
-            return;
-    }
-    if($secret != $captcha){
-            echo "Falsches Captcha";
-            return;
-    }
-    .....
-}
-</pre>
-<p>
-Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich generiere z.B. Matheaufgaben.</p>
+<p>Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
+Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
+falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn 
+man täglich diese Schlüssel nutzt.</p>
+
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="/programmieren/2010/08/18/shared-memory-allocator/" title="Shared memory Allocator mit der STL">&larr; &Auml;lter</a>
+        <a class="btn prev" href="/privat/2015/02/09/hallo-github/" title="Hallo github">&larr; &Auml;lter</a>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next" href="/sonstiges/2010/08/23/zertifikatfehler-bei-gmx/" title="Zertifikatfehler bei gmx">Neuer &rarr;</a>
+        <a class="btn next disabled">Neuer &rarr;</a>
       
     </div>
     
@@ -280,12 +261,19 @@ Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich gene
   <div class="span4">
     <section>
       <h4>Ver&ouml;ffentlicht</h4>
-      <div class="date"><span>18.08.2010</span></div>
+      <div class="date"><span>11.02.2015</span></div>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+      <div class="date"><span></span>11.02.2015 07:24 Uhr</div>
     </section>
+    
+      <section>
+        <h4>Kategorie</h4>
+        <span class="category">
+          sicherheit
+        </span>
+      </section>
          
     
       <section>
@@ -297,15 +285,13 @@ Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich gene
 
   
      
-    	<li><a href="/tags.html#xhtml-ref">xhtml <span>1</span></a></li>
+    	<li><a href="/tags.html#git-ref">git <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#GnuPG-ref">GnuPG <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#linux-ref">linux <span>1</span></a></li>
      
     	<li><a href="/tags.html#Security-ref">Security <span>7</span></a></li>
-     
-    	<li><a href="/tags.html#php-ref">php <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#hack-ref">hack <span>8</span></a></li>
-     
-    	<li><a href="/tags.html#captcha-ref">captcha <span>2</span></a></li>
     
   
 

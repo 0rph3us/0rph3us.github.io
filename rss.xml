@@ -5,10 +5,83 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-02-10T17:12:03+01:00</lastBuildDate>
-        <pubDate>2015-02-10T17:12:03+01:00</pubDate>
+        <lastBuildDate>2015-02-11T07:31:03+01:00</lastBuildDate>
+        <pubDate>2015-02-11T07:31:03+01:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Password Manager</title>
+                <description>
+&lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanger. Es gibt eine ganze Reihe
+von solchen Tools, aber keins hat mich mich bis überzeugt.&lt;/p&gt;
+
+&lt;h3 id=&quot;meine-anforderungen-sind&quot;&gt;Meine Anforderungen sind&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;einfach zu bedienen&lt;/li&gt;
+  &lt;li&gt;einfache synchronisation zwischen mehreren Geräten&lt;/li&gt;
+  &lt;li&gt;leichtgewichtig&lt;/li&gt;
+  &lt;li&gt;eine GUI ist nicht nötig&lt;/li&gt;
+  &lt;li&gt;Windowsunterstützung ist mir egal, da ich kein Windows nutze&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://keepass.info/&quot;&gt;KeePass 2&lt;/a&gt; würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass 
+es recht schwergewichtig ist, weil ich dafür noch &lt;a href=&quot;http://www.mono-project.com/&quot;&gt;Mono&lt;/a&gt; benötige, was ich sonst nicht auf meinen Rechnern habe. &lt;/p&gt;
+
+&lt;h2 id=&quot;pass---der-standard-unix-passwortmanager&quot;&gt;pass - Der Standard Unix Passwortmanager&lt;/h2&gt;
+
+&lt;p&gt;Nachdem ich &lt;a href=&quot;http://www.passwordstore.org/&quot;&gt;pass&lt;/a&gt; gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange. 
+Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit &lt;a href=&quot;https://www.gnupg.org/&quot;&gt;GnuPG&lt;/a&gt; verschlüsselt und bei Bedarf
+in einen &lt;a href=&quot;http://git-scm.com/&quot;&gt;git&lt;/a&gt;-Repository versioniert. Durch die Verwendung von git ist es auch möglich die Passwörter über
+verschiedene Clients hinweg zu sychronisieren. &lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;a href=&quot;http://www.passwordstore.org/&quot;&gt;pass&lt;/a&gt; über die Paketverwaltung der meisten Distributionen installieren. Es ist auch ohne weiteres
+möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass &lt;em&gt;nur&lt;/em&gt; ein Shell-Skript
+ist, welches einige Standarttools sowie GnuPG und git nutzt.&lt;/p&gt;
+
+&lt;h3 id=&quot;anwendung&quot;&gt;Anwendung&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pass init EE75C6FE
+mkdir: created directory ‘/home/rennecke/.password-store’
+Password store initialized &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; EE75C6FE Password Storage Key.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Es wird eine leere Passwortdatenbank erstellt und zum verschküsseln der Passwörter wird der GnuPG Key &lt;code&gt;EE75C6FE&lt;/code&gt;
+verwenden. Man kann den Key auch mit der dazugehörigen Emailadresse angeben.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pass git init 
+Initialized empty Git repository in /home/rennecke/.password-store/.git/ 
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;master &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;root-commit&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 998c8fd&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Added current contents of password store. 
+&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; file changed, &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; insertion&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+create mode &lt;span class=&quot;m&quot;&gt;100644&lt;/span&gt; .gpg-id&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen. Nun kann alle Möglichkeiten
+von git nutzen. Die &lt;code&gt;&amp;lt;parameter&amp;gt;&lt;/code&gt; von &lt;code&gt;pass git &amp;lt;parameter&amp;gt;&lt;/code&gt; sind alle möglichen Parameter, welche git
+aktzeptiert, &lt;code&gt;pass&lt;/code&gt; alles was nach git kommt 1:1 an &lt;code&gt;git&lt;/code&gt; weiter.&lt;/p&gt;
+
+&lt;p&gt;An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
+kann sich &lt;a href=&quot;http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE&quot;&gt;hier&lt;/a&gt; einen Überblick verschaffen.&lt;/p&gt;
+
+&lt;h3 id=&quot;android-app&quot;&gt;Android App&lt;/h3&gt;
+
+&lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Passwort Store]. Sie überzeugt mich, durch ein
+gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
+ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich &lt;a href=&quot;http://www.openkeychain.org/&quot;&gt;OpenKeychain&lt;/a&gt;. OpenKeychain unterstüzt selbstverständlich
+auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
+
+&lt;h3 id=&quot;nachtrag&quot;&gt;Nachtrag&lt;/h3&gt;
+
+&lt;p&gt;Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
+Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
+falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn 
+man täglich diese Schlüssel nutzt.&lt;/p&gt;
+
+</description>
+                <link>https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager/</link>
+                <guid>https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager</guid>
+                <pubDate>2015-02-11T00:00:00+01:00</pubDate>
+        </item>
 
         <item>
                 <title>Hallo github</title>

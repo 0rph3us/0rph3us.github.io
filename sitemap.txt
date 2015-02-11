@@ -10,6 +10,7 @@ https://0rph3us.github.io/rss.xml
 https://0rph3us.github.io/sitemap.txt
 https://0rph3us.github.io/tags.html
 
+https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager/
 https://0rph3us.github.io/privat/2015/02/09/hallo-github/
 https://0rph3us.github.io/programmieren/tools/2014/10/28/rrdtool-und-json/
 https://0rph3us.github.io/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/
