@@ -12,3 +12,4 @@ author:
 {% include JB/setup %}
 
 * [Shellchecker - erkennt potenzielle Probleme in Skripts](http://www.shellcheck.net/)
+* [online Markdown Editor](http://dillinger.io/)
