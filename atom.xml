@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-12T07:34:50+01:00</updated>
+ <updated>2015-02-12T07:47:12+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -20,7 +20,7 @@
    <content type="html">
 &lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
-nicht 100 Passwörter merken kann, verwende ich einen Passwortmanger. Es gibt eine ganze Reihe
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
 von solchen Tools, aber keins hat mich mich bis überzeugt.&lt;/p&gt;
 
 &lt;h3 id=&quot;meine-anforderungen-sind&quot;&gt;Meine Anforderungen sind&lt;/h3&gt;
