@@ -5,13 +5,13 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-02-11T07:31:03+01:00</lastBuildDate>
-        <pubDate>2015-02-11T07:31:03+01:00</pubDate>
+        <lastBuildDate>2015-02-12T07:34:50+01:00</lastBuildDate>
+        <pubDate>2015-02-12T07:34:50+01:00</pubDate>
         <ttl>1800</ttl>
 
 
         <item>
-                <title>Password Manager</title>
+                <title>Passwortmanager</title>
                 <description>
 &lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
@@ -65,7 +65,7 @@ kann sich &lt;a href=&quot;http://git.zx2c4.com/password-store/about/#EXTENDED G
 
 &lt;h3 id=&quot;android-app&quot;&gt;Android App&lt;/h3&gt;
 
-&lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Passwort Store]. Sie überzeugt mich, durch ein
+&lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App &lt;a href=&quot;https://github.com/zeapo/Android-Password-Store&quot;&gt;Password Store&lt;/a&gt;. Sie überzeugt mich, durch ein
 gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
 ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich &lt;a href=&quot;http://www.openkeychain.org/&quot;&gt;OpenKeychain&lt;/a&gt;. OpenKeychain unterstüzt selbstverständlich
 auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
