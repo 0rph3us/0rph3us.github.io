@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Password Manager"
+title: "Passwortmanager"
 description: ""
 category: 
  - 'sicherheit'
@@ -15,7 +15,7 @@ tags:
 
 Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch _komplex_ sein. Da ich mir
-nicht 100 Passwörter merken kann, verwende ich einen Passwortmanger. Es gibt eine ganze Reihe
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
 von solchen Tools, aber keins hat mich mich bis überzeugt.
 
 ### Meine Anforderungen sind
@@ -68,7 +68,7 @@ kann sich [hier] einen Überblick verschaffen.
 
 ### Android App
 
-Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Passwort Store]. Sie überzeugt mich, durch ein
+Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App [Password Store]. Sie überzeugt mich, durch ein
 gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
 ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich [OpenKeychain]. OpenKeychain unterstüzt selbstverständlich
 auch mit einem Passwort gesicherte private Schlüssel.
