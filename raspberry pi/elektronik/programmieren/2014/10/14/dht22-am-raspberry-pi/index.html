@@ -178,37 +178,40 @@
 
 <div class="row">
   <div class="span8">
-    
-<h2 id="was-kann-der-dht22">Was kann der DHT22?</h2>
+    <h2>Was kann der DHT22?</h2>
+
 <ul>
-  <li>kostet zwischen 6€ und 9€</li>
-  <li>3,3 - 5V Eingangsspannung</li>
-  <li>max. 2.5 mA (während der Datenübertragung)</li>
-  <li>40-50 µA Standby-Strom</li>
-  <li>Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit</li>
-  <li>Temperaturbereich: -40 bis 80°C ± 0,5°C</li>
-  <li>Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)</li>
+<li>kostet zwischen 6€ und 9€</li>
+<li>3,3 - 5V Eingangsspannung</li>
+<li>max. 2.5 mA (während der Datenübertragung)</li>
+<li>40-50 µA Standby-Strom</li>
+<li>Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit</li>
+<li>Temperaturbereich: -40 bis 80°C ± 0,5°C</li>
+<li>Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)</li>
 </ul>
 
-<h2 id="aufbau">Aufbau</h2>
+<h2>Aufbau</h2>
+
 <p>Um den DHT22 am Raspberry Pi zu betreiben ist noch ein <a href="http://www.elektronik-kompendium.de/public/schaerer/pullr.htm">Pullup-Widerstand</a> von 4,7 bis 10kΩ nötig.
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.</p>
 
-<p><a href="/uploads/images/dht22_pi.png" title="Steckbrett mit DHT22 und Raspberry Pi" data-lightbox="dht22_group"><img src="/generated/dht22_pi-300x252-844234.png" alt="Steckbrett mit DHT22 und Raspberry Pi" /></a></p>
+<p><a href="/uploads/images/dht22_pi.png" title="Steckbrett mit DHT22 und Raspberry Pi" data-lightbox="dht22_group" ><img src="/generated/dht22_pi-300x252-844234.png" alt="Steckbrett mit DHT22 und Raspberry Pi" ></a></p>
 
 <p>Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. </p>
 
-<h3 id="belegung-dht22">Belegung DHT22</h3>
+<h3>Belegung DHT22</h3>
+
 <ul>
-  <li>Pin 1: 3,3V</li>
-  <li>Pin 2: Daten</li>
-  <li>Pin 3: frei</li>
-  <li>Pin 4: Masse</li>
+<li>Pin 1: 3,3V</li>
+<li>Pin 2: Daten</li>
+<li>Pin 3: frei</li>
+<li>Pin 4: Masse</li>
 </ul>
 
-<h2 id="programmierung">Programmierung</h2>
+<h2>Programmierung</h2>
+
 <p>Es gibt von Adafruit eine Python-<a href="https://github.com/adafruit/Adafruit_Python_DHT.git">Bibliothek</a>, welche sehr einfach zu nutzen ist, um den Sensor
 abzufragen.</p>
 
@@ -243,7 +246,6 @@ der Pins.</p>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span> <span class="s">&quot;Temperature: </span><span class="si">%8.2f</span><span class="s">°C&quot;</span> <span class="o">%</span> <span class="n">temperature</span>
     <span class="k">print</span> <span class="s">&quot;Humidity:    </span><span class="si">%8.2f%%</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">humidity</span></code></pre></div>
-
 
     <hr>
     <div class="pagination btn-group">

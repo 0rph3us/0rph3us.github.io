@@ -178,8 +178,7 @@
 
 <div class="row">
   <div class="span8">
-    
-<p>Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
+    <p>Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
 als nicht mehr zeitgemäß galten. Ich finde, dass sie zur Zeit immer beliebter
 werden. Ich möchte meine Feeds immer dabei und nicht viele Apps auf dem Smartphone
 installieren, nur um meinen 20 News-Seiten zu folgen. Das ganze im Browser zu
@@ -194,12 +193,13 @@ Feed-Reader zusammen führen. Es gibt Menschen, wie mich, die keinen Reader wie
 DSL-Leitung betreiben. Dazu benutze ich <a href="http://nginx.org/">Nginx</a> als Webserver, <a href="http://www.mysql.de/">MySQL</a> als Datenbank
 sowie <a href="http://tt-rss.org/">Tiny Tiny RSS</a> als Reader. Als Betriebssystem nutze ich Raspbian.</p>
 
-<h2 id="nginx-installieren">Nginx installieren</h2>
+<h2>Nginx installieren</h2>
+
 <p>Wie man <a href="http://nginx.org/">Nginx</a> installiert, habe ich in <a href="/raspberry%20pi/linux/2014/07/31/webserver-auf-dem-raspberry-pi-installieren/">diesem Artikel</a> schon erklärt. 
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.</p>
 
-<h2 id="mysql-installieren">MySQL installieren</h2>
+<h2>MySQL installieren</h2>
 
 <p>Die grundlegende Installation von MySQL geht leicht von der Hand. Da man nur einige
 Pakte installieren muss. Die nötige Datenbank ist auch schnell eingerichtet.</p>
@@ -224,7 +224,7 @@ Query OK, <span class="m">0</span> rows affected <span class="o">(</span>0.02 se
 mysql&gt; <span class="nb">exit</span>
 Bye</code></pre></div>
 
-<h3 id="mysql-hrten">MySQL härten</h3>
+<h3>MySQL härten</h3>
 
 <p>Mit dem folgenden Tool kann man seine MySQL noch härten. Dazu löscht
 es die Test-Datenbanken und anonyme Benutzer. Weiterhin ist ein
@@ -234,7 +234,7 @@ Remote Login für den Benutzer <code>root</code> nicht mehr möglich. </p>
 sudo su -
 mysql_secure_installation</code></pre></div>
 
-<h2 id="tiny-tiny-rss-installieren">Tiny Tiny RSS installieren</h2>
+<h2>Tiny Tiny RSS installieren</h2>
 
 <p>Man lädt sich die <a href="https://github.com/gothfox/Tiny-Tiny-RSS/releases">aktuellste Version</a> von <a href="http://tt-rss.org/">Tiny Tiny RSS</a> in das Document Root-Verzeichnis
 von Nginx und entpackt es</p>
@@ -263,13 +263,13 @@ cat <span class="s">&lt;&lt; EOF &gt; /usr/share/nginx/www/tt-rss/config.php</sp
 <span class="s">kopierten Text hier einfügen</span>
 <span class="s">EOF</span></code></pre></div>
 
-<h3 id="feeds-aktualisieren">Feeds aktualisieren</h3>
+<h3>Feeds aktualisieren</h3>
 
 <p>Dazu muss man die folgende Zeile in die <code>crontab</code> von <code>root</code> eintragen:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">*/30 * * * * su www-data -s /bin/bash -c <span class="s1">&#39;/usr/bin/php /var/www/tt-rss/update.php --feeds --quiet&#39;</span></code></pre></div>
 
-<h2 id="tiny-tiny-rss-fr-das-smartphone">Tiny Tiny RSS für das Smartphone</h2>
+<h2>Tiny Tiny RSS für das Smartphone</h2>
 
 <p>Es gibt zwei Android Clients für Tiny Tiny RSS. Diese haben beide den Nachteil, dass sie unter Umständen
 Probleme mit den Ciphers der SSL Verschlüsselung haben. Da das bei mir der Fall war bin ich auf eine HTML
@@ -289,10 +289,10 @@ cp mobile/scripts/conf.js<span class="o">{</span>-dist,<span class="o">}</span><
 
 <p>Nun kann man unter <code>http(s)://IP/mobile/</code> die HTML5 Anwendung für das Smartphone erreichen.</p>
 
-<h2 id="schlussbemerkung">Schlussbemerkung</h2>
+<h2>Schlussbemerkung</h2>
+
 <p>Soll der soeben installierte Dienst auch außerhalb des eigenen Netzwerkes verfügbar sein, so müssen 
 folgende Ports (80 und 443) im Router freigegeben werden.</p>
-
 
     <hr>
     <div class="pagination btn-group">

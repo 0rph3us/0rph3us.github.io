@@ -178,40 +178,41 @@
 
 <div class="row">
   <div class="span8">
-    
-<h2 id="was-kann-der-bmp085">Was kann der BMP085?</h2>
+    <h2>Was kann der BMP085?</h2>
+
 <ul>
-  <li>Kosten: 8 - 12€</li>
-  <li>1,8 - 3,6V Eingangsspannung</li>
-  <li>Stromverbrauch
-    <ul>
-      <li>3 µA (ultra-low power mode, 1Hz Samplingrate)</li>
-      <li>32 µA (advanced power mode, 1Hz Samplingrate)</li>
-      <li>0.1 μA Standby</li>
-      <li>max. 650 μA in der Spitze</li>
-    </ul>
-  </li>
-  <li>Temperaturbereich: -40 bis 85°C</li>
-  <li>Luftdruck: 300 bis 1100 hPa</li>
+<li>Kosten: 8 - 12€</li>
+<li>1,8 - 3,6V Eingangsspannung</li>
+<li>Stromverbrauch
+
+<ul>
+<li>3 µA (ultra-low power mode, 1Hz Samplingrate)</li>
+<li>32 µA (advanced power mode, 1Hz Samplingrate)</li>
+<li>0.1 μA Standby</li>
+<li>max. 650 μA in der Spitze</li>
+</ul></li>
+<li>Temperaturbereich: -40 bis 85°C</li>
+<li>Luftdruck: 300 bis 1100 hPa</li>
 </ul>
 
-<h2 id="aufbau">Aufbau</h2>
+<h2>Aufbau</h2>
+
 <p>Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
 den <a href="http://de.wikipedia.org/wiki/I%C2%B2C">I²C-Bus</a> anspricht. Beim Anschließen muss man aber aufpassen, da die
 verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.</p>
 
-<p><a href="/uploads/images/bmp085_pi.png" title="Steckbrett mit BMP085 und Raspberry Pi" data-lightbox="bmp085_group"><img src="/generated/bmp085_pi-300x234-505f7c.png" alt="Steckbrett mit BMP085 und Raspberry Pi" /></a></p>
+<p><a href="/uploads/images/bmp085_pi.png" title="Steckbrett mit BMP085 und Raspberry Pi" data-lightbox="bmp085_group" ><img src="/generated/bmp085_pi-300x234-505f7c.png" alt="Steckbrett mit BMP085 und Raspberry Pi" ></a></p>
 
 <p>An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 
 orange SDA (Serial Data) und violett SCL (Serial Clock) ist. <a href="http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm">Hier</a> findet man ein
 paar mehr technische Informationen zum I²C-Bus</p>
 
-<h2 id="programmierung">Programmierung</h2>
+<h2>Programmierung</h2>
 
-<h3 id="betriebssystem-vorbereiten">Betriebssystem vorbereiten</h3>
+<h3>Betriebssystem vorbereiten</h3>
 
 <p>Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
 installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.</p>
@@ -237,7 +238,7 @@ sudo python setup.py install</code></pre></div>
 
 <p>Es gibt auch hier im <code>examples</code>-Verzeichnis einige Beispiele.</p>
 
-<h3 id="minimalbeispiel">Minimalbeispiel</h3>
+<h3>Minimalbeispiel</h3>
 
 <p>Das kleine Python-Programm muss als <code>root</code> bzw. mit <code>sudo</code> ausgeführt werden.</p>
 
@@ -263,7 +264,6 @@ sudo python setup.py install</code></pre></div>
 
 <p>Man kann auch mit Hilfe der <a href="https://github.com/adafruit/Adafruit_Python_BMP">Bibliothek</a> die <a href="http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel">Höhe barometrisch</a> bestimmen und auch den Luftdruck
 auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.</p>
-
 
     <hr>
     <div class="pagination btn-group">

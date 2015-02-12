@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-12T08:11:14+01:00</updated>
+ <updated>2015-02-12T21:58:31+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -13,29 +13,55 @@
 
  
  <entry>
+   <title>Skripte parallelisieren</title>
+   <link href="https://0rph3us.github.io/linux/tools/2015/02/12/skripte-parallelisieren/"/>
+   <updated>2015-02-12T00:00:00+01:00</updated>
+   <id>https://0rph3us.github.io/linux/tools/2015/02/12/skripte-parallelisieren</id>
+   <content type="html">&lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&quot;http://tiswww.case.edu/php/chet/bash/bashtop.html&quot;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&quot;http://www.gnu.org/software/parallel/&quot;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;code&gt;parallel&lt;/code&gt; als Ersatz für &lt;code&gt;xargs&lt;/code&gt; nehmen oder um Schleifen zu parallelisieren. Auf der Seite von &lt;code&gt;parallel&lt;/code&gt; gibt es viele &lt;a href=&quot;http://www.gnu.org/software/parallel/man.html&quot;&gt;Beispiele&lt;/a&gt;, welche über das parallelisieren von Schleifen hinaus gehen.&lt;/p&gt;
+
+&lt;p&gt;Ich nutze &lt;code&gt;parallel&lt;/code&gt; zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine &lt;a href=&quot;http://de.wikipedia.org/wiki/Network_File_System&quot;&gt;NFS&lt;/a&gt;-Freigabe. Ich habe &lt;a href=&quot;http://rsync.samba.org/&quot;&gt;rsync&lt;/a&gt; und &lt;code&gt;cp&lt;/code&gt; probiert. &lt;code&gt;rsync&lt;/code&gt; ist in meinen Fall langsamer als &lt;code&gt;cp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aus diesem Grund habe ich &lt;code&gt;cp&lt;/code&gt;, wie folgt parallelisiert:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;find . -type f -mtime -2 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; parallel --jobs &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; /usr/sbin/backup_helper.sh &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt;s auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
+
+&lt;p&gt;Das script &lt;code&gt;backup_helper.sh&lt;/code&gt; sieht wie folgt aus:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cat /usr/sbin/backup_helper.sh
+&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$(dirname ${1})&amp;quot;&lt;/span&gt;
+mkdir -p &lt;span class=&quot;s2&quot;&gt;&amp;quot;/backup/${base}&amp;quot;&lt;/span&gt;
+cp &lt;span class=&quot;s2&quot;&gt;&amp;quot;${1}&amp;quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;/backup/${1}&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Passwortmanager</title>
    <link href="https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager/"/>
    <updated>2015-02-11T00:00:00+01:00</updated>
    <id>https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager</id>
-   <content type="html">
-&lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+   <content type="html">&lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
 nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
 von solchen Tools, aber keins hat mich mich bis überzeugt.&lt;/p&gt;
 
-&lt;h3 id=&quot;meine-anforderungen-sind&quot;&gt;Meine Anforderungen sind&lt;/h3&gt;
+&lt;h3&gt;Meine Anforderungen sind&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;einfach zu bedienen&lt;/li&gt;
-  &lt;li&gt;einfache synchronisation zwischen mehreren Geräten&lt;/li&gt;
-  &lt;li&gt;leichtgewichtig&lt;/li&gt;
-  &lt;li&gt;eine GUI ist nicht nötig&lt;/li&gt;
-  &lt;li&gt;Windowsunterstützung ist mir egal, da ich kein Windows nutze&lt;/li&gt;
+&lt;li&gt;einfach zu bedienen&lt;/li&gt;
+&lt;li&gt;einfache synchronisation zwischen mehreren Geräten&lt;/li&gt;
+&lt;li&gt;leichtgewichtig&lt;/li&gt;
+&lt;li&gt;eine GUI ist nicht nötig&lt;/li&gt;
+&lt;li&gt;Windowsunterstützung ist mir egal, da ich kein Windows nutze&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://keepass.info/&quot;&gt;KeePass 2&lt;/a&gt; würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass 
 es recht schwergewichtig ist, weil ich dafür noch &lt;a href=&quot;http://www.mono-project.com/&quot;&gt;Mono&lt;/a&gt; benötige, was ich sonst nicht auf meinen Rechnern habe. &lt;/p&gt;
 
-&lt;h2 id=&quot;pass---der-standard-unix-passwortmanager&quot;&gt;pass - Der Standard Unix Passwortmanager&lt;/h2&gt;
+&lt;h2&gt;pass - Der Standard Unix Passwortmanager&lt;/h2&gt;
 
 &lt;p&gt;Nachdem ich &lt;a href=&quot;http://www.passwordstore.org/&quot;&gt;pass&lt;/a&gt; gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange. 
 Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit &lt;a href=&quot;https://www.gnupg.org/&quot;&gt;GnuPG&lt;/a&gt; verschlüsselt und bei Bedarf
@@ -46,7 +72,7 @@ verschiedene Clients hinweg zu sychronisieren. &lt;/p&gt;
 möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass &lt;em&gt;nur&lt;/em&gt; ein Shell-Skript
 ist, welches einige Standarttools sowie GnuPG und git nutzt.&lt;/p&gt;
 
-&lt;h3 id=&quot;anwendung&quot;&gt;Anwendung&lt;/h3&gt;
+&lt;h3&gt;Anwendung&lt;/h3&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pass init EE75C6FE
 mkdir: created directory ‘/home/rennecke/.password-store’
@@ -66,22 +92,23 @@ von git nutzen. Die &lt;code&gt;&amp;lt;parameter&amp;gt;&lt;/code&gt; von &lt;c
 aktzeptiert, &lt;code&gt;pass&lt;/code&gt; alles was nach git kommt 1:1 an &lt;code&gt;git&lt;/code&gt; weiter.&lt;/p&gt;
 
 &lt;p&gt;An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
-kann sich &lt;a href=&quot;http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE&quot;&gt;hier&lt;/a&gt; einen Überblick verschaffen.&lt;/p&gt;
+kann sich [hier] einen Überblick verschaffen.&lt;/p&gt;
 
-&lt;h3 id=&quot;android-app&quot;&gt;Android App&lt;/h3&gt;
+&lt;h3&gt;Android App&lt;/h3&gt;
 
 &lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App &lt;a href=&quot;https://github.com/zeapo/Android-Password-Store&quot;&gt;Password Store&lt;/a&gt;. Sie überzeugt mich, durch ein
 gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
 ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich &lt;a href=&quot;http://www.openkeychain.org/&quot;&gt;OpenKeychain&lt;/a&gt;. OpenKeychain unterstüzt selbstverständlich
 auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
 
-&lt;h3 id=&quot;nachtrag&quot;&gt;Nachtrag&lt;/h3&gt;
+&lt;h3&gt;Nachtrag&lt;/h3&gt;
 
 &lt;p&gt;Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
 Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
 falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn 
 man täglich diese Schlüssel nutzt.&lt;/p&gt;
 
+&lt;p&gt;[hier]: http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE&lt;/p&gt;
 </content>
  </entry>
  
@@ -90,11 +117,9 @@ man täglich diese Schlüssel nutzt.&lt;/p&gt;
    <link href="https://0rph3us.github.io/privat/2015/02/09/hallo-github/"/>
    <updated>2015-02-09T00:00:00+01:00</updated>
    <id>https://0rph3us.github.io/privat/2015/02/09/hallo-github</id>
-   <content type="html">
-&lt;p&gt;Nachdem mich die &lt;a href=&quot;http://www.primacom.de/&quot;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
+   <content type="html">&lt;p&gt;Nachdem mich die &lt;a href=&quot;http://www.primacom.de/&quot;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
 meinen statischen Blog erst einmal auf github weiter zu schreiben. So ist er für
 alle erreichbar und es gibt auch ssl.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -103,8 +128,7 @@ alle erreichbar und es gibt auch ssl.&lt;/p&gt;
    <link href="https://0rph3us.github.io/programmieren/tools/2014/10/28/rrdtool-und-json/"/>
    <updated>2014-10-28T00:00:00+01:00</updated>
    <id>https://0rph3us.github.io/programmieren/tools/2014/10/28/rrdtool-und-json</id>
-   <content type="html">
-&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&quot;/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/&quot;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&quot;/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/&quot;&gt;BMP085&lt;/a&gt; am
+   <content type="html">&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&quot;/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/&quot;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&quot;/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/&quot;&gt;BMP085&lt;/a&gt; am
 Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu 
 visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&quot;http://oss.oetiker.ch/rrdtool/&quot;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&quot;http://www.highcharts.com/&quot;&gt;Highcharts&lt;/a&gt;
 angezeigt. &lt;/p&gt;
@@ -112,15 +136,14 @@ angezeigt. &lt;/p&gt;
 &lt;p&gt;Meine Idee war, dass ich aus der RRD-Datenbank einige Daten zu json konvertiere, um sie dann
 mit Highcharts anzuzeigen. Die json-Daten wollte ich mit einem ajax-Request nachladen. Da ich
 so gut wie keine JavaScript- und JQuerry-Kenntnisse habe, habe ich sehr lange vergeblich 
-probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte “json” mir angesehen
-habe, ist mir aufgefallen, dass es kein valides json ist… &lt;/p&gt;
+probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte &amp;quot;json&amp;quot; mir angesehen
+habe, ist mir aufgefallen, dass es kein valides json ist... &lt;/p&gt;
 
 &lt;p&gt;Weil ich noch ein Erfolgserlebnis haben wollte, bin ich auf den validen xml-Export von
 RRDtool umgestiegen. Danach hat der Prototyp funktioniert.&lt;/p&gt;
 
 &lt;p&gt;Nach etwas Recherche im Netz, bin ich auch auf ein &lt;a href=&quot;https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825&quot;&gt;Bug-Ticket&lt;/a&gt; gestoßen, welches den kaputten
 json-Export anspricht.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -129,40 +152,41 @@ json-Export anspricht.&lt;/p&gt;
    <link href="https://0rph3us.github.io/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/"/>
    <updated>2014-10-17T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi</id>
-   <content type="html">
-&lt;h2 id=&quot;was-kann-der-bmp085&quot;&gt;Was kann der BMP085?&lt;/h2&gt;
+   <content type="html">&lt;h2&gt;Was kann der BMP085?&lt;/h2&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
-  &lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
-  &lt;li&gt;Stromverbrauch
-    &lt;ul&gt;
-      &lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
-      &lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
-      &lt;li&gt;0.1 μA Standby&lt;/li&gt;
-      &lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
-  &lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
+&lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
+&lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;Stromverbrauch
+
+&lt;ul&gt;
+&lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;0.1 μA Standby&lt;/li&gt;
+&lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
+&lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;aufbau&quot;&gt;Aufbau&lt;/h2&gt;
+&lt;h2&gt;Aufbau&lt;/h2&gt;
+
 &lt;p&gt;Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
 den &lt;a href=&quot;http://de.wikipedia.org/wiki/I%C2%B2C&quot;&gt;I²C-Bus&lt;/a&gt; anspricht. Beim Anschließen muss man aber aufpassen, da die
 verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/bmp085_pi.png&quot; title=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; data-lightbox=&quot;bmp085_group&quot;&gt;&lt;img src=&quot;/generated/bmp085_pi-300x234-505f7c.png&quot; alt=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/bmp085_pi.png&quot; title=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; data-lightbox=&quot;bmp085_group&quot; &gt;&lt;img src=&quot;/generated/bmp085_pi-300x234-505f7c.png&quot; alt=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 
 orange SDA (Serial Data) und violett SCL (Serial Clock) ist. &lt;a href=&quot;http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm&quot;&gt;Hier&lt;/a&gt; findet man ein
 paar mehr technische Informationen zum I²C-Bus&lt;/p&gt;
 
-&lt;h2 id=&quot;programmierung&quot;&gt;Programmierung&lt;/h2&gt;
+&lt;h2&gt;Programmierung&lt;/h2&gt;
 
-&lt;h3 id=&quot;betriebssystem-vorbereiten&quot;&gt;Betriebssystem vorbereiten&lt;/h3&gt;
+&lt;h3&gt;Betriebssystem vorbereiten&lt;/h3&gt;
 
 &lt;p&gt;Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
 installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.&lt;/p&gt;
@@ -188,7 +212,7 @@ sudo python setup.py install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Es gibt auch hier im &lt;code&gt;examples&lt;/code&gt;-Verzeichnis einige Beispiele.&lt;/p&gt;
 
-&lt;h3 id=&quot;minimalbeispiel&quot;&gt;Minimalbeispiel&lt;/h3&gt;
+&lt;h3&gt;Minimalbeispiel&lt;/h3&gt;
 
 &lt;p&gt;Das kleine Python-Programm muss als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden.&lt;/p&gt;
 
@@ -214,7 +238,6 @@ sudo python setup.py install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Man kann auch mit Hilfe der &lt;a href=&quot;https://github.com/adafruit/Adafruit_Python_BMP&quot;&gt;Bibliothek&lt;/a&gt; die &lt;a href=&quot;http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel&quot;&gt;Höhe barometrisch&lt;/a&gt; bestimmen und auch den Luftdruck
 auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -223,37 +246,40 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
    <link href="https://0rph3us.github.io/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/"/>
    <updated>2014-10-14T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi</id>
-   <content type="html">
-&lt;h2 id=&quot;was-kann-der-dht22&quot;&gt;Was kann der DHT22?&lt;/h2&gt;
+   <content type="html">&lt;h2&gt;Was kann der DHT22?&lt;/h2&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;kostet zwischen 6€ und 9€&lt;/li&gt;
-  &lt;li&gt;3,3 - 5V Eingangsspannung&lt;/li&gt;
-  &lt;li&gt;max. 2.5 mA (während der Datenübertragung)&lt;/li&gt;
-  &lt;li&gt;40-50 µA Standby-Strom&lt;/li&gt;
-  &lt;li&gt;Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit&lt;/li&gt;
-  &lt;li&gt;Temperaturbereich: -40 bis 80°C ± 0,5°C&lt;/li&gt;
-  &lt;li&gt;Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)&lt;/li&gt;
+&lt;li&gt;kostet zwischen 6€ und 9€&lt;/li&gt;
+&lt;li&gt;3,3 - 5V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;max. 2.5 mA (während der Datenübertragung)&lt;/li&gt;
+&lt;li&gt;40-50 µA Standby-Strom&lt;/li&gt;
+&lt;li&gt;Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 80°C ± 0,5°C&lt;/li&gt;
+&lt;li&gt;Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;aufbau&quot;&gt;Aufbau&lt;/h2&gt;
+&lt;h2&gt;Aufbau&lt;/h2&gt;
+
 &lt;p&gt;Um den DHT22 am Raspberry Pi zu betreiben ist noch ein &lt;a href=&quot;http://www.elektronik-kompendium.de/public/schaerer/pullr.htm&quot;&gt;Pullup-Widerstand&lt;/a&gt; von 4,7 bis 10kΩ nötig.
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/dht22_pi.png&quot; title=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; data-lightbox=&quot;dht22_group&quot;&gt;&lt;img src=&quot;/generated/dht22_pi-300x252-844234.png&quot; alt=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/dht22_pi.png&quot; title=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; data-lightbox=&quot;dht22_group&quot; &gt;&lt;img src=&quot;/generated/dht22_pi-300x252-844234.png&quot; alt=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. &lt;/p&gt;
 
-&lt;h3 id=&quot;belegung-dht22&quot;&gt;Belegung DHT22&lt;/h3&gt;
+&lt;h3&gt;Belegung DHT22&lt;/h3&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;Pin 1: 3,3V&lt;/li&gt;
-  &lt;li&gt;Pin 2: Daten&lt;/li&gt;
-  &lt;li&gt;Pin 3: frei&lt;/li&gt;
-  &lt;li&gt;Pin 4: Masse&lt;/li&gt;
+&lt;li&gt;Pin 1: 3,3V&lt;/li&gt;
+&lt;li&gt;Pin 2: Daten&lt;/li&gt;
+&lt;li&gt;Pin 3: frei&lt;/li&gt;
+&lt;li&gt;Pin 4: Masse&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;programmierung&quot;&gt;Programmierung&lt;/h2&gt;
+&lt;h2&gt;Programmierung&lt;/h2&gt;
+
 &lt;p&gt;Es gibt von Adafruit eine Python-&lt;a href=&quot;https://github.com/adafruit/Adafruit_Python_DHT.git&quot;&gt;Bibliothek&lt;/a&gt;, welche sehr einfach zu nutzen ist, um den Sensor
 abzufragen.&lt;/p&gt;
 
@@ -288,7 +314,6 @@ der Pins.&lt;/p&gt;
 &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Temperature: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%8.2f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;°C&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Humidity:    &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%8.2f%%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;humidity&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </content>
  </entry>
  
@@ -297,8 +322,7 @@ der Pins.&lt;/p&gt;
    <link href="https://0rph3us.github.io/raspberry%20pi/linux/2014/09/17/rss-reader-selbst-betreiben/"/>
    <updated>2014-09-17T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/raspberry%20pi/linux/2014/09/17/rss-reader-selbst-betreiben</id>
-   <content type="html">
-&lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
+   <content type="html">&lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
 als nicht mehr zeitgemäß galten. Ich finde, dass sie zur Zeit immer beliebter
 werden. Ich möchte meine Feeds immer dabei und nicht viele Apps auf dem Smartphone
 installieren, nur um meinen 20 News-Seiten zu folgen. Das ganze im Browser zu
@@ -313,12 +337,13 @@ Feed-Reader zusammen führen. Es gibt Menschen, wie mich, die keinen Reader wie
 DSL-Leitung betreiben. Dazu benutze ich &lt;a href=&quot;http://nginx.org/&quot;&gt;Nginx&lt;/a&gt; als Webserver, &lt;a href=&quot;http://www.mysql.de/&quot;&gt;MySQL&lt;/a&gt; als Datenbank
 sowie &lt;a href=&quot;http://tt-rss.org/&quot;&gt;Tiny Tiny RSS&lt;/a&gt; als Reader. Als Betriebssystem nutze ich Raspbian.&lt;/p&gt;
 
-&lt;h2 id=&quot;nginx-installieren&quot;&gt;Nginx installieren&lt;/h2&gt;
+&lt;h2&gt;Nginx installieren&lt;/h2&gt;
+
 &lt;p&gt;Wie man &lt;a href=&quot;http://nginx.org/&quot;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&quot;/raspberry%20pi/linux/2014/07/31/webserver-auf-dem-raspberry-pi-installieren/&quot;&gt;diesem Artikel&lt;/a&gt; schon erklärt. 
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.&lt;/p&gt;
 
-&lt;h2 id=&quot;mysql-installieren&quot;&gt;MySQL installieren&lt;/h2&gt;
+&lt;h2&gt;MySQL installieren&lt;/h2&gt;
 
 &lt;p&gt;Die grundlegende Installation von MySQL geht leicht von der Hand. Da man nur einige
 Pakte installieren muss. Die nötige Datenbank ist auch schnell eingerichtet.&lt;/p&gt;
@@ -343,7 +368,7 @@ Query OK, &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; rows affected &lt;span 
 mysql&amp;gt; &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
 Bye&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;mysql-hrten&quot;&gt;MySQL härten&lt;/h3&gt;
+&lt;h3&gt;MySQL härten&lt;/h3&gt;
 
 &lt;p&gt;Mit dem folgenden Tool kann man seine MySQL noch härten. Dazu löscht
 es die Test-Datenbanken und anonyme Benutzer. Weiterhin ist ein
@@ -353,7 +378,7 @@ Remote Login für den Benutzer &lt;code&gt;root&lt;/code&gt; nicht mehr möglich
 sudo su -
 mysql_secure_installation&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;tiny-tiny-rss-installieren&quot;&gt;Tiny Tiny RSS installieren&lt;/h2&gt;
+&lt;h2&gt;Tiny Tiny RSS installieren&lt;/h2&gt;
 
 &lt;p&gt;Man lädt sich die &lt;a href=&quot;https://github.com/gothfox/Tiny-Tiny-RSS/releases&quot;&gt;aktuellste Version&lt;/a&gt; von &lt;a href=&quot;http://tt-rss.org/&quot;&gt;Tiny Tiny RSS&lt;/a&gt; in das Document Root-Verzeichnis
 von Nginx und entpackt es&lt;/p&gt;
@@ -382,13 +407,13 @@ cat &lt;span class=&quot;s&quot;&gt;&amp;lt;&amp;lt; EOF &amp;gt; /usr/share/ngi
 &lt;span class=&quot;s&quot;&gt;kopierten Text hier einfügen&lt;/span&gt;
 &lt;span class=&quot;s&quot;&gt;EOF&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;feeds-aktualisieren&quot;&gt;Feeds aktualisieren&lt;/h3&gt;
+&lt;h3&gt;Feeds aktualisieren&lt;/h3&gt;
 
 &lt;p&gt;Dazu muss man die folgende Zeile in die &lt;code&gt;crontab&lt;/code&gt; von &lt;code&gt;root&lt;/code&gt; eintragen:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;*/30 * * * * su www-data -s /bin/bash -c &lt;span class=&quot;s1&quot;&gt;&amp;#39;/usr/bin/php /var/www/tt-rss/update.php --feeds --quiet&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;tiny-tiny-rss-fr-das-smartphone&quot;&gt;Tiny Tiny RSS für das Smartphone&lt;/h2&gt;
+&lt;h2&gt;Tiny Tiny RSS für das Smartphone&lt;/h2&gt;
 
 &lt;p&gt;Es gibt zwei Android Clients für Tiny Tiny RSS. Diese haben beide den Nachteil, dass sie unter Umständen
 Probleme mit den Ciphers der SSL Verschlüsselung haben. Da das bei mir der Fall war bin ich auf eine HTML
@@ -408,10 +433,10 @@ cp mobile/scripts/conf.js&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;-dist,&lt
 
 &lt;p&gt;Nun kann man unter &lt;code&gt;http(s)://IP/mobile/&lt;/code&gt; die HTML5 Anwendung für das Smartphone erreichen.&lt;/p&gt;
 
-&lt;h2 id=&quot;schlussbemerkung&quot;&gt;Schlussbemerkung&lt;/h2&gt;
+&lt;h2&gt;Schlussbemerkung&lt;/h2&gt;
+
 &lt;p&gt;Soll der soeben installierte Dienst auch außerhalb des eigenen Netzwerkes verfügbar sein, so müssen 
 folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -420,8 +445,7 @@ folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
    <link href="https://0rph3us.github.io/raspberry%20pi/2014/09/08/raspberry-pi-und-spdy/"/>
    <updated>2014-09-08T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/raspberry%20pi/2014/09/08/raspberry-pi-und-spdy</id>
-   <content type="html">
-&lt;p&gt;Auf meinen Raspberry Pi hatte ich meinen Nginx so konfiguriert, dass er seine
+   <content type="html">&lt;p&gt;Auf meinen Raspberry Pi hatte ich meinen Nginx so konfiguriert, dass er seine
 Inhalte auch per &lt;a href=&quot;http://de.wikipedia.org/wiki/SPDY&quot;&gt;SPDY&lt;/a&gt; ausliefern kann. Das hatte ganz seltsame Nebeneffekte
 bei einigen php-Anwendungen und diesem Blog. Ich habe eine weile gedacht, dass 
 meine DSL-Leitung zu langsam ist, weil ich auch bei statischen Seiten Verbindungsabbrüche
@@ -436,7 +460,6 @@ gesamtes Setup: Rasberry Pi und eine normale DSL-Leitung nicht geeignet sind um
 SPDY sinnvoll zu nutzen.&lt;/p&gt;
 
 &lt;p&gt;Durch diese Erfahung werde ich SPDY als Protokoll nicht mehr anbieten.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -445,41 +468,35 @@ SPDY sinnvoll zu nutzen.&lt;/p&gt;
    <link href="https://0rph3us.github.io/sicherheit/privat/2014/08/29/chrome-und-selbst-signierte-zertifikate/"/>
    <updated>2014-08-29T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/sicherheit/privat/2014/08/29/chrome-und-selbst-signierte-zertifikate</id>
-   <content type="html">
-&lt;p&gt;Heute habe ich festgestellt, dass Google den &lt;a href=&quot;http://www.google.de/intl/de/chrome/browser/&quot;&gt;Chrome&lt;/a&gt;-Browser (Version 37.0.2062.94 (64-Bit)) 
+   <content type="html">&lt;p&gt;Heute habe ich festgestellt, dass Google den &lt;a href=&quot;http://www.google.de/intl/de/chrome/browser/&quot;&gt;Chrome&lt;/a&gt;-Browser (Version 37.0.2062.94 (64-Bit)) 
 verhunzt hat. Es gibt jetzt einen &lt;strong&gt;Privacy Error&lt;/strong&gt; wenn eine Seite, wie dieser Blog, 
 ein selbst signiertes SSL-Zertifikat benutzt. Bis jetzt gab es einen &lt;strong&gt;SSL Error&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;chromium&quot;&gt;Chromium&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;The site&#39;s security certificate is not trusted!
+&lt;h2&gt;Chromium&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;The site&amp;#39;s security certificate is not trusted!
 
 You attempted to reach blog.rennecke.dyndns.dk, but the server presented a certificate
-issued by an entity that is not trusted by your computer&#39;s operating system. This may 
+issued by an entity that is not trusted by your computer&amp;#39;s operating system. This may 
 mean that the server has generated its own security credentials, which Chromium cannot 
 rely on for identity information, or an attacker may be trying to intercept your communications.
 
 You should not proceed, especially if you have never seen this warning before for this site.
 
 Proceed anyway       Back to safety
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;chome-jetzt&quot;&gt;Chome jetzt&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;Your connection is not private
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Chome jetzt&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Your connection is not private
 
 Attackers might be trying to steal your information from blog.rennecke.dyndns.dk 
 (for example, passwords, messages, or credit cards).
 
 advanced    Back to safety
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Diese Meldung finde ich unter aller Sau! Verdient Google auch an den Zertifikatverkäufen oder weswegen
 muss der Hinweis so drastisch ausfallen, dass ein nicht technikaffiner Nutzer nicht mehr auf meinen
 Blog kommt? Erst wenn man &lt;em&gt;advanced&lt;/em&gt; ausklappt hat man die Möglichkeit auf die Seit zu kommen. In
 Zeiten von Abhörskandalen darf man nicht selbst signierte Zertifikate boykottieren. So wächst nur
 die Hemmschwelle SSL einzusetzen.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -488,18 +505,17 @@ die Hemmschwelle SSL einzusetzen.&lt;/p&gt;
    <link href="https://0rph3us.github.io/privat/2014/08/11/ich-werde-modern/"/>
    <updated>2014-08-11T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/privat/2014/08/11/ich-werde-modern</id>
-   <content type="html">
-&lt;p&gt;Mein altes Telefon hat den Geist aufgegeben. Das war der Anlass dafür, dass ich
+   <content type="html">&lt;p&gt;Mein altes Telefon hat den Geist aufgegeben. Das war der Anlass dafür, dass ich
 mich entschlossen habe in  der Gegenwart anzukommen - Ich habe meine alte
 Telefonzelle durch ein modernes Smartphone ersetzt. Ein Smartphone hält mich aber
-nicht davon ab, mit meinen Laptop zu schreiben. Die Vorzüge einer “großen”
+nicht davon ab, mit meinen Laptop zu schreiben. Die Vorzüge einer &amp;quot;großen&amp;quot;
 Tastatur möchte ich nicht missen.&lt;/p&gt;
 
 &lt;p&gt;Nach etwas herumspielen kam die Ernüchterung: Trotz Android 4.4.4 gibt es Apps, 
 welche die SSL-Konfiguration von meinen Pi nicht mögen und sich nicht verbinden
-können. Diese scheinen alle in Java geschrieben zu sein…&lt;/p&gt;
+können. Diese scheinen alle in Java geschrieben zu sein...&lt;/p&gt;
 
-&lt;p&gt;Trotz dieses Dämpfers macht das neue “Spielzeug” Spaß. Ich habe schon ein paar
+&lt;p&gt;Trotz dieses Dämpfers macht das neue &amp;quot;Spielzeug&amp;quot; Spaß. Ich habe schon ein paar
 Ideen, wie ich in Verbindung mit meinen Pi einen echten Mehrwert für mich 
 generien kann.&lt;/p&gt;
 </content>
@@ -510,8 +526,7 @@ generien kann.&lt;/p&gt;
    <link href="https://0rph3us.github.io/raspberry%20pi/linux/2014/07/31/webserver-auf-dem-raspberry-pi-installieren/"/>
    <updated>2014-07-31T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/raspberry%20pi/linux/2014/07/31/webserver-auf-dem-raspberry-pi-installieren</id>
-   <content type="html">
-&lt;p&gt;Da man auf dem &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache&lt;/a&gt; als
+   <content type="html">&lt;p&gt;Da man auf dem &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache&lt;/a&gt; als
 Webserver für mich aus. Ich habe &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; und &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; ausprobiert. Von &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; war ich am 
 Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizierter wurde, war
 ich nicht mehr in Lage in die Ideen mit &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; umzusetzen. Die Ursache liegt weniger im
@@ -519,10 +534,10 @@ Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonf
 Default-Konfiguration wenn man &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; bei Raspbian installiert. Den endgültigen &lt;em&gt;Todesstoß&lt;/em&gt; hat
 &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; bekommen, als ich [Passenger] ausprobieren wollte. Für &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache&lt;/a&gt; und &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; gibt es fertige
 &lt;a href=&quot;https://www.phusionpassenger.com/&quot;&gt;Passanger&lt;/a&gt;-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; schlechter
-als &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; ist, aber ich bin bei “komplexen” Setups mit mehreren virtuellen Hosts und rewrite-Magie
+als &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; ist, aber ich bin bei &amp;quot;komplexen&amp;quot; Setups mit mehreren virtuellen Hosts und rewrite-Magie
 besser mit &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; zurecht gekommen.&lt;/p&gt;
 
-&lt;p&gt;Im folgenden werde ich mich auf &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; (“Engine-X”) konzentrieren. da es für ihn sehr viele Tutorials
+&lt;p&gt;Im folgenden werde ich mich auf &lt;a href=&quot;%22Engine-X%22&quot;&gt;Nginx&lt;/a&gt; konzentrieren. da es für ihn sehr viele Tutorials
 gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
@@ -530,7 +545,7 @@ Damit Nginx php ausliefern kann benötigt man php auf seinen Rechner sowie den
 PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederum statisches HTML generieren
 und an den Nginx weiter geben.&lt;/p&gt;
 
-&lt;h2 id=&quot;nginx-mit-php-installieren-und-einrichten&quot;&gt;Nginx mit php installieren und einrichten&lt;/h2&gt;
+&lt;h2&gt;Nginx mit php installieren und einrichten&lt;/h2&gt;
 
 &lt;p&gt;Vor der Installation von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein 
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
@@ -544,7 +559,7 @@ apt-get upgrade
 
 apt-get install nginx php5-fpm php5-cgi php5-cli php5-common&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;nginx-konfigurieren&quot;&gt;Nginx konfigurieren&lt;/h3&gt;
+&lt;h3&gt;Nginx konfigurieren&lt;/h3&gt;
 
 &lt;p&gt;Wenn man nur einen virtuellen Host einrichten möchte, kann man die gesamte Konfiguration in der
 &lt;code&gt;/etc/nginx/ningx.conf&lt;/code&gt; erledigen. Das Aufteilen der Konfiguration in mehrere Dateien macht diese
@@ -592,7 +607,7 @@ wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage ste
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;service nginx reload&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;test-der-konfiguration&quot;&gt;Test der Konfiguration&lt;/h3&gt;
+&lt;h3&gt;Test der Konfiguration&lt;/h3&gt;
 
 &lt;p&gt;Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
 folgenden Minimalbeispiel testen: &lt;/p&gt;
@@ -603,7 +618,6 @@ folgenden Minimalbeispiel testen: &lt;/p&gt;
 &lt;p&gt;Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser &lt;code&gt;http://192.168.1.100/info.php&lt;/code&gt; aufrufen
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
 192.168.1.100 hat.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -612,8 +626,7 @@ und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass
    <link href="https://0rph3us.github.io/privat/raspberry%20pi/2014/07/30/mein-raspberry-pi/"/>
    <updated>2014-07-30T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/privat/raspberry%20pi/2014/07/30/mein-raspberry-pi</id>
-   <content type="html">
-&lt;p&gt;Ich habe seit einiger Zeit einen &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt;, aber warum habe ich mir einen gekauft? Da ich inzwischen
+   <content type="html">&lt;p&gt;Ich habe seit einiger Zeit einen &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt;, aber warum habe ich mir einen gekauft? Da ich inzwischen
 Papa bin, musste meine Rechnerburg zugunsten des Kinderzimmers weichen. Ich hatte dann überlegt, ob ich
 mir einen Rootserver miete oder einfach einen &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Pi&lt;/a&gt; zum &lt;em&gt;spielen&lt;/em&gt; kaufe.&lt;/p&gt;
 
@@ -630,7 +643,6 @@ ersten Ideen, welche ich mit dem Pi umsetzen wollte. Etwas später ist noch dies
 
 &lt;p&gt;Aktuell bin ich noch am basteln, aber ich werde hier von meinen Fortschritten berichten. Das meiste läuft,
 aber ich bin noch am verbessern.&lt;/p&gt;
-
 </content>
  </entry>
  
@@ -639,14 +651,13 @@ aber ich bin noch am verbessern.&lt;/p&gt;
    <link href="https://0rph3us.github.io/linux/raspberry%20pi/2014/07/21/raspberry-pi-auf-jessie-updaten/"/>
    <updated>2014-07-21T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/linux/raspberry%20pi/2014/07/21/raspberry-pi-auf-jessie-updaten</id>
-   <content type="html">
-&lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 “Wheezy”. Seit einiger Zeit gibt
-es auch Raspbian Pakete für Debian 8 “Jessie”. Jessie ist der Nachfolger von “Wheezy”.
-Die Pakete von “Jessie” sind um einiges aktueller, als die von “Wheezy”. Das bedeutet
+   <content type="html">&lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 &amp;quot;Wheezy&amp;quot;. Seit einiger Zeit gibt
+es auch Raspbian Pakete für Debian 8 &amp;quot;Jessie&amp;quot;. Jessie ist der Nachfolger von &amp;quot;Wheezy&amp;quot;.
+Die Pakete von &amp;quot;Jessie&amp;quot; sind um einiges aktueller, als die von &amp;quot;Wheezy&amp;quot;. Das bedeutet
 aber, dass sie nicht unbedingt so stabil sein können. Ich habe bis jetzt noch keine
 negativen Erfahrungen gemacht.&lt;/p&gt;
 
-&lt;h3 id=&quot;aktualisierung-ausfhren&quot;&gt;Aktualisierung ausführen&lt;/h3&gt;
+&lt;h3&gt;Aktualisierung ausführen&lt;/h3&gt;
 
 &lt;p&gt;Die folgenden Schritte müssen alle als Benutzer &lt;strong&gt;root&lt;/strong&gt; ausgeführt werden. Entweder man
 loggt sie als &lt;strong&gt;root&lt;/strong&gt; ein,  man schreibt &lt;code&gt;sudo&lt;/code&gt; vor jedes Komando oder man öffnet eine
@@ -676,10 +687,9 @@ eine Zeile und diese sollte dann wie folgt aussehen:&lt;/p&gt;
    <link href="https://0rph3us.github.io/tools/linux/2014/07/17/neuer-blog/"/>
    <updated>2014-07-17T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/tools/linux/2014/07/17/neuer-blog</id>
-   <content type="html">
-&lt;p&gt;Ich habe mich entschlossen, meinen alten &lt;a href=&quot;http://wpde.org/&quot;&gt;Wordpress&lt;/a&gt;-Blog einzudampfen. Ich
+   <content type="html">&lt;p&gt;Ich habe mich entschlossen, meinen alten &lt;a href=&quot;http://wpde.org/&quot;&gt;Wordpress&lt;/a&gt;-Blog einzudampfen. Ich
 fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen
-“gut” aussehenden Blog mit “wenig” Arbeit zu pflegen.&lt;/p&gt;
+&amp;quot;gut&amp;quot; aussehenden Blog mit &amp;quot;wenig&amp;quot; Arbeit zu pflegen.&lt;/p&gt;
 
 &lt;p&gt;Nun bin ich auf &lt;a href=&quot;http://jekyllbootstrap.com&quot;&gt;JekyllBootstrap&lt;/a&gt; und &lt;a href=&quot;https://github.com/dhulihan/hooligan&quot;&gt;Hooligan&lt;/a&gt; gestoßen.
 Am Theme habe ich etwas etwas Hand angelegt. Als
@@ -688,12 +698,14 @@ Code auf &lt;a href=&quot;https://github.com/0rph3us/jekyll-bootstrap&quot;&gt;g
 
 &lt;p&gt;Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.&lt;/p&gt;
 
-&lt;h2 id=&quot;der-alte&quot;&gt;Der Alte&lt;/h2&gt;
+&lt;h2&gt;Der Alte&lt;/h2&gt;
+
 &lt;p&gt;Ich habe bzw. bin noch dabei die gesamten Inhalte des alten Wordpress zu portieren. Das meiste habe
 ich automatisch migriert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
 die alten Posts überarbeiten.&lt;/p&gt;
 
-&lt;h2 id=&quot;technik&quot;&gt;Technik&lt;/h2&gt;
+&lt;h2&gt;Technik&lt;/h2&gt;
+
 &lt;p&gt;Die erste Version des Blogs wird auf meinen Raspberry Pi laufen. Als Webserver verwende ich Nginx, außerdem 
 verwende ich Varnish zum cachen. Ich hoffe, dass mit diesem Setup die Geschwindigkeit des Blog 
 erträglich bleibt. &lt;/p&gt;
@@ -778,7 +790,7 @@ anstatt etwas vorhandenes zu vereinfachen bzw. Regeln über Algorithmen und Schl
 
 &lt;p&gt;Hier ein Beispiel: (Padé-Approximation) &lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; f_{ML}(x)=\frac{\sum^{L}_{i=0}a_ix^i}{\sum^{M}_{v=0}c_vx^v} &lt;/script&gt;
+&lt;p&gt;$$ f&lt;em&gt;{ML}(x)=\frac{\sum^{L}&lt;/em&gt;{i=0}a&lt;em&gt;ix^i}{\sum^{M}&lt;/em&gt;{v=0}c_vx^v} $$&lt;/p&gt;
 
 &lt;p&gt;P.S.: Für diesen Blog hoste ich &lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; selbst, also keine Angst
 vor fremden JavaScript.&lt;/p&gt;
@@ -876,7 +888,7 @@ Mit Hilfe von &lt;a href=&quot;http://dev.mysql.com/doc/refman/5.0/en/forcing-in
    <updated>2011-07-30T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/privat/programmieren/latex/2011/07/30/briefvorlage-mit-latex</id>
    <content type="html">&lt;p&gt;Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon. 
-Aus diesem Grund wollte ich in meiner &lt;script type=&quot;math/tex&quot;&gt; \LaTeX &lt;/script&gt;-Vorlage für meine Briefe beide Nummern stehen haben. 
+Aus diesem Grund wollte ich in meiner $$ \LaTeX $$-Vorlage für meine Briefe beide Nummern stehen haben. 
 Die &lt;a href=&quot;http://developer.berlios.de/projects/koma-script3/&quot;&gt;KOMA-Skript&lt;/a&gt; Pakete können von Haus aus, nur eine 
 Telefonnummer, deswegen habe ich meine Vorlage, welche ich von &lt;a href=&quot;http://meet-unix.org/&quot;&gt;meet-unix&lt;/a&gt; habe, wie folgt angepasst.&lt;/p&gt;
 
@@ -945,7 +957,7 @@ footsepline=off
 
 &lt;span class=&quot;k&quot;&gt;\endinput&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;beipieldokument&quot;&gt;Beipieldokument&lt;/h2&gt;
+&lt;h2&gt;Beipieldokument&lt;/h2&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-latex&quot; data-lang=&quot;latex&quot;&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[letter_options,parskip=half+,version=last,fontsize=11pt,DIV=11,BCOR=10mm, DIN]&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;scrlttr2&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 
@@ -1566,8 +1578,8 @@ Ich schreibe meine Diplomarbeit mit [latex]\LaTeX[/latex]. Da bekommt man auch e
    <link href="https://0rph3us.github.io/sonstiges/tools/latex/2010/08/27/bilder-richtig-platzieren/"/>
    <updated>2010-08-27T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/sonstiges/tools/latex/2010/08/27/bilder-richtig-platzieren</id>
-   <content type="html">&lt;p&gt;Wenn man bei &lt;script type=&quot;math/tex&quot;&gt;\LaTeX&lt;/script&gt;  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
-&lt;script type=&quot;math/tex&quot;&gt;\LaTeX&lt;/script&gt;  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
+   <content type="html">&lt;p&gt;Wenn man bei $$\LaTeX$$  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
+$$\LaTeX$$  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
 dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package &lt;code&gt;here&lt;/code&gt;, welches inzwischen
 bei &lt;a href=&quot;http://tug.org/texlive/&quot;&gt;TeX Live&lt;/a&gt; durch &lt;code&gt;float&lt;/code&gt; ersetzt wurde.&lt;/p&gt;
 
@@ -1585,7 +1597,6 @@ bei &lt;a href=&quot;http://tug.org/texlive/&quot;&gt;TeX Live&lt;/a&gt; durch &
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;figure&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </content>
  </entry>
  
@@ -1720,11 +1731,10 @@ Ich habe mich die letzten Tage mit der &lt;a href=&quot;http://www.cplusplus.com
    <link href="https://0rph3us.github.io/linux/sonstiges/2010/08/16/neues-logo-fur-iceweasel/"/>
    <updated>2010-08-16T00:00:00+02:00</updated>
    <id>https://0rph3us.github.io/linux/sonstiges/2010/08/16/neues-logo-fur-iceweasel</id>
-   <content type="html">&lt;p&gt;Es werden &lt;a href=&quot;http://mozilla.debian.net/en-US/logos/&quot;&gt;neue Logos&lt;/a&gt; für Ice[weasel | ape | dove] gesucht. 
+   <content type="html">&lt;p&gt;Es werden &lt;a href=&quot;http://mozilla.debian.net/en-US/logos/&quot;&gt;neue Logos&lt;/a&gt; f&amp;uuml;r Ice[weasel | ape | dove] gesucht. 
 Ich habe mir mit &lt;a href=&quot;http://binfalse.de&quot;&gt;Martin&lt;/a&gt;, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/Iceweasel.png&quot; title=&quot;alternatives Iceweasel-Logo&quot; data-lightbox=&quot;ice&quot;&gt;&lt;img src=&quot;/generated/Iceweasel-372x297-27a745.png&quot; alt=&quot;alternatives Iceweasel-Logo&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;a href=&quot;/uploads/images/Iceweasel.png&quot; title=&quot;alternatives Iceweasel-Logo&quot; data-lightbox=&quot;ice&quot; &gt;&lt;img src=&quot;/generated/Iceweasel-372x297-27a745.png&quot; alt=&quot;alternatives Iceweasel-Logo&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1740,20 +1750,19 @@ Das es eine solche Funktion gibt war lange Zeit unbekannt.&lt;/p&gt;
 Diese ist im Nullpunkt nicht diffenzierbar. Der Mathematiker &lt;a href=&quot;http://de.wikipedia.org/wiki/Karl_Weierstra%C3%9F&quot;&gt;Karl Weierstraß&lt;/a&gt;
 hat im 19. Jahrhundert eine Funktion konstruiert, welche überall stetig, aber an keiner Stelle differenziebar ist.&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(x) = \sum_{n=0}^\infty \frac{\sin(101^n\cdot x)}{100^n} &lt;/script&gt;
+&lt;p&gt;$$ f(x) = \sum_{n=0}^\infty \frac{\sin(101^n\cdot x)}{100^n} $$&lt;/p&gt;
 
 &lt;p&gt;Das ist nicht die Orginale Funktion von ihm, welche er zuerst vorgestellt hat. Diese Funktion sieht aber aus wie eine Sinuskurve. 
 Die Zacken im Plot entstehen, weil die Summe nicht bis Unendlich läuft. Aus Gründen der Zahlendarstellung im Rechner,
 habe ich die Summe nur bis 50 laufen lassen.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/weierstrass.png&quot; title=&quot;Plots der Weierstraß- und Sinusfunktion&quot; data-lightbox=&quot;test_group&quot;&gt;&lt;img src=&quot;/generated/weierstrass-200x200-c00600.png&quot; alt=&quot;test image&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/weierstrass.png&quot; title=&quot;Plots der Weierstraß- und Sinusfunktion&quot; data-lightbox=&quot;test_group&quot; &gt;&lt;img src=&quot;/generated/weierstrass-200x200-c00600.png&quot; alt=&quot;test image&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Seine erste Funktion sah wie folgt aus:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt; f(x) = \sum_{n=0}^\infty a^n\cos(b^n\pi x) &lt;/script&gt;
+&lt;p&gt;$$ f(x) = \sum_{n=0}^\infty a^n\cos(b^n\pi x) $$&lt;/p&gt;
 
-&lt;p&gt;Unter den folgenden Bedingungen: &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
- 0 &lt; a &lt; 1 %]]&gt;&lt;/script&gt;  und &lt;script type=&quot;math/tex&quot;&gt;b \in \mathbb{N}&lt;/script&gt; sowie &lt;script type=&quot;math/tex&quot;&gt; ab &gt; 1+\frac{3}{2} \pi&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;Unter den folgenden Bedingungen: $$ 0 &amp;lt; a &amp;lt; 1$$  und $$b \in \mathbb{N}$$ sowie $$ ab &amp;gt; 1+\frac{3}{2} \pi$$&lt;/p&gt;
 </content>
  </entry>
  
@@ -2899,7 +2908,6 @@ c17::rmt/0                     tape         connecte
 einbinden bzw. tauschen. Ich vertrete die Auffassung, das man in einer nonglobal-Zone,
 so weit es möglich ist, keine Devices gibt. Das kann unter Umständen zu Probleme
 bei der Migration der Zonen führen.&lt;/p&gt;
-
 </content>
  </entry>
  

@@ -178,8 +178,7 @@
 
 <div class="row">
   <div class="span8">
-    
-<p>In den letzten beiden Beiträgen habe ich erklärt, wie man den <a href="/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/">DTH22</a> bzw. <a href="/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/">BMP085</a> am
+    <p>In den letzten beiden Beiträgen habe ich erklärt, wie man den <a href="/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/">DTH22</a> bzw. <a href="/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/">BMP085</a> am
 Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu 
 visualisieren. In einen kleinen Prototyp habe ich die Daten mit <a href="http://oss.oetiker.ch/rrdtool/">RRDtool</a> gespeichert und mit <a href="http://www.highcharts.com/">Highcharts</a>
 angezeigt. </p>
@@ -187,15 +186,14 @@ angezeigt. </p>
 <p>Meine Idee war, dass ich aus der RRD-Datenbank einige Daten zu json konvertiere, um sie dann
 mit Highcharts anzuzeigen. Die json-Daten wollte ich mit einem ajax-Request nachladen. Da ich
 so gut wie keine JavaScript- und JQuerry-Kenntnisse habe, habe ich sehr lange vergeblich 
-probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte “json” mir angesehen
-habe, ist mir aufgefallen, dass es kein valides json ist… </p>
+probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte &quot;json&quot; mir angesehen
+habe, ist mir aufgefallen, dass es kein valides json ist... </p>
 
 <p>Weil ich noch ein Erfolgserlebnis haben wollte, bin ich auf den validen xml-Export von
 RRDtool umgestiegen. Danach hat der Prototyp funktioniert.</p>
 
 <p>Nach etwas Recherche im Netz, bin ich auch auf ein <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825">Bug-Ticket</a> gestoßen, welches den kaputten
 json-Export anspricht.</p>
-
 
     <hr>
     <div class="pagination btn-group">

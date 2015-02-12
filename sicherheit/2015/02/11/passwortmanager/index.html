@@ -178,25 +178,25 @@
 
 <div class="row">
   <div class="span8">
-    
-<p>Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+    <p>Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch <em>komplex</em> sein. Da ich mir
 nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
 von solchen Tools, aber keins hat mich mich bis überzeugt.</p>
 
-<h3 id="meine-anforderungen-sind">Meine Anforderungen sind</h3>
+<h3>Meine Anforderungen sind</h3>
+
 <ul>
-  <li>einfach zu bedienen</li>
-  <li>einfache synchronisation zwischen mehreren Geräten</li>
-  <li>leichtgewichtig</li>
-  <li>eine GUI ist nicht nötig</li>
-  <li>Windowsunterstützung ist mir egal, da ich kein Windows nutze</li>
+<li>einfach zu bedienen</li>
+<li>einfache synchronisation zwischen mehreren Geräten</li>
+<li>leichtgewichtig</li>
+<li>eine GUI ist nicht nötig</li>
+<li>Windowsunterstützung ist mir egal, da ich kein Windows nutze</li>
 </ul>
 
 <p><a href="http://keepass.info/">KeePass 2</a> würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass 
 es recht schwergewichtig ist, weil ich dafür noch <a href="http://www.mono-project.com/">Mono</a> benötige, was ich sonst nicht auf meinen Rechnern habe. </p>
 
-<h2 id="pass---der-standard-unix-passwortmanager">pass - Der Standard Unix Passwortmanager</h2>
+<h2>pass - Der Standard Unix Passwortmanager</h2>
 
 <p>Nachdem ich <a href="http://www.passwordstore.org/">pass</a> gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange. 
 Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit <a href="https://www.gnupg.org/">GnuPG</a> verschlüsselt und bei Bedarf
@@ -207,7 +207,7 @@ verschiedene Clients hinweg zu sychronisieren. </p>
 möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass <em>nur</em> ein Shell-Skript
 ist, welches einige Standarttools sowie GnuPG und git nutzt.</p>
 
-<h3 id="anwendung">Anwendung</h3>
+<h3>Anwendung</h3>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">pass init EE75C6FE
 mkdir: created directory ‘/home/rennecke/.password-store’
@@ -227,22 +227,23 @@ von git nutzen. Die <code>&lt;parameter&gt;</code> von <code>pass git &lt;parame
 aktzeptiert, <code>pass</code> alles was nach git kommt 1:1 an <code>git</code> weiter.</p>
 
 <p>An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
-kann sich <a href="http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE">hier</a> einen Überblick verschaffen.</p>
+kann sich [hier] einen Überblick verschaffen.</p>
 
-<h3 id="android-app">Android App</h3>
+<h3>Android App</h3>
 
 <p>Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App <a href="https://github.com/zeapo/Android-Password-Store">Password Store</a>. Sie überzeugt mich, durch ein
 gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte 
 ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich <a href="http://www.openkeychain.org/">OpenKeychain</a>. OpenKeychain unterstüzt selbstverständlich
 auch mit einem Passwort gesicherte private Schlüssel.</p>
 
-<h3 id="nachtrag">Nachtrag</h3>
+<h3>Nachtrag</h3>
 
 <p>Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
 Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
 falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn 
 man täglich diese Schlüssel nutzt.</p>
 
+<p>[hier]: http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE</p>
 
     <hr>
     <div class="pagination btn-group">
@@ -251,7 +252,7 @@ man täglich diese Schlüssel nutzt.</p>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next disabled">Neuer &rarr;</a>
+        <a class="btn next" href="/linux/tools/2015/02/12/skripte-parallelisieren/" title="Skripte parallelisieren">Neuer &rarr;</a>
       
     </div>
     

@@ -178,8 +178,7 @@
 
 <div class="row">
   <div class="span8">
-    
-<p>Da man auf dem <a href="http://www.raspberrypi.org/">Raspberry Pi</a> nicht sehr viele Ressourcen zur Verfügung hat, scheidet <a href="http://httpd.apache.org/">Apache</a> als
+    <p>Da man auf dem <a href="http://www.raspberrypi.org/">Raspberry Pi</a> nicht sehr viele Ressourcen zur Verfügung hat, scheidet <a href="http://httpd.apache.org/">Apache</a> als
 Webserver für mich aus. Ich habe <a href="http://www.lighttpd.net/">lighttpd</a> und <a href="http://nginx.org">Nginx</a> ausprobiert. Von <a href="http://www.lighttpd.net/">lighttpd</a> war ich am 
 Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizierter wurde, war
 ich nicht mehr in Lage in die Ideen mit <a href="http://www.lighttpd.net/">lighttpd</a> umzusetzen. Die Ursache liegt weniger im
@@ -187,10 +186,10 @@ Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonf
 Default-Konfiguration wenn man <a href="http://www.lighttpd.net/">lighttpd</a> bei Raspbian installiert. Den endgültigen <em>Todesstoß</em> hat
 <a href="http://www.lighttpd.net/">lighttpd</a> bekommen, als ich [Passenger] ausprobieren wollte. Für <a href="http://httpd.apache.org/">Apache</a> und <a href="http://nginx.org">Nginx</a> gibt es fertige
 <a href="https://www.phusionpassenger.com/">Passanger</a>-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass <a href="http://www.lighttpd.net/">lighttpd</a> schlechter
-als <a href="http://nginx.org">Nginx</a> ist, aber ich bin bei “komplexen” Setups mit mehreren virtuellen Hosts und rewrite-Magie
+als <a href="http://nginx.org">Nginx</a> ist, aber ich bin bei &quot;komplexen&quot; Setups mit mehreren virtuellen Hosts und rewrite-Magie
 besser mit <a href="http://nginx.org">Nginx</a> zurecht gekommen.</p>
 
-<p>Im folgenden werde ich mich auf <a href="http://nginx.org">Nginx</a> (“Engine-X”) konzentrieren. da es für ihn sehr viele Tutorials
+<p>Im folgenden werde ich mich auf <a href="%22Engine-X%22">Nginx</a> konzentrieren. da es für ihn sehr viele Tutorials
 gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den <a href="http://www.raspberrypi.org/">Raspberry Pi</a>.</p>
 
 <p>Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
@@ -198,7 +197,7 @@ Damit Nginx php ausliefern kann benötigt man php auf seinen Rechner sowie den
 PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederum statisches HTML generieren
 und an den Nginx weiter geben.</p>
 
-<h2 id="nginx-mit-php-installieren-und-einrichten">Nginx mit php installieren und einrichten</h2>
+<h2>Nginx mit php installieren und einrichten</h2>
 
 <p>Vor der Installation von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein 
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
@@ -212,7 +211,7 @@ apt-get upgrade
 
 apt-get install nginx php5-fpm php5-cgi php5-cli php5-common</code></pre></div>
 
-<h3 id="nginx-konfigurieren">Nginx konfigurieren</h3>
+<h3>Nginx konfigurieren</h3>
 
 <p>Wenn man nur einen virtuellen Host einrichten möchte, kann man die gesamte Konfiguration in der
 <code>/etc/nginx/ningx.conf</code> erledigen. Das Aufteilen der Konfiguration in mehrere Dateien macht diese
@@ -260,7 +259,7 @@ wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage ste
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">service nginx reload</code></pre></div>
 
-<h3 id="test-der-konfiguration">Test der Konfiguration</h3>
+<h3>Test der Konfiguration</h3>
 
 <p>Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
 folgenden Minimalbeispiel testen: </p>
@@ -271,7 +270,6 @@ folgenden Minimalbeispiel testen: </p>
 <p>Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser <code>http://192.168.1.100/info.php</code> aufrufen
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
 192.168.1.100 hat.</p>
-
 
     <hr>
     <div class="pagination btn-group">
