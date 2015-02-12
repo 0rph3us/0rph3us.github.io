@@ -5,6 +5,7 @@ https://0rph3us.github.io/archive.html
 https://0rph3us.github.io/atom.xml
 https://0rph3us.github.io/categories.html
 https://0rph3us.github.io/index.html
+https://0rph3us.github.io/pages/links.html
 https://0rph3us.github.io/pages.html
 https://0rph3us.github.io/rss.xml
 https://0rph3us.github.io/sitemap.txt
