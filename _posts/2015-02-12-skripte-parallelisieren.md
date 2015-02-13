@@ -15,6 +15,7 @@ Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich [bash]-Skri
 
 Man kann `parallel` als Ersatz für `xargs` nehmen oder um Schleifen zu parallelisieren. Auf der Seite von `parallel` gibt es viele [Beispiele], welche über das parallelisieren von Schleifen hinaus gehen.
 
+### Aktueller Anwendungsfall
 Ich nutze `parallel` zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine [NFS]-Freigabe. Ich habe [rsync] und `cp` probiert. `rsync` ist in meinen Fall langsamer als `cp`.
 
 Aus diesem Grund habe ich `cp`, wie folgt parallelisiert:
@@ -23,7 +24,7 @@ Aus diesem Grund habe ich `cp`, wie folgt parallelisiert:
 find . -type f -mtime -2 | parallel --jobs 16 /usr/sbin/backup_helper.sh {}
 ```
 
-Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen `cp`s auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw mit `rsync` bin ich nicht über 100MBit/s gekommen.
+Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen `cp` auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit `rsync` bin ich nicht über 100MBit/s gekommen.
 
 Das script `backup_helper.sh` sieht wie folgt aus:
 
@@ -35,6 +36,8 @@ base="$(dirname ${1})"
 mkdir -p "/backup/${base}"
 cp "${1}" "/backup/${1}"
 ```
+
+
 
 [bash]: http://tiswww.case.edu/php/chet/bash/bashtop.html
 [rsync]: http://rsync.samba.org/
