@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-13T07:04:13+01:00</updated>
+ <updated>2015-02-13T07:19:20+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -21,12 +21,14 @@
 
 &lt;p&gt;Man kann &lt;code&gt;parallel&lt;/code&gt; als Ersatz für &lt;code&gt;xargs&lt;/code&gt; nehmen oder um Schleifen zu parallelisieren. Auf der Seite von &lt;code&gt;parallel&lt;/code&gt; gibt es viele &lt;a href=&quot;http://www.gnu.org/software/parallel/man.html&quot;&gt;Beispiele&lt;/a&gt;, welche über das parallelisieren von Schleifen hinaus gehen.&lt;/p&gt;
 
+&lt;h3&gt;Aktueller Anwendungsfall&lt;/h3&gt;
+
 &lt;p&gt;Ich nutze &lt;code&gt;parallel&lt;/code&gt; zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine &lt;a href=&quot;http://de.wikipedia.org/wiki/Network_File_System&quot;&gt;NFS&lt;/a&gt;-Freigabe. Ich habe &lt;a href=&quot;http://rsync.samba.org/&quot;&gt;rsync&lt;/a&gt; und &lt;code&gt;cp&lt;/code&gt; probiert. &lt;code&gt;rsync&lt;/code&gt; ist in meinen Fall langsamer als &lt;code&gt;cp&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Aus diesem Grund habe ich &lt;code&gt;cp&lt;/code&gt;, wie folgt parallelisiert:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;find . -type f -mtime -2 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; parallel --jobs &lt;span class=&quot;m&quot;&gt;16&lt;/span&gt; /usr/sbin/backup_helper.sh &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt;s auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
+&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt; auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
 
 &lt;p&gt;Das script &lt;code&gt;backup_helper.sh&lt;/code&gt; sieht wie folgt aus:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cat /usr/sbin/backup_helper.sh

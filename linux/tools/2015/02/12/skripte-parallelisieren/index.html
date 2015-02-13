@@ -182,12 +182,14 @@
 
 <p>Man kann <code>parallel</code> als Ersatz für <code>xargs</code> nehmen oder um Schleifen zu parallelisieren. Auf der Seite von <code>parallel</code> gibt es viele <a href="http://www.gnu.org/software/parallel/man.html">Beispiele</a>, welche über das parallelisieren von Schleifen hinaus gehen.</p>
 
+<h3>Aktueller Anwendungsfall</h3>
+
 <p>Ich nutze <code>parallel</code> zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine <a href="http://de.wikipedia.org/wiki/Network_File_System">NFS</a>-Freigabe. Ich habe <a href="http://rsync.samba.org/">rsync</a> und <code>cp</code> probiert. <code>rsync</code> ist in meinen Fall langsamer als <code>cp</code>.</p>
 
 <p>Aus diesem Grund habe ich <code>cp</code>, wie folgt parallelisiert:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">find . -type f -mtime -2 <span class="p">|</span> parallel --jobs <span class="m">16</span> /usr/sbin/backup_helper.sh <span class="o">{}</span>
 </code></pre></div>
-<p>Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen <code>cp</code>s auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw mit <code>rsync</code> bin ich nicht über 100MBit/s gekommen.</p>
+<p>Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen <code>cp</code> auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit <code>rsync</code> bin ich nicht über 100MBit/s gekommen.</p>
 
 <p>Das script <code>backup_helper.sh</code> sieht wie folgt aus:</p>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">cat /usr/sbin/backup_helper.sh
@@ -222,7 +224,7 @@ cp <span class="s2">&quot;${1}&quot;</span> <span class="s2">&quot;/backup/${1}&
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>12.02.2015 21:58 Uhr</div>
+      <div class="date"><span></span>13.02.2015 07:18 Uhr</div>
     </section>
     
       <section>
