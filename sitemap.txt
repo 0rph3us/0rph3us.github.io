@@ -11,6 +11,7 @@ https://0rph3us.github.io/rss.xml
 https://0rph3us.github.io/sitemap.txt
 https://0rph3us.github.io/tags.html
 
+https://0rph3us.github.io/linux/tools/2015/02/15/modernes-logging/
 https://0rph3us.github.io/linux/tools/2015/02/12/skripte-parallelisieren/
 https://0rph3us.github.io/sicherheit/2015/02/11/passwortmanager/
 https://0rph3us.github.io/privat/2015/02/09/hallo-github/
