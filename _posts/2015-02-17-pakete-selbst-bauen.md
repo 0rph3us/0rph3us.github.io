@@ -95,31 +95,31 @@ Man erhält dann im aktuellen Verzeichnis ein `rpm`- und ein `deb`-Paket. So kan
 
 
 #### Sources
-* _gem_ (automatischer download)
-* python modules (automatischer download)
-* _pear_ (automatischer download)
-* _dir_ Verzeichnisse
-* _tar_ 
-* _pear_ php-Module (automatischer download)
-* _rpm_
-* _deb_
-* _zip_
-* _empty_ erzeugt ein leeres Paket, welches man oft für Metapakte benutzt
-* _npm_ nodejs Module (automaticher download)
-* _cpan_ peal-Module (automatischer download)
-* _osxpkg_ Mac OS X Pakete (nur auf Mac verfügbar)
+* __gem__ ruby-gem (automatischer Download)
+* __python__ [python]-Module, welche `easy_install` unterstützen (automatischer Download)
+* __pear__ [php]-Module (automatischer Download von [pear.php.net])
+* __dir__ Verzeichnis
+* __tar__ [tar]-Archiv
+* __pear__ php-Module (automatischer Download)
+* __rpm__ [rpm]-Paket
+* __deb__ deb-Paket
+* __zip__ [zip]-Archiv
+* __empty__ erzeugt ein leeres Paket, welches man oft für Metapakte benutzt
+* __npm__ nodejs Module (automaticher Download)
+* __cpan__ peal-Module (automatischer Download)
+* __osxpkg__ Mac OS X Pakete (nur auf Mac verfügbar)
 
 #### Targets
-* deb
-* rpm
-* zip
-* tar
-* dir
-* sh (selbst entpackendes Shell skript, welches ein bzip2 gepacktes tar enthält)
-* osxpkg (nur auf Mac verfügbar)
-* solaris Solaris Pakete (nur auf Solaris möglich)
-* pkgin BSD pakete (nur auf BSD möglich)
-* puppet ([puppet]-Modul, aktuell noch nicht implementiert)
+* __deb__
+* __rpm__
+* __zip__
+* __tar__
+* __dir__
+* __sh__ (selbst entpackendes Shell skript, welches ein [bzip2] gepacktes tar enthält)
+* __osxpkg__ (nur auf Mac verfügbar)
+* __solaris__ Solaris Pakete (nur auf Solaris möglich)
+* __pkgin__ BSD pakete (nur auf BSD möglich)
+* __puppet__ ([puppet]-Modul, aktuell noch nicht implementiert)
 
 
 [binfalse]: http://binfalse.de/
@@ -132,3 +132,9 @@ Man erhält dann im aktuellen Verzeichnis ein `rpm`- und ein `deb`-Paket. So kan
 [npm]: https://www.npmjs.com/
 [nodejs]: http://nodejs.org/
 [puppet]: http://puppetlabs.com/puppet/what-is-puppet
+[tar]: http://de.wikipedia.org/wiki/Tar
+[zip]: http://de.wikipedia.org/wiki/ZIP-Dateiformat
+[python]: https://www.python.org/
+[php]: http://php.net/
+[pear.php.net]: http://pear.php.net/
+[bzip2]: http://www.bzip.org/
