@@ -4,13 +4,119 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-15T14:08:24+01:00</updated>
+ <updated>2015-02-19T21:17:49+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
    <email>michael.rennecke@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Pakete selbst bauen</title>
+   <link href="https://0rph3us.github.io/linux/2015/02/19/pakete-selbst-bauen/"/>
+   <updated>2015-02-19T00:00:00+01:00</updated>
+   <id>https://0rph3us.github.io/linux/2015/02/19/pakete-selbst-bauen</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://binfalse.de/&quot;&gt;binfalse&lt;/a&gt; hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf &lt;a href=&quot;http://de.wikipedia.org/wiki/Debian-Paket&quot;&gt;deb&lt;/a&gt;-Pakete während RedHat und Fedora auf &lt;a href=&quot;http://de.wikipedia.org/wiki/RPM_Package_Manager&quot;&gt;rpm&lt;/a&gt;-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll &lt;strong&gt;Sktripte&lt;/strong&gt; zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.&lt;/p&gt;
+
+&lt;p&gt;Um unnötige Komplikationen zu vermeiden, gibt es Tool &lt;a href=&quot;https://github.com/jordansissel/fpm/wiki&quot;&gt;fpm&lt;/a&gt;. Es kann unter anderm deb- und rpm-Pakete erstellen. fpm ist in &lt;a href=&quot;https://www.ruby-lang.org/de/&quot;&gt;ruby&lt;/a&gt; geschrieben. Aus diesem Grund muss man etwas Vorarbeit leisten.&lt;/p&gt;
+
+&lt;h3&gt;Installation von fpm unter Ubuntu/Debian&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo apt-get update
+sudo apt-get install ruby-dev build-essential
+sudo gem install fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wenn das &lt;a href=&quot;http://guides.rubygems.org/what-is-a-gem/&quot;&gt;gem&lt;/a&gt; &lt;code&gt;fpm&lt;/code&gt; installiert ist, dann gibt es den Befehl &lt;code&gt;fpm&lt;/code&gt; im &lt;code&gt;PATH&lt;/code&gt;. Man kann das ganze wie folgt testen:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;fpm -h
+Intro:
+
+  This is fpm version 1.3.3
+
+  If you think something is wrong, it&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;s probably a bug! :&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  Please file these here: https://github.com/jordansissel/fpm/issues
+
+  You can find support on irc &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#fpm on freenode irc) or via email with&lt;/span&gt;
+  fpm-users@googlegroups.com
+
+Usage:
+    fpm &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OPTIONS&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ARGS&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; ...
+
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun kann man anfangen Pakte zu bauen. Ein Aufruf sieht im einfachsten Fall so aus: &lt;code&gt;fpm -s source_type -t target_type  source_name_or_location&lt;/code&gt; Der &lt;strong&gt;source_type&lt;/strong&gt; bzw. &lt;strong&gt;target_type&lt;/strong&gt; können die verschiedensten Paketformate sein. Einige Pakettype benötigen Hilfsprogramme, damit &lt;code&gt;fpm&lt;/code&gt; sie erstellen kann. Da ich annehme, dass &lt;code&gt;fpm&lt;/code&gt; auf einen Debian bzw. Ubuntu benutzt wird, zeige ich im folgenden Beispiel wie man aus einen &lt;a href=&quot;http://guides.rubygems.org/what-is-a-gem/&quot;&gt;ruby&lt;/a&gt; ein deb-Paket baut.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;fpm -s gem -t deb bundler
+Erstellt package &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;: &lt;span class=&quot;nv&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;rubygem-bundler_1.6.5_all.deb&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Es wird die Datei &lt;code&gt;rubygem-bundler_1.6.5_all.deb&lt;/code&gt; im aktuellen Verzeichnis erstellt. (Ihre Versionsnummer kann abweichen). Diese kann man dann ganz einfach installieren (oder zu einen Repository hinzufügen).&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo dpkg -i rubygem-bundler_1.6.5_all.de
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wenn die Quelle ein &lt;strong&gt;Standart Reporitory&lt;/strong&gt; wie &lt;a href=&quot;https://rubygems.org/&quot;&gt;rubygems.org&lt;/a&gt; für ruby gems  oder  &lt;a href=&quot;https://www.npmjs.com/&quot;&gt;npm&lt;/a&gt; für &lt;a href=&quot;http://nodejs.org/&quot;&gt;nodejs&lt;/a&gt; Pakete, dann ist fpm in der Lage automatisch alle benötigten Dateien herunterzuladen.&lt;/p&gt;
+
+&lt;p&gt;Es ist auch sehr einfach möglich fremde Software zu packen, welche man compilieren muss. Im Allgemeinen sieht das wie folgt aus:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Vorbereitung&lt;/span&gt;
+mkdir ~/build
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/build
+git clone https://github.com/cool/cool-app
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;cool-app
+
+&lt;span class=&quot;c&quot;&gt;# bauen&lt;/span&gt;
+make
+mkdir -p /tmp/cool-app 
+make install &lt;span class=&quot;nv&quot;&gt;DESTDIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/tmp/cool-app
+fpm -s -t dir deb -C /tmp/cool-app &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --name cool-app-name &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --version 1.0.0 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --iteration &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --depends &lt;span class=&quot;s2&quot;&gt;&amp;quot;Abhänigkeit 1 (&amp;gt;= 2.0.0)&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --depends &lt;span class=&quot;s2&quot;&gt;&amp;quot;Abhänigkeit 2&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --description &lt;span class=&quot;s2&quot;&gt;&amp;quot;Ein Beispielpaket&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+ .
+
+fpm -s -t dir rpm -C /tmp/cool-app &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --name cool-app-name &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --version 1.0.0 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --iteration &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --depends &lt;span class=&quot;s2&quot;&gt;&amp;quot;Abhänigkeit 1 (&amp;gt;= 2.0.0)&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --depends &lt;span class=&quot;s2&quot;&gt;&amp;quot;Abhänigkeit 2&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  --description &lt;span class=&quot;s2&quot;&gt;&amp;quot;Ein Beispielpaket&amp;quot;&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Man erhält dann im aktuellen Verzeichnis ein &lt;code&gt;rpm&lt;/code&gt;- und ein &lt;code&gt;deb&lt;/code&gt;-Paket. So kann man einfach und schnell Pakete für das eigene System bauen oder für andere, wenn man z.B. selbst Software bereit stellt. Man kann auch statt des &lt;code&gt;.&lt;/code&gt; am Ende des &lt;code&gt;fpm&lt;/code&gt;-Komandos sagt, dass der gesamte Inhalt von unter &lt;code&gt;/tmp/cool-app&lt;/code&gt; in das Paket soll. Man kann/sollte auch die Vezeichnisse einzeln angeben z.B. &lt;code&gt;etc/cool-app usr/bin usr/share/man&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4&gt;Sources&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;gem&lt;/strong&gt; ruby-gem (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;python&lt;/strong&gt; &lt;a href=&quot;https://www.python.org/&quot;&gt;python&lt;/a&gt;-Module, welche &lt;code&gt;easy_install&lt;/code&gt; unterstützen (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pear&lt;/strong&gt; &lt;a href=&quot;http://php.net/&quot;&gt;php&lt;/a&gt;-Module (automatischer Download von &lt;a href=&quot;http://pear.php.net/&quot;&gt;pear.php.net&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dir&lt;/strong&gt; Verzeichnis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tar&lt;/strong&gt; &lt;a href=&quot;http://de.wikipedia.org/wiki/Tar&quot;&gt;tar&lt;/a&gt;-Archiv&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pear&lt;/strong&gt; php-Module (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rpm&lt;/strong&gt; &lt;a href=&quot;http://de.wikipedia.org/wiki/RPM_Package_Manager&quot;&gt;rpm&lt;/a&gt;-Paket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;deb&lt;/strong&gt; deb-Paket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zip&lt;/strong&gt; &lt;a href=&quot;http://de.wikipedia.org/wiki/ZIP-Dateiformat&quot;&gt;zip&lt;/a&gt;-Archiv&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;empty&lt;/strong&gt; erzeugt ein leeres Paket, welches man oft für Metapakte benutzt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;npm&lt;/strong&gt; nodejs Module (automaticher Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cpan&lt;/strong&gt; peal-Module (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;osxpkg&lt;/strong&gt; Mac OS X Pakete (nur auf Mac verfügbar)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Targets&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;deb&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rpm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zip&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tar&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dir&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sh&lt;/strong&gt; (selbst entpackendes Shell skript, welches ein &lt;a href=&quot;http://www.bzip.org/&quot;&gt;bzip2&lt;/a&gt; gepacktes tar enthält)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;osxpkg&lt;/strong&gt; (nur auf Mac verfügbar)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;solaris&lt;/strong&gt; Solaris Pakete (nur auf Solaris möglich)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pkgin&lt;/strong&gt; BSD pakete (nur auf BSD möglich)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;puppet&lt;/strong&gt; (&lt;a href=&quot;http://puppetlabs.com/puppet/what-is-puppet&quot;&gt;puppet&lt;/a&gt;-Modul, aktuell noch nicht implementiert)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Modernes Logging</title>
