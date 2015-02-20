@@ -24,4 +24,7 @@ vim /etc/aliases
 newaliases
 {% endhighlight %}
 
-
+### Alle Abhänigkeiten eines go-Projektes rekursiv holen
+``` sh
+go get ./...
+```
