@@ -4,7 +4,7 @@ title: "Modernes Logging"
 description: ""
 category:
   - 'linux'
-  - 'tools'  
+  - 'tools'
 tags:
   - 'logging'
   - 'elasticsearch'
