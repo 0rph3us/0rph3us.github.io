@@ -5,7 +5,10 @@ description: ""
 category:
   - 'linux'
   - 'tools'
-tags: []
+tags:
+ - 'elasticsearch'
+ - 'kibana'
+
 ---
 {% include JB/setup %}
 
@@ -13,8 +16,30 @@ Ich habe in meinen [letzten Beitrag über Logging] schon geschrieben, wie man ei
 Inzwischen wurde [Kibana] in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
 finale Version zeigen und auf das [Repository von Elasticsearch] hinweisen.
 
+Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
+im Elasticsearch anpassen. Die Dashboards sind bei mir leider verloren genangen, aber die visuellen Elemente und die Suchen
+werden migriert.
+
+### Vorarbeiten
+
+Als erstes fährt man Kibana herunter und updatet Elasricsearch auf die Version 1.4.4. Das geht sehr einfach, wenn man das
+entsprechende [Repository] benutzt. Dann ist es nur noch ein `apt-get install elasticsearch`.
+
+### Update auf Kibana 4
+``` sh
+wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-linux-x64.tar.gz
+
+# Index updaten
+BODY=`curl -XGET 'localhost:9200/.kibana/config/4.0.0-rc1/_source'`; curl -XPUT "localhost:9200/.kibana/config/4.0.0" -d "$BODY" && curl -XDELETE "localhost:9200/.kibana/config/4.0.0-rc1"
+
+# kibana starten
+kibana-4.0.0-linux-x64/bin/kibana
+```
+
 
 
 [Kibana]: http://www.elasticsearch.org/overview/kibana/
 [Repository von Elasticsearch]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
+[Repository]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
 [letzten Beitrag über Logging]: {% post_url 2015-02-15-modernes-logging %}
