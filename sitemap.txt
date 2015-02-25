@@ -11,6 +11,7 @@ https://0rph3us.github.io/rss.xml
 https://0rph3us.github.io/sitemap.txt
 https://0rph3us.github.io/tags.html
 
+https://0rph3us.github.io/linux/tools/2015/02/24/modernes-logging-teil-2/
 https://0rph3us.github.io/linux/2015/02/19/pakete-selbst-bauen/
 https://0rph3us.github.io/linux/tools/2015/02/15/modernes-logging/
 https://0rph3us.github.io/linux/tools/2015/02/12/skripte-parallelisieren/

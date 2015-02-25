@@ -5,10 +5,40 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-02-20T07:20:58+01:00</lastBuildDate>
-        <pubDate>2015-02-20T07:20:58+01:00</pubDate>
+        <lastBuildDate>2015-02-25T13:23:19+01:00</lastBuildDate>
+        <pubDate>2015-02-25T13:23:19+01:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Modernes Logging Teil 2</title>
+                <description>&lt;p&gt;Ich habe in meinen &lt;a href=&quot;/linux/tools/2015/02/15/modernes-logging/&quot;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
+Inzwischen wurde &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
+finale Version zeigen und auf das &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&quot;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
+
+&lt;p&gt;Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
+im Elasticsearch anpassen. Die Dashboards sind bei mir leider verloren genangen, aber die visuellen Elemente und die Suchen
+werden migriert.&lt;/p&gt;
+
+&lt;h3&gt;Vorarbeiten&lt;/h3&gt;
+
+&lt;p&gt;Als erstes fährt man Kibana herunter und updatet Elasricsearch auf die Version 1.4.4. Das geht sehr einfach, wenn man das
+entsprechende &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&quot;&gt;Repository&lt;/a&gt; benutzt. Dann ist es nur noch ein &lt;code&gt;apt-get install elasticsearch&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Update auf Kibana 4&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-linux-x64.tar.gz
+
+&lt;span class=&quot;c&quot;&gt;# Index updaten&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;BODY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;curl -XGET &lt;span class=&quot;s1&quot;&gt;&amp;#39;localhost:9200/.kibana/config/4.0.0-rc1/_source&amp;#39;&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; curl -XPUT &lt;span class=&quot;s2&quot;&gt;&amp;quot;localhost:9200/.kibana/config/4.0.0&amp;quot;&lt;/span&gt; -d &lt;span class=&quot;s2&quot;&gt;&amp;quot;$BODY&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; curl -XDELETE &lt;span class=&quot;s2&quot;&gt;&amp;quot;localhost:9200/.kibana/config/4.0.0-rc1&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# kibana starten&lt;/span&gt;
+kibana-4.0.0-linux-x64/bin/kibana
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>https://0rph3us.github.io/linux/tools/2015/02/24/modernes-logging-teil-2/</link>
+                <guid>https://0rph3us.github.io/linux/tools/2015/02/24/modernes-logging-teil-2</guid>
+                <pubDate>2015-02-24T00:00:00+01:00</pubDate>
+        </item>
 
         <item>
                 <title>Pakete selbst bauen</title>
