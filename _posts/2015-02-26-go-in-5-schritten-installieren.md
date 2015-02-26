@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "go in 5 Schritten installieren"
+title: "go in 6 Schritten installieren"
 description: ""
 category:
  - programmieren
@@ -21,8 +21,15 @@ Das ist mit Bordmitteln fast unmöglich.
 Für diese Probleme gibt es Abhilfe: Den go Versionsmanager [gvm]. Ich gebe zu, dass das ganze etwas von einem
 Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg `go` zu installieren
 
+### 1. Voraussetzungen
 
-### 1. clone das Repo in Dein home
+``` sh
+sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+```
+
+Damit installiert man die Voraussetzungen, um `go` compilieren zu können.
+
+### 2. clone das Repo in Dein home
 
 ``` sh
 bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -31,7 +38,7 @@ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bins
 Diese Komandozeile lädt mit [curl] ein Skript herunter und lässt es von der [bash] ausführen. Dabei
 der Inhalt vom git-Repository nach `~/.gvm` kopiert 
 
-### 2. gvm in der shell verfügbar machen
+### 3. gvm in der shell verfügbar machen
 
 ``` sh
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
@@ -41,14 +48,14 @@ Die Zeile muss man in seine `~/.bashrc` bzw. `~/.zshrc` einfügen, damit die Umg
 von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
 führt das Komando noch einmal in der aktuellen Shell aus.
 
-### 3. nachsehen, ob gvm installiert ist
+### 4. nachsehen, ob gvm installiert ist
 
 ``` sh
 $ gvm version
 Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
 ```
 
-### 4. go (golang) installieren
+### 5. go (golang) installieren
 
 ``` sh
 $ gvm listall
@@ -72,7 +79,7 @@ Installing go1.4...
 * Compiling...
 ```
 
-### 5. gvm mitteilen, welche Version von go man nutzen möchte
+### 6. gvm mitteilen, welche Version von go man nutzen möchte
 
 ``` sh
 $ gvm use go1.4.2
