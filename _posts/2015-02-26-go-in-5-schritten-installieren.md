@@ -80,6 +80,7 @@ Now using version go1.4.2
 ```
 
 Nun kann noch nachsehen, welche Version `go` hat.
+
 ``` sh
 $ go version
 go version go1.4.2 linux/amd64
