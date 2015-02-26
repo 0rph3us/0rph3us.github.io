@@ -15,6 +15,8 @@ tags:
 ---
 {% include JB/setup %}
 
+Achtung: Es gibt einen [2. Teil des Artikels], welchen sich vorher ansehen solle, bevor man hier alles copy&pastet
+
 In [Java]-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus [Elasticsearch], einen Volltextindex zum speichern der Nahrichten. Diese werden von [Logstash] verarbeitet und zum Index geschickt. [Kibana] wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet [syslog] zum versenden von Lognachrichten. In vieles Distributionen wird [rsyslog] zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.
 
@@ -164,3 +166,4 @@ Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows n
 [Mapping]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html
 [nicht analysieren]:http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html
 [90 Tagen gelöscht]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-ttl-field.html
+[2. Teil des Artikels]: {% post_url 2015-02-24-modernes-logging-teil-2 %}
