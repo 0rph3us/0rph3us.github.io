@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        go in 5 Schritten installieren - 
+        go in 6 Schritten installieren - 
       
       0rph3us
     </title>
@@ -171,7 +171,7 @@
           
 <div class="page-header">
   <h1>
-    go in 5 Schritten installieren 
+    go in 6 Schritten installieren 
     
   </h1>
 </div>
@@ -185,24 +185,29 @@ Das ist mit Bordmitteln fast unmöglich.</p>
 <p>Für diese Probleme gibt es Abhilfe: Den go Versionsmanager <a href="https://github.com/moovweb/gvm">gvm</a>. Ich gebe zu, dass das ganze etwas von einem
 Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg <code>go</code> zu installieren</p>
 
-<h3>1. clone das Repo in Dein home</h3>
+<h3>1. Voraussetzungen</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+</code></pre></div>
+<p>Damit installiert man die Voraussetzungen, um <code>go</code> compilieren zu können.</p>
+
+<h3>2. clone das Repo in Dein home</h3>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">bash &lt; &lt;<span class="o">(</span>curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer<span class="o">)</span>
 </code></pre></div>
 <p>Diese Komandozeile lädt mit <a href="http://curl.haxx.se/">curl</a> ein Skript herunter und lässt es von der <a href="http://www.gnu.org/software/bash/">bash</a> ausführen. Dabei
 der Inhalt vom git-Repository nach <code>~/.gvm</code> kopiert </p>
 
-<h3>2. gvm in der shell verfügbar machen</h3>
+<h3>3. gvm in der shell verfügbar machen</h3>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[[</span> -s <span class="s2">&quot;$HOME/.gvm/scripts/gvm&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">&quot;$HOME/.gvm/scripts/gvm&quot;</span>
 </code></pre></div>
 <p>Die Zeile muss man in seine <code>~/.bashrc</code> bzw. <code>~/.zshrc</code> einfügen, damit die Umgebungsvariablen und Komandos
 von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
 führt das Komando noch einmal in der aktuellen Shell aus.</p>
 
-<h3>3. nachsehen, ob gvm installiert ist</h3>
+<h3>4. nachsehen, ob gvm installiert ist</h3>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm version
 Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
 </code></pre></div>
-<h3>4. go (golang) installieren</h3>
+<h3>5. go (golang) installieren</h3>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm listall
 
 gvm gos <span class="o">(</span>available<span class="sb">`</span> sh
@@ -220,7 +225,7 @@ Downloading Go source...
 Installing go1.4...
 * Compiling...
 </code></pre></div>
-<h3>5. gvm mitteilen, welche Version von go man nutzen möchte</h3>
+<h3>6. gvm mitteilen, welche Version von go man nutzen möchte</h3>
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm use go1.4.2
 Now using version go1.4.2
 </code></pre></div>
@@ -253,7 +258,7 @@ go version go1.4.2 linux/amd64
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>26.02.2015 21:54 Uhr</div>
+      <div class="date"><span></span>26.02.2015 22:00 Uhr</div>
     </section>
     
       <section>
