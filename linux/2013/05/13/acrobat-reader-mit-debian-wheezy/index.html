@@ -178,14 +178,17 @@
 
 <div class="row">
   <div class="span8">
-    <p>Ich hatte heute wieder eine <a href="http://www.adobe.com/devnet/pdf/pdf_reference.html" target="_blank">pdf</a> mit Formularen in, welche in einen alternativen Viewer nicht wirklich funktioniert hat. Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.</p>
-<p>[cc lang='bash' ]echo "deb http://www.deb-multimedia.org wheezy main non-free" >> /etc/apt/sources.list<br />
-gpg --keyserver pgpkeys.mit.edu --recv-key 07DC563D1F41B907<br />
-gpg -a --export 07DC563D1F41B907 | apt-key add -<br />
-dpkg --add-architecture i386<br />
-apt-get update<br />
-apt-get install acroread[/cc]</p>
-<p>P.S.: Auf meinen Servern benutze ich /etc/apt/sources.list.d/&lt;listname&gt;.list für zusätzliche Paketlisten.</p>
+    <p>Ich hatte heute wieder eine <a href="http://www.adobe.com/devnet/pdf/pdf_reference.html">pdf</a> mit Formularen in,
+welche in einen alternativen Viewer nicht wirklich funktioniert hat.
+Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="s2">&quot;deb http://www.deb-multimedia.org wheezy main non-free&quot;</span> &gt;&gt; /etc/apt/sources.list
+gpg --keyserver pgpkeys.mit.edu --recv-key 07DC563D1F41B907
+gpg -a --export 07DC563D1F41B907 <span class="p">|</span> apt-key add -
+dpkg --add-architecture i386
+apt-get update
+apt-get install acroread
+</code></pre></div>
+<p>P.S.: Auf meinen Servern benutze ich <code>/etc/apt/sources.list.d/&lt;listname&gt;.list</code> für zusätzliche Paketlisten.</p>
 
     <hr>
     <div class="pagination btn-group">
@@ -212,7 +215,7 @@ apt-get install acroread[/cc]</p>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+      <div class="date"><span></span>26.02.2015 20:16 Uhr</div>
     </section>
          
     

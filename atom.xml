@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-26T18:16:14+01:00</updated>
+ <updated>2015-02-26T20:18:17+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -1082,17 +1082,20 @@ vor fremden JavaScript.&lt;/p&gt;
  
  <entry>
    <title>Acrobat Reader für Debian wheezy</title>
-   <link href="https://0rph3us.github.io/linux/2013/05/13/5971/"/>
+   <link href="https://0rph3us.github.io/linux/2013/05/13/acrobat-reader-mit-debian-wheezy/"/>
    <updated>2013-05-13T00:00:00+02:00</updated>
-   <id>https://0rph3us.github.io/linux/2013/05/13/5971</id>
-   <content type="html">&lt;p&gt;Ich hatte heute wieder eine &lt;a href=&quot;http://www.adobe.com/devnet/pdf/pdf_reference.html&quot; target=&quot;_blank&quot;&gt;pdf&lt;/a&gt; mit Formularen in, welche in einen alternativen Viewer nicht wirklich funktioniert hat. Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.&lt;/p&gt;
-&lt;p&gt;[cc lang=&#39;bash&#39; ]echo &quot;deb http://www.deb-multimedia.org wheezy main non-free&quot; &gt;&gt; /etc/apt/sources.list&lt;br /&gt;
-gpg --keyserver pgpkeys.mit.edu --recv-key 07DC563D1F41B907&lt;br /&gt;
-gpg -a --export 07DC563D1F41B907 | apt-key add -&lt;br /&gt;
-dpkg --add-architecture i386&lt;br /&gt;
-apt-get update&lt;br /&gt;
-apt-get install acroread[/cc]&lt;/p&gt;
-&lt;p&gt;P.S.: Auf meinen Servern benutze ich /etc/apt/sources.list.d/&amp;lt;listname&amp;gt;.list für zusätzliche Paketlisten.&lt;/p&gt;
+   <id>https://0rph3us.github.io/linux/2013/05/13/acrobat-reader-mit-debian-wheezy</id>
+   <content type="html">&lt;p&gt;Ich hatte heute wieder eine &lt;a href=&quot;http://www.adobe.com/devnet/pdf/pdf_reference.html&quot;&gt;pdf&lt;/a&gt; mit Formularen in,
+welche in einen alternativen Viewer nicht wirklich funktioniert hat.
+Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;deb http://www.deb-multimedia.org wheezy main non-free&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; /etc/apt/sources.list
+gpg --keyserver pgpkeys.mit.edu --recv-key 07DC563D1F41B907
+gpg -a --export 07DC563D1F41B907 &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; apt-key add -
+dpkg --add-architecture i386
+apt-get update
+apt-get install acroread
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;P.S.: Auf meinen Servern benutze ich &lt;code&gt;/etc/apt/sources.list.d/&amp;lt;listname&amp;gt;.list&lt;/code&gt; für zusätzliche Paketlisten.&lt;/p&gt;
 </content>
  </entry>
  

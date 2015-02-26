@@ -34,7 +34,7 @@ https://0rph3us.github.io/privat/2013/09/30/ich-bin-vater/
 https://0rph3us.github.io/sicherheit/tools/2013/09/09/neuer-gpg-key/
 https://0rph3us.github.io/sonstiges/2013/05/29/formelsatz-fur-den-browser/
 https://0rph3us.github.io/hpc/linux/2013/05/28/hadoop-cluster-und-das-netzwerk/
-https://0rph3us.github.io/linux/2013/05/13/5971/
+https://0rph3us.github.io/linux/2013/05/13/acrobat-reader-mit-debian-wheezy/
 https://0rph3us.github.io/linux/2013/05/05/debian-wheezy-ist-stable/
 https://0rph3us.github.io/sonstiges/2013/05/01/neues-design/
 https://0rph3us.github.io/datenbank/2011/12/11/bigdata-mit-hypertable/
