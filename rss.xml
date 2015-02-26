@@ -5,8 +5,8 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-02-25T13:23:19+01:00</lastBuildDate>
-        <pubDate>2015-02-25T13:23:19+01:00</pubDate>
+        <lastBuildDate>2015-02-26T18:16:14+01:00</lastBuildDate>
+        <pubDate>2015-02-26T18:16:14+01:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -148,7 +148,9 @@ fpm -s -t dir rpm -C /tmp/cool-app &lt;span class=&quot;se&quot;&gt;\&lt;/span&g
 
         <item>
                 <title>Modernes Logging</title>
-                <description>&lt;p&gt;In &lt;a href=&quot;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&quot;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&quot;http://www.elasticsearch.org/&quot;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&quot;http://logstash.net/&quot;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; wird zum
+                <description>&lt;p&gt;Achtung: Es gibt einen &lt;a href=&quot;/linux/tools/2015/02/24/modernes-logging-teil-2/&quot;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&quot;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&quot;http://www.elasticsearch.org/&quot;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&quot;http://logstash.net/&quot;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&quot;&gt;Kibana&lt;/a&gt; wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&quot;http://de.wikipedia.org/wiki/Syslog&quot;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&quot;http://www.rsyslog.com/&quot;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;
 
 &lt;p&gt;Die folgende Anleitung beschreibt, wie man das ganze unter Ubuntu 14.04 einrichtet. Ich beschreibe kein komplettes Setup, es ist als Einstieg in die Thematik gedacht.&lt;/p&gt;

@@ -178,7 +178,9 @@
 
 <div class="row">
   <div class="span8">
-    <p>In <a href="http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29">Java</a>-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus <a href="http://www.elasticsearch.org/">Elasticsearch</a>, einen Volltextindex zum speichern der Nahrichten. Diese werden von <a href="http://logstash.net/">Logstash</a> verarbeitet und zum Index geschickt. <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> wird zum
+    <p>Achtung: Es gibt einen <a href="/linux/tools/2015/02/24/modernes-logging-teil-2/">2. Teil des Artikels</a>, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;pastet</p>
+
+<p>In <a href="http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29">Java</a>-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus <a href="http://www.elasticsearch.org/">Elasticsearch</a>, einen Volltextindex zum speichern der Nahrichten. Diese werden von <a href="http://logstash.net/">Logstash</a> verarbeitet und zum Index geschickt. <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet <a href="http://de.wikipedia.org/wiki/Syslog">syslog</a> zum versenden von Lognachrichten. In vieles Distributionen wird <a href="http://www.rsyslog.com/">rsyslog</a> zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.</p>
 
 <p>Die folgende Anleitung beschreibt, wie man das ganze unter Ubuntu 14.04 einrichtet. Ich beschreibe kein komplettes Setup, es ist als Einstieg in die Thematik gedacht.</p>
