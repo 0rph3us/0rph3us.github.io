@@ -5,10 +5,67 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-02-26T20:18:17+01:00</lastBuildDate>
-        <pubDate>2015-02-26T20:18:17+01:00</pubDate>
+        <lastBuildDate>2015-02-26T21:54:22+01:00</lastBuildDate>
+        <pubDate>2015-02-26T21:54:22+01:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>go in 5 Schritten installieren</title>
+                <description>&lt;p&gt;Die Installation von &lt;a href=&quot;https://golang.org/&quot;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
+veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
+Das ist mit Bordmitteln fast unmöglich.&lt;/p&gt;
+
+&lt;p&gt;Für diese Probleme gibt es Abhilfe: Den go Versionsmanager &lt;a href=&quot;https://github.com/moovweb/gvm&quot;&gt;gvm&lt;/a&gt;. Ich gebe zu, dass das ganze etwas von einem
+Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg &lt;code&gt;go&lt;/code&gt; zu installieren&lt;/p&gt;
+
+&lt;h3&gt;1. clone das Repo in Dein home&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;bash &amp;lt; &amp;lt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Diese Komandozeile lädt mit &lt;a href=&quot;http://curl.haxx.se/&quot;&gt;curl&lt;/a&gt; ein Skript herunter und lässt es von der &lt;a href=&quot;http://www.gnu.org/software/bash/&quot;&gt;bash&lt;/a&gt; ausführen. Dabei
+der Inhalt vom git-Repository nach &lt;code&gt;~/.gvm&lt;/code&gt; kopiert &lt;/p&gt;
+
+&lt;h3&gt;2. gvm in der shell verfügbar machen&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; -s &lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Die Zeile muss man in seine &lt;code&gt;~/.bashrc&lt;/code&gt; bzw. &lt;code&gt;~/.zshrc&lt;/code&gt; einfügen, damit die Umgebungsvariablen und Komandos
+von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
+führt das Komando noch einmal in der aktuellen Shell aus.&lt;/p&gt;
+
+&lt;h3&gt;3. nachsehen, ob gvm installiert ist&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gvm version
+Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;4. go (golang) installieren&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gvm listall
+
+gvm gos &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;available&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; sh
+...
+   go1.4
+   go1.4.1
+   go1.4.2
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Man sieht alle Versionen von &lt;code&gt;go&lt;/code&gt; So installiert man eine spezifische &lt;code&gt;go&lt;/code&gt; Version, z.B. 1.4.2. 
+&lt;em&gt;Installieren&lt;/em&gt; ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
+d.h. es werden &lt;strong&gt;keine&lt;/strong&gt; Binärpakete heruntergeladen.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gvm install go1.4.2
+Downloading Go source...
+Installing go1.4...
+* Compiling...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;5. gvm mitteilen, welche Version von go man nutzen möchte&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gvm use go1.4.2
+Now using version go1.4.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun kann noch nachsehen, welche Version &lt;code&gt;go&lt;/code&gt; hat.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;go version
+go version go1.4.2 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+                <link>https://0rph3us.github.io/programmieren/2015/02/26/go-in-5-schritten-installieren/</link>
+                <guid>https://0rph3us.github.io/programmieren/2015/02/26/go-in-5-schritten-installieren</guid>
+                <pubDate>2015-02-26T00:00:00+01:00</pubDate>
+        </item>
 
         <item>
                 <title>Modernes Logging Teil 2</title>

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Neuer Blog - 
+        go in 5 Schritten installieren - 
       
       0rph3us
     </title>
@@ -171,47 +171,71 @@
           
 <div class="page-header">
   <h1>
-    Neuer Blog 
+    go in 5 Schritten installieren 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>Ich habe mich entschlossen, meinen alten <a href="http://wpde.org/">Wordpress</a>-Blog einzudampfen. Ich
-fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen
-&quot;gut&quot; aussehenden Blog mit &quot;wenig&quot; Arbeit zu pflegen.</p>
+    <p>Die Installation von <a href="https://golang.org/">go</a> kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
+veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
+Das ist mit Bordmitteln fast unmöglich.</p>
 
-<p>Nun bin ich auf <a href="http://jekyllbootstrap.com">JekyllBootstrap</a> und <a href="https://github.com/dhulihan/hooligan">Hooligan</a> gestoßen.
-Am Theme habe ich etwas etwas Hand angelegt. Als
-Versionsverwaltung nutze ich <a href="http://git-scm.com/">git</a>. Der gesamte Blog ist als 
-Code auf <a href="https://github.com/0rph3us/jekyll-bootstrap">github</a> zu finden.</p>
+<p>Für diese Probleme gibt es Abhilfe: Den go Versionsmanager <a href="https://github.com/moovweb/gvm">gvm</a>. Ich gebe zu, dass das ganze etwas von einem
+Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg <code>go</code> zu installieren</p>
 
-<p>Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.</p>
+<h3>1. clone das Repo in Dein home</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">bash &lt; &lt;<span class="o">(</span>curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer<span class="o">)</span>
+</code></pre></div>
+<p>Diese Komandozeile lädt mit <a href="http://curl.haxx.se/">curl</a> ein Skript herunter und lässt es von der <a href="http://www.gnu.org/software/bash/">bash</a> ausführen. Dabei
+der Inhalt vom git-Repository nach <code>~/.gvm</code> kopiert </p>
 
-<h2>Der Alte</h2>
+<h3>2. gvm in der shell verfügbar machen</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[[</span> -s <span class="s2">&quot;$HOME/.gvm/scripts/gvm&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> <span class="s2">&quot;$HOME/.gvm/scripts/gvm&quot;</span>
+</code></pre></div>
+<p>Die Zeile muss man in seine <code>~/.bashrc</code> bzw. <code>~/.zshrc</code> einfügen, damit die Umgebungsvariablen und Komandos
+von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
+führt das Komando noch einmal in der aktuellen Shell aus.</p>
 
-<p>Ich habe bzw. bin noch dabei die gesamten Inhalte des alten Wordpress zu portieren. Das meiste habe
-ich automatisch migriert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
-die alten Posts überarbeiten.</p>
+<h3>3. nachsehen, ob gvm installiert ist</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm version
+Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
+</code></pre></div>
+<h3>4. go (golang) installieren</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm listall
 
-<h2>Technik</h2>
-
-<p>Die erste Version des Blogs wird auf meinen Raspberry Pi laufen. Als Webserver verwende ich Nginx, außerdem 
-verwende ich Varnish zum cachen. Ich hoffe, dass mit diesem Setup die Geschwindigkeit des Blog 
-erträglich bleibt. </p>
-
-<p>In weiteren Beiträgen werde ich schreiben wie das Setup genau aussieht. Ich auch noch etwas
-am ausprobieren.</p>
-
+gvm gos <span class="o">(</span>available<span class="sb">`</span> sh
+...
+   go1.4
+   go1.4.1
+   go1.4.2
+...
+</code></pre></div>
+<p>Man sieht alle Versionen von <code>go</code> So installiert man eine spezifische <code>go</code> Version, z.B. 1.4.2. 
+<em>Installieren</em> ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
+d.h. es werden <strong>keine</strong> Binärpakete heruntergeladen.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm install go1.4.2
+Downloading Go source...
+Installing go1.4...
+* Compiling...
+</code></pre></div>
+<h3>5. gvm mitteilen, welche Version von go man nutzen möchte</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>gvm use go1.4.2
+Now using version go1.4.2
+</code></pre></div>
+<p>Nun kann noch nachsehen, welche Version <code>go</code> hat.</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>go version
+go version go1.4.2 linux/amd64
+</code></pre></div>
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="/linux/2013/12/31/gnome-keyring-und-xfce/" title="Gnome-Keyring und Xfce">&larr; &Auml;lter</a>
+        <a class="btn prev" href="/linux/tools/2015/02/24/modernes-logging-teil-2/" title="Modernes Logging Teil 2">&larr; &Auml;lter</a>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next" href="/linux/raspberry%20pi/2014/07/21/raspberry-pi-auf-jessie-updaten/" title="Raspberry Pi auf Jessie updaten">Neuer &rarr;</a>
+        <a class="btn next disabled">Neuer &rarr;</a>
       
     </div>
     
@@ -225,17 +249,17 @@ am ausprobieren.</p>
   <div class="span4">
     <section>
       <h4>Ver&ouml;ffentlicht</h4>
-      <div class="date"><span>17.07.2014</span></div>
+      <div class="date"><span>26.02.2015</span></div>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>30.10.2014 07:19 Uhr</div>
+      <div class="date"><span></span>26.02.2015 21:54 Uhr</div>
     </section>
     
       <section>
         <h4>Kategorie</h4>
         <span class="category">
-          tools, linux
+          programmieren
         </span>
       </section>
          
@@ -249,15 +273,17 @@ am ausprobieren.</p>
 
   
      
-    	<li><a href="/tags.html#Raspberry Pi-ref">Raspberry Pi <span>6</span></a></li>
-     
     	<li><a href="/tags.html#git-ref">git <span>5</span></a></li>
      
-    	<li><a href="/tags.html#bootstrap-ref">bootstrap <span>1</span></a></li>
+    	<li><a href="/tags.html#gvm-ref">gvm <span>1</span></a></li>
      
-    	<li><a href="/tags.html#jekyll-ref">jekyll <span>1</span></a></li>
+    	<li><a href="/tags.html#ubuntu-ref">ubuntu <span>1</span></a></li>
      
-    	<li><a href="/tags.html#juvia-ref">juvia <span>1</span></a></li>
+    	<li><a href="/tags.html#debian-ref">debian <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#golang-ref">golang <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#go-ref">go <span>1</span></a></li>
     
   
 
