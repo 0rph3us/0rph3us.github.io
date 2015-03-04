@@ -62,7 +62,7 @@ footsepline=off
 \setkomavar{frommobilephone}{(01\,60)~1\,00\,00\,00}
 \setkomavar{fromphone}[\Telefon]{(03\,45)~000\,00\,00\,00}
 
-\setkomavar{fromemail}[\Letter]{michael\_rennecke@gmx.net}
+\setkomavar{fromemail}[\Letter]{michael.rennecke@gmail.com}
 %\setkomavar{fromurl}[]{http://0rpheus.net}
 
 \firsthead{
@@ -124,4 +124,5 @@ footsepline=off
 
 
 Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar, 
-die meine Vorlage noch verbessern ;-) Wie das aussieht kann man <a href="/uploads/test.pdf">hier</a> sehen.
+die meine Vorlage noch verbessern ;-)
+
