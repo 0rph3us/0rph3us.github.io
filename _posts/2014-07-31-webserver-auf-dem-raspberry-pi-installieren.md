@@ -20,12 +20,12 @@ Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizi
 ich nicht mehr in Lage in die Ideen mit [lighttpd] umzusetzen. Die Ursache liegt weniger im
 Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonfigurationen sowie der
 Default-Konfiguration wenn man [lighttpd] bei Raspbian installiert. Den endgültigen *Todesstoß* hat
-[lighttpd] bekommen, als ich [Passenger] ausprobieren wollte. Für [Apache] und [Nginx] gibt es fertige
+[lighttpd] bekommen, als ich [Passanger] ausprobieren wollte. Für [Apache] und [Nginx] gibt es fertige
 [Passanger]-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass [lighttpd] schlechter
 als [Nginx] ist, aber ich bin bei "komplexen" Setups mit mehreren virtuellen Hosts und rewrite-Magie
 besser mit [Nginx] zurecht gekommen.
 
-Im folgenden werde ich mich auf [Nginx] ("Engine-X") konzentrieren. da es für ihn sehr viele Tutorials
+Im folgenden werde ich mich auf [Nginx] *Engine-X* konzentrieren. da es für ihn sehr viele Tutorials
 gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den [Raspberry Pi].
 
 Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
