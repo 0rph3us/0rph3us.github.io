@@ -31,4 +31,4 @@ aber ich bin noch am verbessern.
 [Raspberry Pi]: http://www.raspberrypi.org/
 [Pi]: http://www.raspberrypi.org/
 [Dropbox]: https://www.dropbox.com/
-[Cubietruck]: cubieboard.org/tag/cubietruck/
+[Cubietruck]: http://cubieboard.org/tag/cubietruck/
