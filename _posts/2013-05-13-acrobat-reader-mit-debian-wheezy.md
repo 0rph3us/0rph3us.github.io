@@ -12,12 +12,6 @@ tags:
 status: publish
 type: post
 published: true
-meta:
-  _edit_last: '2'
-  _jd_tweet_this: 'yes'
-  _wp_jd_wp: http://0rpheus.net/?p=5971
-  _wp_jd_target: http://0rpheus.net/?p=5971
-  _jd_wp_twitter: 'a:1:{i:0;s:37:"New post:  http://0rpheus.net/?p=5971";}'
 author:
   login: rennecke
   email: michael.rennecke@gmail.com
