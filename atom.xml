@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-02-26T22:00:07+01:00</updated>
+ <updated>2015-03-04T09:30:09+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -865,12 +865,12 @@ Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizi
 ich nicht mehr in Lage in die Ideen mit &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; umzusetzen. Die Ursache liegt weniger im
 Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonfigurationen sowie der
 Default-Konfiguration wenn man &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; bei Raspbian installiert. Den endgültigen &lt;em&gt;Todesstoß&lt;/em&gt; hat
-&lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; bekommen, als ich [Passenger] ausprobieren wollte. Für &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache&lt;/a&gt; und &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; gibt es fertige
+&lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; bekommen, als ich &lt;a href=&quot;https://www.phusionpassenger.com/&quot;&gt;Passanger&lt;/a&gt; ausprobieren wollte. Für &lt;a href=&quot;http://httpd.apache.org/&quot;&gt;Apache&lt;/a&gt; und &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; gibt es fertige
 &lt;a href=&quot;https://www.phusionpassenger.com/&quot;&gt;Passanger&lt;/a&gt;-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass &lt;a href=&quot;http://www.lighttpd.net/&quot;&gt;lighttpd&lt;/a&gt; schlechter
 als &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; ist, aber ich bin bei &amp;quot;komplexen&amp;quot; Setups mit mehreren virtuellen Hosts und rewrite-Magie
 besser mit &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; zurecht gekommen.&lt;/p&gt;
 
-&lt;p&gt;Im folgenden werde ich mich auf &lt;a href=&quot;%22Engine-X%22&quot;&gt;Nginx&lt;/a&gt; konzentrieren. da es für ihn sehr viele Tutorials
+&lt;p&gt;Im folgenden werde ich mich auf &lt;a href=&quot;http://nginx.org&quot;&gt;Nginx&lt;/a&gt; &lt;em&gt;Engine-X&lt;/em&gt; konzentrieren. da es für ihn sehr viele Tutorials
 gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
@@ -964,7 +964,7 @@ Papa bin, musste meine Rechnerburg zugunsten des Kinderzimmers weichen. Ich hatt
 mir einen Rootserver miete oder einfach einen &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Pi&lt;/a&gt; zum &lt;em&gt;spielen&lt;/em&gt; kaufe.&lt;/p&gt;
 
 &lt;p&gt;Am Raspberry Pi hat mich immer die magere Ausstattung an RAM und CPU gestört. Aus diesem Grund habe ich
-überlegt, ob ich mir nicht lieber ein &lt;a href=&quot;cubieboard.org/tag/cubietruck/&quot;&gt;Cubietruck&lt;/a&gt; anschaffe. Zum Schluss habe ich mich für einen Pi 
+überlegt, ob ich mir nicht lieber ein &lt;a href=&quot;http://cubieboard.org/tag/cubietruck/&quot;&gt;Cubietruck&lt;/a&gt; anschaffe. Zum Schluss habe ich mich für einen Pi 
 entschieden, da er der günstige Einstieg in die Welt der Mini-Computer ist und ich kann ihn ohne
 Probleme über den USB-Port vom Router mit Strom versorgen.&lt;/p&gt;
 
@@ -1265,7 +1265,7 @@ footsepline=off
 &lt;span class=&quot;k&quot;&gt;\setkomavar&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;frommobilephone&lt;span class=&quot;nb&quot;&gt;}{&lt;/span&gt;(01&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;60)~1&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;\setkomavar&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fromphone&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[&lt;span class=&quot;k&quot;&gt;\Telefon&lt;/span&gt;]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;(03&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;45)~000&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;k&quot;&gt;\,&lt;/span&gt;00&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;\setkomavar&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fromemail&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[&lt;span class=&quot;k&quot;&gt;\Letter&lt;/span&gt;]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;michael&lt;span class=&quot;k&quot;&gt;\_&lt;/span&gt;rennecke@gmx.net&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\setkomavar&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;fromemail&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;[&lt;span class=&quot;k&quot;&gt;\Letter&lt;/span&gt;]&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;michael.rennecke@gmail.com&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;%\setkomavar{fromurl}[]{http://0rpheus.net}&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;\firsthead&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;
@@ -1322,7 +1322,7 @@ footsepline=off
 &lt;span class=&quot;k&quot;&gt;\end&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;{&lt;/span&gt;document&lt;span class=&quot;nb&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar, 
-die meine Vorlage noch verbessern ;-) Wie das aussieht kann man &lt;a href=&quot;/uploads/test.pdf&quot;&gt;hier&lt;/a&gt; sehen.&lt;/p&gt;
+die meine Vorlage noch verbessern ;-)&lt;/p&gt;
 </content>
  </entry>
  
