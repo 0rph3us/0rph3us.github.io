@@ -5,10 +5,26 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-03-04T09:30:09+01:00</lastBuildDate>
-        <pubDate>2015-03-04T09:30:09+01:00</pubDate>
+        <lastBuildDate>2015-03-05T22:03:39+01:00</lastBuildDate>
+        <pubDate>2015-03-05T22:03:39+01:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Ein Pi wird kommen</title>
+                <description>&lt;p&gt;Mein &lt;a href=&quot;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&quot;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
+ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
+sich alles viel flüssiger an. Da ich &lt;a href=&quot;http://www.raspbian.org/&quot;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch 
+etwas zäh.&lt;/p&gt;
+
+&lt;p&gt;Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
+dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
+Images.&lt;/p&gt;
+</description>
+                <link>https://0rph3us.github.io/raspberry%20pi/2015/03/05/ein-pi-wird-kommen/</link>
+                <guid>https://0rph3us.github.io/raspberry%20pi/2015/03/05/ein-pi-wird-kommen</guid>
+                <pubDate>2015-03-05T00:00:00+01:00</pubDate>
+        </item>
 
         <item>
                 <title>go in 6 Schritten installieren</title>
