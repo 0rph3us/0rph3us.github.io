@@ -17,8 +17,7 @@ Inzwischen wurde [Kibana] in der Version 4 finale freigegeben. In diesem Artikel
 finale Version zeigen und auf das [Repository von Elasticsearch] hinweisen.
 
 Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
-im Elasticsearch anpassen. Die Dashboards sind bei mir leider verloren genangen, aber die visuellen Elemente und die Suchen
-werden migriert.
+im Elasticsearch anpassen. 
 
 ### Vorarbeiten
 
@@ -35,10 +34,15 @@ BODY=`curl -XGET 'localhost:9200/.kibana/config/4.0.0-rc1/_source'`; curl -XPUT 
 
 # kibana starten
 kibana-4.0.0-linux-x64/bin/kibana
+
+### Nachtrag 06.03.2015
+
+Es wurde [Kibana 4.0.1] released. Diese Version hat ein paar Bugfixes und man auch den Index nicht updaten, wenn man den Release Candidate noch installiert hat.
+
 ```
 
 
-
+[Kibana 4.0.1]: https://www.elasticsearch.org/blog/kibana-4-0-1-released/
 [Kibana]: http://www.elasticsearch.org/overview/kibana/
 [Repository von Elasticsearch]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
 [Repository]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
