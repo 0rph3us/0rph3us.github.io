@@ -4,7 +4,7 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-03-05T22:03:39+01:00</updated>
+ <updated>2015-03-06T09:38:56+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
@@ -100,8 +100,7 @@ Inzwischen wurde &lt;a href=&quot;http://www.elasticsearch.org/overview/kibana/&
 finale Version zeigen und auf das &lt;a href=&quot;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&quot;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
 
 &lt;p&gt;Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
-im Elasticsearch anpassen. Die Dashboards sind bei mir leider verloren genangen, aber die visuellen Elemente und die Suchen
-werden migriert.&lt;/p&gt;
+im Elasticsearch anpassen. &lt;/p&gt;
 
 &lt;h3&gt;Vorarbeiten&lt;/h3&gt;
 
@@ -117,7 +116,11 @@ tar xfvz kibana-4.0.0-linux-x64.tar.gz
 
 &lt;span class=&quot;c&quot;&gt;# kibana starten&lt;/span&gt;
 kibana-4.0.0-linux-x64/bin/kibana
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Nachtrag 06.03.2015&lt;/h3&gt;
+
+&lt;p&gt;Es wurde &lt;a href=&quot;https://www.elasticsearch.org/blog/kibana-4-0-1-released/&quot;&gt;Kibana 4.0.1&lt;/a&gt; released. Diese Version hat ein paar Bugfixes und man auch den Index nicht updaten, wenn man den Release Candidate noch installiert hat.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
