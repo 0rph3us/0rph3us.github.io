@@ -34,12 +34,13 @@ BODY=`curl -XGET 'localhost:9200/.kibana/config/4.0.0-rc1/_source'`; curl -XPUT 
 
 # kibana starten
 kibana-4.0.0-linux-x64/bin/kibana
+```
+
 
 ### Nachtrag 06.03.2015
 
 Es wurde [Kibana 4.0.1] released. Diese Version hat ein paar Bugfixes und man auch den Index nicht updaten, wenn man den Release Candidate noch installiert hat.
 
-```
 
 
 [Kibana 4.0.1]: https://www.elasticsearch.org/blog/kibana-4-0-1-released/
