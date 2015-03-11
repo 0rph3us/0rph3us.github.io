@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Ein Pi wird kommen - 
+        Probleme beim Upgrade auf den Pi 2 - 
       
       0rph3us
     </title>
@@ -171,30 +171,32 @@
           
 <div class="page-header">
   <h1>
-    Ein Pi wird kommen 
+    Probleme beim Upgrade auf den Pi 2 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>Mein <a href="http://www.raspberrypi.org/products/raspberry-pi-2-model-b/">Raspberry Pi 2</a> ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
-ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
-sich alles viel flüssiger an. Da ich <a href="http://www.raspbian.org/">Raspbian</a> nutze, habe ich auch gleich <code>aptitude</code> ausprobiert. Das immer noch 
-etwas zäh.</p>
+    <p>Ich wollte meine Sensoren (<a href="/raspberry%20pi/elektronik/programmieren/2014/10/17/bmp085-am-raspberry-pi/">BMP085</a> und <a href="/raspberry%20pi/elektronik/programmieren/2014/10/14/dht22-am-raspberry-pi/">DHT22</a>) an meinen Raspberry Pi 2 anschließen und gleich noch
+ein paar Experimente mit dem 2,4 GHz Sender <a href="http://www.mikrocontroller.net/articles/NRF24L01_Tutorial">NRF24L01</a>. Dabei musste ich feststellen, dass der <a href="http://de.wikipedia.org/wiki/I%C2%B2C">I²C-Bus</a> und
+das <a href="http://de.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI (Serial Peripheral Interface)</a> nicht wie gewohnt funktionieren.</p>
 
-<p>Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
-dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
-Images.</p>
+<p>Beim Kernel 3.18 gab es einige Änderungen, die einen das Leben schwer machen. Es gibt auf stackechange eine
+<a href="http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f">kurze Zusammenfassung</a> und eine <a href="http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658">sehr Ausführliche auf raspberrypi.org</a>.</p>
 
+<p>Wer es kurz und knackig mag, der fügt die folgenden Zeilen in <code>/boot/config.txt</code> ein und startet den Pi neu.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">dtparam=i2c1=on
+dtparam=spi=on
+</code></pre></div>
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="/programmieren/2015/02/26/go-in-6-schritten-installieren/" title="go in 6 Schritten installieren">&larr; &Auml;lter</a>
+        <a class="btn prev" href="/raspberry%20pi/2015/03/05/ein-pi-wird-kommen/" title="Ein Pi wird kommen">&larr; &Auml;lter</a>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next" href="/raspberry%20pi/2015/03/11/probleme-beim-upgrade-auf-den-pi-2/" title="Probleme beim Upgrade auf den Pi 2">Neuer &rarr;</a>
+        <a class="btn next disabled">Neuer &rarr;</a>
       
     </div>
     
@@ -208,17 +210,17 @@ Images.</p>
   <div class="span4">
     <section>
       <h4>Ver&ouml;ffentlicht</h4>
-      <div class="date"><span>05.03.2015</span></div>
+      <div class="date"><span>11.03.2015</span></div>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>05.03.2015 22:03 Uhr</div>
+      <div class="date"><span></span>11.03.2015 21:46 Uhr</div>
     </section>
     
       <section>
         <h4>Kategorie</h4>
         <span class="category">
-          Raspberry Pi
+          raspberry pi
         </span>
       </section>
          
@@ -232,7 +234,15 @@ Images.</p>
 
   
      
-    	<li><a href="/tags.html#Raspbian-ref">Raspbian <span>4</span></a></li>
+    	<li><a href="/tags.html#NRF24L01-ref">NRF24L01 <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#DTH22-ref">DTH22 <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#BMP085-ref">BMP085 <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#spi-ref">spi <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#I²C-ref">I²C <span>2</span></a></li>
     
   
 
