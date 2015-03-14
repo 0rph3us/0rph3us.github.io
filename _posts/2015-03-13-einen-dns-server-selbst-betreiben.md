@@ -45,6 +45,48 @@ apt-get install pdns-server pdns-backend-mysql dnsutils
 
 ### Einrichten der Datenbank
 
+``` sql
+CREATE DATABASE powerdns;
+GRANT ALL ON powerdns.* TO powerdns@127.0.0.1 IDENTIFIED BY 'GeheimesPasswort';
+FLUSH PRIVILEGES;
+```
+
+Das muss man in die `mysql` Konsole eintragen. Zu dieser gelangt man so:
+
+``` bash
+mysql -uroot -p
+```
+
+Nun importieren wir das Datenbank-Schema für PowerDNS
+
+``` bash
+mysql -uroot -p powerdns < /usr/share/doc/pdns-backend-mysql/nodnssec-3.x_to_3.4.0_schema.mysql.sql
+```
+
+
+### PowerDNS konfigurieren
+
+Die Datei `/etc/powerdns/pdns.d/pdns.local.gmysql.conf` muss wie folgt verändert werden:
+
+``` bash
+# MySQL Configuration
+#
+# Launch gmysql backend
+launch+=gmysql
+
+# gmysql parameters
+gmysql-host=127.0.0.1
+gmysql-port=3306
+gmysql-dbname=powerdns
+gmysql-user=powerdns
+gmysql-password=GeheimesPasswort
+gmysql-dnssec=yes
+# gmysql-socket=
+```
+
+Nun muss 
+
+
 [DNS]: http://de.wikipedia.org/wiki/Domain_Name_System
 [PowerDNS]: https://www.powerdns.com/
 [MySQL]: http://de.wikipedia.org/wiki/MySQL
