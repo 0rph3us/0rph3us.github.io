@@ -84,7 +84,7 @@ gmysql-dnssec=yes
 # gmysql-socket=
 ```
 
-Nun muss 
+Nun muss  man sie noch schützen `sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf`. 
 
 
 [DNS]: http://de.wikipedia.org/wiki/Domain_Name_System
