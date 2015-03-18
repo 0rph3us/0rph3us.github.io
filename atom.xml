@@ -4,13 +4,157 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-03-11T21:46:35+01:00</updated>
+ <updated>2015-03-18T07:42:30+01:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
    <email>michael.rennecke@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Einen DNS Server selbst betreiben</title>
+   <link href="https://0rph3us.github.io/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben/"/>
+   <updated>2015-03-18T00:00:00+01:00</updated>
+   <id>https://0rph3us.github.io/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben</id>
+   <content type="html">&lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&quot;http://de.wikipedia.org/wiki/Domain_Name_System&quot;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
+man mehrere Dienste im eigenen Netzwerk betreibt. Dazu habe ich &lt;a href=&quot;https://www.powerdns.com/&quot;&gt;PowerDNS&lt;/a&gt; mit einem &lt;a href=&quot;http://de.wikipedia.org/wiki/MySQL&quot;&gt;MySQL&lt;/a&gt;-Backend.
+Das ganze lässt sich mit der Weboberfläche &lt;a href=&quot;http://www.poweradmin.org/&quot;&gt;poweradmin&lt;/a&gt; sehr einfach bedienen. Man sollte aber bedenken,
+dass jeder Fehler ein komisches Verhalten zur Folge haben kann, wenn man z.B. &lt;a href=&quot;http://de.wikipedia.org/wiki/Zone_%28DNS%29&quot;&gt;Zone&lt;/a&gt; im DNS überschreibt.&lt;/p&gt;
+
+&lt;p&gt;Die Installation auf dem &lt;a href=&quot;http://www.raspberrypi.org/help/what-is-a-raspberry-pi/&quot;&gt;Raspberry Pi&lt;/a&gt; mit &lt;a href=&quot;http://www.raspbian.org/&quot;&gt;Raspbian&lt;/a&gt; gestaltet sich realtiv einfach. Am besten macht macht
+das ganze als &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Installation von MySQL&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install mysql-server mysql-client php5-mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Danach habt Ihr MySQL installiert und auch den php Client, welchen wir später noch brauchen. Während
+der Installation werdet ihr nach dem &lt;code&gt;root&lt;/code&gt;-Passwort für den MySQL Server gefragt.&lt;/p&gt;
+
+&lt;h3&gt;Installation von PowerDNS&lt;/h3&gt;
+
+&lt;p&gt;Die Installation möchte Euch bei der Einrichtung der Datenbank behilflich sein. Aber wir konfigurieren
+alles per Hand. Bei mir die automatische Konfiguration nicht so gut funktioniert.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo su
+apt-get install pdns-server pdns-backend-mysql dnsutils
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Einrichten der Datenbank&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DATABASE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;powerdns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GRANT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;powerdns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;powerdns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IDENTIFIED&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;GeheimesPasswort&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;FLUSH&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;PRIVILEGES&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Das muss man in die &lt;code&gt;mysql&lt;/code&gt; Konsole eintragen. Zu dieser gelangt man so:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mysql -uroot -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun importieren wir das Datenbank-Schema für PowerDNS&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mysql -uroot -p powerdns &amp;lt; /usr/share/doc/pdns-backend-mysql/nodnssec-3.x_to_3.4.0_schema.mysql.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;PowerDNS konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Die Datei &lt;code&gt;/etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt; muss wie folgt verändert werden:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;# MySQL Configuration&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Launch gmysql backend&lt;/span&gt;
+launch+&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gmysql
+
+&lt;span class=&quot;c&quot;&gt;# gmysql parameters&lt;/span&gt;
+gmysql-host&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;127.0.0.1
+gmysql-port&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3306
+gmysql-dbname&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;powerdns
+gmysql-user&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;powerdns
+gmysql-password&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;GeheimesPasswort
+gmysql-dnssec&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;yes
+&lt;span class=&quot;c&quot;&gt;# gmysql-socket=&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun muss  man sie noch schützen &lt;code&gt;sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt;. Nun
+wurder Der Server nur lokal funktionieren und nur seine eigenen Zonen auflösen können. Damit man
+er auch noch über alle anderen Zonen Auskunft geben kann und jedes Gerät im LAN ihn nutzen kann
+muss man ein paar Zeilen in der &lt;code&gt;/etc/powerdns/pdns.conf&lt;/code&gt; ändern 
+(sie sind schön auskommentiert enthälten, ohne Parameter). &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;recursor=8.8.8.8
+
+allow-recursion=127.0.0.1,192.168.0.0/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ich gehe davon aus, dass Euer LAN ein 192.168.0.0/24 Netz ist, sonst anpassen ;-).&lt;/p&gt;
+
+&lt;h3&gt;Test&lt;/h3&gt;
+
+&lt;p&gt;Wenn alles funktioniert, dann kann man den DNS Server wie folgt testen:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;dig google.de @8.8.8.8  
+
+; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.9.5-3ubuntu0.2-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; google.de @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 49993
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.de.                     IN      A
+
+;; ANSWER SECTION:
+google.de.              299     IN      A       173.194.32.255
+google.de.              299     IN      A       173.194.32.248
+google.de.              299     IN      A       173.194.32.239
+google.de.              299     IN      A       173.194.32.247
+
+;; Query time: 87 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Wed Mar 18 07:12:42 CET 2015
+;; MSG SIZE  rcvd: 102
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Poweradmin installieren&lt;/h3&gt;
+
+&lt;p&gt;Damit man den DNS Server einfach/schnell bedienen kann, installiert man &lt;a href=&quot;http://www.poweradmin.org/&quot;&gt;poweradmin&lt;/a&gt;. Das ist
+eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
+
+&lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
+Augen &lt;a href=&quot;http://nginx.org/&quot;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&quot;/raspberry%20pi/linux/2014/07/31/webserver-auf-dem-raspberry-pi-installieren/&quot;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+
+&lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo apt-get install php5-mcrypt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun beginnt die Installtion&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo su
+cd /var/www
+wget https://github.com/poweradmin/poweradmin/archive/v2.1.7.zip
+unzip v2.1.7.zip
+rm v2.1.7.zip
+mv poweradmin-2.1.7 poweradmin
+cat &amp;lt;&amp;lt; EOF &amp;gt; /etc/nginx/sites-available/powerdns
+server {
+    listen 80;
+    server_name &amp;lt;IP des Raspberry Pi&amp;gt;;
+
+    root /var/www/poweradmin;
+    index index.html index.php;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
+
+    access_log      /var/log/nginx/poweradmin.access.log;
+    error_log       /var/log/nginx/poweradmin.error.log;
+}
+EOF
+ln -s /etc/nginx/sites-available/powerdns /etc/nginx/sites-enabled/powerdns
+service nginx reload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
+und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
+Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Probleme beim Upgrade auf den Pi 2</title>

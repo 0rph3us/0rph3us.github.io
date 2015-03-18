@@ -11,6 +11,7 @@ https://0rph3us.github.io/rss.xml
 https://0rph3us.github.io/sitemap.txt
 https://0rph3us.github.io/tags.html
 
+https://0rph3us.github.io/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben/
 https://0rph3us.github.io/raspberry%20pi/2015/03/11/probleme-beim-upgrade-auf-den-pi-2/
 https://0rph3us.github.io/raspberry%20pi/2015/03/05/ein-pi-wird-kommen/
 https://0rph3us.github.io/programmieren/2015/02/26/go-in-6-schritten-installieren/
