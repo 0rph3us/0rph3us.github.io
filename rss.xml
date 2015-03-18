@@ -5,8 +5,8 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-03-18T08:03:31+01:00</lastBuildDate>
-        <pubDate>2015-03-18T08:03:31+01:00</pubDate>
+        <lastBuildDate>2015-03-18T22:03:03+01:00</lastBuildDate>
+        <pubDate>2015-03-18T22:03:03+01:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -151,6 +151,17 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
 </description>
                 <link>https://0rph3us.github.io/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben/</link>
                 <guid>https://0rph3us.github.io/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben</guid>
+                <pubDate>2015-03-18T00:00:00+01:00</pubDate>
+        </item>
+
+        <item>
+                <title>Danke Primacom</title>
+                <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&quot;/privat/2015/02/09/hallo-github/&quot;&gt;damals&lt;/a&gt; geschrieben habe.
+Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
+IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
+</description>
+                <link>https://0rph3us.github.io/privat/2015/03/18/danke-primacom/</link>
+                <guid>https://0rph3us.github.io/privat/2015/03/18/danke-primacom</guid>
                 <pubDate>2015-03-18T00:00:00+01:00</pubDate>
         </item>
 
