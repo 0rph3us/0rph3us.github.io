@@ -149,9 +149,40 @@ sudo su
 cd /var/www
 wget https://github.com/poweradmin/poweradmin/archive/v2.1.7.zip
 unzip v2.1.7.zip
+rm v2.1.7.zip
 mv poweradmin-2.1.7 poweradmin
+cat << EOF > /etc/nginx/sites-available/powerdns
+server {
+    listen 80;
+    server_name <IP des Raspberry Pi>;
+    
+    root /var/www/poweradmin;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
 
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
+
+    access_log      /var/log/nginx/poweradmin.access.log;
+    error_log       /var/log/nginx/poweradmin.error.log;
+}
+EOF
+ln -s /etc/nginx/sites-available/powerdns /etc/nginx/sites-enabled/powerdns
+service nginx reload
 ```
+
+Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://<IP Raspberry Pi> im Browser
+und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
+Zonen. Das ganze ist recht selbsterklärend.
 
 
 [DNS]: http://de.wikipedia.org/wiki/Domain_Name_System
