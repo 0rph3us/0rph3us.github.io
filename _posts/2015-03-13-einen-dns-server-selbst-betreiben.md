@@ -84,7 +84,51 @@ gmysql-dnssec=yes
 # gmysql-socket=
 ```
 
-Nun muss  man sie noch schützen `sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf`. 
+Nun muss  man sie noch schützen `sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf`. Nun
+wurder Der Server nur lokal funktionieren und nur seine eigenen Zonen auflösen können. Damit man
+er auch noch über alle anderen Zonen Auskunft geben kann und jedes Gerät im LAN ihn nutzen kann
+muss man ein paar Zeilen in der `/etc/powerdns/pdns.conf` ändern 
+(sie sind schön auskommentiert enthälten, ohne Parameter). 
+
+```
+recursor=8.8.8.8
+
+allow-recursion=127.0.0.1,192.168.0.0/24
+```
+
+Ich gehe davon aus, dass Euer LAN ein 192.168.0.0/24 Netz ist, sonst anpassen ;-).
+
+### Test
+
+Wenn alles funktioniert, dann kann man den DNS Server wie folgt testen:
+
+```
+dig google.de @8.8.8.8  
+
+; <<>> DiG 9.9.5-3ubuntu0.2-Ubuntu <<>> google.de @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 49993
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.de.                     IN      A
+
+;; ANSWER SECTION:
+google.de.              299     IN      A       173.194.32.255
+google.de.              299     IN      A       173.194.32.248
+google.de.              299     IN      A       173.194.32.239
+google.de.              299     IN      A       173.194.32.247
+
+;; Query time: 87 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Wed Mar 18 07:12:42 CET 2015
+;; MSG SIZE  rcvd: 102
+
+
+```
 
 
 [DNS]: http://de.wikipedia.org/wiki/Domain_Name_System
