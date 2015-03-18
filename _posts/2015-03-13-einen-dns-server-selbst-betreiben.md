@@ -126,7 +126,30 @@ google.de.              299     IN      A       173.194.32.247
 ;; SERVER: 8.8.8.8#53(8.8.8.8)
 ;; WHEN: Wed Mar 18 07:12:42 CET 2015
 ;; MSG SIZE  rcvd: 102
+```
 
+### Poweradmin installieren
+
+Damit man den DNS Server einfach/schnell bedienen kann, installiert man [poweradmin]. Das ist
+eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.
+
+Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
+Augen [Nginx] ganz gut. Wie man diesen installiert kann man in [diesem Artikel] nachlesen.
+
+Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.
+
+```
+sudo apt-get install php5-mcrypt
+```
+
+Nun beginnt die Installtion
+
+```
+sudo su
+cd /var/www
+wget https://github.com/poweradmin/poweradmin/archive/v2.1.7.zip
+unzip v2.1.7.zip
+mv poweradmin-2.1.7 poweradmin
 
 ```
 
@@ -138,3 +161,6 @@ google.de.              299     IN      A       173.194.32.247
 [Zone]: http://de.wikipedia.org/wiki/Zone_%28DNS%29
 [Raspberry Pi]: http://www.raspberrypi.org/help/what-is-a-raspberry-pi/
 [Raspbian]: http://www.raspbian.org/
+[diesem Artikel]: {% post_url 2014-07-31-webserver-auf-dem-raspberry-pi-installieren %}
+[Nginx]: http://nginx.org/
+[php-mcrypt]: http://php.net/manual/de/book.mcrypt.php
