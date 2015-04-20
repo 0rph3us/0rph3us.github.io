@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>
       
-        unison - 
+        kaputtes System nach Restore mit Obnam - 
       
       0rph3us
     </title>
-    
+    <meta name="description" content="">
     <meta name="author" content="Michael Rennecke">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->
@@ -171,29 +171,37 @@
           
 <div class="page-header">
   <h1>
-    unison 
+    kaputtes System nach Restore mit Obnam 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>Mit dem Tool <a href="http://www.cis.upenn.edu/%7Ebcpierce/unison/">unison</a> kann man sehr gut Verzeichnisse synchronisieren. Es gibt auch ein Package für Open Solaris. Es heißt <strong>SUNWunison</strong>. Wenn man via ssh-Verbindung synchronisiert muss man vor dem Ziel-Verzeichnis 2 Backslash schreiben, wenn man nur lokal synchronisiert ist das nicht nötig. Ein Profil könnte dann wie folgt aussehen:</p>
-<pre lang="bash">rennecke@trantor ~ $ cat .unison/default.prf
-# Unison preferences file
-root = /export/home/rennecke
-root = ssh://rennecke@zeus//home/rennecke
-</pre>
-<p>Das Tool ist sehr intuitiv zu bedienen und ein Blick wert.</p>
+    <p><a href="http://obnam.org/">Obnam</a> ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+</code></pre></div>
+<p>Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit <a href="https://grml.org/">grml</a> auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles. </p>
+
+<p>Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+</code></pre></div>
+<p>Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus <a href="https://launchpad.net/%7Echris-bigballofwax/+archive/ubuntu/obnam-ppa">dieser PPA</a></p>
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="/solaris/2010/03/12/mplayer-fuer-opensolaris/" title="mplayer für OpenSolaris">&larr; &Auml;lter</a>
+        <a class="btn prev" href="/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben/" title="Einen DNS Server selbst betreiben">&larr; &Auml;lter</a>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next" href="/tools/2010/04/12/svn-und-proxy-server/" title="svn und Proxy-Server">Neuer &rarr;</a>
+        <a class="btn next disabled">Neuer &rarr;</a>
       
     </div>
     
@@ -207,12 +215,19 @@ root = ssh://rennecke@zeus//home/rennecke
   <div class="span4">
     <section>
       <h4>Ver&ouml;ffentlicht</h4>
-      <div class="date"><span>23.03.2010</span></div>
+      <div class="date"><span>20.04.2015</span></div>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>26.06.2014 18:32 Uhr</div>
+      <div class="date"><span></span>20.04.2015 18:34 Uhr</div>
     </section>
+    
+      <section>
+        <h4>Kategorie</h4>
+        <span class="category">
+          linux, tools
+        </span>
+      </section>
          
     
       <section>
@@ -224,13 +239,11 @@ root = ssh://rennecke@zeus//home/rennecke
 
   
      
-    	<li><a href="/tags.html#unison-ref">unison <span>1</span></a></li>
-     
-    	<li><a href="/tags.html#synchronisation-ref">synchronisation <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#OpenSolaris-ref">OpenSolaris <span>25</span></a></li>
+    	<li><a href="/tags.html#ubuntu-ref">ubuntu <span>2</span></a></li>
      
     	<li><a href="/tags.html#backup-ref">backup <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#obnam-ref">obnam <span>1</span></a></li>
     
   
 

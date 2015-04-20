@@ -4,13 +4,36 @@
  <title>0rph3us</title>
  <link href="https://0rph3us.github.io/" rel="self"/>
  <link href="https://0rph3us.github.io"/>
- <updated>2015-03-18T22:03:03+01:00</updated>
+ <updated>2015-04-20T18:34:25+02:00</updated>
  <id>https://0rph3us.github.io</id>
  <author>
    <name>Michael Rennecke</name>
    <email>michael.rennecke@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>kaputtes System nach Restore mit Obnam</title>
+   <link href="https://0rph3us.github.io/linux/tools/2015/04/20/kaputtes-system-nach-restore-mit-obnam/"/>
+   <updated>2015-04-20T00:00:00+02:00</updated>
+   <id>https://0rph3us.github.io/linux/tools/2015/04/20/kaputtes-system-nach-restore-mit-obnam</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://obnam.org/&quot;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit &lt;a href=&quot;https://grml.org/&quot;&gt;grml&lt;/a&gt; auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles. &lt;/p&gt;
+
+&lt;p&gt;Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus &lt;a href=&quot;https://launchpad.net/%7Echris-bigballofwax/+archive/ubuntu/obnam-ppa&quot;&gt;dieser PPA&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Einen DNS Server selbst betreiben</title>
