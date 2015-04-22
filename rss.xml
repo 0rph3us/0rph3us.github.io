@@ -5,8 +5,8 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-04-22T16:53:46+02:00</lastBuildDate>
-        <pubDate>2015-04-22T16:53:46+02:00</pubDate>
+        <lastBuildDate>2015-04-22T17:14:27+02:00</lastBuildDate>
+        <pubDate>2015-04-22T17:14:27+02:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -2540,9 +2540,14 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
 
         <item>
                 <title>Superlinearer Speedup</title>
-                <description>&lt;p&gt;Ich habe f&amp;uuml;r meine Diplomarbeit die &lt;a href=&quot;http://de.wikipedia.org/wiki/Strassen-Algorithmus&quot;&gt;Matrixmultiplikation nach Strassen&lt;/a&gt; implementiert. Das ganze habe ich mit  &lt;a href=&quot;http://en.wikipedia.org/wiki/Cilk&quot;&gt;Cilk++&lt;/a&gt; implementiert.&lt;a href=&quot;http://0rpheus.net/uploads/2010/05/strassen-results.png&quot;&gt;&lt;img src=&quot;assets/strassen-results-300x300.png&quot; alt=&quot;superlinearer Speedup&quot; title=&quot;Speedup von Matrixmultiplikation nach Strassen&quot; width=&quot;300&quot; height=&quot;300&quot; class=&quot;aligncenter size-medium wp-image-2432&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-Ich war recht erstaunt, als ich diese Ergebnisse gesehen habe. Es ist erkl&amp;auml;rbar, weswegen ich einen superlinearen &lt;a href=&quot;http://de.wikipedia.org/wiki/Speedup&quot;&gt;Speedup&lt;/a&gt; erreicht habe. Wenn ich auf 4 CPUs rechne habe ich mehr &lt;a href=&quot;http://de.wikipedia.org/wiki/Cache&quot;&gt;Cache&lt;/a&gt; zur Verf&amp;uuml;gung. Diesen hohen Speedup kann man nur durch Caching Effekte erreichen.&lt;/p&gt;
+                <description>&lt;p&gt;Ich habe für meine Diplomarbeit die &lt;a href=&quot;http://de.wikipedia.org/wiki/Strassen-Algorithmus&quot;&gt;Matrixmultiplikation nach Strassen&lt;/a&gt; implementiert. Das ganze habe ich mit
+&lt;a href=&quot;http://en.wikipedia.org/wiki/Cilk&quot;&gt;Cilk++&lt;/a&gt; implementiert.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/uploads/images/strassen-results.png&quot; title=&quot;Speedup von Matrixmultiplikation nach Strassen&quot; data-lightbox=&quot;result_group&quot; &gt;&lt;img src=&quot;/generated/strassen-results-300x300-05d923.png&quot; alt=&quot;superlinearer Speedup&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Ich war recht erstaunt, als ich diese Ergebnisse gesehen habe. Es ist erklärbar, weswegen ich einen superlinearen
+&lt;a href=&quot;http://de.wikipedia.org/wiki/Speedup&quot;&gt;Speedup&lt;/a&gt; erreicht habe. Wenn ich auf 4 CPUs rechne habe ich mehr &lt;a href=&quot;http://de.wikipedia.org/wiki/Cache&quot;&gt;Cache&lt;/a&gt; zur Verfügung. Diesen hohen
+Speedup kann man nur durch Caching Effekte erreichen.&lt;/p&gt;
 </description>
                 <link>https://0rph3us.github.io/hpc/2010/05/14/superlinearer-speedup/</link>
                 <guid>https://0rph3us.github.io/hpc/2010/05/14/superlinearer-speedup</guid>
