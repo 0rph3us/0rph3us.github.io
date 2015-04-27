@@ -5,8 +5,8 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-04-27T19:56:19+02:00</lastBuildDate>
-        <pubDate>2015-04-27T19:56:19+02:00</pubDate>
+        <lastBuildDate>2015-04-27T20:22:24+02:00</lastBuildDate>
+        <pubDate>2015-04-27T20:22:24+02:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -720,7 +720,7 @@ verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/bmp085_pi.png&quot; title=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; data-lightbox=&quot;bmp085_group&quot; &gt;&lt;img src=&quot;/generated/bmp085_pi-300x234-505f7c.png&quot; alt=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/bmp085_pi.png&quot; title=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; data-lightbox=&quot;bmp085_group&quot; &gt;&lt;img src=&quot;/generated/bmp085_pi-300x234-ab1a30.png&quot; alt=&quot;Steckbrett mit BMP085 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 
@@ -807,7 +807,7 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/dht22_pi.png&quot; title=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; data-lightbox=&quot;dht22_group&quot; &gt;&lt;img src=&quot;/generated/dht22_pi-300x252-844234.png&quot; alt=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/dht22_pi.png&quot; title=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; data-lightbox=&quot;dht22_group&quot; &gt;&lt;img src=&quot;/generated/dht22_pi-300x252-2f04c6.png&quot; alt=&quot;Steckbrett mit DHT22 und Raspberry Pi&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. &lt;/p&gt;
@@ -2295,7 +2295,7 @@ Ich habe mich die letzten Tage mit der &lt;a href=&quot;http://www.cplusplus.com
                 <description>&lt;p&gt;Es werden &lt;a href=&quot;http://mozilla.debian.net/en-US/logos/&quot;&gt;neue Logos&lt;/a&gt; f&amp;uuml;r Ice[weasel | ape | dove] gesucht. 
 Ich habe mir mit &lt;a href=&quot;http://binfalse.de&quot;&gt;Martin&lt;/a&gt;, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/Iceweasel.png&quot; title=&quot;alternatives Iceweasel-Logo&quot; data-lightbox=&quot;ice&quot; &gt;&lt;img src=&quot;/generated/Iceweasel-372x297-27a745.png&quot; alt=&quot;alternatives Iceweasel-Logo&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/Iceweasel.png&quot; title=&quot;alternatives Iceweasel-Logo&quot; data-lightbox=&quot;ice&quot; &gt;&lt;img src=&quot;/generated/Iceweasel-372x297-009d51.png&quot; alt=&quot;alternatives Iceweasel-Logo&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 </description>
                 <link>https://0rph3us.github.io/linux/sonstiges/2010/08/16/neues-logo-fur-iceweasel/</link>
                 <guid>https://0rph3us.github.io/linux/sonstiges/2010/08/16/neues-logo-fur-iceweasel</guid>
@@ -2317,7 +2317,7 @@ hat im 19. Jahrhundert eine Funktion konstruiert, welche überall stetig, aber a
 Die Zacken im Plot entstehen, weil die Summe nicht bis Unendlich läuft. Aus Gründen der Zahlendarstellung im Rechner,
 habe ich die Summe nur bis 50 laufen lassen.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/weierstrass.png&quot; title=&quot;Plots der Weierstraß- und Sinusfunktion&quot; data-lightbox=&quot;test_group&quot; &gt;&lt;img src=&quot;/generated/weierstrass-200x200-c00600.png&quot; alt=&quot;test image&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/weierstrass.png&quot; title=&quot;Plots der Weierstraß- und Sinusfunktion&quot; data-lightbox=&quot;test_group&quot; &gt;&lt;img src=&quot;/generated/weierstrass-200x200-f185e4.png&quot; alt=&quot;test image&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Seine erste Funktion sah wie folgt aus:&lt;/p&gt;
 
@@ -2543,7 +2543,7 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
                 <description>&lt;p&gt;Ich habe für meine Diplomarbeit die &lt;a href=&quot;http://de.wikipedia.org/wiki/Strassen-Algorithmus&quot;&gt;Matrixmultiplikation nach Strassen&lt;/a&gt; implementiert. Das ganze habe ich mit
 &lt;a href=&quot;http://en.wikipedia.org/wiki/Cilk&quot;&gt;Cilk++&lt;/a&gt; implementiert.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/uploads/images/strassen-results.png&quot; title=&quot;Speedup von Matrixmultiplikation nach Strassen&quot; data-lightbox=&quot;result_group&quot; &gt;&lt;img src=&quot;/generated/strassen-results-300x300-05d923.png&quot; alt=&quot;superlinearer Speedup&quot; &gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/uploads/images/strassen-results.png&quot; title=&quot;Speedup von Matrixmultiplikation nach Strassen&quot; data-lightbox=&quot;result_group&quot; &gt;&lt;img src=&quot;/generated/strassen-results-300x300-4c8f93.png&quot; alt=&quot;superlinearer Speedup&quot; &gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Ich war recht erstaunt, als ich diese Ergebnisse gesehen habe. Es ist erklärbar, weswegen ich einen superlinearen
 &lt;a href=&quot;http://de.wikipedia.org/wiki/Speedup&quot;&gt;Speedup&lt;/a&gt; erreicht habe. Wenn ich auf 4 CPUs rechne habe ich mehr &lt;a href=&quot;http://de.wikipedia.org/wiki/Cache&quot;&gt;Cache&lt;/a&gt; zur Verfügung. Diesen hohen
