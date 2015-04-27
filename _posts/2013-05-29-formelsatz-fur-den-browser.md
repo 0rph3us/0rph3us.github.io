@@ -20,7 +20,7 @@ Ich habe [MathJax](http://www.mathjax.org/) entdeckt, damit kann man relativ e
 
 Hier ein Beispiel: (Padé-Approximation) 
 
-$$ f_{ML}(x)=\frac{\sum^{L}_{i=0}a_ix^i}{\sum^{M}_{v=0}c_vx^v} $$
+$$ f\_{ML}(x)=\frac{\sum^{L}\_{i=0}a\_ix^i}{\sum^{M}\_{v=0}c\_vx^v} $$
 
 P.S.: Für diesen Blog hoste ich [MathJax](http://www.mathjax.org/) selbst, also keine Angst
 vor fremden JavaScript.
