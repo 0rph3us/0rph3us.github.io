@@ -5,8 +5,8 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-04-22T17:54:22+02:00</lastBuildDate>
-        <pubDate>2015-04-22T17:54:22+02:00</pubDate>
+        <lastBuildDate>2015-04-27T19:56:19+02:00</lastBuildDate>
+        <pubDate>2015-04-27T19:56:19+02:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -1333,7 +1333,7 @@ anstatt etwas vorhandenes zu vereinfachen bzw. Regeln über Algorithmen und Schl
 
 &lt;p&gt;Hier ein Beispiel: (Padé-Approximation) &lt;/p&gt;
 
-&lt;p&gt;$$ f&lt;em&gt;{ML}(x)=\frac{\sum^{L}&lt;/em&gt;{i=0}a&lt;em&gt;ix^i}{\sum^{M}&lt;/em&gt;{v=0}c_vx^v} $$&lt;/p&gt;
+&lt;p&gt;$$ f_{ML}(x)=\frac{\sum^{L}_{i=0}a_ix^i}{\sum^{M}_{v=0}c_vx^v} $$&lt;/p&gt;
 
 &lt;p&gt;P.S.: Für diesen Blog hoste ich &lt;a href=&quot;http://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; selbst, also keine Angst
 vor fremden JavaScript.&lt;/p&gt;
