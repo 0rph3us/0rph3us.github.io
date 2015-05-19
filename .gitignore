@@ -1,5 +1,6 @@
 _site/*
 _theme_packages/*
+dist/*
 
 *~
 
@@ -15,3 +16,4 @@ Gemfile.lock
 js/mathjax/*
 assets/themes/hooligan/fonts/*
 *.swp
+node_modules/
