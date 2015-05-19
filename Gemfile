@@ -6,5 +6,6 @@ gem 'jekyll-last-modified-at', '~> 0.3.4'
 gem 'uglifier', '~> 2.7.0'
 gem 'pygments.rb', '~> 0.6.0'
 gem 'redcarpet', '~> 3.1'
+gem 'rake', '~> 10.4.2'
 
 #gem 'github-pages'
