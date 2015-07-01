@@ -13,7 +13,7 @@ Thumbs.db
 .rvmrc
 Gemfile.lock
 
-js/mathjax/*
-assets/themes/hooligan/fonts/*
+source/js/mathjax/*
+source/assets/themes/hooligan/fonts/*
 *.swp
 node_modules/
