@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        kaputtes System nach Restore mit Obnam - 
+        Update - 
       
       0rph3us
     </title>
@@ -172,37 +172,31 @@
           
 <div class="page-header">
   <h1>
-    kaputtes System nach Restore mit Obnam 
+    Update 
     
   </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><a href="http://obnam.org/">Obnam</a> ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
-Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
-</code></pre></div>
-<p>Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
-große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
-die Platte geschrottet hat, habe ich mit <a href="https://grml.org/">grml</a> auf die Platte geschaut. Alles war da. Nach einiger Zeit
-habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
-habe ging alles. </p>
+    <p>Ich bin länger zum bloggen gekommen, da ich aktuell recht ausgelastet bin. Meine
+letzten Beträge habe ich während der Zugfahrt zuwischen Halle und Leipzig
+geschrieben. Da man in diesen Zügen kaum noch einen Sitzplatz bekommt, ist es
+recht schwer im Zug zu schreiben.</p>
 
-<p>Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
-es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
-</code></pre></div>
-<p>Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus <a href="https://launchpad.net/%7Echris-bigballofwax/+archive/ubuntu/obnam-ppa">dieser PPA</a></p>
+<p>Ich kann nur sagen, dass die deutsche Bahn immer wieder Spaß macht...</p>
+
+<p>Mein nächster Beitrag wird hoffentlich über Privoxy und Tor sein. Dieses Gespann
+läuft schon eigige Zeit auf meinen Pi.</p>
 
     <hr>
     <div class="pagination btn-group">
       
-        <a class="btn prev" href="/linux/raspberry%20pi/2015/03/18/einen-dns-server-selbst-betreiben/" title="Einen DNS Server selbst betreiben">&larr; &Auml;lter</a>
+        <a class="btn prev" href="/linux/tools/2015/04/20/kaputtes-system-nach-restore-mit-obnam/" title="kaputtes System nach Restore mit Obnam">&larr; &Auml;lter</a>
       
         <a class="btn" href="/archive.html">Archiv</a>
       
-        <a class="btn next" href="/privat/2015/07/01/update/" title="Update">Neuer &rarr;</a>
+        <a class="btn next disabled">Neuer &rarr;</a>
       
     </div>
     
@@ -216,17 +210,17 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
   <div class="span4">
     <section>
       <h4>Ver&ouml;ffentlicht</h4>
-      <div class="date"><span>20.04.2015</span></div>
+      <div class="date"><span>01.07.2015</span></div>
     </section>
     <section>
       <h4>Letzte &Auml;nderung</h4>
-      <div class="date"><span></span>19.05.2015 12:47 Uhr</div>
+      <div class="date"><span></span>01.07.2015 06:16 Uhr</div>
     </section>
     
       <section>
         <h4>Kategorie</h4>
         <span class="category">
-          linux, tools
+          privat
         </span>
       </section>
          
@@ -240,11 +234,7 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
 
   
      
-    	<li><a href="/tags.html#ubuntu-ref">ubuntu <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#backup-ref">backup <span>2</span></a></li>
-     
-    	<li><a href="/tags.html#obnam-ref">obnam <span>1</span></a></li>
+    	<li><a href="/tags.html#Bahn-ref">Bahn <span>1</span></a></li>
     
   
 

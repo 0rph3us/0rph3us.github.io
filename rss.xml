@@ -5,10 +5,27 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-05-19T21:55:34+02:00</lastBuildDate>
-        <pubDate>2015-05-19T21:55:34+02:00</pubDate>
+        <lastBuildDate>2015-07-01T06:17:31+02:00</lastBuildDate>
+        <pubDate>2015-07-01T06:17:31+02:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Update</title>
+                <description>&lt;p&gt;Ich bin länger zum bloggen gekommen, da ich aktuell recht ausgelastet bin. Meine
+letzten Beträge habe ich während der Zugfahrt zuwischen Halle und Leipzig
+geschrieben. Da man in diesen Zügen kaum noch einen Sitzplatz bekommt, ist es
+recht schwer im Zug zu schreiben.&lt;/p&gt;
+
+&lt;p&gt;Ich kann nur sagen, dass die deutsche Bahn immer wieder Spaß macht...&lt;/p&gt;
+
+&lt;p&gt;Mein nächster Beitrag wird hoffentlich über Privoxy und Tor sein. Dieses Gespann
+läuft schon eigige Zeit auf meinen Pi.&lt;/p&gt;
+</description>
+                <link>https://0rph3us.github.io/privat/2015/07/01/update/</link>
+                <guid>https://0rph3us.github.io/privat/2015/07/01/update</guid>
+                <pubDate>2015-07-01T00:00:00+02:00</pubDate>
+        </item>
 
         <item>
                 <title>kaputtes System nach Restore mit Obnam</title>
