@@ -32,7 +32,7 @@ CAs zu misstrauen[^2].
 
 Als erstes muss man einen geheimen privaten Schlüssel generieren:
 
-```
+``` sh
 openssl genrsa -aes256 -out ca-key.pem 4096
 ```
 
@@ -42,6 +42,7 @@ auch länger machen.
 
 [^1]: Seit TLS 1.0 kann man auch durch [SNI] mehrere Zertifikate nutzen. SNI unterstützen ältere Browser noch nicht, evtl. hat man auch mit Apps Probleme,
 wenn sie SNI nicht unterstützen. Eine weitere Alternative sind SAN-Zertifikate (diese sind auf mehrere Subdomains ausgestellt), diese gibt es auch nicht für lau.
+
 [^2]: Dazu muss sie aber aus seinen Browser und Betriebssystem löschen. Das ist nicht unbedingt sehr sinnvoll.
 
 [TLS]: https://de.wikipedia.org/wiki/Transport_Layer_Security
