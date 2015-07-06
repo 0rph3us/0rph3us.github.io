@@ -102,7 +102,32 @@ ansprechen möchte. Es sind auch Wildcard-zertifikate möchte *.example.com gilt
 openssl req -new -key cert-key.pem -out cert.csr -sha512
 ```
 
+Wenn man fertig ist, dann erhält man die Zertifikatsanfrage in `cert.csr`, die kann von CA weiter verarbeitet werden. Dabei wird der öffentliche
+Schlüssel des angefragten Zertifikats. 
 
+
+Mit der root-CA, deren Schlüssel und der Zertifikatsanfrage erstellt man ein signiertes Zertifikat, welches 1 Jahr gültig ist.
+
+```sh
+openssl x509 -req -in cert.csr -CA ca-root.pem -CAkey ca-key.pem -CAcreateserial -out cert-pub.pem -days 365 -sha512
+```
+
+Openssl fragt nach dem dem Passwort der root-CA. Wenn dan signierte Zertifikat erstellt wurde kann man die Zertifikatsanfrage `cert.csr` löschen. 
+Das öffentliche Zertifikat befindet sich in der Datei `cert-pub.pem`.
+
+
+# Das Zertifikat benutzen
+
+Für einen Webserver benötigt man die folgenden 3 Teile:
+* Privater Schlüssel des Zertifikats `cert-key.pem`
+* Öffentlicher Schlüssel des Zertifikats `cert-pub.pem`
+* Öffentlicher Schlüssel der CA `ca-root.pem`
+
+Je nach Server ist es nötig die CA und den öffentlichen Schlüssel in einer Datei zu haben. Das kann man wie folgt machen:
+
+``` sh
+cat ca-root.pem >> cert-pub.pem
+```
 
 
 [^1]: Seit TLS 1.0 kann man auch durch [SNI] mehrere Zertifikate nutzen. SNI unterstützen ältere Browser noch nicht, evtl. hat man auch mit Apps Probleme,
