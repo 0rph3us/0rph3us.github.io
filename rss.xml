@@ -5,10 +5,123 @@
         <description>0rph3us - Michael Rennecke</description>
         <link>https://0rph3us.github.io</link>
         <link>https://0rph3us.github.io</link>
-        <lastBuildDate>2015-07-01T06:17:31+02:00</lastBuildDate>
-        <pubDate>2015-07-01T06:17:31+02:00</pubDate>
+        <lastBuildDate>2015-07-06T20:31:04+02:00</lastBuildDate>
+        <pubDate>2015-07-06T20:31:04+02:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Eine eigene CA mit OpenSSL in 5 Minuten</title>
+                <description>&lt;p&gt;Wenn man seine eigenen Dienste mit SSL/&lt;a href=&quot;https://de.wikipedia.org/wiki/Transport_Layer_Security&quot;&gt;TLS&lt;/a&gt; absichern möchte benötigt man Zertifikate. Inzwischen
+gibt es auch kostenlose Zertifikate, diese haben aber Einschränkungen. Wenn man dynDNS verwendet bekommt
+man keine offizellen Zertifikate, da man nicht der Eigentümer der Domain ist. Oft hat jeder Dienst, den man
+anbietet auch einen eigene Subdomain. Wenn man mehrere Subdomains auf dem selben Port benötigt man ein
+Wildcard-Zertifikat&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Dieses ist nach meinen Kenntnisstand nicht kostenlos zu bekommen.&lt;/p&gt;
+
+&lt;p&gt;Wenn man nicht nur einen Webserver, sondern auch einen Jabber-Server betreibt lohnt es sich eine eigene
+CA (Certificate Authority) betreiben, mit der man alle seine Zertifikate unterschreibt. Damit alle Clients
+der CA vertrauen muss diese nur bekannt machen. Danach wird allen Zertifikaten vertraut, welche von der CA
+unterschrieben wurden.&lt;/p&gt;
+
+&lt;p&gt;Ein weiterer Vorteil: Mit der eigenen CA ist man im Zweifel auf der sicheren Seite. In den letzten Jahren
+ist es öfter vorgekommen, dass gefälschte Zertifikate im Umlauf waren. Es gibt also Gründe den großen
+CAs zu misstrauen&lt;sup id=&quot;fnref2&quot;&gt;&lt;a href=&quot;#fn2&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Certificate Authority erstellen&lt;/h1&gt;
+
+&lt;p&gt;Als erstes muss man einen geheimen privaten Schlüssel generieren:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;openssl genrsa -aes256 -out ca-key.pem 4096
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Der Schlüssel wird in der Datei &lt;code&gt;ca-key.pem&lt;/code&gt; gespeichert und hat eine Länge von 4096 Bit. Man kann auch einen
+längeren bzw. kürzeren Schlüssel erzeugen. 2048 Bit sehe ich als absolutes Minimum an. Durch Verwendung der
+Option &lt;code&gt;-aes256&lt;/code&gt; wird der Schküssel mit einem Passwort geschützt. Der Schlüssel der CA muss besonderst 
+geschützt werden, denn mit ihm könnte sich ein Angreifer beliebige Zertifikate ausstellen. Die Verschlüsselung
+mit einem Passwort bietet einen zusätzlichen Schutz. Das Passwort muss man bei jeder Verwendung des Schlüssels
+eingeben.&lt;/p&gt;
+
+&lt;p&gt;Als nächstes muss man das root-Zertifikat der CA erzeugen. Dieses kann man dann in die Browser und in die
+Betriebssysteme importieren. Das Zertifikat wird wie folgt generiert:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;openssl req -x509 -new -nodes -extensions v3_ca -key ca-key.pem -days &lt;span class=&quot;m&quot;&gt;3650&lt;/span&gt; -out ca-root.pem -sha512
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dieses Zertifikat hat eine Gültigkeit von 10 Jahren (3650 Tage). Die Attribute der CA können wie folgt sein:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;Country Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; letter code&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;AU&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;:DE
+State or Province Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;full name&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Some-State&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;:Saxony-Anhalt
+Locality Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;eg, city&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;:Halle &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Saale&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Organization Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;eg, company&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Internet Widgits Pty Ltd&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;:bude
+Organizational Unit Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;eg, section&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;:IT
+Common Name &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;eg, YOUR name&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;:example.net
+Email Address &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;:meine.email-adresse.net
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Root-Zertifikat auf den Clients importieren&lt;/h1&gt;
+
+&lt;h2&gt;Debian / Ubuntu&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo cp ca-root.pem /usr/share/ca-certificates/myca-root.crt
+sudo dpkg-reconfigure ca-certificates
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Mozilla Firefox / Thunderbird&lt;/h2&gt;
+
+&lt;p&gt;Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter &lt;em&gt;Einstellungen&lt;/em&gt; =&amp;gt; &lt;em&gt;Erweitert&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate anzeigen&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifizierungsstellen&lt;/em&gt; =&amp;gt; &lt;em&gt;Importieren&lt;/em&gt;. Wählt die Datei &lt;code&gt;ca-root.pem&lt;/code&gt; aus. Wählt die Option &lt;em&gt;Dieser CA vertrauen, um Websites zu identifizieren&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Chromium / Google Chrome&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Einstellungen&lt;/em&gt; =&amp;gt; &lt;em&gt;Erweiterte Einstellungen anzeigen&lt;/em&gt; (unten) =&amp;gt; &lt;em&gt;HTTPS/SSL&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate verwalten&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifizierungsstellen&lt;/em&gt; =&amp;gt; &lt;em&gt;Importieren&lt;/em&gt; =&amp;gt; &lt;code&gt;ca-root-pem&lt;/code&gt; auswählen =&amp;gt; &lt;em&gt;Diesem Zertifikat zur Identifizierung von Websites vertrauen&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1&gt;Ein neues Zertifikat ausstellen&lt;/h1&gt;
+
+&lt;p&gt;Als erstes muss man sich wieder einen privaten Schlüssel erzeuge.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;openssl genrsa -out cert-key.pem 4096
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bei den Zertifikaten sollte man in den meisten Fällen kein Passwort setzten. Wenn man es z.B. für einen Webserver benötigt,
+dann müsste man das Passwort bei jedem Start eingeben.&lt;/p&gt;
+
+&lt;p&gt;Nun muss man eine Zertifikatsanfrage erstellen. Ganz wichtig ist der &lt;strong&gt;Common Name&lt;/strong&gt; dieses Attribut &lt;em&gt;muss&lt;/em&gt; so lauten, wie der Hostname
+des Servers, auf den es ausgestellt ist. Wenn man nur via IP zugreifen möchte, dann ist der Common Name die IP, mit den man den Dienst
+ansprechen möchte. Es sind auch Wildcard-zertifikate möchte *.example.com gilt für foo.example.com bar.example.com, aber nicht für foo.bar.example.com.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;openssl req -new -key cert-key.pem -out cert.csr -sha512
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wenn man fertig ist, dann erhält man die Zertifikatsanfrage in &lt;code&gt;cert.csr&lt;/code&gt;, die kann von CA weiter verarbeitet werden. Dabei wird der öffentliche
+Schlüssel des angefragten Zertifikats. &lt;/p&gt;
+
+&lt;p&gt;Mit der root-CA, deren Schlüssel und der Zertifikatsanfrage erstellt man ein signiertes Zertifikat, welches 1 Jahr gültig ist.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;openssl x509 -req -in cert.csr -CA ca-root.pem -CAkey ca-key.pem -CAcreateserial -out cert-pub.pem -days &lt;span class=&quot;m&quot;&gt;365&lt;/span&gt; -sha512
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Openssl fragt nach dem dem Passwort der root-CA. Wenn dan signierte Zertifikat erstellt wurde kann man die Zertifikatsanfrage &lt;code&gt;cert.csr&lt;/code&gt; löschen. 
+Das öffentliche Zertifikat befindet sich in der Datei &lt;code&gt;cert-pub.pem&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Das Zertifikat benutzen&lt;/h1&gt;
+
+&lt;p&gt;Für einen Webserver benötigt man die folgenden 3 Teile:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Privater Schlüssel des Zertifikats &lt;code&gt;cert-key.pem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Öffentlicher Schlüssel des Zertifikats &lt;code&gt;cert-pub.pem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Öffentlicher Schlüssel der CA &lt;code&gt;ca-root.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Je nach Server ist es nötig die CA und den öffentlichen Schlüssel in einer Datei zu haben. Das kann man wie folgt machen:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;cat ca-root.pem &amp;gt;&amp;gt; cert-pub.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;wenn sie SNI nicht unterstützen. Eine weitere Alternative sind SAN-Zertifikate (diese sind auf mehrere Subdomains ausgestellt), diese gibt es auch nicht für lau.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id=&quot;fn1&quot;&gt;
+&lt;p&gt;Seit TLS 1.0 kann man auch durch &lt;a href=&quot;https://de.wikipedia.org/wiki/Server_Name_Indication&quot;&gt;SNI&lt;/a&gt; mehrere Zertifikate nutzen. SNI unterstützen ältere Browser noch nicht, evtl. hat man auch mit Apps Probleme,&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li id=&quot;fn2&quot;&gt;
+&lt;p&gt;Dazu muss sie aber aus seinen Browser und Betriebssystem löschen. Das ist nicht unbedingt sehr sinnvoll.&amp;nbsp;&lt;a href=&quot;#fnref2&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+                <link>https://0rph3us.github.io/sicherheit/2015/07/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
+                <guid>https://0rph3us.github.io/sicherheit/2015/07/07/eine-eigene-ca-mit-openssl-in-5-minuten</guid>
+                <pubDate>2015-07-07T00:00:00+02:00</pubDate>
+        </item>
 
         <item>
                 <title>Update</title>
