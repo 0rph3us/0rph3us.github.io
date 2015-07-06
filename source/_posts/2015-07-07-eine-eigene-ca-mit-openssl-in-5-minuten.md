@@ -75,11 +75,11 @@ sudo dpkg-reconfigure ca-certificates
 
 ## Mozilla Firefox / Thunderbird
 
-Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter __Einstellungen__ => __Erweitert__ => __Zertifikate__ => __Zertifikate anzeigen__ => __Zertifizierungsstellen__ => __Importieren__. Wählt die Datei `ca-root.pem` aus. Wählt die Option __Dieser CA vertrauen, um Websites zu identifizieren__.
+Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter *Einstellungen* => *Erweitert* => *Zertifikate* => *Zertifikate anzeigen* => *Zertifizierungsstellen* => *Importieren*. Wählt die Datei `ca-root.pem` aus. Wählt die Option *Dieser CA vertrauen, um Websites zu identifizieren*.
 
 ## Chromium / Google Chrome
 
-__Einstellungen„ => __Erweiterte Einstellungen anzeigen__ (unten) => __HTTPS/SSL__ => __Zertifikate verwalten__ => __Zertifizierungsstellen__ => __Importieren__ => `ca-root-pem` auswählen => __Diesem Zertifikat zur Identifizierung von Websites vertrauen__
+*Einstellungen* => *Erweiterte Einstellungen anzeigen* (unten) => *HTTPS/SSL* => *Zertifikate verwalten* => *Zertifizierungsstellen* => *Importieren* => `ca-root-pem` auswählen => *Diesem Zertifikat zur Identifizierung von Websites vertrauen*
 
 
 # Ein neues Zertifikat ausstellen
@@ -119,9 +119,10 @@ Das öffentliche Zertifikat befindet sich in der Datei `cert-pub.pem`.
 # Das Zertifikat benutzen
 
 Für einen Webserver benötigt man die folgenden 3 Teile:
-* Privater Schlüssel des Zertifikats `cert-key.pem`
-* Öffentlicher Schlüssel des Zertifikats `cert-pub.pem`
-* Öffentlicher Schlüssel der CA `ca-root.pem`
+
+- Privater Schlüssel des Zertifikats `cert-key.pem`
+- Öffentlicher Schlüssel des Zertifikats `cert-pub.pem`
+- Öffentlicher Schlüssel der CA `ca-root.pem`
 
 Je nach Server ist es nötig die CA und den öffentlichen Schlüssel in einer Datei zu haben. Das kann man wie folgt machen:
 
