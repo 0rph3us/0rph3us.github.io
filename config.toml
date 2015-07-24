@@ -32,5 +32,7 @@ theme = "redlounge"
     category = "categories"
 
 [params]
+    sidebartitle   = "Michael Rennecke"
+    sidebartagline = "Meine Gedanken zu Sicherheit, Linux und Random Stuff"
     highlightStyle = "solarized_light"
 
