@@ -12,19 +12,6 @@ tags:
 - thunderbird
 status: publish
 type: post
-published: true
-meta:
-  _edit_last: '12'
-  _jd_tweet_this: 'yes'
-  _wp_jd_wp: http://0rpheus.net/?p=6484
-  _wp_jd_target: http://0rpheus.net/?p=6484
-  _jd_wp_twitter: 'a:1:{i:0;s:52:"New post: Sichere E-Mails http://0rpheus.net/?p=6484";}'
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
 ---
 Nachdem ich [diesen Beitrag auf golem.de](http://www.golem.de/news/gesellschaft-fuer-informatik-wir-brauchen-sichere-standardisierung-der-verschluesselung-1310-101928.html)
 gelesen habe, ist mir wieder die ganze Misere mit [De-Mail](http://www.de-mail.de) und dem NSA-Skandal hoch gekommen.
