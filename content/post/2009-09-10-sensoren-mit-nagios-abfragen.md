@@ -10,19 +10,16 @@ tags:
 - Sparc
 status: publish
 type: post
-published: true
-meta:
-  _edit_last: '2'
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
 ---
-<p>Ich wollte verschiedene Sparc-Rechner mit <a href="http://www.nagios.org/">Nagios</a> überwachen. Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.</p>
-<p>Es funktioniert ganz gut, wenn jemand Probleme mit dem Plugin hat, dann kann ich versuchen es zu verbessern. Man kann das <a href="http://blogs.sun.com/rennecke/resource/stuff/check_solaris_sensors">Plugin auch hier</a> herunter laden. Ich parse die Ausgabe von <tt>prtpicl</tt>. Wenn die Temperatur <strong>HighWarningThreshold  $warn</strong> übersteigt, dann wird warning zurück gegeben. Wenn <strong>HighWarningThreshold </strong>überschritten wird, dann gibt das Plugin critical zurück.</p>
-<pre lang="perl">
+Ich wollte verschiedene Sparc-Rechner mit [Nagios](http://www.nagios.org/) überwachen.
+Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.
+
+Es funktioniert ganz gut, wenn jemand Probleme mit dem Plugin hat, dann kann ich versuchen es zu verbessern.
+Man kann das [Plugin auch hier](http://blogs.sun.com/rennecke/resource/stuff/check_solaris_sensors) herunter laden.
+Ich parse die Ausgabe von `prtpicl`. Wenn die Temperatur __HighWarningThreshold  $warn__ übersteigt, dann wird
+warning zurück gegeben. Wenn __HighWarningThreshold__ überschritten wird, dann gibt das Plugin critical zurück.
+
+~~~perl
 #!/usr/bin/perl -w
 
 # File:    check_solaris_sensors
@@ -105,4 +102,4 @@ if ($state == 0) {
 
 print STDOUT "$output";
 exit ($state);
-</pre>
+~~~
