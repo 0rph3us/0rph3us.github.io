@@ -16,12 +16,6 @@ tags:
 status: publish
 type: post
 published: true
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
 ---
 
 Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -> Java -> [Hadoop].

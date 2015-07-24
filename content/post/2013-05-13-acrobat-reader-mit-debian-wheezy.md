@@ -13,12 +13,6 @@ tags:
 status: publish
 type: post
 published: true
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
 ---
 
 Ich hatte heute wieder eine [pdf] mit Formularen in,
