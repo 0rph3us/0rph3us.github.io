@@ -17,3 +17,5 @@ source/js/mathjax/*
 source/assets/themes/hooligan/fonts/*
 *.swp
 node_modules/
+
+public
