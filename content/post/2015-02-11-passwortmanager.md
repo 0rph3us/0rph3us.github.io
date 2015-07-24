@@ -3,7 +3,7 @@ layout: post
 title: "Passwortmanager"
 date: 2015-02-11
 description: ""
-categories: 
+categories:
  - 'sicherheit'
 tags:
  - 'Security'
@@ -12,7 +12,6 @@ tags:
  - 'git'
   
 ---
-
 
 Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
 außerdem sollte man es regelmäßig wechseln und dann muss es auch noch _komplex_ sein. Da ich mir
@@ -90,6 +89,6 @@ man täglich diese Schlüssel nutzt.
 [pass]: http://www.passwordstore.org/
 [GnuPG]: https://www.gnupg.org/
 [git]: http://git-scm.com/
-[hier]: http://git.zx2c4.com/password-store/about/#EXTENDED GIT EXAMPLE
+[hier]: http://git.zx2c4.com/password-store/about/#EXTENDED%20GIT%20EXAMPLE
 [Password Store]: https://github.com/zeapo/Android-Password-Store
 [OpenKeychain]: http://www.openkeychain.org/
