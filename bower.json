@@ -1,7 +1,0 @@
-{
-    "name": "your-next-website",
-    "version": "0.0.1",
-    "devDependencies": {
-        "bootstrap-sass": "3.3.3"
-    }
-}

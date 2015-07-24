@@ -1,0 +1,39 @@
+---
+layout: post
+title: Platz sparen mit zfs
+date: 2010-10-22
+categories:
+- Solaris
+tags:
+- compression
+- Deduplikation
+- gnu
+- Linux
+- zfs
+status: publish
+type: post
+published: true
+meta:
+  _jd_post_meta_fixed: 'true'
+  _jd_wp_twitter: ''
+  _wp_jd_target: http://0rpheus.net/?p=4432
+  _wp_jd_url: ''
+  _wp_jd_yourls: ''
+  _wp_jd_wp: http://0rpheus.net/?p=4432
+  _wp_jd_bitly: ''
+  _wp_jd_clig: ''
+  _jd_twitter: ''
+  _jd_tweet_this: ''
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>
+Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich <a href="http://en.wikipedia.org/wiki/Quick-and-dirty">quick&amp;dirty</a> die Kompression und die Deduplikation von zfs f&uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&szlig;end die alte Version gel&ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: <tt>du -hs</tt> zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass <strong>d</strong>isk <strong>u</strong>sage wörtlich zu nehmen ist. <tt>du</tt> zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das <a href="http://www.gnu.org/">GNU</a>-<tt>du</tt> kann hier Abhilfe schaffen, mit <tt>/usr/gnu/bin/du --apparent-size -hs</tt> bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der <a href="http://www.cuddletech.com/blog/pivot/entry.php?id=983">Blogeintrag von Ben Rockwood</a> lesenswert.</p>
+<p>
+Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. Ich habe <tt>zfs compression=on ....</tt> gesetzt, also keine gzip-Kompression benutzt.</p>

@@ -1,0 +1,36 @@
+baseurl = "http://replace-this-with-your-hugo-site.com/"
+languageCode = "de-DE"
+copyright = "Diese Seite ist unter der [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) lizenziert."
+title = "My New Hugo Site"
+theme = "redlounge"
+
+#disableRSS = false
+
+
+[[menu.main]]
+    name = "Über mich"
+    weight = -110
+    identifier = "about"
+    url = "/about/"
+
+[[menu.social]]
+    pre        = "<i class='fa fa-github'></i>"
+    url        = "https://github.com/0rph3us"
+    identifier = "github"
+
+
+[author]
+    name = "Michael Rennecke"
+
+[permalinks]
+    # Optional. Change the permalink format for the 'post' content type.
+    # The format shown here is the same one Jekyll/Octopress uses by default.
+    post = "/blog/:year/:month/:day/:title/"
+
+[indexes]
+    # Optional. Use if you want tags and lists.
+    category = "categories"
+
+[params]
+    highlightStyle = "solarized_light"
+

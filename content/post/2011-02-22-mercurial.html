@@ -1,0 +1,45 @@
+---
+layout: post
+title: Mercurial
+date: 2011-02-22
+categories:
+- Tools
+tags:
+- hg
+- mercurial
+status: publish
+type: post
+published: true
+meta:
+  _jd_tweet_this: ''
+  _jd_twitter: ''
+  _wp_jd_clig: ''
+  _wp_jd_bitly: ''
+  _wp_jd_wp: http://0rpheus.net/?p=5191
+  _wp_jd_yourls: ''
+  _wp_jd_url: ''
+  _wp_jd_target: http://0rpheus.net/?p=5191
+  _jd_wp_twitter: ''
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '2'
+  _wp_old_slug: ''
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Ich wollte eben, mal schnell ein <a href="http://mercurial.selenic.com/">Mercurial</a>-Repository einen Bekannten zur Verfügung stellen. Also habe ich es auf seinen Server kopiert. Nun kam die Überraschung: Es ging nicht mehr. Es gibt die typischen dubiosen Fehlermeldungen von <a href="http://mercurial.selenic.com/">Mercurial</a>, bei denen niemand weiß was los ist. Da ich schon sehr lange unter Solaris mit <a href="http://mercurial.selenic.com/">Mercurial</a> arbeite kenne ich so ein paar Fallstricke.</p>
+<p>In diesem Fall war die <a href="http://mercurial.selenic.com/">Mercurial</a>-Versionen verschieden. In vielen Fällen, kann man das wie folgt beheben:</p>
+<pre lang="bash">
+# remote-Server
+rennecke@odin /export/repos % hg init newrepo
+# local host
+rennecke@walhalla ~/repo (hg)-[default] % hg push ssh://rennecke@odin//export/repos/newrepo
+</pre>
+<p>
+Nachdem man auf dem Server ein leeren Repo angelegt hat, kann man die Inhalte rein pushen. Wenn man hinter einem Proxy-Server ist, kann man diesen gleich mit angeben:</p>
+<pre lang="bash">
+rennecke@trantor ~ % hg --config http_proxy.host=my-proxy.org:3128 clone  ssh://rennecke@odin//export/repos/newrepo
+</pre>

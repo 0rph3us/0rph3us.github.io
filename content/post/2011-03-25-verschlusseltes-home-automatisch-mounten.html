@@ -1,0 +1,52 @@
+---
+layout: post
+title: verschlüsseltes home automatisch mounten
+date: 2011-03-25
+categories:
+- Linux
+tags:
+- crypt
+- Debian
+- dm-crypt
+- login
+- pam-mount
+status: publish
+type: post
+published: true
+meta:
+  _wp_jd_wp: ''
+  _wp_jd_bitly: ''
+  _wp_jd_clig: ''
+  _jd_twitter: ''
+  _wp_jd_yourls: http://0rpheus.net/?p=5431
+  _wp_jd_url: ''
+  _jd_tweet_this: ''
+  _jd_wp_twitter: ''
+  _wp_jd_target: http://0rpheus.net/?p=5431
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '2'
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>
+Ich bin inzwischen auf <a href="http://www.debian.org/">Debian</a> umgestiegen. Mein home sollte natürlich verschlüsselt sein. Wenn man zum verschlüssel <a href="http://www.saout.de/misc/dm-crypt/">dm-crypt</a>/<a href="http://linux.die.net/man/8/cryptsetup">LUKS</a> nutzt und die Dateisysteme in der <tt>/etc/crypttab</tt> einbindet, muss man beim booten das Passwort eingeben (Ich setzte voraus, dass man via Passwort verschlüsselt und nicht mit einem Keyfile). Es ist viel interessanter, wenn das home beim anmelden automatisch gemountet wird. Das geht, wenn man <a href="http://pam-mount.sourceforge.net/">pam_mount</a> benutzt. Im folgenden beschreibe ich wie man ein verschlüsseltes home anlegt, welches automatisch gemountet wird.</p>
+<p>
+Vorbereitung: Anlegen eines Volume (ich nutze lvm)</p>
+<pre lang="bash">cryptsetup luksFormat --cipher aes-cbc-essiv:sha256 /dev/data-group/home_rennecke
+cryptsetup luksOpen /dev/data-group/home_rennecke data--group--home_rennecke_crypt
+mkfs.ext4 /dev/mapper/data--group--home_rennecke_crypt
+cryptsetup luksClose /dev/mapper/data--group--home_rennecke_crypt
+</pre>
+<p>Damit das home automatisch gemountet wird muss man in der <tt>/etc/security/pam_mount.conf.xml</tt> das folgende einfügen:</p>
+<pre lang="xml">
+<!-- Volume definitions -->
+<volume user="rennecke" fstype="crypt" path="/dev/mapper/data--group-home--rennecke" mountpoint="/home/rennecke" options="fsck,noatime" />
+</pre>
+<p>Das Passwort vom verschlüsselten home und das Passwort vom login müssen gleich sein! Wenn man sich nun einloggt, dann wird das home automatisch eingehangen.</p>
+<p>
+<strong>Hinweis:</strong><br />
+Das <tt>pam_mount</tt>-Modul arbeitet nicht ganz transparent! mount zeigt nicht die wirklichen mount-Punkte an. Diese werden aber mit <tt>cat /proc/mount</tt> angezeigt.</p>

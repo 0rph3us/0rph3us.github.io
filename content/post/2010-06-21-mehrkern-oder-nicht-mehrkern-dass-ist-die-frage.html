@@ -1,0 +1,25 @@
+---
+layout: post
+title: Mehrkern oder nicht Mehrkern, dass ist die Frage
+date: 2010-06-21
+categories:
+- HPC
+tags:
+- C++
+- Cache
+- Mehrkern
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '2'
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Ich habe inzwischen ein paar Experimente mit verschiedenen Mehrkernarchitekturen gemacht. Ich habe verschiende Algorithmen mit <a href="http://en.wikipedia.org/wiki/Cilk">Cilk++</a> implementiert. Dabei kam es zu interessanten Ergebnissen. Ich hatte von superlinearen Speedup bis zu einem Speedup unter 1 alles. Aber woran liegt das, dass die Ergebnisse so weit auseinander gehen? Die schlechten Ergebnisse habe ich auf einem 2 Sockel <a href="http://ark.intel.com/Product.aspx?id=33927">Intel Xeon E5420</a>-System mit 32 GB RAM gemacht. In der Mitte lag ein 2 Sockel System mit <a href="http://ark.intel.com/Product.aspx?id=37111">Intel Xeon X5570</a> und 48 GB RAM Die besten Ergebnisse lieferte ein 4 Sockel Rechner mit 16 GB RAM und <a href="http://www.cpu-world.com/CPUs/K8/AMD-Opteron%20852%20-%20OSP852FAA5BM.html">AMD Opteron 852</a> Prozessoren.</p>
+<p>
+Eine Erklärung für das unterschiedliche abschneiden der Systeme ist die Anbindung an den RAM und die Caches. Bei dem AMD-System hat jeder (Einkern-) Prozessor privaten Cache und einen eignen Speicherkontroller. Hier gibt es keine Engpässe. Bei dem <a href="http://ark.intel.com/Product.aspx?id=37111">Intel Xeon X5570</a> sind die Speicherkontroller in der CPU, aber der L2 Cache ist shared zwischen 2 Kernen. <a href="http://www.intel.com/technology/platform-technology/hyper-threading/">Hyperthreading</a> hat keine Verbesserung der Laufzeit gebacht. Am schlechtesten schnitt das <a href="http://ark.intel.com/Product.aspx?id=33927">Intel Xeon E5420</a>-System ab. Die beiden Prozessoren gehen über die Nordbrücke, um an den RAM zu gelangen. Ab einer bestimmten Problemgröße wurden die Algorithmen über die Speicherzugriffe sequenzialisiert.</p>

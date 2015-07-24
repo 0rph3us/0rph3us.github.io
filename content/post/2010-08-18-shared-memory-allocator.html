@@ -1,0 +1,29 @@
+---
+layout: post
+title: Shared memory Allocator mit der STL
+date: 2010-08-18
+categories:
+- Programmieren
+tags:
+- allocator
+- boost
+- C++
+- Shared Memory
+- STL
+status: publish
+type: post
+published: true
+meta:
+  jd_tweet_this: ''
+  _edit_last: '2'
+  wp_jd_wp: http://0rpheus.net/?p=3802
+  wp_jd_target: http://0rpheus.net/?p=3802
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>
+Ich habe mich die letzten Tage mit der <a href="http://www.cplusplus.com/reference/stl/">STL</a> herungeärgert. Ich wollte einen Allocator schreiben, welcher mir die STL-Container in ein Shared Memory Segment legt. Ich habe es nicht wirklich hinbekommen. Inzwischen weiß ich, dass es die Leute von <a href="http://www.boost.org/">boost</a> auch nicht hinbekommen haben. Aus diesem Grund werde ich nun <a href="http://www.boost.org/">boost</a> benutzen und hoffen, dass die Performance nicht zu schlecht (unter <a href="http://www.microsoft.com/germany/windows/">Windows</a>) ist. Das geheimnis ist, dass man die Container nach implementiert und die Implementierung kommt arbeitet korrekt in einem Shared Memory Segment.</p>

@@ -1,0 +1,39 @@
+---
+layout: post
+title: BigData mit Hypertable
+date: 2011-12-11
+categories:
+- Datenbank
+tags:
+- BigData
+- Hypertable
+- noSQL
+status: publish
+type: post
+published: true
+meta:
+  _jd_tweet_this: 'yes'
+  _jd_twitter: ''
+  _wp_jd_clig: ''
+  _wp_jd_bitly: ''
+  _wp_jd_wp: ''
+  _wp_jd_yourls: http://0rpheus.net/?p=5861
+  _wp_jd_url: ''
+  _wp_jd_target: http://0rpheus.net/?p=5861
+  _jd_wp_twitter: 'New post: BigData mit Hypertable http://0rpheus.net/?p=5861'
+  _jd_post_meta_fixed: 'true'
+  _edit_last: '2'
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>Ich beschäftige mich beruflich gerade mit <a href="http://de.wikipedia.org/wiki/Big_Data">Big Data</a> und deren Verarbeitung. Ich habe nur ein Problem, dass ich keine <em>gute</em> Hardware dafür habe, oder gar ein ganzes Rechenzentrum, wie Fratzenbuch oder google. Bei der Suche nach einem Lösungsansatz für mein Problem bin ich auf <a href="http://hypertable.org/">Hypertable</a> gestoßen.</p>
+<p>
+Wenn es um BigData geht, wird oft <a href="http://hbase.apache.org/">HBase</a> genannt. In keinen kleinen Prototypen, war HBase in einer VM gefühlt viel langsamer als Hypertable. Deswegen habe ich mich weiter mit Hypertable und nicht mit HBase beschäftigt.</p>
+<p>
+<a href="http://hypertable.org/">Hypertable</a> ist eine verteilte Datenbank, welche vom Prinzip her <a href="http://de.wikipedia.org/wiki/Spaltenorientierte_Datenbank">spaltenorientiert</a> ist. Dieses Prinzip kann mit Hilfe der <a href="http://code.google.com/p/hypertable/wiki/ArchitecturalOverview">Access Groups</a> aufweichen. Man sollte auf keinen Fall versuchen aus Hypertable eine zeilenorientierte Datenbank zu machen.</p>
+<p>
+Die aktuelle Zielarchitektur sieht wie folgt aus: Auf 12 Rechnern läuft <a href="http://hadoop.apache.org/hdfs/">HDFS</a> von <a href="http://hadoop.apache.org/">Hadoop</a>. Auf 11 von diesen Rechnern läuft eine RangeServer für Hypertable. Dieser ist auf 2 GB  RAM Verbrauch limitiert, weiterhin habe ich einen Hypertable Master. In meiner Testdatenbank habe ich 15,3 Millarden Datensätze. Auf dieser Datenmenge dauert ein random-Zugriff im Durchschnitt 200ms, wobei die worstcase Zeit einige Sekunden beträgt. Ich bin zumindest begeistert, dass ich derartig große Datenmengen auf schlechter Commodity Hardware handeln kann.  Ich bin mir sicher, dass ich mit der zur Verfügung stehenden Hardware noch mehr haus holen kann.</p>

@@ -1,0 +1,115 @@
+---
+layout: post
+title: '"Sichere" Captchas programmieren'
+date: 2010-08-18
+categories:
+- Programmieren
+- sonstiges
+- Tools
+tags:
+- captcha
+- hack
+- php
+- Security
+- xhtml
+status: publish
+type: post
+published: true
+meta:
+  jd_tweet_this: ''
+  _edit_last: '2'
+  wp_jd_wp: http://0rpheus.net/?p=3682
+  wp_jd_target: http://0rpheus.net/?p=3682
+  _wp_old_slug: ''
+  jd_wp_twitter: ' Post Edited: "Sichere" Captchas programmieren http://0rpheus.net/?p=3682'
+author:
+  login: rennecke
+  email: michael.rennecke@gmail.com
+  display_name: Michael Rennecke
+  first_name: Michael
+  last_name: Rennecke
+---
+<p>
+Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>, oder <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> benutzen. Persönlich habe ich eine Abneigung gegen <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a> und <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>. <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen <a href="http://www.w3.org/TR/xhtml1/">xhtml 1.0 strict</a>-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.</p>
+<h2>Wie komme ich zum sicheren Captcha</h2>
+<p>Wenn ich auf Sessions verzichten möchte, so muss ich die Lösung des Captcha mit auf die Seite schreiben. Das kann man in einen <em>nicht sichtbaren</em> Feld machen. Damit man dieses Feld nicht so einfach auslesen kann, schreibt man einen <a href="http://burtleburtle.net/bob/hash/index.html">Hash</a> hinein bzw. man verschlüsselt den Inhalt.</p>
+<pre lang="php" line="1">
+define(KEY, "Ich bin ein Key");
+define(IV, "KlyV6gxG3MOPzlfuj8azF6sKKTnsdsiN58i0zjHA0EU=");
+
+function Crypt($plaintext){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    /* Intialize encryption */
+    mcrypt_generic_init($td, $key, $iv);
+
+    /* Encrypt data */
+    $encrypted = mcrypt_generic($td, $plaintext);
+
+    /* Terminate decryption handle and close module */
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return base64_encode($encrypted);
+}
+
+function Decrypt($chiffre){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    $chiffre = base64_decode($chiffre);
+    mcrypt_generic_init($td, $key, $iv);
+    $plaintext = mdecrypt_generic($td, $chiffre);
+
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return $plaintext;
+}
+
+function draw_captcha_form(){
+    .....
+    $time = time() + 60*30;
+    $captchaSolution = "Test"
+    echo "\t\n\tBitte Captcha lösen<br />\n";
+    // erzeuge ein Captcha
+    echo "\t\n";
+    echo "\t" . '
+<input name="captvalue" id="captvalue" value="" size="40" tabindex="4" type="text" />' . "\n";
+    echo "\t"    . '
+<input name="captcha" value="'. Crypt($time . "~" . $captchaSolution . "~" . $REMOTE_ADDR) . '" type="hidden"/>' . "\n";
+}
+
+function check_post($) {
+    ....
+    $captcha = $_POST['captvalue'];
+    list($timeOld, $secret, $addr) = explode('~',Decrypt($_POST['captcha']));
+    ....
+    if($timeOld <= time()){
+            echo "Deine Zeit ist abgelaufen";
+            return;
+    }
+    if($addr != $REMOTE_ADDR){
+            echo "Falsche IP";
+            return;
+    }
+    if($secret != $captcha){
+            echo "Falsches Captcha";
+            return;
+    }
+    .....
+}
+</pre>
+<p>
+Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich generiere z.B. Matheaufgaben.</p>
