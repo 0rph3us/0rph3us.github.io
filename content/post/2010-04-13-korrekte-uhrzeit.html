@@ -11,15 +11,6 @@ tags:
 - synchronisation
 status: publish
 type: post
-published: true
-meta:
-  _edit_last: '2'
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
 ---
 <p>Für manche Dinge wie <a href="http://de.wikipedia.org/wiki/Network_File_System">nfs</a> ist es wichtig eine korrekte Uhrzeit auf allen Rechnern zu haben. Dies kann man durch die Sychronisation mit einem Zeit-Server erreichen. Unter Open Solaris müssen in der Datei <tt>/etc/inet/ntp.conf</tt> die Zeitserver stehen mit den man sich synchronisieren möchte. Anschließend muss man den <a href="http://de.wikipedia.org/wiki/Network_Time_Protocol">ntp</a>-Server neu starten. Unten steht meine Konfiguration:</p>
 <pre lang="bash">root@walhalla ~ $ cat /etc/inet/ntp.conf
