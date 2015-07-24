@@ -8,6 +8,18 @@ theme = "redlounge"
 
 
 [[menu.main]]
+    name = "Spickzettel"
+    weight = -90
+    identifier = "spickzettel"
+    url = "/spickzettel/"
+
+[[menu.main]]
+    name = "Links"
+    weight = -100
+    identifier = "links"
+    url = "/links/"
+
+[[menu.main]]
     name = "Über mich"
     weight = -110
     identifier = "about"
@@ -17,6 +29,11 @@ theme = "redlounge"
     pre        = "<i class='fa fa-github'></i>"
     url        = "https://github.com/0rph3us"
     identifier = "github"
+
+[[menu.social]]
+    pre        = "<i class='fa fa-rss'></i>"
+    url        = "/index.xml"
+    identifier = "rss"
 
 
 [author]
