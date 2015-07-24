@@ -29,7 +29,7 @@ Ein weiterer Vorteil: Mit der eigenen CA ist man im Zweifel auf der sicheren Sei
 ist es öfter vorgekommen, dass gefälschte Zertifikate im Umlauf waren. Es gibt also Gründe den großen
 CAs zu misstrauen[^2].
 
-# Certificate Authority erstellen
+## Certificate Authority erstellen
 
 Als erstes muss man einen geheimen privaten Schlüssel generieren:
 
@@ -64,26 +64,26 @@ Common Name (eg, YOUR name) []:example.net
 Email Address []:meine.email-adresse.net
 ``` 
 
-# Root-Zertifikat auf den Clients importieren
+## Root-Zertifikat auf den Clients importieren
 
 
-## Debian / Ubuntu
+### Debian / Ubuntu
 
 ``` sh
 sudo cp ca-root.pem /usr/share/ca-certificates/myca-root.crt
 sudo dpkg-reconfigure ca-certificates
 ```
 
-## Mozilla Firefox / Thunderbird
+### Mozilla Firefox / Thunderbird
 
 Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter *Einstellungen* => *Erweitert* => *Zertifikate* => *Zertifikate anzeigen* => *Zertifizierungsstellen* => *Importieren*. Wählt die Datei `ca-root.pem` aus. Wählt die Option *Dieser CA vertrauen, um Websites zu identifizieren*.
 
-## Chromium / Google Chrome
+### Chromium / Google Chrome
 
 *Einstellungen* => *Erweiterte Einstellungen anzeigen* (unten) => *HTTPS/SSL* => *Zertifikate verwalten* => *Zertifizierungsstellen* => *Importieren* => `ca-root-pem` auswählen => *Diesem Zertifikat zur Identifizierung von Websites vertrauen*
 
 
-# Ein neues Zertifikat ausstellen
+## Ein neues Zertifikat ausstellen
 
 Als erstes muss man sich wieder einen privaten Schlüssel erzeuge.
 
@@ -117,7 +117,7 @@ Openssl fragt nach dem dem Passwort der root-CA. Wenn dan signierte Zertifikat e
 Das öffentliche Zertifikat befindet sich in der Datei `cert-pub.pem`.
 
 
-# Das Zertifikat benutzen
+## Das Zertifikat benutzen
 
 Für einen Webserver benötigt man die folgenden 3 Teile:
 
