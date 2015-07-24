@@ -1,12 +1,8 @@
----
-layout: page
-title: "Über mich"
-tagline: Michael Rennecke
-group: navigation
-description: ""
----
-{% include JB/setup %}
-
++++
+title    = "Über mich"
+nodate   = true
+nopaging = true
++++
 
 Ich habe mein Diplom für Informatik an der [MLU] erworben. In dieser Zeit habe ich in der Rechnerbetriebsgruppe
 des [Instituts für Informatik] gearbeitet. Das administrieren von Solaris- und Linux-Servern zählte zu meinen
