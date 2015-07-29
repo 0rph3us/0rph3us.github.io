@@ -13,6 +13,7 @@ tags:
   - Sensor
   - git
   - I²C
+lightbox: true
 ---
 
 
@@ -34,7 +35,7 @@ verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.
 
-{% lightbox 300xAUTO bmp085_pi.png group:"bmp085_group" caption:"Steckbrett mit BMP085 und Raspberry Pi" alt="Steckbrett mit BMP085 und Raspberry Pi" %}
+<a href="/bmp085_pi.png" title="" data-lightbox="set1" data-title="Steckbrett mit BMP085 und Raspberry Pi"><img src="/bmp085_pi-thumbnail.png" alt="Steckbrett mit BMP085 und Raspberry Pi"></a>
 
 An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 
