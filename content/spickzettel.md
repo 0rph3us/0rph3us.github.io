@@ -13,7 +13,7 @@ nopaging = true
     vim /etc/aliases
     newaliases
 
-### Alle Abhänigkeiten eines go-Projektes rekursiv holen
+### Alle Abhänigkeiten eines go-Projektes rekursiv holen und updaten
 ``` sh
-go get ./...
+go get -u ./...
 ```
