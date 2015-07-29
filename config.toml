@@ -4,9 +4,6 @@ copyright = "Diese Seite ist unter der [Creative Commons Attribution-ShareAlike 
 title = "My New Hugo Site"
 theme = "redlounge"
 
-#disableRSS = false
-
-
 [[menu.main]]
     name = "Spickzettel"
     weight = -90
@@ -44,9 +41,14 @@ theme = "redlounge"
     # The format shown here is the same one Jekyll/Octopress uses by default.
     post = "/blog/:year/:month/:day/:title/"
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
 [indexes]
-    # Optional. Use if you want tags and lists.
     category = "categories"
+    tag      = "tags"
 
 [params]
     sidebartitle   = "Michael Rennecke"
