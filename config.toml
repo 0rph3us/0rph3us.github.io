@@ -1,8 +1,8 @@
-baseurl = "https://0rph3us.github.io/"
+baseurl      = "https://0rph3us.github.io/"
 languageCode = "de-DE"
-copyright = "Diese Seite ist unter der [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) lizenziert."
-title = "Michael im Netz"
-theme = "redlounge"
+copyright    = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
+title        = "Michael im Netz"
+theme        = "redlounge"
 
 [[menu.main]]
     name = "Spickzettel"
@@ -55,4 +55,5 @@ theme = "redlounge"
     sidebartitle   = "Michael Rennecke"
     sidebartagline = "Meine Gedanken zu Sicherheit, Linux und Random Stuff"
     highlightStyle = "solarized_light"
+    Copyright      = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
 
