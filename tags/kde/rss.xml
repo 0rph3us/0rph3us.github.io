@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kde on Michael im Netz</title>
-    <link>http://localhost:1313/tags/kde/</link>
+    <link>https://0rph3us.github.io/tags/kde/</link>
     <description>Recent content in Kde on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 28 Jul 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/kde/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/kde/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>amarok, KDE und Co</title>
-      <link>http://localhost:1313/post/2010/07/amarok-kde-und-co/</link>
+      <link>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</link>
       <pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/amarok-kde-und-co/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</guid>
       <description>&lt;p&gt;Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von &lt;a href=&#34;http://blog.hajma.cz/&#34;&gt;Pavel Heimlich&lt;/a&gt; betreut. Er hat dafür ein eigenes Repo. Ich nutze nur &lt;a href=&#34;http://amarok.kde.org/&#34;&gt;amarok&lt;/a&gt;, welches ich an eine mysql-DB gebunden habe.&lt;/p&gt;
 &lt;p&gt;
 Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an &lt;a href=&#34;http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0&#34;&gt;dbus&lt;/a&gt;. Mein aktueller Build 142 macht das ganze sicher auch besser...&lt;/p&gt;

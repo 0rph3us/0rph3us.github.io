@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Admin on Michael im Netz</title>
-    <link>http://localhost:1313/tags/admin/</link>
+    <link>https://0rph3us.github.io/tags/admin/</link>
     <description>Recent content in Admin on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 19 Apr 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/admin/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/admin/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Systemmails per Thunderbird abrufen</title>
-      <link>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</link>
+      <link>https://0rph3us.github.io/post/2010/04/systemmails-per-thunderbird-abrufen/</link>
       <pubDate>Mon, 19 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/systemmails-per-thunderbird-abrufen/</guid>
       <description>&lt;p&gt;
 Manchmal ist sch&amp;ouml;n, wenn man die Systemmail abrufen kann. Bei OpenSolaris gibt es per default keinen Nutzer root und ein normaler Nutzer darf nicht auf Mails von root zugreifen. Die saubere L&amp;ouml;sung ist, dass man einen Alias einrichtet. Dazu f&amp;uuml;gt man der &lt;tt&gt;/etc/aliases&lt;/tt&gt; die folgende Zeilen hinzu. Anschlie&amp;szlig;end werden alle Mails von root an jack weiter geleitet.&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;

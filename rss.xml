@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Michael im Netz</title>
-    <link>http://localhost:1313/</link>
+    <link>https://0rph3us.github.io/</link>
     <description>Recent content on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Eine eigene CA mit OpenSSL in 5 Minuten</title>
-      <link>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
+      <link>https://0rph3us.github.io/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
       <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</guid>
+      <guid>https://0rph3us.github.io/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</guid>
       <description>
 
 &lt;p&gt;Wenn man seine eigenen Dienste mit SSL/&lt;a href=&#34;https://de.wikipedia.org/wiki/Transport_Layer_Security&#34;&gt;TLS&lt;/a&gt; absichern möchte benötigt man Zertifikate. Inzwischen
@@ -140,10 +140,10 @@ Das öffentliche Zertifikat befindet sich in der Datei &lt;code&gt;cert-pub.pem&
     
     <item>
       <title>Update</title>
-      <link>http://localhost:1313/post/2015/07/update/</link>
+      <link>https://0rph3us.github.io/post/2015/07/update/</link>
       <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/07/update/</guid>
+      <guid>https://0rph3us.github.io/post/2015/07/update/</guid>
       <description>&lt;p&gt;Ich bin länger zum bloggen gekommen, da ich aktuell recht ausgelastet bin. Meine
 letzten Beträge habe ich während der Zugfahrt zuwischen Halle und Leipzig
 geschrieben. Da man in diesen Zügen kaum noch einen Sitzplatz bekommt, ist es
@@ -158,10 +158,10 @@ läuft schon eigige Zeit auf meinen Pi.&lt;/p&gt;
     
     <item>
       <title>kaputtes System nach Restore mit Obnam</title>
-      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <link>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <guid>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
 Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
 
@@ -186,11 +186,11 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
     
     <item>
       <title>Danke Primacom</title>
-      <link>http://localhost:1313/post/2015/03/danke-primacom/</link>
+      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/danke-primacom/</guid>
-      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;http://localhost:1313/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
 Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
 IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
 </description>
@@ -198,10 +198,10 @@ IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -313,7 +313,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 
@@ -365,11 +365,11 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
     
     <item>
       <title>Probleme beim Upgrade auf den Pi 2</title>
-      <link>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
+      <link>https://0rph3us.github.io/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
       <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
-      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
+      <guid>https://0rph3us.github.io/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
+      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
 ein paar Experimente mit dem 2,4 GHz Sender &lt;a href=&#34;http://www.mikrocontroller.net/articles/NRF24L01_Tutorial&#34;&gt;NRF24L01&lt;/a&gt;. Dabei musste ich feststellen, dass der &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; und
 das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34;&gt;SPI (Serial Peripheral Interface)&lt;/a&gt; nicht wie gewohnt funktionieren.&lt;/p&gt;
 
@@ -386,10 +386,10 @@ dtparam=spi=on
     
     <item>
       <title>Ein Pi wird kommen</title>
-      <link>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</link>
+      <link>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</guid>
+      <guid>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</guid>
       <description>&lt;p&gt;Mein &lt;a href=&#34;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
 ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
 sich alles viel flüssiger an. Da ich &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch
@@ -403,10 +403,10 @@ Images.&lt;/p&gt;
     
     <item>
       <title>go in 6 Schritten installieren</title>
-      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
+      <link>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</guid>
       <description>
 
 &lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
@@ -484,13 +484,13 @@ go version go1.4.2 linux/amd64
     
     <item>
       <title>Modernes Logging Teil 2</title>
-      <link>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</link>
+      <link>https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/</link>
       <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/</guid>
       <description>
 
-&lt;p&gt;Ich habe in meinen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
+&lt;p&gt;Ich habe in meinen &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
 Inzwischen wurde &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
 finale Version zeigen und auf das &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
 
@@ -522,10 +522,10 @@ kibana-4.0.0-linux-x64/bin/kibana
     
     <item>
       <title>Pakete selbst bauen</title>
-      <link>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</link>
+      <link>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</link>
       <pubDate>Thu, 19 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://binfalse.de/&#34;&gt;binfalse&lt;/a&gt; hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf &lt;a href=&#34;http://de.wikipedia.org/wiki/Debian-Paket&#34;&gt;deb&lt;/a&gt;-Pakete während RedHat und Fedora auf &lt;a href=&#34;http://de.wikipedia.org/wiki/RPM_Package_Manager&#34;&gt;rpm&lt;/a&gt;-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll &lt;strong&gt;Sktripte&lt;/strong&gt; zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.&lt;/p&gt;
@@ -641,13 +641,13 @@ fpm -s -t dir rpm -C /tmp/cool-app \
     
     <item>
       <title>Modernes Logging</title>
-      <link>http://localhost:1313/post/2015/02/modernes-logging/</link>
+      <link>https://0rph3us.github.io/post/2015/02/modernes-logging/</link>
       <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/modernes-logging/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/modernes-logging/</guid>
       <description>
 
-&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&#34;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&#34;http://logstash.net/&#34;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&#34;http://de.wikipedia.org/wiki/Syslog&#34;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&#34;http://www.rsyslog.com/&#34;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;
@@ -783,10 +783,10 @@ kibana-4.0.0-rc1-linux-x64/bin/kibana
     
     <item>
       <title>Skripte parallelisieren</title>
-      <link>http://localhost:1313/post/2015/02/skripte-parallelisieren/</link>
+      <link>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</link>
       <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/skripte-parallelisieren/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</guid>
       <description>
 
 &lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
@@ -818,10 +818,10 @@ cp &amp;quot;${1}&amp;quot; &amp;quot;/backup/${1}&amp;quot;
     
     <item>
       <title>Passwortmanager</title>
-      <link>http://localhost:1313/post/2015/02/passwortmanager/</link>
+      <link>https://0rph3us.github.io/post/2015/02/passwortmanager/</link>
       <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/passwortmanager/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/passwortmanager/</guid>
       <description>
 
 &lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
@@ -895,10 +895,10 @@ man täglich diese Schlüssel nutzt.&lt;/p&gt;
     
     <item>
       <title>Hallo github</title>
-      <link>http://localhost:1313/post/2015/02/hallo-github/</link>
+      <link>https://0rph3us.github.io/post/2015/02/hallo-github/</link>
       <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/hallo-github/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/hallo-github/</guid>
       <description>
 
 &lt;p&gt;Nachdem mich die &lt;a href=&#34;http://www.primacom.de/&#34;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
@@ -919,11 +919,11 @@ man einen VPN-Tunnel aufbauen kann.&lt;/p&gt;
     
     <item>
       <title>rrdtool und json</title>
-      <link>http://localhost:1313/post/2014/10/rrdtool-und-json/</link>
+      <link>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/10/rrdtool-und-json/</guid>
-      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
+      <guid>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</guid>
+      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
 Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
 visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
 angezeigt.&lt;/p&gt;

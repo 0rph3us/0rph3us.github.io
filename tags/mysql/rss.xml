@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mysql on Michael im Netz</title>
-    <link>http://localhost:1313/tags/mysql/</link>
+    <link>https://0rph3us.github.io/tags/mysql/</link>
     <description>Recent content in Mysql on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mysql/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/mysql/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -127,7 +127,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 
@@ -179,10 +179,10 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
     
     <item>
       <title>RSS Reader selbst betreiben</title>
-      <link>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
@@ -202,7 +202,7 @@ sowie &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; als Rea
 
 &lt;h2 id=&#34;nginx-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Nginx installieren&lt;/h2&gt;
 
-&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
+&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.&lt;/p&gt;
 
@@ -311,10 +311,10 @@ folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
     
     <item>
       <title>Letzte Rettung von MySQL</title>
-      <link>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</link>
+      <link>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</link>
       <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</guid>
+      <guid>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</guid>
       <description>&lt;p&gt;
 Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
 &lt;p&gt;

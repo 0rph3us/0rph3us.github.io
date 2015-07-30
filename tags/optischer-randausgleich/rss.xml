@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optischer Randausgleich on Michael im Netz</title>
-    <link>http://localhost:1313/tags/optischer-randausgleich/</link>
+    <link>https://0rph3us.github.io/tags/optischer-randausgleich/</link>
     <description>Recent content in Optischer Randausgleich on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 03 Sep 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/optischer-randausgleich/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/optischer-randausgleich/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Optischer Randausgleich</title>
-      <link>http://localhost:1313/post/2010/09/optischer-randausgleich/</link>
+      <link>https://0rph3us.github.io/post/2010/09/optischer-randausgleich/</link>
       <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/09/optischer-randausgleich/</guid>
+      <guid>https://0rph3us.github.io/post/2010/09/optischer-randausgleich/</guid>
       <description>&lt;p&gt;Ich schreibe meine Diplomarbeit mit LaTeX. Da bekommt man auch einen schönen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz,
 unter beachtung möglicher Worttrennungen  berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch
 verbessern, indem man den &lt;em&gt;optischen Randausgleich&lt;/em&gt; nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert

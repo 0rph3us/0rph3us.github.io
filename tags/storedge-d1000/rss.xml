@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Storedge D1000 on Michael im Netz</title>
-    <link>http://localhost:1313/tags/storedge-d1000/</link>
+    <link>https://0rph3us.github.io/tags/storedge-d1000/</link>
     <description>Recent content in Storedge D1000 on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 10 Aug 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/storedge-d1000/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/storedge-d1000/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Wie ärgere ich mein zfs</title>
-      <link>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
+      <link>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
       <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
       <description>&lt;p&gt;
 &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame &lt;a href=&#34;http://www.systemhelden.com/&#34;&gt;Systemheld&lt;/a&gt;, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.&lt;/p&gt;
 &lt;h4&gt;Was kann zfs nicht&lt;/h4&gt;

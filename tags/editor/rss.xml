@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Editor on Michael im Netz</title>
-    <link>http://localhost:1313/tags/editor/</link>
+    <link>https://0rph3us.github.io/tags/editor/</link>
     <description>Recent content in Editor on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 13 Apr 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/editor/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/editor/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>wordpress</title>
-      <link>http://localhost:1313/post/2010/04/wordpress/</link>
+      <link>https://0rph3us.github.io/post/2010/04/wordpress/</link>
       <pubDate>Tue, 13 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/wordpress/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/wordpress/</guid>
       <description>&lt;p&gt;Ich bin aus Bequemlichkeitsgründen auf &lt;a href=&#34;http://wordpress.org/&#34;&gt;wordpress&lt;/a&gt; umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &amp;lt;p&amp;gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: &lt;a href=&#34;http://wordpress.org/extend/plugins/tinymce-advanced/&#34;&gt;TinyMCE Advanced&lt;/a&gt;. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.&lt;/p&gt;
 </description>
     </item>

@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Opensolaris on Michael im Netz</title>
-    <link>http://localhost:1313/tags/opensolaris/</link>
+    <link>https://0rph3us.github.io/tags/opensolaris/</link>
     <description>Recent content in Opensolaris on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sat, 08 Jan 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/opensolaris/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/opensolaris/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tree Tab Style bei Firefox</title>
-      <link>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</link>
+      <link>https://0rph3us.github.io/post/2011/01/tree-tab-style-bei-firefox/</link>
       <pubDate>Sat, 08 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</guid>
+      <guid>https://0rph3us.github.io/post/2011/01/tree-tab-style-bei-firefox/</guid>
       <description>&lt;p&gt;Ich nutze schon sehr lange den &lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt;Tree Tab Style&lt;/a&gt; für Firefox. Heute ist mein Firefox unter Solaris alle 3 Minuten abgestürzt. Bis ich auf die Idee gekommen bin, dass es evtl. mein&lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt; Tree Tab Style Plugin&lt;/a&gt; ist. Der Firefox hat gemeint, dass es kein Update gibt. Also habe ich auf der &lt;a href=&#34;http://piro.sakura.ne.jp/xul/_treestyletab.html.en#download&#34;&gt;Projektseite des Entwickler&lt;/a&gt; nachgeschaut und dort gab es ein Update. Dieses funktioniert. Ob dieser Fehler nur bei Solaris auftritt weiß ich nicht.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
@@ -94,10 +94,10 @@ de
     
     <item>
       <title>amarok, KDE und Co</title>
-      <link>http://localhost:1313/post/2010/07/amarok-kde-und-co/</link>
+      <link>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</link>
       <pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/amarok-kde-und-co/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</guid>
       <description>&lt;p&gt;Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von &lt;a href=&#34;http://blog.hajma.cz/&#34;&gt;Pavel Heimlich&lt;/a&gt; betreut. Er hat dafür ein eigenes Repo. Ich nutze nur &lt;a href=&#34;http://amarok.kde.org/&#34;&gt;amarok&lt;/a&gt;, welches ich an eine mysql-DB gebunden habe.&lt;/p&gt;
 &lt;p&gt;
 Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an &lt;a href=&#34;http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0&#34;&gt;dbus&lt;/a&gt;. Mein aktueller Build 142 macht das ganze sicher auch besser...&lt;/p&gt;
@@ -110,10 +110,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>Erste Erfahrung mit Build 142</title>
-      <link>http://localhost:1313/post/2010/07/erste-erfahrung-mit-build-142/</link>
+      <link>https://0rph3us.github.io/post/2010/07/erste-erfahrung-mit-build-142/</link>
       <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/erste-erfahrung-mit-build-142/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/erste-erfahrung-mit-build-142/</guid>
       <description>&lt;p&gt;Ich bin dieser &lt;a href=&#34;http://www.genunix.org/dist/richlowe/README.txt&#34;&gt;Readme&lt;/a&gt; gefolgt. Die Installation lief ohne Probleme, dauert aber sehr lange, da alle Zonen nacheinander aktualisiert werden.&lt;/p&gt;
 &lt;p&gt;Ich habe das Gefühl, dass der Scheduler besser arbeitet oder die Stromsparmaßnehmen besser sind, da sich meine CPU öfter herunter taktet (&lt;tt&gt;powertop&lt;/tt&gt;). zfs werde ich erst einmal nicht updaten. Damit warte ich noch ein paar Tage. Es gibt den zpool in der Version 26 und zfs in Version 5. &lt;/p&gt;
 &lt;p&gt;Das ist das erste OpenSolaris-Release für mich, bei dem &lt;em&gt;Oracle&lt;/em&gt; im Copyright steht. Das macht mich etwas wehmütig.... &lt;/p&gt;
@@ -123,10 +123,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>Neuer OpenSolaris Build</title>
-      <link>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</link>
+      <link>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</link>
       <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</guid>
       <description>&lt;p&gt;Es gibt inzwischen wieder einen neuen Build von OpenSolaris. Er wurde von Richard Lowe gebaut. Ich mache gearade das update und berichte später wie er läuft. Ihr könnt ihn auf &lt;a href=&#34;http://genunix.org/&#34;&gt;genunix.org&lt;/a&gt; beziehen.&lt;/p&gt;
 &lt;p&gt;
 &lt;strong&gt;Ganz Wichtig: Benutzt &lt;tt&gt;gtar&lt;/tt&gt; zum Entpacken&lt;/strong&gt;&lt;/p&gt;
@@ -135,10 +135,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>R, die Statistiksoftware installieren</title>
-      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <link>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</link>
       <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</guid>
       <description>&lt;p&gt;
 Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -162,10 +162,10 @@ rennecke@walhalla /tmp/R-2.11.1 % gmake
     
     <item>
       <title>Update Thunderbird</title>
-      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
+      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;
@@ -175,10 +175,10 @@ Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a hre
     
     <item>
       <title>Java-Applet - eine sinnfreie Erfindung</title>
-      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <link>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
       <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
       <description>&lt;p&gt;
 Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -214,10 +214,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>mehr Software für Solaris</title>
-      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <link>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
       <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
       <description>&lt;p&gt;
 Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
 &lt;p&gt;
@@ -235,10 +235,10 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
     
     <item>
       <title>Eigenschaften von Zonen</title>
-      <link>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</link>
+      <link>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</link>
       <pubDate>Thu, 22 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</guid>
       <description>&lt;p&gt;
 Ich wurde in Bezug auf diesen &lt;a href=&#34;http://0rpheus.net/solaris/eine-zone-in-10-minuten&#34;&gt;Blog-Eintrag&lt;/a&gt; gefragt, was es f&amp;uuml;r Zoneneigenschaften gibt, welche man f&amp;uuml;r Regelmentierungen verwenden kann.&lt;/p&gt;
 &lt;p&gt;
@@ -316,10 +316,10 @@ root@global$ zonecfg -z myzone zfs set reservation=5g zones/myzone
     
     <item>
       <title>Systemmails per Thunderbird abrufen</title>
-      <link>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</link>
+      <link>https://0rph3us.github.io/post/2010/04/systemmails-per-thunderbird-abrufen/</link>
       <pubDate>Mon, 19 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/systemmails-per-thunderbird-abrufen/</guid>
       <description>&lt;p&gt;
 Manchmal ist sch&amp;ouml;n, wenn man die Systemmail abrufen kann. Bei OpenSolaris gibt es per default keinen Nutzer root und ein normaler Nutzer darf nicht auf Mails von root zugreifen. Die saubere L&amp;ouml;sung ist, dass man einen Alias einrichtet. Dazu f&amp;uuml;gt man der &lt;tt&gt;/etc/aliases&lt;/tt&gt; die folgende Zeilen hinzu. Anschlie&amp;szlig;end werden alle Mails von root an jack weiter geleitet.&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -353,10 +353,10 @@ jack@walhalla ~ % ln -s /var/mail/jack .thunderbird/1ss1e32i.default/Mail/Local\
     
     <item>
       <title>Eine Zone in 10 Minuten</title>
-      <link>http://localhost:1313/post/2010/04/eine-zone-in-10-minuten/</link>
+      <link>https://0rph3us.github.io/post/2010/04/eine-zone-in-10-minuten/</link>
       <pubDate>Thu, 15 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/eine-zone-in-10-minuten/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/eine-zone-in-10-minuten/</guid>
       <description>&lt;p&gt;Ich kam gestern in die Verlegenheit mal schnell eine Zone aufsetzten zu müssen. Ich dachte mir, wenn ich das mal schnell mache, dann wenigsten mit RAM-Quota und CPU-Begrenzung. Es kann evtl. sein, dass man &lt;tt&gt;pkg:/service/resource&lt;/tt&gt; installieren muss. Dieses Paket ist f&amp;uuml;r die Verwaltung von RAM-Resourcen zust&amp;auml;ndig.&lt;/p&gt;
 &lt;p&gt;Ressourcenpools anstellen&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pooladm -e
@@ -515,10 +515,10 @@ Type the number of your choice and press Return: 2
     
     <item>
       <title>korrekte Uhrzeit</title>
-      <link>http://localhost:1313/post/2010/04/korrekte-uhrzeit/</link>
+      <link>https://0rph3us.github.io/post/2010/04/korrekte-uhrzeit/</link>
       <pubDate>Tue, 13 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/korrekte-uhrzeit/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/korrekte-uhrzeit/</guid>
       <description>&lt;p&gt;Für manche Dinge wie &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_File_System&#34;&gt;nfs&lt;/a&gt; ist es wichtig eine korrekte Uhrzeit auf allen Rechnern zu haben. Dies kann man durch die Sychronisation mit einem Zeit-Server erreichen. Unter Open Solaris müssen in der Datei &lt;tt&gt;/etc/inet/ntp.conf&lt;/tt&gt; die Zeitserver stehen mit den man sich synchronisieren möchte. Anschließend muss man den &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_Time_Protocol&#34;&gt;ntp&lt;/a&gt;-Server neu starten. Unten steht meine Konfiguration:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;root@walhalla ~ $ cat /etc/inet/ntp.conf
 server 0.pool.ntp.org
@@ -540,10 +540,10 @@ remote           refid      st t when poll reach   delay   of
     
     <item>
       <title>svn und Proxy-Server</title>
-      <link>http://localhost:1313/post/2010/04/svn-und-proxy-server/</link>
+      <link>https://0rph3us.github.io/post/2010/04/svn-und-proxy-server/</link>
       <pubDate>Mon, 12 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/svn-und-proxy-server/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/svn-und-proxy-server/</guid>
       <description>&lt;p&gt;Ich sitze dummerweise hinter einem Proxyserver. Als ich ein Repository auschecken wollte hat sich sehr lange nichts getan. Bis ich auf die zündete Idee gekommen bin, dass es vielleicht am Proxy liegt. Einen Proxyserver kann man global in der Datei &lt;tt&gt;/etc/subversion/servers&lt;/tt&gt; oder im Home &lt;tt&gt;.subversion&lt;/tt&gt; konfigurieren&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
 [global]
@@ -556,10 +556,10 @@ http-proxy-port=3128
     
     <item>
       <title>unison</title>
-      <link>http://localhost:1313/post/2010/03/unison/</link>
+      <link>https://0rph3us.github.io/post/2010/03/unison/</link>
       <pubDate>Tue, 23 Mar 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/03/unison/</guid>
+      <guid>https://0rph3us.github.io/post/2010/03/unison/</guid>
       <description>&lt;p&gt;Mit dem Tool &lt;a href=&#34;http://www.cis.upenn.edu/%7Ebcpierce/unison/&#34;&gt;unison&lt;/a&gt; kann man sehr gut Verzeichnisse synchronisieren. Es gibt auch ein Package für Open Solaris. Es heißt &lt;strong&gt;SUNWunison&lt;/strong&gt;. Wenn man via ssh-Verbindung synchronisiert muss man vor dem Ziel-Verzeichnis 2 Backslash schreiben, wenn man nur lokal synchronisiert ist das nicht nötig. Ein Profil könnte dann wie folgt aussehen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ cat .unison/default.prf
 # Unison preferences file

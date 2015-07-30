@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cluster on Michael im Netz</title>
-    <link>http://localhost:1313/tags/cluster/</link>
+    <link>https://0rph3us.github.io/tags/cluster/</link>
     <description>Recent content in Cluster on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 28 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/cluster/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/cluster/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hadoop Cluster und das Netzwerk</title>
-      <link>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
+      <link>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
       <pubDate>Tue, 28 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
+      <guid>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
       <description>&lt;p&gt;Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&amp;gt; Java -&amp;gt; &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;.
 Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop &lt;em&gt;Schrott-Rechner&lt;/em&gt;
 verwenden kann. Hier wird der Begriff &lt;em&gt;Commodity Hardware&lt;/em&gt; etwas falsch interpretiert. Commodity Hardware bezeichnet im

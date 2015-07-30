@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Wheezy on Michael im Netz</title>
-    <link>http://localhost:1313/tags/wheezy/</link>
+    <link>https://0rph3us.github.io/tags/wheezy/</link>
     <description>Recent content in Wheezy on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 05 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/wheezy/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/wheezy/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Debian wheezy ist stable</title>
-      <link>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</link>
+      <link>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</link>
       <pubDate>Sun, 05 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</guid>
+      <guid>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</guid>
       <description>&lt;p&gt;Seit gestern, den 04.05.2013 ist &lt;a href=&#34;http://www.debian.org/News/2013/20130504&#34;&gt;Debian Wheezy stable&lt;/a&gt;. Nun beginnt die gute Zeit für meine produktiven Systeme. Ich habe schon letzten Sommer einige Systeme auf Wheezy laufen, da ich ein paar Features benötigt habe bzw. haben wollte.&lt;/p&gt;
 &lt;p&gt;Ich bin gespannt ob Unschönheiten/Bugs in &lt;a href=&#34;https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt&#34;&gt;cgroups&lt;/a&gt; gefixt wurden. Ich würde gerne mit Hilfe von cgroups die Stabilität eines Hadoop/Hypertable-Clusters erhöhen. Unter Vollast habe ich immer wieder mit partiellen Abstürzen zu kämpfen, was bei zu viel CPU-Last über Memory-Leaks bis zu Timeouts geht, also die gesamte Palette.&lt;/p&gt;
 &lt;p&gt;P.S. Das mit dem Bild ist noch nicht vergessen ;-)&lt;/p&gt;

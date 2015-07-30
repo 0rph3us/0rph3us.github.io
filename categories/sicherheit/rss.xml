@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sicherheit on Michael im Netz</title>
-    <link>http://localhost:1313/categories/sicherheit/</link>
+    <link>https://0rph3us.github.io/categories/sicherheit/</link>
     <description>Recent content in Sicherheit on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/sicherheit/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/categories/sicherheit/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Eine eigene CA mit OpenSSL in 5 Minuten</title>
-      <link>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
+      <link>https://0rph3us.github.io/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
       <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</guid>
+      <guid>https://0rph3us.github.io/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</guid>
       <description>
 
 &lt;p&gt;Wenn man seine eigenen Dienste mit SSL/&lt;a href=&#34;https://de.wikipedia.org/wiki/Transport_Layer_Security&#34;&gt;TLS&lt;/a&gt; absichern möchte benötigt man Zertifikate. Inzwischen
@@ -140,10 +140,10 @@ Das öffentliche Zertifikat befindet sich in der Datei &lt;code&gt;cert-pub.pem&
     
     <item>
       <title>Passwortmanager</title>
-      <link>http://localhost:1313/post/2015/02/passwortmanager/</link>
+      <link>https://0rph3us.github.io/post/2015/02/passwortmanager/</link>
       <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/passwortmanager/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/passwortmanager/</guid>
       <description>
 
 &lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
@@ -217,10 +217,10 @@ man täglich diese Schlüssel nutzt.&lt;/p&gt;
     
     <item>
       <title>Chrome und selbst signierte Zertifikate</title>
-      <link>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</link>
+      <link>https://0rph3us.github.io/post/2014/08/chrome-und-selbst-signierte-zertifikate/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</guid>
+      <guid>https://0rph3us.github.io/post/2014/08/chrome-und-selbst-signierte-zertifikate/</guid>
       <description>
 
 &lt;p&gt;Heute habe ich festgestellt, dass Google den &lt;a href=&#34;http://www.google.de/intl/de/chrome/browser/&#34;&gt;Chrome&lt;/a&gt;-Browser (Version 37.0.2062.94 (64-Bit))
@@ -261,10 +261,10 @@ die Hemmschwelle SSL einzusetzen.&lt;/p&gt;
     
     <item>
       <title>Sichere E-Mails</title>
-      <link>http://localhost:1313/post/2013/10/sichere-e-mails/</link>
+      <link>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/10/sichere-e-mails/</guid>
+      <guid>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</guid>
       <description>&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.golem.de/news/gesellschaft-fuer-informatik-wir-brauchen-sichere-standardisierung-der-verschluesselung-1310-101928.html&#34;&gt;diesen Beitrag auf golem.de&lt;/a&gt;
 gelesen habe, ist mir wieder die ganze Misere mit &lt;a href=&#34;http://www.de-mail.de&#34;&gt;De-Mail&lt;/a&gt; und dem NSA-Skandal hoch gekommen.&lt;/p&gt;
 
@@ -283,10 +283,10 @@ anstatt etwas vorhandenes zu vereinfachen bzw. Regeln über Algorithmen und Schl
     
     <item>
       <title>Neuer GPG-Key</title>
-      <link>http://localhost:1313/post/2013/09/neuer-gpg-key/</link>
+      <link>https://0rph3us.github.io/post/2013/09/neuer-gpg-key/</link>
       <pubDate>Mon, 09 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/09/neuer-gpg-key/</guid>
+      <guid>https://0rph3us.github.io/post/2013/09/neuer-gpg-key/</guid>
       <description>&lt;p&gt;Nach den ganzen &lt;a href=&#34;http://www.nsa.gov/&#34;&gt;NSA&lt;/a&gt;-Enthüllungen, habe ich mich wieder mit Public-Key-Kryptografie beschäftigt. Mein bisheriger &lt;a href=&#34;http://www.gnupg.org/&#34;&gt;GPG&lt;/a&gt;-Schüssel D12E87BA hat &lt;a href=&#34;http://www.itl.nist.gov/fipspubs/fip186.htm&#34;&gt;DSA&lt;/a&gt; und &lt;a href=&#34;http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren&#34;&gt;ElGamal&lt;/a&gt; verwendet. Ich habe damals diese Algorithmen damals gewählt, da ich keinen &#34;Standard-Key&#34; haben wollte. Die Längen sind auch nach heutigen Maßstäben ausreichend. Es aber &lt;a href=&#34;http://rdist.root.org/2010/11/19/dsa-requirements-for-random-k-value/&#34;&gt;Angriffe für DSA&lt;/a&gt;, welche darauf beruhen, dass die Zufallszahlen von Zufallszahlengeneratoren nicht zufällig sind. Da ich meinen Schlüssel auf beliebigen Rechnern und auch Endgeräten nutzen möchte, kann ich nicht immer sicher stellen, dass der Zufallszahlengenerator wirklich korrekt seine Arbeit macht. Aus diesem Grund habe ich mir ein neues Schlüsselpaar mit &lt;a href=&#34;http://de.wikipedia.org/wiki/RSA-Kryptosystem&#34;&gt;RSA&lt;/a&gt; zum verschlüsseln und signieren erstellt.&lt;/p&gt;
 &lt;p&gt;Es ist nicht ganz unwahrscheinlich, dass &lt;a href=&#34;http://news.cnet.com/8301-13578_3-57591560-38/facebooks-outmoded-web-crypto-opens-door-to-nsa-spying/&#34;&gt;große Organisationen 1024 Bit RSA Schüssel faktorisieren&lt;/a&gt; können. Ein Schlüssellänge von 2048 Bit gilt als sicher und 4096 Bit als paranoid. Ich bin lieber paranoid und nehme 4096 lange Schlüssel, da diese Schüssellänge auf heutigen Rechnern kein Problem darstellt und von fast allen Implementieren von GPG unterstützt wird.&lt;/p&gt;
 &lt;p&gt;Mein neuer Key ist &lt;a href=&#34;http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;amp;search=0x617EB806EE75C6FE&#34;&gt;EE75C6FE&lt;/a&gt;.&lt;/p&gt;

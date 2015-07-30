@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Michael im Netz</title>
-    <link>http://localhost:1313/categories/linux/</link>
+    <link>https://0rph3us.github.io/categories/linux/</link>
     <description>Recent content in Linux on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/linux/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/categories/linux/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>kaputtes System nach Restore mit Obnam</title>
-      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <link>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <guid>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
 Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
 
@@ -40,10 +40,10 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -155,7 +155,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 
@@ -207,13 +207,13 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
     
     <item>
       <title>Modernes Logging Teil 2</title>
-      <link>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</link>
+      <link>https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/</link>
       <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/</guid>
       <description>
 
-&lt;p&gt;Ich habe in meinen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
+&lt;p&gt;Ich habe in meinen &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
 Inzwischen wurde &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
 finale Version zeigen und auf das &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
 
@@ -245,10 +245,10 @@ kibana-4.0.0-linux-x64/bin/kibana
     
     <item>
       <title>Pakete selbst bauen</title>
-      <link>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</link>
+      <link>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</link>
       <pubDate>Thu, 19 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://binfalse.de/&#34;&gt;binfalse&lt;/a&gt; hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf &lt;a href=&#34;http://de.wikipedia.org/wiki/Debian-Paket&#34;&gt;deb&lt;/a&gt;-Pakete während RedHat und Fedora auf &lt;a href=&#34;http://de.wikipedia.org/wiki/RPM_Package_Manager&#34;&gt;rpm&lt;/a&gt;-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll &lt;strong&gt;Sktripte&lt;/strong&gt; zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.&lt;/p&gt;
@@ -364,13 +364,13 @@ fpm -s -t dir rpm -C /tmp/cool-app \
     
     <item>
       <title>Modernes Logging</title>
-      <link>http://localhost:1313/post/2015/02/modernes-logging/</link>
+      <link>https://0rph3us.github.io/post/2015/02/modernes-logging/</link>
       <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/modernes-logging/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/modernes-logging/</guid>
       <description>
 
-&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&#34;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&#34;http://logstash.net/&#34;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&#34;http://de.wikipedia.org/wiki/Syslog&#34;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&#34;http://www.rsyslog.com/&#34;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;
@@ -506,10 +506,10 @@ kibana-4.0.0-rc1-linux-x64/bin/kibana
     
     <item>
       <title>Skripte parallelisieren</title>
-      <link>http://localhost:1313/post/2015/02/skripte-parallelisieren/</link>
+      <link>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</link>
       <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/skripte-parallelisieren/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</guid>
       <description>
 
 &lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
@@ -541,10 +541,10 @@ cp &amp;quot;${1}&amp;quot; &amp;quot;/backup/${1}&amp;quot;
     
     <item>
       <title>RSS Reader selbst betreiben</title>
-      <link>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
@@ -564,7 +564,7 @@ sowie &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; als Rea
 
 &lt;h2 id=&#34;nginx-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Nginx installieren&lt;/h2&gt;
 
-&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
+&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.&lt;/p&gt;
 
@@ -673,10 +673,10 @@ folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
     
     <item>
       <title>Webserver auf dem Raspberry Pi installieren</title>
-      <link>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
+      <link>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
       <pubDate>Thu, 31 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
       <description>
 
 &lt;p&gt;Da man auf dem &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&#34;http://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt; als
@@ -788,10 +788,10 @@ und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass
     
     <item>
       <title>Raspberry Pi auf Jessie updaten</title>
-      <link>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
+      <link>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
       <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
+      <guid>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
       <description>
 
 &lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 &amp;ldquo;Wheezy&amp;rdquo;. Seit einiger Zeit gibt
@@ -833,10 +833,10 @@ apt-get update &amp;amp;&amp;amp; apt-get dist-upgrade
     
     <item>
       <title>Neuer Blog</title>
-      <link>http://localhost:1313/post/2014/07/neuer-blog/</link>
+      <link>https://0rph3us.github.io/post/2014/07/neuer-blog/</link>
       <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/07/neuer-blog/</guid>
+      <guid>https://0rph3us.github.io/post/2014/07/neuer-blog/</guid>
       <description>
 
 &lt;p&gt;Ich habe mich entschlossen, meinen alten &lt;a href=&#34;http://wpde.org/&#34;&gt;Wordpress&lt;/a&gt;-Blog einzudampfen. Ich
@@ -869,10 +869,10 @@ am ausprobieren.&lt;/p&gt;
     
     <item>
       <title>Gnome-Keyring und Xfce</title>
-      <link>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</link>
+      <link>https://0rph3us.github.io/post/2013/12/gnome-keyring-und-xfce/</link>
       <pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</guid>
+      <guid>https://0rph3us.github.io/post/2013/12/gnome-keyring-und-xfce/</guid>
       <description>&lt;p&gt;Ich bin seit kurzen von &lt;a href=&#34;http://www.gnome.org/&#34;&gt;Gnome&lt;/a&gt; auf &lt;a href=&#34;http://www.xfce.org/&#34;&gt;Xfce&lt;/a&gt; umgestiegen.
 Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufen:&lt;/p&gt;
 
@@ -896,10 +896,10 @@ Der Fehler scheint &lt;a href=&#34;http://bugs.debian.org/cgi-bin/bugreport.cgi?
     
     <item>
       <title>Hadoop Cluster und das Netzwerk</title>
-      <link>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
+      <link>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
       <pubDate>Tue, 28 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
+      <guid>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
       <description>&lt;p&gt;Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&amp;gt; Java -&amp;gt; &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;.
 Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop &lt;em&gt;Schrott-Rechner&lt;/em&gt;
 verwenden kann. Hier wird der Begriff &lt;em&gt;Commodity Hardware&lt;/em&gt; etwas falsch interpretiert. Commodity Hardware bezeichnet im
@@ -924,10 +924,10 @@ Cluster noch eine Datenbank, wie &lt;a href=&#34;http://hypertable.com/&#34;&gt;
     
     <item>
       <title>Acrobat Reader für Debian wheezy</title>
-      <link>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
+      <link>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
       <pubDate>Mon, 13 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
+      <guid>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
       <description>&lt;p&gt;Ich hatte heute wieder eine &lt;a href=&#34;http://www.adobe.com/devnet/pdf/pdf_reference.html&#34;&gt;pdf&lt;/a&gt; mit Formularen in,
 welche in einen alternativen Viewer nicht wirklich funktioniert hat.
 Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.&lt;/p&gt;
@@ -946,10 +946,10 @@ apt-get install acroread
     
     <item>
       <title>Debian wheezy ist stable</title>
-      <link>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</link>
+      <link>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</link>
       <pubDate>Sun, 05 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</guid>
+      <guid>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</guid>
       <description>&lt;p&gt;Seit gestern, den 04.05.2013 ist &lt;a href=&#34;http://www.debian.org/News/2013/20130504&#34;&gt;Debian Wheezy stable&lt;/a&gt;. Nun beginnt die gute Zeit für meine produktiven Systeme. Ich habe schon letzten Sommer einige Systeme auf Wheezy laufen, da ich ein paar Features benötigt habe bzw. haben wollte.&lt;/p&gt;
 &lt;p&gt;Ich bin gespannt ob Unschönheiten/Bugs in &lt;a href=&#34;https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt&#34;&gt;cgroups&lt;/a&gt; gefixt wurden. Ich würde gerne mit Hilfe von cgroups die Stabilität eines Hadoop/Hypertable-Clusters erhöhen. Unter Vollast habe ich immer wieder mit partiellen Abstürzen zu kämpfen, was bei zu viel CPU-Last über Memory-Leaks bis zu Timeouts geht, also die gesamte Palette.&lt;/p&gt;
 &lt;p&gt;P.S. Das mit dem Bild ist noch nicht vergessen ;-)&lt;/p&gt;
@@ -958,10 +958,10 @@ apt-get install acroread
     
     <item>
       <title>Letzte Rettung von MySQL</title>
-      <link>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</link>
+      <link>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</link>
       <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</guid>
+      <guid>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</guid>
       <description>&lt;p&gt;
 Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
 &lt;p&gt;

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stetig on Michael im Netz</title>
-    <link>http://localhost:1313/tags/stetig/</link>
+    <link>https://0rph3us.github.io/tags/stetig/</link>
     <description>Recent content in Stetig on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 12 Aug 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/stetig/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/stetig/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Die Weierstraß-Funktion</title>
-      <link>http://localhost:1313/post/2010/08/die-weierstra%C3%9F-funktion/</link>
+      <link>https://0rph3us.github.io/post/2010/08/die-weierstra%C3%9F-funktion/</link>
       <pubDate>Thu, 12 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/die-weierstra%C3%9F-funktion/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/die-weierstra%C3%9F-funktion/</guid>
       <description>&lt;p&gt;Ich habe mich heute an mein Proseminar in Analysis erinnert.  Ein Thema war eine überall stetige, aber nirgendwo diffenzierbare Funktion.
 Das es eine solche Funktion gibt war lange Zeit unbekannt.&lt;/p&gt;
 
@@ -29,7 +29,7 @@ hat im 19. Jahrhundert eine Funktion konstruiert, welche überall stetig, aber a
 Die Zacken im Plot entstehen, weil die Summe nicht bis Unendlich läuft. Aus Gründen der Zahlendarstellung im Rechner,
 habe ich die Summe nur bis 50 laufen lassen.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/weierstrass.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Plots der Weierstraß- und Sinusfunktion&#34;&gt;&lt;img src=&#34;http://localhost:1313/weierstrass-thumbnail.png&#34; alt=&#34;Plots der Weierstraß- und Sinusfunktion&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/weierstrass.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Plots der Weierstraß- und Sinusfunktion&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/weierstrass-thumbnail.png&#34; alt=&#34;Plots der Weierstraß- und Sinusfunktion&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Seine erste Funktion sah wie folgt aus:&lt;/p&gt;
 
