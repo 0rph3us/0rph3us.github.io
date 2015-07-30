@@ -103,7 +103,7 @@
 
 
         <div class="content pure-u-1 pure-u-md-3-4">
-            <a name="top"></a>
+            <a id="top"></a>
             
 
           <div class="posts">
@@ -1703,41 +1703,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/post/2011/02/probleme-mit-dem-sunray-server/">Probleme mit dem SunRay-Server</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Februar</span> <span class="post-date-year">2011</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-solaris" href="https://0rph3us.github.io/categories/solaris">Solaris</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Ich habe heute etwas l&auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der SunRay-Server nicht l&auml;uft. Ein Fehler war schnell gefunden: Der gdm lief nicht. sunray ~ # svcs -a | grep gdm disabled 11:38:23 svc:/application/gdm2-login:default sunray ~ # svcadm enable svc:/application/gdm2-login:default Nun konnte man sich via CDE einloggen, aber nicht mit dem Java Desktop, welcher auf gnome basiert. Nach nervigen Suchen hat sich auch Rumpel zu mir gesetzt.
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2011/02/probleme-mit-dem-sunray-server/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/post/2011/02/richtfest-einer-mensa-in-halle/">Richtfest einer Mensa in Halle</a>
                   </h1>
               </header>
@@ -1768,6 +1733,41 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2011/02/richtfest-einer-mensa-in-halle/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/post/2011/02/probleme-mit-dem-sunray-server/">Probleme mit dem SunRay-Server</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Februar</span> <span class="post-date-year">2011</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-solaris" href="https://0rph3us.github.io/categories/solaris">Solaris</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Ich habe heute etwas l&auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der SunRay-Server nicht l&auml;uft. Ein Fehler war schnell gefunden: Der gdm lief nicht. sunray ~ # svcs -a | grep gdm disabled 11:38:23 svc:/application/gdm2-login:default sunray ~ # svcadm enable svc:/application/gdm2-login:default Nun konnte man sich via CDE einloggen, aber nicht mit dem Java Desktop, welcher auf gnome basiert. Nach nervigen Suchen hat sich auch Rumpel zu mir gesetzt.
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2011/02/probleme-mit-dem-sunray-server/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -2102,41 +2102,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/post/2010/09/cf-karten-mounten/">CF-Karten mounten</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">September</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-linux" href="https://0rph3us.github.io/categories/linux">Linux</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man Compact Flash-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen. rennecke@trantor ~ % blkid /dev/sda1: UUID="5C8CF5697CA93BD8" TYPE="ntfs" /dev/sda5: UUID="f1b2836f-81bf-4f75-9ae0-f2c284871891" TYPE="swap" /dev/sda6: LABEL="debian-root" UUID="c00a4da53-1763-42e1-878d-3e096cad760b" TYPE="ext4" /dev/sda7: UUID="60eca5b7-09ef-4b82-bf59-1a8360c8c6c1" TYPE="crypto_LUKS" /dev/mapper/home: UUID="6cbebba6-e725-4549-bafe-8809ff73f27f" TYPE="ext4" /dev/hda1: SEC_TYPE="msdos" LABEL="EOS_DIGITAL" TYPE="vfat" rennecke@trantor ~ % su Passwort: root@trantor /home/rennecke $ mkdir /media/flash Nun weiß ich, dass meine CF-Karten das Device /dev/hda1 haben.
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/09/cf-karten-mounten/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/post/2010/09/meine-canon-eos-40d/">Meine Canon EOS 40D</a>
                   </h1>
               </header>
@@ -2167,6 +2132,41 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/09/meine-canon-eos-40d/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/post/2010/09/cf-karten-mounten/">CF-Karten mounten</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">September</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-linux" href="https://0rph3us.github.io/categories/linux">Linux</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man Compact Flash-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen. rennecke@trantor ~ % blkid /dev/sda1: UUID="5C8CF5697CA93BD8" TYPE="ntfs" /dev/sda5: UUID="f1b2836f-81bf-4f75-9ae0-f2c284871891" TYPE="swap" /dev/sda6: LABEL="debian-root" UUID="c00a4da53-1763-42e1-878d-3e096cad760b" TYPE="ext4" /dev/sda7: UUID="60eca5b7-09ef-4b82-bf59-1a8360c8c6c1" TYPE="crypto_LUKS" /dev/mapper/home: UUID="6cbebba6-e725-4549-bafe-8809ff73f27f" TYPE="ext4" /dev/hda1: SEC_TYPE="msdos" LABEL="EOS_DIGITAL" TYPE="vfat" rennecke@trantor ~ % su Passwort: root@trantor /home/rennecke $ mkdir /media/flash Nun weiß ich, dass meine CF-Karten das Device /dev/hda1 haben.
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/09/cf-karten-mounten/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -2285,41 +2285,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/post/2010/08/shared-memory-allocator-mit-der-stl/">Shared memory Allocator mit der STL</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">August</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-programmieren" href="https://0rph3us.github.io/categories/programmieren">Programmieren</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Ich habe mich die letzten Tage mit der STL herungeärgert. Ich wollte einen Allocator schreiben, welcher mir die STL-Container in ein Shared Memory Segment legt. Ich habe es nicht wirklich hinbekommen. Inzwischen weiß ich, dass es die Leute von boost auch nicht hinbekommen haben. Aus diesem Grund werde ich nun boost benutzen und hoffen, dass die Performance nicht zu schlecht (unter Windows) ist. Das geheimnis ist, dass man die Container nach implementiert und die Implementierung kommt arbeitet korrekt in einem Shared Memory Segment.
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/08/shared-memory-allocator-mit-der-stl/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/post/2010/08/sichere-captchas-programmieren/">&#34;Sichere&#34; Captchas programmieren</a>
                   </h1>
               </header>
@@ -2352,6 +2317,41 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/08/sichere-captchas-programmieren/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/post/2010/08/shared-memory-allocator-mit-der-stl/">Shared memory Allocator mit der STL</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">August</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-programmieren" href="https://0rph3us.github.io/categories/programmieren">Programmieren</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Ich habe mich die letzten Tage mit der STL herungeärgert. Ich wollte einen Allocator schreiben, welcher mir die STL-Container in ein Shared Memory Segment legt. Ich habe es nicht wirklich hinbekommen. Inzwischen weiß ich, dass es die Leute von boost auch nicht hinbekommen haben. Aus diesem Grund werde ich nun boost benutzen und hoffen, dass die Performance nicht zu schlecht (unter Windows) ist. Das geheimnis ist, dass man die Container nach implementiert und die Implementierung kommt arbeitet korrekt in einem Shared Memory Segment.
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/08/shared-memory-allocator-mit-der-stl/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -3065,41 +3065,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/post/2010/04/kein-upload-bei-wordpress/">Kein Upload bei Wordpress</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Martin hat mich darauf aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung Fehler beim Upload der ausgewählten Datei. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei wp-inludes/functions.php die mime-Typen etwas editiert: function get_allowed_mime_types() { static $mimes = false; if ( !$mimes ) { // Accepted MIME types are set here as PCRE unless provided $mimes = apply_filters( 'upload_mimes', array( 'jpg|jpeg|jpe' = 'image/jpeg', ...
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/04/kein-upload-bei-wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/post/2010/04/bunter-host-in-der-codeumgebung/">bunter Host in der Codeumgebung</a>
                   </h1>
               </header>
@@ -3130,6 +3095,41 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/04/bunter-host-in-der-codeumgebung/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/post/2010/04/kein-upload-bei-wordpress/">Kein Upload bei Wordpress</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Martin hat mich darauf aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung Fehler beim Upload der ausgewählten Datei. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei wp-inludes/functions.php die mime-Typen etwas editiert: function get_allowed_mime_types() { static $mimes = false; if ( !$mimes ) { // Accepted MIME types are set here as PCRE unless provided $mimes = apply_filters( 'upload_mimes', array( 'jpg|jpeg|jpe' = 'image/jpeg', ...
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/04/kein-upload-bei-wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -3172,6 +3172,41 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
+                      <a href="/post/2010/04/wordpress/">wordpress</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Ich bin aus Bequemlichkeitsgründen auf wordpress umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &lt;p&gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: TinyMCE Advanced. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/04/wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
                       <a href="/post/2010/04/korrekte-uhrzeit/">korrekte Uhrzeit</a>
                   </h1>
               </header>
@@ -3202,41 +3237,6 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/04/korrekte-uhrzeit/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
-                      <a href="/post/2010/04/wordpress/">wordpress</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Ich bin aus Bequemlichkeitsgründen auf wordpress umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &lt;p&gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: TinyMCE Advanced. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/04/wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -3657,7 +3657,7 @@
                 
             </p>
             <article class="post-summary">
-                  Da ich bei Sun Microsystems nicht mehr arbeite steht mir mein Blog bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
+                  Da ich bei [Sun Microsystems](http://www.sun.com/) nicht mehr arbeite steht mir mein [Blog](http://blogs.sun.com/rennecke/) bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/01/mein-neuer-blog/"><span class="read-more-slashes">//</span>Weiter...</a>
@@ -3692,7 +3692,7 @@
                 
             </p>
             <article class="post-summary">
-                  Da ich bei [Sun Microsystems](http://www.sun.com/) nicht mehr arbeite steht mir mein [Blog](http://blogs.sun.com/rennecke/) bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
+                  Da ich bei Sun Microsystems nicht mehr arbeite steht mir mein Blog bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/01/mein-neuer-blog/"><span class="read-more-slashes">//</span>Weiter...</a>
