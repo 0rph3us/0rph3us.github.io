@@ -3,17 +3,10 @@ layout: post
 title: Formelsatz für den Browser
 date: 2013-05-29
 categories:
-- sonstiges
+ - sonstiges
 tags:
-- latex
-- MathJax
-type: post
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
+ - latex
+ - MathJax
 mathjax: true
 ---
 
