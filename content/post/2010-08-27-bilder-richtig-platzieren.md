@@ -3,30 +3,22 @@ layout: post
 title: 'LaTeX: Bilder an eine bestimmte Stelle platzieren'
 date: 2010-08-27
 categories:
-- sonstiges
-- Tools
-- LaTeX
+ - sonstiges
+ - Tools
+ - LaTeX
 tags:
-- Bild
-- TeX Live
-status: publish
-type: post
-published: true
-author:
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
+ - Bild
+ - TeX Live
 ---
 
 
-Wenn man bei $$\LaTeX$$  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
-$$\LaTeX$$  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
+Wenn man bei LaTeX  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
+LaTeX  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
 dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package `here`, welches inzwischen
 bei [TeX Live](http://tug.org/texlive/) durch `float` ersetzt wurde.
 
 
-``` latex
+``` tex
 \usepackage{float} % lädt das Paket zum erzwingen der Grafikposition
 %\usepackage{here} auf älteren LaTeX Distributionen
 
