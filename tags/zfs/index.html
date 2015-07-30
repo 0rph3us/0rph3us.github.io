@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Zfs // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="Zfs" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/tags/zfs/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="http://localhost:1313/tags/zfs/index.xml" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/10/platz-sparen-mit-zfs/">Platz sparen mit zfs</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>22</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Oct</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich quick&amp;dirty die Kompression und die Deduplikation von zfs f&uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&szlig;end die alte Version gel&ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: du -hs zeigte auf einmal eine kleinere Größe an.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/10/platz-sparen-mit-zfs/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/">Wie ärgere ich mein zfs</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>10</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	zfs hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass zfs nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame Systemheld, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt. Was kann zfs nicht im laufenden Betrieb mehr Plattenausfälle verkraften als die zur Verfügung stehende Redundanz im laufenden Betrieb mehr Platten tauschen, als man Redundanz hat mit kaputten Platten laufen Auch wenn es zu den einen oder andern Punkt abweichende Behauptungen gibt, so muss ich hier ausdrücklich sagen, dass ein solches Verhalten im Allgemeinen Fall unmöglich ist.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/04/was-bringt-deduplikation/">Was bringt Deduplikation?</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>27</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Heute war ich beim Sun Day in Halle. Detlef Drewanz hat einen interessanten Befehl im Bezug auf Deduplikation genannt: zdb -S &lt;poolname&gt; Damit lässt sich ermitteln, was eine Deduplikation des zpool bringen würde.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/04/was-bringt-deduplikation/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/04/eigenschaften-von-zonen/">Eigenschaften von Zonen</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>22</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich wurde in Bezug auf diesen Blog-Eintrag gefragt, was es f&uuml;r Zoneneigenschaften gibt, welche man f&uuml;r Regelmentierungen verwenden kann. Als ersten m&ouml;chte ich zeigen, wie man den Hauptspeicher limitieren kann. root@global$ zonecfg -z myzone zonecfg:myzone add capped-memory zonecfg:myzone:capped-memory set physical=500m zonecfg:myzone:capped-memory set swap=1g zonecfg:myzone:capped-memory set locked=100m zonecfg:myzone:capped-memory end zonecfg:myzone exit physical Hierbei handelt es sich um eine Limitierung des physischen Hauptspeicher. Wenn mehr Speicher angefordert wird, dann kann dieser ausgelagert werden.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/04/eigenschaften-von-zonen/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/02/deduplikation/">Deduplikation</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Einige haben bestimmt schon von den Deduplikations-Feature in zfs gehört. Ich hatte leider keine Zeit ehr darüber zu schreiben. Bei Dedublikation speichert man doppelte Blöcke nur einmal. Diese kann man recht schnell erzeugen, wenn man eine Datei kopiert. Man kann auch gezielt Deduplikation nutzen. So kann man jeder Nutzer seine eigene Musiksammlung haben, denn doppelte Lieder benötigen keinen zusätzlichen Platz. Ich möchte auch nicht meiner Freundin überall Schreibrechte geben, nicht dass sie ausversehen meine Mario Ranieri-Sammlung löscht.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/02/deduplikation/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/02/virtual-box-clienten-auf-raw-devices/">Virtual Box-Clienten auf raw-Devices</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">Tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Dan man mit zfs kann man auch volumes anlegen kann, wollte ich mal testen, ob man auch einen VirtualBox-Client auch auf ein solches Volume installieren kann. Es benötige einiges an Vorbereitungen, aber es geht wie folgt: Volume erzeugen: rennecke@walhalla VirtualBox $ pfexec zfs create -s -V 200g daten/vol_win man erzeugt hiermit ein Volume, welches 200 GB groß ist. Es fordert den Speicher erst an, wenn dieser benötigt wird. VirtualBox-User Zugriff auf das raw-Device geben: rennecke@walhalla VirtualBox $ pfexec chown rennecke:staff /dev/zvol/rdsk/daten/vol_win rennecke@walhalla VirtualBox $ pfexec chmod 660 /dev/zvol/rdsk/daten/vol_win Das Device VirtualBox bekannt geben.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/02/virtual-box-clienten-auf-raw-devices/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

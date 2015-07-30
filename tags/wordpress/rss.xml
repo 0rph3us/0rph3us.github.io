@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wordpress on Michael im Netz</title>
+    <link>http://localhost:1313/tags/wordpress/</link>
+    <description>Recent content in Wordpress on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 01 Mar 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/wordpress/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Bilder mit css nicht vergrößern</title>
+      <link>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
+      <description>&lt;p&gt;
+Ich habe in meinen Blog inzwischen auch Bilder und ich nutze die &lt;a href=&#34;http://nextgen-gallery.com/&#34;&gt;NextGEN Gallery&lt;/a&gt;. Aus Platzgründen verkleinere ich die Bilder. Die Bilder, welche im Hochformat sind sehen einfach grausam aus, da sie stark vergrößert werden. Durch den folgenden Hack im &lt;a href=&#34;http://www.w3.org/TR/2002/WD-CSS21-20020802/&#34;&gt;css&lt;/a&gt; werden die Bilder nicht mehr vergrößert. Dazu muss man die Datei &lt;tt&gt;nextgen-gallery/css/nggallery.css&lt;/tt&gt; wie folgt ändern:&lt;/p&gt;
+&lt;pre lang=&#34;css&#34;&gt;
+.ngg-imagebrowser img {
+    border: 1px solid #A9A9A9;
+    display: block !important;
+    margin: 10px auto;
+    max-width: 100%;
+    padding: 5px;
+}
+&lt;/pre&gt;
+&lt;p&gt;
+Achtung: Die Änderung geht bei einen automatischen Update des Plugins verloren!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Captcha</title>
+      <link>http://localhost:1313/post/2010/08/captcha/</link>
+      <pubDate>Tue, 17 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/08/captcha/</guid>
+      <description>&lt;p&gt;Ich habe mir ein neues &lt;a href=&#34;http://de.wikipedia.org/wiki/CAPTCHA&#34;&gt;Captcha&lt;/a&gt;-Plugin gebaut. Dieses besteht aus netten Matheaufgaben. Diese gehen immer glatt auf. Ich muss noch etwas an dem Plugin pfeilen. Sagt mir was ihr davon haltet. Die Aufgaben werden via &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;[latex]\LaTeX[/latex]&lt;/a&gt; erzeugt.&lt;/p&gt;
+&lt;p&gt;Ich habe das Plugin etwas geändert, da &lt;a href=&#34;https://blog.binfalse.de/2010/08/cracked-a-captcha/&#34;&gt;Martin&lt;/a&gt; meinte es zu knacken...&lt;/p&gt;
+&lt;p&gt;Gut Martin hat es wieder geschafft, auf die &lt;em&gt;offensichtliche&lt;/em&gt; Art. Er ließt meine &lt;tt&gt;alt&lt;/tt&gt; bzw. &lt;tt&gt;title&lt;/tt&gt;-Attribute aus, welche meine Seite barrierefrei machen. Für das parsen hat er sich 3 Bier verdient&lt;/p&gt;
+date: 2010-08-17
+</description>
+    </item>
+    
+    <item>
+      <title>Kein Upload bei Wordpress</title>
+      <link>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</link>
+      <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://blog.binfalse.de/&#34;&gt;Martin&lt;/a&gt; hat mich darauf  aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung &lt;strong&gt;Fehler beim Upload der ausgewählten Datei&lt;/strong&gt;. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei &lt;tt&gt;wp-inludes/functions.php&lt;/tt&gt; die &lt;a href=&#34;http://www.iana.org/assignments/media-types/index.html&#34;&gt;mime-Typen&lt;/a&gt; etwas editiert:&lt;/p&gt;
+&lt;pre lang=&#34;php&#34;&gt;function get_allowed_mime_types() {
+	static $mimes = false;
+
+	if ( !$mimes ) {
+		// Accepted MIME types are set here as PCRE unless provided
+		$mimes = apply_filters( &#39;upload_mimes&#39;, array(
+		&#39;jpg|jpeg|jpe&#39; =&gt; &#39;image/jpeg&#39;,
+                ...
+                &#39;odf&#39; =&gt; &#39;application/vnd.oasis.opendocument.formula&#39;,
+		&#39;.*&#39; =&gt; &#39;text/plain&#39;, // hinzugefügt
+		) );
+	}
+
+	return $mimes;
+}
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>bunter Host in der Codeumgebung</title>
+      <link>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</link>
+      <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</guid>
+      <description>&lt;p&gt;Ich wurde gefragt, wie ich den user und den hostname in meinen Code-Umgebungen bunt bekomme. Ich benutze für das Syntaxhighlighting das Plugin &lt;a href=&#34;http://wordpress.org/extend/plugins/wp-syntax/&#34;&gt;WP-Syntax&lt;/a&gt;. Dieses wiederrum nutzt &lt;a href=&#34;http://qbnz.com/highlighter/&#34;&gt;GeSHi&lt;/a&gt; im Hintergrund.&lt;/p&gt;
+&lt;p&gt;Damit der Hostname bunt wird, habe ich die Syntax der bash etwas erweitert. Dazu habe ich in der Datei &lt;tt&gt;wp-content/plugins/wp-syntax/geshi/geshi&lt;/tt&gt; ein paar Zeilen hinzu gef&amp;uuml;gt:&lt;/p&gt;
+&lt;pre lang=&#34;php&#34;&gt;
+language_data = array (
+    &#39;LANG_NAME&#39; =&gt; &#39;Bash&#39;,
+    // Bash DOES have single line comments with # markers. But bash also has
+    // the  $# variable, so comments need special handling (see sf.net
+    // 1564839)
+    &#39;COMMENT_SINGLE&#39; =&gt; array(&#39;#&#39;),
+    &#39;COMMENT_MULTI&#39; =&gt; array(),
+    &#39;COMMENT_REGEXP&#39; =&gt; array(
+        //Variables
+        1 =&gt; &#34;/\$\{[^\n\}]*?\}/i&#34;,
+        //BASH-style Heredoc
+        2 =&gt; &#39;/&lt;&lt;-?\s*?(
+&lt;p&gt;
+Es handelt sich hierbei um einen Hack. Wenn man das Plugin updatet, muss man diese &amp;Auml;nderung wieder vornehmen.&lt;/p&gt;
+?)([a-zA-Z0-9]+)\n.*\n\2(?![a-zA-Z0-9])/siU&#39;,
+        //Escaped String Starters
+        3 =&gt; &#34;/\\[&#39;\&#34;]/siU&#34;,
+	4 =&gt; &#34;/(root@[a-z]+)/i&#34;,          // root hat sich angemeldet
+	5 =&gt; &#34;/([a-z]+@[a-z]+)/i&#34;         // ein normaler User hat sich angemeldet
+        ),
+        ....
+&#39;STYLES&#39; =&gt; array(
+        &#39;KEYWORDS&#39; =&gt; array(
+            1 =&gt; &#39;color: #000000; font-weight: bold;&#39;,
+            2 =&gt; &#39;color: #c20cb9; font-weight: bold;&#39;,
+            3 =&gt; &#39;color: #7a0874; font-weight: bold;&#39;
+            ),
+        &#39;COMMENTS&#39; =&gt; array(
+            0 =&gt; &#39;color: #666666; font-style: italic;&#39;,
+            1 =&gt; &#39;color: #800000;&#39;,
+            2 =&gt; &#39;color: #cc0000; font-style: italic;&#39;,
+            3 =&gt; &#39;color: #000000; font-weight: bold;&#39;,
+  	    4 =&gt; &#39;color: #FF0000; font-weight: bold;&#39;,     // Farbe und Font für root
+	    5 =&gt; &#39;color: #0000FF; font-weight: bold;&#39;      // Farbe und Font für einen normalen User
+            ),
+           ...
+&lt;/pre&gt;
+&lt;p&gt;
+Es handelt sich hierbei um einen Hack. Wenn man das Plugin updatet, muss man diese &amp;Auml;nderung wieder vornehmen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>wordpress</title>
+      <link>http://localhost:1313/post/2010/04/wordpress/</link>
+      <pubDate>Tue, 13 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/wordpress/</guid>
+      <description>&lt;p&gt;Ich bin aus Bequemlichkeitsgründen auf &lt;a href=&#34;http://wordpress.org/&#34;&gt;wordpress&lt;/a&gt; umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &amp;lt;p&amp;gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: &lt;a href=&#34;http://wordpress.org/extend/plugins/tinymce-advanced/&#34;&gt;TinyMCE Advanced&lt;/a&gt;. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    DHT22 am Raspberry Pi // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="DHT22 am Raspberry Pi" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="http://localhost:1313//js/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://localhost:1313//css/lightbox.css">
+  <script src="http://localhost:1313//js/lightbox.min.js"></script>
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Inhalt</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc">Was kann der DHT22?</a></li>
+<li><a href="#aufbau:8d8edce1009994bb6e78cdf6135bcafc">Aufbau</a>
+<ul>
+<li><a href="#belegung-dht22:8d8edce1009994bb6e78cdf6135bcafc">Belegung DHT22</a></li>
+</ul></li>
+<li><a href="#programmierung:8d8edce1009994bb6e78cdf6135bcafc">Programmierung</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2014/10/dht22-am-raspberry-pi/">DHT22 am Raspberry Pi</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>14</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Oktober</span> <span class="post-date-year">2014</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-raspberry-pi" href="http://localhost:1313//categories/raspberry-pi">Raspberry Pi</a>
+				
+					<a class="post-category post-category-elektronik" href="http://localhost:1313//categories/elektronik">Elektronik</a>
+				
+					<a class="post-category post-category-programmieren" href="http://localhost:1313//categories/programmieren">Programmieren</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<h2 id="was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc">Was kann der DHT22?</h2>
+
+<ul>
+<li>kostet zwischen 6€ und 9€</li>
+<li>3,3 - 5V Eingangsspannung</li>
+<li>max. 2.5 mA (während der Datenübertragung)</li>
+<li>40-50 µA Standby-Strom</li>
+<li>Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit</li>
+<li>Temperaturbereich: -40 bis 80°C ± 0,5°C</li>
+<li>Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)</li>
+</ul>
+
+<h2 id="aufbau:8d8edce1009994bb6e78cdf6135bcafc">Aufbau</h2>
+
+<p>Um den DHT22 am Raspberry Pi zu betreiben ist noch ein <a href="http://www.elektronik-kompendium.de/public/schaerer/pullr.htm">Pullup-Widerstand</a> von 4,7 bis 10kΩ nötig.
+Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
+nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.</p>
+
+<p><a href="/dht22_pi.png" title="" data-lightbox="set1" data-title="Steckbrett mit DHT22 und Raspberry Pi"><img src="/dht22_pi-thumbnail.png" alt="Steckbrett mit DHT22 und Raspberry Pi"></a></p>
+
+<p>Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.</p>
+
+<h3 id="belegung-dht22:8d8edce1009994bb6e78cdf6135bcafc">Belegung DHT22</h3>
+
+<ul>
+<li>Pin 1: 3,3V</li>
+<li>Pin 2: Daten</li>
+<li>Pin 3: frei</li>
+<li>Pin 4: Masse</li>
+</ul>
+
+<h2 id="programmierung:8d8edce1009994bb6e78cdf6135bcafc">Programmierung</h2>
+
+<p>Es gibt von Adafruit eine Python-<a href="https://github.com/adafruit/Adafruit_Python_DHT.git">Bibliothek</a>, welche sehr einfach zu nutzen ist, um den Sensor
+abzufragen.</p>
+
+<pre><code class="language-sh">sudo apt-get update
+sudo apt-get install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+sudo python setup.py install
+</code></pre>
+
+<p>Im <code>examples</code> Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss
+bedenken, dass der Code als <code>root</code> bzw. mit <code>sudo</code> ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift. <a href="http://pi.gadgetoid.com/pinout">Hier</a> findet man Nummerierung
+der Pins.</p>
+
+<pre><code class="language-python">#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_DHT
+
+# GPIO pin for DTH-22
+# see http://pi.gadgetoid.com/pinout
+pin = 4
+
+# Try to grab a sensor reading.  Use the read_retry method which will retry up
+# to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+
+if humidity is None or temperature is None:
+    print 'Failed to get reading DTH-22. Try again!'
+else:
+    print &quot;Temperature: %8.2f°C&quot; % temperature
+    print &quot;Humidity:    %8.2f%%&quot; % humidity
+</code></pre>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-python" href="http://localhost:1313//tags/python">python</a>,
+	                
+	                <a class="post-tag post-tag-dth22" href="http://localhost:1313//tags/dth22">DTH22</a>,
+	                
+	                <a class="post-tag post-tag-sensor" href="http://localhost:1313//tags/sensor">Sensor</a>,
+	                
+	                <a class="post-tag post-tag-git" href="http://localhost:1313//tags/git">git</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2014/10/bmp085-am-raspberry-pi/">BMP085 am Raspberry Pi</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2014/09/rss-reader-selbst-betreiben/">RSS Reader selbst betreiben</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

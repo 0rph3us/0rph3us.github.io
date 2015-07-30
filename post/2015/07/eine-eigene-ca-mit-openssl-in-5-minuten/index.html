@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Eine eigene CA mit OpenSSL in 5 Minuten // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="Eine eigene CA mit OpenSSL in 5 Minuten" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Inhalt</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#certificate-authority-erstellen:116aed65bb730b226540f3cd4bf4c27a">Certificate Authority erstellen</a></li>
+<li><a href="#root-zertifikat-auf-den-clients-importieren:116aed65bb730b226540f3cd4bf4c27a">Root-Zertifikat auf den Clients importieren</a>
+<ul>
+<li><a href="#debian-ubuntu:116aed65bb730b226540f3cd4bf4c27a">Debian / Ubuntu</a></li>
+<li><a href="#mozilla-firefox-thunderbird:116aed65bb730b226540f3cd4bf4c27a">Mozilla Firefox / Thunderbird</a></li>
+<li><a href="#chromium-google-chrome:116aed65bb730b226540f3cd4bf4c27a">Chromium / Google Chrome</a></li>
+</ul></li>
+<li><a href="#ein-neues-zertifikat-ausstellen:116aed65bb730b226540f3cd4bf4c27a">Ein neues Zertifikat ausstellen</a></li>
+<li><a href="#das-zertifikat-benutzen:116aed65bb730b226540f3cd4bf4c27a">Das Zertifikat benutzen</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/">Eine eigene CA mit OpenSSL in 5 Minuten</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Juli</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-sicherheit" href="http://localhost:1313//categories/sicherheit">sicherheit</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Wenn man seine eigenen Dienste mit SSL/<a href="https://de.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> absichern möchte benötigt man Zertifikate. Inzwischen
+gibt es auch kostenlose Zertifikate, diese haben aber Einschränkungen. Wenn man dynDNS verwendet bekommt
+man keine offizellen Zertifikate, da man nicht der Eigentümer der Domain ist. Oft hat jeder Dienst, den man
+anbietet auch einen eigene Subdomain. Wenn man mehrere Subdomains auf dem selben Port benötigt man ein
+Wildcard-Zertifikat<sup class="footnote-ref" id="fnref:116aed65bb730b226540f3cd4bf4c27a:1"><a rel="footnote" href="#fn:116aed65bb730b226540f3cd4bf4c27a:1">1</a></sup>. Dieses ist nach meinen Kenntnisstand nicht kostenlos zu bekommen.</p>
+
+<p>Wenn man nicht nur einen Webserver, sondern auch einen Jabber-Server betreibt lohnt es sich eine eigene
+CA (Certificate Authority) betreiben, mit der man alle seine Zertifikate unterschreibt. Damit alle Clients
+der CA vertrauen muss diese nur bekannt machen. Danach wird allen Zertifikaten vertraut, welche von der CA
+unterschrieben wurden.</p>
+
+<p>Ein weiterer Vorteil: Mit der eigenen CA ist man im Zweifel auf der sicheren Seite. In den letzten Jahren
+ist es öfter vorgekommen, dass gefälschte Zertifikate im Umlauf waren. Es gibt also Gründe den großen
+CAs zu misstrauen<sup class="footnote-ref" id="fnref:116aed65bb730b226540f3cd4bf4c27a:2"><a rel="footnote" href="#fn:116aed65bb730b226540f3cd4bf4c27a:2">2</a></sup>.</p>
+
+<h2 id="certificate-authority-erstellen:116aed65bb730b226540f3cd4bf4c27a">Certificate Authority erstellen</h2>
+
+<p>Als erstes muss man einen geheimen privaten Schlüssel generieren:</p>
+
+<pre><code class="language-sh">openssl genrsa -aes256 -out ca-key.pem 4096
+</code></pre>
+
+<p>Der Schlüssel wird in der Datei <code>ca-key.pem</code> gespeichert und hat eine Länge von 4096 Bit. Man kann auch einen
+längeren bzw. kürzeren Schlüssel erzeugen. 2048 Bit sehe ich als absolutes Minimum an. Durch Verwendung der
+Option <code>-aes256</code> wird der Schküssel mit einem Passwort geschützt. Der Schlüssel der CA muss besonderst
+geschützt werden, denn mit ihm könnte sich ein Angreifer beliebige Zertifikate ausstellen. Die Verschlüsselung
+mit einem Passwort bietet einen zusätzlichen Schutz. Das Passwort muss man bei jeder Verwendung des Schlüssels
+eingeben.</p>
+
+<p>Als nächstes muss man das root-Zertifikat der CA erzeugen. Dieses kann man dann in die Browser und in die
+Betriebssysteme importieren. Das Zertifikat wird wie folgt generiert:</p>
+
+<pre><code class="language-sh">openssl req -x509 -new -nodes -extensions v3_ca -key ca-key.pem -days 3650 -out ca-root.pem -sha512
+</code></pre>
+
+<p>Dieses Zertifikat hat eine Gültigkeit von 10 Jahren (3650 Tage). Die Attribute der CA können wie folgt sein:</p>
+
+<pre><code class="language-sh">Country Name (2 letter code) [AU]:DE
+State or Province Name (full name) [Some-State]:Saxony-Anhalt
+Locality Name (eg, city) []:Halle (Saale)
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:bude
+Organizational Unit Name (eg, section) []:IT
+Common Name (eg, YOUR name) []:example.net
+Email Address []:meine.email-adresse.net
+</code></pre>
+
+<h2 id="root-zertifikat-auf-den-clients-importieren:116aed65bb730b226540f3cd4bf4c27a">Root-Zertifikat auf den Clients importieren</h2>
+
+<h3 id="debian-ubuntu:116aed65bb730b226540f3cd4bf4c27a">Debian / Ubuntu</h3>
+
+<pre><code class="language-sh">sudo cp ca-root.pem /usr/share/ca-certificates/myca-root.crt
+sudo dpkg-reconfigure ca-certificates
+</code></pre>
+
+<h3 id="mozilla-firefox-thunderbird:116aed65bb730b226540f3cd4bf4c27a">Mozilla Firefox / Thunderbird</h3>
+
+<p>Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter <em>Einstellungen</em> =&gt; <em>Erweitert</em> =&gt; <em>Zertifikate</em> =&gt; <em>Zertifikate anzeigen</em> =&gt; <em>Zertifizierungsstellen</em> =&gt; <em>Importieren</em>. Wählt die Datei <code>ca-root.pem</code> aus. Wählt die Option <em>Dieser CA vertrauen, um Websites zu identifizieren</em>.</p>
+
+<h3 id="chromium-google-chrome:116aed65bb730b226540f3cd4bf4c27a">Chromium / Google Chrome</h3>
+
+<p><em>Einstellungen</em> =&gt; <em>Erweiterte Einstellungen anzeigen</em> (unten) =&gt; <em>HTTPS/SSL</em> =&gt; <em>Zertifikate verwalten</em> =&gt; <em>Zertifizierungsstellen</em> =&gt; <em>Importieren</em> =&gt; <code>ca-root-pem</code> auswählen =&gt; <em>Diesem Zertifikat zur Identifizierung von Websites vertrauen</em></p>
+
+<h2 id="ein-neues-zertifikat-ausstellen:116aed65bb730b226540f3cd4bf4c27a">Ein neues Zertifikat ausstellen</h2>
+
+<p>Als erstes muss man sich wieder einen privaten Schlüssel erzeuge.</p>
+
+<pre><code class="language-sh">openssl genrsa -out cert-key.pem 4096
+</code></pre>
+
+<p>Bei den Zertifikaten sollte man in den meisten Fällen kein Passwort setzten. Wenn man es z.B. für einen Webserver benötigt,
+dann müsste man das Passwort bei jedem Start eingeben.</p>
+
+<p>Nun muss man eine Zertifikatsanfrage erstellen. Ganz wichtig ist der <strong>Common Name</strong> dieses Attribut <em>muss</em> so lauten, wie der Hostname
+des Servers, auf den es ausgestellt ist. Wenn man nur via IP zugreifen möchte, dann ist der Common Name die IP, mit den man den Dienst
+ansprechen möchte. Es sind auch Wildcard-zertifikate möchte *.example.com gilt für foo.example.com bar.example.com, aber nicht für foo.bar.example.com.</p>
+
+<pre><code class="language-sh">openssl req -new -key cert-key.pem -out cert.csr -sha512
+</code></pre>
+
+<p>Wenn man fertig ist, dann erhält man die Zertifikatsanfrage in <code>cert.csr</code>, die kann von CA weiter verarbeitet werden. Dabei wird der öffentliche
+Schlüssel des angefragten Zertifikats.</p>
+
+<p>Mit der root-CA, deren Schlüssel und der Zertifikatsanfrage erstellt man ein signiertes Zertifikat, welches 1 Jahr gültig ist.</p>
+
+<pre><code class="language-sh">openssl x509 -req -in cert.csr -CA ca-root.pem -CAkey ca-key.pem -CAcreateserial -out cert-pub.pem -days 365 -sha512
+</code></pre>
+
+<p>Openssl fragt nach dem dem Passwort der root-CA. Wenn dan signierte Zertifikat erstellt wurde kann man die Zertifikatsanfrage <code>cert.csr</code> löschen.
+Das öffentliche Zertifikat befindet sich in der Datei <code>cert-pub.pem</code>.</p>
+
+<h2 id="das-zertifikat-benutzen:116aed65bb730b226540f3cd4bf4c27a">Das Zertifikat benutzen</h2>
+
+<p>Für einen Webserver benötigt man die folgenden 3 Teile:</p>
+
+<ul>
+<li>Privater Schlüssel des Zertifikats <code>cert-key.pem</code></li>
+<li>Öffentlicher Schlüssel des Zertifikats <code>cert-pub.pem</code></li>
+<li>Öffentlicher Schlüssel der CA <code>ca-root.pem</code></li>
+</ul>
+
+<p>Je nach Server ist es nötig die CA und den öffentlichen Schlüssel in einer Datei zu haben. Das kann man wie folgt machen:</p>
+
+<pre><code class="language-sh">cat ca-root.pem &gt;&gt; cert-pub.pem
+</code></pre>
+
+<p>wenn sie SNI nicht unterstützen. Eine weitere Alternative sind SAN-Zertifikate (diese sind auf mehrere Subdomains ausgestellt), diese gibt es auch nicht für lau.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:116aed65bb730b226540f3cd4bf4c27a:1">Seit TLS 1.0 kann man auch durch <a href="https://de.wikipedia.org/wiki/Server_Name_Indication">SNI</a> mehrere Zertifikate nutzen. SNI unterstützen ältere Browser noch nicht, evtl. hat man auch mit Apps Probleme,
+ <a class="footnote-return" href="#fnref:116aed65bb730b226540f3cd4bf4c27a:1"><sup>[return]</sup></a></li>
+<li id="fn:116aed65bb730b226540f3cd4bf4c27a:2">Dazu muss sie aber aus seinen Browser und Betriebssystem löschen. Das ist nicht unbedingt sehr sinnvoll.
+ <a class="footnote-return" href="#fnref:116aed65bb730b226540f3cd4bf4c27a:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-ssl" href="http://localhost:1313//tags/ssl">SSL</a>,
+	                
+	                <a class="post-tag post-tag-tls" href="http://localhost:1313//tags/tls">TLS</a>,
+	                
+	                <a class="post-tag post-tag-openssl" href="http://localhost:1313//tags/openssl">OpenSSL</a>,
+	                
+	                <a class="post-tag post-tag-ca" href="http://localhost:1313//tags/ca">CA</a>,
+	                
+	                <a class="post-tag post-tag-nginx" href="http://localhost:1313//tags/nginx">Nginx</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2015/07/update/">Update</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

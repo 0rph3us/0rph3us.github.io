@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blkid on Michael im Netz</title>
+    <link>http://localhost:1313/tags/blkid/</link>
+    <description>Recent content in Blkid on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 07 Sep 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blkid/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CF-Karten mounten</title>
+      <link>http://localhost:1313/post/2010/09/cf-karten-mounten/</link>
+      <pubDate>Tue, 07 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/09/cf-karten-mounten/</guid>
+      <description>&lt;p&gt;
+Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man &lt;a href=&#34;http://de.wikipedia.org/wiki/CompactFlash&#34;&gt;Compact Flash&lt;/a&gt;-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@trantor ~ % blkid
+/dev/sda1: UUID=&#34;5C8CF5697CA93BD8&#34; TYPE=&#34;ntfs&#34;
+/dev/sda5: UUID=&#34;f1b2836f-81bf-4f75-9ae0-f2c284871891&#34; TYPE=&#34;swap&#34;
+/dev/sda6: LABEL=&#34;debian-root&#34; UUID=&#34;c00a4da53-1763-42e1-878d-3e096cad760b&#34; TYPE=&#34;ext4&#34;
+/dev/sda7: UUID=&#34;60eca5b7-09ef-4b82-bf59-1a8360c8c6c1&#34; TYPE=&#34;crypto_LUKS&#34;
+/dev/mapper/home: UUID=&#34;6cbebba6-e725-4549-bafe-8809ff73f27f&#34; TYPE=&#34;ext4&#34;
+/dev/hda1: SEC_TYPE=&#34;msdos&#34; LABEL=&#34;EOS_DIGITAL&#34; TYPE=&#34;vfat&#34;
+rennecke@trantor ~ % su
+Passwort:
+root@trantor /home/rennecke $ mkdir /media/flash
+&lt;/pre&gt;
+&lt;p&gt;Nun weiß ich, dass meine CF-Karten das Device &lt;tt&gt;/dev/hda1&lt;/tt&gt; haben. Nun füge ich die folgende Zeile der &lt;tt&gt;/etc/fstab&lt;/tt&gt; hinzu:&lt;/p&gt;
+&lt;pre lang=&#34;config&#34;&gt;
+/dev/hda1       /media/flash    auto        rw,user,noauto,exec     0       0
+&lt;/pre&gt;
+&lt;p&gt;
+Nun kann man als  normaler User mittels&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@trantor ~ % mount /media/flash
+rennecke@trantor ~ % umount /media/flash
+&lt;/pre&gt;
+&lt;p&gt;die CF-Karte mounten und abmounten. Alternativ kann man das ganz nun auch grafisch mounten. Wo man klicken muss hängt vom Window-Manager ab.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

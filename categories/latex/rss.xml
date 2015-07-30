@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Latex on Michael im Netz</title>
+    <link>http://localhost:1313/categories/latex/</link>
+    <description>Recent content in Latex on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Sat, 30 Jul 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/latex/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Briefvorlage mit LaTeX</title>
+      <link>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</link>
+      <pubDate>Sat, 30 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</guid>
+      <description>
+
+&lt;p&gt;Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon.
+Aus diesem Grund wollte ich in meiner $$ \LaTeX $$-Vorlage für meine Briefe beide Nummern stehen haben.
+Die &lt;a href=&#34;http://developer.berlios.de/projects/koma-script3/&#34;&gt;KOMA-Skript&lt;/a&gt; Pakete können von Haus aus, nur eine
+Telefonnummer, deswegen habe ich meine Vorlage, welche ich von &lt;a href=&#34;http://meet-unix.org/&#34;&gt;meet-unix&lt;/a&gt; habe, wie folgt angepasst.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\ProvidesFile{letter_options.lco}[letter-class-option file]
+
+% symbols: (cell)phone, email
+\RequirePackage{marvosym}
+% for gray color in header
+\RequirePackage{color}
+\RequirePackage[utf8]{inputenc}
+
+\KOMAoptions{
+foldmarks=true,
+foldmarks=BlmTP,
+%fromurl=true,
+fromemail=true,
+fromphone=true,
+fromalign=right,
+fromrule=aftername,
+fromemail=true,
+footsepline=off
+}
+
+% define gray for header
+\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+
+\setkomavar{fromname}{\color{firstnamecolor}Michael\color{familynamecolor}Rennecke}
+\setkomafont{fromname}{\fontsize{38}{40}\sffamily\mdseries\upshape}
+
+\setkomafont{fromrule}{\color{firstnamecolor}}
+\@setplength{fromrulethickness}{0.25ex}
+
+\setkomafont{addressee}{\small}
+\setkomavar{fromaddress}{Solarisgasse 2\12345 Tuxhausen}
+
+\newkomavar[\Mobilefone]{frommobilephone} 
+\setkomavar{frommobilephone}{(01\,60)~1\,00\,00\,00}
+\setkomavar{fromphone}[\Telefon]{(03\,45)~000\,00\,00\,00}
+
+\setkomavar{fromemail}[\Letter]{michael.rennecke@gmail.com}
+%\setkomavar{fromurl}[]{http://0rpheus.net}
+
+\firsthead{
+  \noindent
+  \parbox[b]{\useplength{firstheadwidth}}{
+    \noindent%
+    \raggedleft%
+    {\usekomafont{fromname}\usekomavar{fromname}}\
+    \rule{\useplength{firstheadwidth}}{1pt}\
+    \usekomavar{fromaddress}\
+    \Telefon\enskip\usekomavar{fromphone}\
+    \Mobilefone\enskip\usekomavar{frommobilephone}\
+    \Letter\enskip\usekomavar{fromemail}
+  }
+}
+
+\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape}
+\setkomavar{backaddress}{Michael Rennecke, Tuxgasse 5, 06121 Halle (Saale)}
+ 
+\setkomavar{signature}{Michael Rennecke
+% signature same indention level as rest
+\renewcommand*{\raggedsignature}{\raggedright}
+% space for signature
+\@setplength{sigbeforevskip}{1.7cm}
+
+\endinput
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;beipieldokument:3fac007e186036068c6cdae2a2ac4984&#34;&gt;Beipieldokument&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\documentclass[letter_options,parskip=half+,version=last,fontsize=11pt,DIV=11,BCOR=10mm, DIN]{scrlttr2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{amssymb}
+\usepackage{lmodern}
+
+% overall sans serif font
+\renewcommand{\familydefault}{\sfdefault}
+
+\setkomavar{subject}{Was machst Du}
+\setkomavar{place}{Halle (Saale)}
+
+\begin{document}
+\begin{letter}{Karl Mustermann\ Straße 4\ 06019 Halle (Saale)}
+
+
+\opening{Sehr geehrte Damen und Herren,}
+  blabla
+
+  \closing{Mit freundlichem Gruß}
+\end{letter}
+
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar,
+die meine Vorlage noch verbessern ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optischer Randausgleich</title>
+      <link>http://localhost:1313/post/2010/09/optischer-randausgleich/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/09/optischer-randausgleich/</guid>
+      <description>&lt;p&gt;Ich schreibe meine Diplomarbeit mit LaTeX. Da bekommt man auch einen schönen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz,
+unter beachtung möglicher Worttrennungen  berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch
+verbessern, indem man den &lt;em&gt;optischen Randausgleich&lt;/em&gt; nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert
+des linken Rand gleich ist. Ein Bindestrich ragt z.B. mehr in Rand hinein als ein m. da ein Bindestrich weniger schwarz enthält als ein m.
+Für das Auge sieht der linke  Rand nun gerade aus. Man muss dafür nur das Package  &lt;strong&gt;microtype&lt;/strong&gt; einbinden.
+&lt;a href=&#34;http://www.ctan.org/tex-archive/macros/latex/contrib/microtype/microtype.pdf&#34;&gt;Hier&lt;/a&gt; ist die Doku dazu.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;...
+%optischer Randausgleich aktivieren
+\usepackage{microtype}             % ist auf alten Installation nicht immer vorhanden
+% \usepackage[activate]{pdfcprot}  % wird nicht mehr weiter entwickelt
+...
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LaTeX: Bilder an eine bestimmte Stelle platzieren</title>
+      <link>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</link>
+      <pubDate>Fri, 27 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</guid>
+      <description>&lt;p&gt;Wenn man bei LaTeX  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
+LaTeX  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
+dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package &lt;code&gt;here&lt;/code&gt;, welches inzwischen
+bei &lt;a href=&#34;http://tug.org/texlive/&#34;&gt;TeX Live&lt;/a&gt; durch &lt;code&gt;float&lt;/code&gt; ersetzt wurde.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\usepackage{float} % lädt das Paket zum erzwingen der Grafikposition
+%\usepackage{here} auf älteren LaTeX Distributionen
+
+\begin{document}
+
+\begin{figure}[H]
+   %mit dem großen H wird die Grafikposition auf HERE gesetzt
+   \centering
+   \fbox{ %erzeugt einen Rahmen um die Grafik
+      \includegraphics[angle=0,width=5cm]{Bild.png}
+   }
+\end{figure}
+
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

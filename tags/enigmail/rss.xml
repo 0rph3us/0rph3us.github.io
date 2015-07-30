@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enigmail on Michael im Netz</title>
+    <link>http://localhost:1313/tags/enigmail/</link>
+    <description>Recent content in Enigmail on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 02 Oct 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/enigmail/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sichere E-Mails</title>
+      <link>http://localhost:1313/post/2013/10/sichere-e-mails/</link>
+      <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2013/10/sichere-e-mails/</guid>
+      <description>&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.golem.de/news/gesellschaft-fuer-informatik-wir-brauchen-sichere-standardisierung-der-verschluesselung-1310-101928.html&#34;&gt;diesen Beitrag auf golem.de&lt;/a&gt;
+gelesen habe, ist mir wieder die ganze Misere mit &lt;a href=&#34;http://www.de-mail.de&#34;&gt;De-Mail&lt;/a&gt; und dem NSA-Skandal hoch gekommen.&lt;/p&gt;
+
+&lt;p&gt;Vielleicht denke ich zu einfach, oder habe anderen Denkfehler, aber kann Sicherheit und
+&lt;a href=&#34;http://de.wikipedia.org/wiki/Ende-zu-Ende-Verschl%C3%BCsselung&#34;&gt;Ende-zu-Ende-Verschlüsselung&lt;/a&gt; nicht einfach sein?
+Ich nutze seit einigen Jahren &lt;a href=&#34;http://www.gnupg.org/&#34;&gt;GnuPG&lt;/a&gt; und &lt;a href=&#34;https://www.enigmail.net&#34;&gt;Enigmail&lt;/a&gt; für &lt;a href=&#34;http://www.thunderbird-mail.de/&#34;&gt;Thunderbird&lt;/a&gt;.
+Damit ist es mir und meinen Kommunikationspartnern möglich, dass wir die Mails signieren und verschlüsseln können.
+Ich gebe zu, dass die Verwendung etwas komplizierter ist, als eine normale Mail ist. Im Großen und Ganzen halte
+ich das Verfahren für E-Mail-Provider und Behörden umsetzbar und ein Dritter hat es schwer die Nachricht zu lesen
+bzw. verändern.  Es ist Möglich, dass man Keys widerrufen kann und, dass man sie austauscht.&lt;/p&gt;
+
+&lt;p&gt;Die Dinge, die oben beschrieben sind, sind doch Anforderungen für eine moderne verschlüsselte Mail. Weswegen wir das neu erfunden,
+anstatt etwas vorhandenes zu vereinfachen bzw. Regeln über Algorithmen und Schlüssellängen festlegen?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OpenIndiana und erste Erfahrungen</title>
+      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
+&lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
+&lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;update auf Build 134 bzw. Build 134 booten (wie man bootet zeige ich nicht ;-) )
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pkg install SUNWipkg SUNWipkg-um SUNWipkg-gui
+rennecke@walhalla ~ % pfexec pkg set-publisher -O http://pkg.openindiana.org/legacy opensolaris.org
+rennecke@walhalla ~ % pfexec pkg image-update
+             &lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt; Update auf OpenIndiana
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pkg set-publisher --non-sticky opensolaris.org
+rennecke@walhalla ~ % pfexec pkg set-publisher -p http://pkg.openindiana.org/dev
+rennecke@walhalla ~ % pfexec pkg set-publisher -P openindiana.org
+rennecke@walhalla ~ % pfexec pkg uninstall entire
+rennecke@walhalla ~ % pfexec pkg uninstall thunderbird # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg uninstall songbird    # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg image-update
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Troubleshooting&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Ich bekomme folgende Fehler
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       183/838  8825/40200  120.2/648.9  
+
+Fehler beim Abrufen von Paket oder Dateidaten für
+den angeforderten Vorgang.
+Details folgen:
+
+Invalid content path usr/lib/thunderbird/thunderbird-bin: chash failure: expected: 64fd9c1561c244e0563dfc675dbd3a8c3c86f469 computed: 9179b65e28cc293105c6368ee818f1729eb7f991. (happened 4 times)
+&lt;/pre&gt;
+&lt;p&gt;oder&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       190/838  7945/40200  131.8/648.9  
+
+Errors were encountered while attempting to retrieve package or file data for
+the requested operation.
+Details follow:
+
+Framework error: code: 18 reason: transfer closed with 13603900 bytes remaining to read
+URL: &#39;http://pkg.openindiana.org/dev/file/0/c5df73fea1fb6f63f0f17cf5e996e8525fc1a4f4&#39;. (happened 4 times)
+&lt;/pre&gt;
+&lt;p&gt;Dann einfach das betreffende Paket deinstallieren und später wieder installieren.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt; Firefox und Thunderbird gehen nicht. Das Problem ist die Lokalisierung.
+&lt;p&gt;&lt;br class=&#34;spacer_&#34; /&gt;&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % export LANG=C
+rennecke@walhalla ~ % firefox &amp;amp;
+&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;Ich habe das falsche Tastaturlayout
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ setxkbmap de           # setzt das persönlich Layout auf de
+rennecke@trantor ~ $ cat .Xkbmap            # Datei wird ausgewertet, beim starten der Sitzung
+de
+&lt;/pre&gt;
+&lt;p&gt;Die ganzen anderen Möglichkeiten (welche solaristypisch sind) haben bei mir nicht funktioniert.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;Enigmail bei Thunderbird funktioniert nicht mehr. Einfach auf der &lt;a href=&#34;http://enigmail.mozdev.org/download/download-static.php&#34;&gt;Webseite&lt;/a&gt; das Plugin herunter laden und installieren&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update Thunderbird</title>
+      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
+      <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
+      <description>&lt;p&gt;
+Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
+&lt;p&gt;
+Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a href=&#34;http://releases.mozilla.org/pub/mozilla.org/calendar/lightning/releases/1.0b1/contrib/&#34;&gt;hier einen ftp-Server&lt;/a&gt; Hier gibt es auch das Linux-Plugin für 64-Bit. Für Enigmail muss man nun die &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Projektseite&lt;/a&gt; bemühen. Hier findet man die Plugins für Solaris und Linux. (Es wissen bestimmt alle Solaris-Nutzer, dass OpenSolaris-Plugins auch unter Solaris 10 funktionieren und umgekehrt, man sollte nur bei der Architektur sparc bzw. x86 aufpassen)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thunderbird 3.0 mit Enigmail auf Open Solaris</title>
+      <link>http://localhost:1313/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</link>
+      <pubDate>Mon, 18 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</guid>
+      <description>&lt;p&gt;Seit dem Build 130 ist der Thunderbird 3.0 im &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; &lt;a href=&#34;http://pkg.opensolaris.org/dev/&#34;&gt;dev-Repository&lt;/a&gt; verf&amp;uuml;gbar. Im n&amp;auml;chsten offiziellen Release, f&amp;uuml;r das man auch Support bekommt, wird er auch im Repository verf&amp;uuml;gbar sein. &lt;br /&gt;
+Auf der &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Projektseite von Enigmail&lt;/a&gt; gibt es leider noch kein Plugin f&amp;uuml;r Open Solaris. Ich habe aber auf &lt;a href=&#34;http://www.guengel.ch/&#34;&gt;guengel.ch&lt;/a&gt; ein Enigmail f&amp;uuml;r Open Solaris auf x86-Architektur gefunden.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

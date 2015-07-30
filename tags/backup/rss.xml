@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backup on Michael im Netz</title>
+    <link>http://localhost:1313/tags/backup/</link>
+    <description>Recent content in Backup on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/backup/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>kaputtes System nach Restore mit Obnam</title>
+      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit &lt;a href=&#34;https://grml.org/&#34;&gt;grml&lt;/a&gt; auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles.&lt;/p&gt;
+
+&lt;p&gt;Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus &lt;a href=&#34;https://launchpad.net/~chris-bigballofwax/+archive/ubuntu/obnam-ppa&#34;&gt;dieser PPA&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>unison</title>
+      <link>http://localhost:1313/post/2010/03/unison/</link>
+      <pubDate>Tue, 23 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/03/unison/</guid>
+      <description>&lt;p&gt;Mit dem Tool &lt;a href=&#34;http://www.cis.upenn.edu/%7Ebcpierce/unison/&#34;&gt;unison&lt;/a&gt; kann man sehr gut Verzeichnisse synchronisieren. Es gibt auch ein Package für Open Solaris. Es heißt &lt;strong&gt;SUNWunison&lt;/strong&gt;. Wenn man via ssh-Verbindung synchronisiert muss man vor dem Ziel-Verzeichnis 2 Backslash schreiben, wenn man nur lokal synchronisiert ist das nicht nötig. Ein Profil könnte dann wie folgt aussehen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ cat .unison/default.prf
+# Unison preferences file
+root = /export/home/rennecke
+root = ssh://rennecke@zeus//home/rennecke
+&lt;/pre&gt;
+&lt;p&gt;Das Tool ist sehr intuitiv zu bedienen und ein Blick wert.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

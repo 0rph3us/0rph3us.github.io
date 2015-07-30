@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hpc on Michael im Netz</title>
+    <link>http://localhost:1313/tags/hpc/</link>
+    <description>Recent content in Hpc on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 18 May 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hpc/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>noSQL Datenbanken</title>
+      <link>http://localhost:1313/post/2011/05/nosql-datenbanken/</link>
+      <pubDate>Wed, 18 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/05/nosql-datenbanken/</guid>
+      <description>&lt;p&gt;
+Ich arbeite inzwischen bei &lt;a href=&#34;http://www.unister.de/&#34;&gt;Unister&lt;/a&gt; als &lt;a href=&#34;http://0rpheus.net/privat/junior-system-architekt&#34;&gt;Junior Systemarchitekt&lt;/a&gt;. Zu meinen ersten Aufgaben hat gezählt eine Architektur für eine eine Datenbank zu schaffen, welche mit sehr hohen Schreibaufkommen zurecht kommt. Als Datenbank haben wir &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; benutzt. Dabei handelt es sich um eine &lt;a href=&#34;http://nosql-database.org/&#34;&gt;noSQL&lt;/a&gt;-Datenbank. Diese Dazenbanken haben kein festes Datenbankschema.&lt;/p&gt;
+&lt;p&gt;
+Die ersten Ergebnisse waren sehr erschütternd. Die Schreibperformence war einfach zu gering. Da man bei &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; nichts konfigurieren kann (Im Vergleich zu klassischen Datenbanken, wie MySQL oder PostgreSQL) war ich erst einmal ratlos. Das ganze konnte mit Clustern nicht verbessert werden. Eine genaue Untersuchung der Applikation hat ergeben, dass die Daten synchron und damit blockierend geschrieben wurden. Nachdem die Inserts nicht blockierend und in Batches umgesetzt wurden konnte schon ein Performancesprung festgestellt werden. Das konnte weiter verbessert werden, als wir die einzufügenden Daten in der Applikation nach dem Index vorsortiert eingefügt haben. Die Ursache liegt darin, das die Datenbank den Batch schneller abarbeiten kann und weniger Operationen auf dem Index nötig sind.&lt;/p&gt;
+&lt;p&gt;
+Zum Schluss möchte ich noch ein paar Worte zum Clustern von &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; verlieren. Es wird alles mitgebracht um schnell einen Cluster aufzusetzten. Ich habe es es leider geschafft, durch den Absturz von einem Knoten, den gesamten Cluster zu zerstören. Also sollte man bei Wichtigen Daten für Redundanz im Cluster sorgen. Es gibt auch viele Mittel in mongoDB um diese Redundanz zu erreichen.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

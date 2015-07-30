@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    OpenIndiana und erste Erfahrungen // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="OpenIndiana und erste Erfahrungen" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2010/09/openindiana-und-erste-erfahrungen/">OpenIndiana und erste Erfahrungen</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> September</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Ich habe es endlich geschafft: ein Update auf <strong><a href="http://openindiana.org/">OpenIndiana</a></strong> Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen</p>
+<h4>Update auf OpenIndiana</h4>
+<p>Man findet <a href="http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris">hier</a> auch die orginale Anleitung zum Update.</p>
+<ol>
+<li>update auf Build 134 bzw. Build 134 booten (wie man bootet zeige ich nicht ;-) )
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg install SUNWipkg SUNWipkg-um SUNWipkg-gui
+rennecke@walhalla ~ % pfexec pkg set-publisher -O http://pkg.openindiana.org/legacy opensolaris.org
+rennecke@walhalla ~ % pfexec pkg image-update
+             </pre>
+</li>
+<li> Update auf OpenIndiana
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg set-publisher --non-sticky opensolaris.org
+rennecke@walhalla ~ % pfexec pkg set-publisher -p http://pkg.openindiana.org/dev
+rennecke@walhalla ~ % pfexec pkg set-publisher -P openindiana.org
+rennecke@walhalla ~ % pfexec pkg uninstall entire
+rennecke@walhalla ~ % pfexec pkg uninstall thunderbird # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg uninstall songbird    # das Paket konnte ich nicht updaten
+rennecke@walhalla ~ % pfexec pkg image-update
+</pre>
+</li>
+</ol>
+<h4>Troubleshooting</h4>
+<ul>
+<li>Ich bekomme folgende Fehler
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       183/838  8825/40200  120.2/648.9  
+
+Fehler beim Abrufen von Paket oder Dateidaten für
+den angeforderten Vorgang.
+Details folgen:
+
+Invalid content path usr/lib/thunderbird/thunderbird-bin: chash failure: expected: 64fd9c1561c244e0563dfc675dbd3a8c3c86f469 computed: 9179b65e28cc293105c6368ee818f1729eb7f991. (happened 4 times)
+</pre>
+<p>oder</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pkg image-update
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+mail/thunderbird                       190/838  7945/40200  131.8/648.9  
+
+Errors were encountered while attempting to retrieve package or file data for
+the requested operation.
+Details follow:
+
+Framework error: code: 18 reason: transfer closed with 13603900 bytes remaining to read
+URL: 'http://pkg.openindiana.org/dev/file/0/c5df73fea1fb6f63f0f17cf5e996e8525fc1a4f4'. (happened 4 times)
+</pre>
+<p>Dann einfach das betreffende Paket deinstallieren und später wieder installieren.</p>
+</li>
+<li> Firefox und Thunderbird gehen nicht. Das Problem ist die Lokalisierung.
+<p><br class="spacer_" /></p>
+<pre lang="bash">rennecke@walhalla ~ % export LANG=C
+rennecke@walhalla ~ % firefox &amp;
+</pre>
+</li>
+<li>Ich habe das falsche Tastaturlayout
+<pre lang="bash">rennecke@trantor ~ $ setxkbmap de           # setzt das persönlich Layout auf de
+rennecke@trantor ~ $ cat .Xkbmap            # Datei wird ausgewertet, beim starten der Sitzung
+de
+</pre>
+<p>Die ganzen anderen Möglichkeiten (welche solaristypisch sind) haben bei mir nicht funktioniert.</p>
+</li>
+<li>Enigmail bei Thunderbird funktioniert nicht mehr. Einfach auf der <a href="http://enigmail.mozdev.org/download/download-static.php">Webseite</a> das Plugin herunter laden und installieren</li>
+</ul>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-enigmail" href="http://localhost:1313//tags/enigmail">enigmail</a>,
+	                
+	                <a class="post-tag post-tag-hack" href="http://localhost:1313//tags/hack">hack</a>,
+	                
+	                <a class="post-tag post-tag-illumos" href="http://localhost:1313//tags/illumos">Illumos</a>,
+	                
+	                <a class="post-tag post-tag-openindiana" href="http://localhost:1313//tags/openindiana">OpenIndiana</a>,
+	                
+	                <a class="post-tag post-tag-opensolaris" href="http://localhost:1313//tags/opensolaris">OpenSolaris</a>,
+	                
+	                <a class="post-tag post-tag-pkg" href="http://localhost:1313//tags/pkg">pkg</a>,
+	                
+	                <a class="post-tag post-tag-problem" href="http://localhost:1313//tags/problem">problem</a>,
+	                
+	                <a class="post-tag post-tag-tastatur" href="http://localhost:1313//tags/tastatur">Tastatur</a>,
+	                
+	                <a class="post-tag post-tag-thunderbird" href="http://localhost:1313//tags/thunderbird">thunderbird</a>,
+	                
+	                <a class="post-tag post-tag-update" href="http://localhost:1313//tags/update">update</a>,
+	                
+	                <a class="post-tag post-tag-upgrade" href="http://localhost:1313//tags/upgrade">upgrade</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2010/10/platz-sparen-mit-zfs/">Platz sparen mit zfs</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2010/09/cf-karten-mounten/">CF-Karten mounten</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

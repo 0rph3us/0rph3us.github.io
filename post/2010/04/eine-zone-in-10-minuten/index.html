@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Eine Zone in 10 Minuten // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="Eine Zone in 10 Minuten" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2010/04/eine-zone-in-10-minuten/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2010/04/eine-zone-in-10-minuten/">Eine Zone in 10 Minuten</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> April</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Ich kam gestern in die Verlegenheit mal schnell eine Zone aufsetzten zu müssen. Ich dachte mir, wenn ich das mal schnell mache, dann wenigsten mit RAM-Quota und CPU-Begrenzung. Es kann evtl. sein, dass man <tt>pkg:/service/resource</tt> installieren muss. Dieses Paket ist f&uuml;r die Verwaltung von RAM-Resourcen zust&auml;ndig.</p>
+<p>Ressourcenpools anstellen</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pooladm -e
+</pre>
+<p>Aktuelle Konfiguration in der <tt>/etc/pooladm.conf</tt> sichern</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pooladm -s
+</pre>
+<p>Nun erstellen wir einen Pool mit einem CPU-Set, welches über maximal 2 CPUs verfügt</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec poolcfg -c 'create pset zone-pset (uint pset.min=1; uint pset.max=2)'
+rennecke@walhalla ~ % pfexec poolcfg -c 'create pool zone-pool'
+rennecke@walhalla ~ % pfexec poolcfg -c 'associate pool zone-pool (pset zone-pset)'
+</pre>
+<p>Als nächstes aktivieren wir die Konfiguration und speichern sie</p>
+<pre lang="bash">rennecke@walhalla ~ % pfexec pooladm -c
+rennecke@walhalla ~ % pfexec pooladm -s
+rennecke@walhalla ~ % pfexec pooladm
+
+system default
+	string	system.comment
+	int	system.version 1
+	boolean	system.bind-default true
+	string	system.poold.objectives wt-load
+
+	pool zone-pool
+		int	pool.sys_id 1
+		boolean	pool.active true
+		boolean	pool.default false
+		int	pool.importance 1
+		string	pool.comment
+		pset	zone-pset
+
+	pool pool_default
+		int	pool.sys_id 0
+		boolean	pool.active true
+		boolean	pool.default true
+		int	pool.importance 1
+		string	pool.comment
+		pset	pset_default
+
+	pset zone-pset
+		int	pset.sys_id 1
+		boolean	pset.default false
+		uint	pset.min 1
+		uint	pset.max 2
+		string	pset.units population
+		uint	pset.load 5
+		uint	pset.size 2
+		string	pset.comment 
+
+		cpu
+			int	cpu.sys_id 1
+			string	cpu.comment
+			string	cpu.status on-line
+
+		cpu
+			int	cpu.sys_id 0
+			string	cpu.comment
+			string	cpu.status on-line
+
+	pset pset_default
+		int	pset.sys_id -1
+		boolean	pset.default true
+		uint	pset.min 1
+		uint	pset.max 65536
+		string	pset.units population
+		uint	pset.load 562
+		uint	pset.size 2
+		string	pset.comment 
+
+		cpu
+			int	cpu.sys_id 3
+			string	cpu.comment
+			string	cpu.status on-line
+
+		cpu
+			int	cpu.sys_id 2
+			string	cpu.comment
+			string	cpu.status on-line
+</pre>
+<p>Nun kommen wir zum eigenlichen erstellen der Zone</p>
+<pre lang="bash">
+rennecke@walhalla ~ % pfexec zonecfg -z zone1
+zone1: No such zone configured
+Use 'create' to begin configuring a new zone.
+zonecfg:zone1> create
+zonecfg:zone1> set zonepath=/export/zone/zone1
+zonecfg:zone1> set autoboot=true
+zonecfg:zone1> add net
+zonecfg:zone1:net> set address=192.168.1.10/24
+zonecfg:zone1:net> set physical=rge0
+zonecfg:zone1:net> set defrouter=192.168.1.1
+zonecfg:zone1:net> end
+zonecfg:zone1> set pool=zone-pool
+zonecfg:zone1> add capped-memory
+zonecfg:zone1:capped-memory> set physical=200m
+zonecfg:zone1:capped-memory> set swap=400m
+zonecfg:zone1:capped-memory> set locked=30m
+zonecfg:zone1:capped-memory> end
+zonecfg:zone1> verify
+zonecfg:zone1> commit
+zonecfg:zone1> exit
+</pre>
+<p>Ich denke, dass sich alles von selbst erkl&auml;rt, wenn jedmand Fragen hat, dann bitte einen Kommentar bzw. die Manpage lesen. Als nächsten Schritt installieren wir die Zone und booten sie anschlie&szlig;end.</p>
+<pre lang="bash">
+rennecke@walhalla ~ % pfexec zoneadm -z zone1 install
+A ZFS file system has been created for this zone.
+   Publisher: Using opensolaris.org (http://pkg.opensolaris.org/dev/ ).
+   Publisher: Using pending (http://pkg.opensolaris.org/pending/).
+   Publisher: Using contrib.opensolaris.org (http://pkg.opensolaris.org/contrib/).
+       Image: Preparing at /export/zone/zone1/root.
+       Cache: Using /var/pkg/download.
+Sanity Check: Looking for 'entire' incorporation.
+  Installing: Core System (output follows)
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+Completed                                44/44 12305/12305    85.9/85.9 
+
+PHASE                                        ACTIONS
+Installationsphase                       17833/17833
+Für dieses Abbild sind keine Updates erforderlich.
+  Installing: Additional Packages (output follows)
+DOWNLOAD                                  PKGS       FILES    XFER (MB)
+Completed                                36/36   3233/3233    20.6/20.6 
+
+PHASE                                        ACTIONS
+Installationsphase                         4329/4329 
+
+        Note: Man pages can be obtained by installing SUNWman
+ Postinstall: Copying SMF seed repository ... done.
+ Postinstall: Applying workarounds.
+        Done: Installation completed in 606,736 seconds.
+
+  Next Steps: Boot the zone, then log into the zone console (zlogin -C)
+              to complete the configuration process.
+</pre>
+<p>Die Geschwindigkeit zum erstellen der Zone h&auml;ngt von der Downloadgewindigkeit maßgeblich ab. Wenn man Pech hat, wartet man sehr lange auf die 100 MB...</p>
+<p>Nachdem nun die Zone installiert ist m&uuml;ssen wir sie nur noch booten und initial konfigurieren</p>
+<pre lang="bash">
+rennecke@walhalla ~ % pfexec zoneadm -z zone1 boot
+rennecke@walhalla ~ % pfexec zlogin -C zone1
+[Connected to zone 'zone1' console]
+
+You did not enter a selection.
+What type of terminal are you using?
+ 1) ANSI Standard CRT
+ 2) DEC VT100
+ 3) PC Console
+ 4) Sun Command Tool
+ 5) Sun Workstation
+ 6) X Terminal Emulator (xterms)
+ 7) Other
+Type the number of your choice and press Return: 2
+</pre>
+<p>Es ist sehr zu empfehlen f&uuml;r die Konfiguration ein VT100 Terminal zu nehmen. Das ich zwar nicht sch&ouml;n, aber man kann auj <strong>jeder</strong> Konsole ordentlich arbeiten, ohne das was verschoben wird.</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-opensolaris" href="http://localhost:1313//tags/opensolaris">OpenSolaris</a>,
+	                
+	                <a class="post-tag post-tag-quotas" href="http://localhost:1313//tags/quotas">quotas</a>,
+	                
+	                <a class="post-tag post-tag-virtualisierung" href="http://localhost:1313//tags/virtualisierung">Virtualisierung</a>,
+	                
+	                <a class="post-tag post-tag-zone" href="http://localhost:1313//tags/zone">zone</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2010/04/kein-upload-bei-wordpress/">Kein Upload bei Wordpress</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2010/04/korrekte-uhrzeit/">korrekte Uhrzeit</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

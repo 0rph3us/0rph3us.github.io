@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sparc on Michael im Netz</title>
+    <link>http://localhost:1313/tags/sparc/</link>
+    <description>Recent content in Sparc on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Thu, 03 Jun 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sparc/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R, die Statistiksoftware installieren</title>
+      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <description>&lt;p&gt;
+Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+checking for iconv.h... yes
+checking for iconv... yes
+checking whether iconv accepts &#34;UTF-8&#34;, &#34;latin1&#34;, &#34;ASCII&#34; and &#34;UCS-*&#34;... no
+configure: error: a suitable iconv is essential
+&lt;/pre&gt;
+&lt;p&gt;Ich habe von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;blastwave&lt;/a&gt; &lt;strong&gt;libiconv&lt;/strong&gt; installiert und bei meiner Solaris 10 Box noch denn gcc 4. Bei OpenSolaris habe ich das Pakage &lt;strong&gt;pkg:/developer/gcc/gcc-43&lt;/strong&gt; installiert. Es gibt CGLAGS für &lt;a href=&#34;http://gcc.gnu.org/onlinedocs/gcc/SPARC-Options.html&#34;&gt;Sparc&lt;/a&gt; und für &lt;a href=&#34;http://gcc.gnu.org/onlinedocs/gcc/i386-and-x86_002d64-Options.html&#34;&gt;x86&lt;/a&gt;&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@walhalla /tmp/R-2.11.1 % ./configure CFLAGS=-I/opt/csw/include \
+`&gt; LDFLAGS=-L/opt/csw/lib \
+`&gt; GCC=/usr/gcc/4.3/bin/gcc\
+`&gt; CFLAGS=&#39;&lt;falg 1&gt; &lt;flag 2&gt; &lt;flag 3&gt;&#39; \
+`&gt; --prefix=/opt/R
+....
+rennecke@walhalla /tmp/R-2.11.1 % gmake
+&lt;/flag&gt;&lt;/flag&gt;&lt;/falg&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update Thunderbird</title>
+      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
+      <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
+      <description>&lt;p&gt;
+Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
+&lt;p&gt;
+Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a href=&#34;http://releases.mozilla.org/pub/mozilla.org/calendar/lightning/releases/1.0b1/contrib/&#34;&gt;hier einen ftp-Server&lt;/a&gt; Hier gibt es auch das Linux-Plugin für 64-Bit. Für Enigmail muss man nun die &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Projektseite&lt;/a&gt; bemühen. Hier findet man die Plugins für Solaris und Linux. (Es wissen bestimmt alle Solaris-Nutzer, dass OpenSolaris-Plugins auch unter Solaris 10 funktionieren und umgekehrt, man sollte nur bei der Architektur sparc bzw. x86 aufpassen)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Java-Applet - eine sinnfreie Erfindung</title>
+      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <description>&lt;p&gt;
+Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@walhalla /tmp % pkg info web/browser/firefox/plugin/firefox-java
+          Name: web/browser/firefox/plugin/firefox-java
+Zusammenfassung: Java runtime integration - plugin
+  Beschreibung: Java runtime integration - plugin
+     Kategorie: Applications/Plug-ins and Run-times
+        Status: Installiert
+   Herausgeber: opensolaris.org
+       Version: 0.5.11
+ Build-Release: 5.11
+         Zweig: 0.134
+Packaging-Datum:  2. März 2010, 07:19:23 Uhr
+         Größe: 93.00 B
+          FMRI: pkg://opensolaris.org/web/browser/firefox/plugin/firefox-java@0.5.11,5.11-0.134:20100302T071923Z
+&lt;/pre&gt;
+&lt;p&gt;
+Die Lösung für das Problem findet man im Kleingedruckten auf der &lt;a href=&#34;http://www.java.com/de/download/manual.jsp&#34;&gt;Download-Seite&lt;/a&gt; der JRE:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;
+Bitte verwenden Sie die 32-Bit-Version für Java-Applet- und Java Web Start-Support.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Nachdem ich &lt;strong&gt;explizit&lt;/strong&gt; die 32-Bit JRE installiert habe und einen symbolischen Link in das Plugin-Verzeichnis des Firefox gemacht habe gingen auch Java-Applets.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@walhalla ~ % cd &lt;firefox-installation&gt;/plugins
+root@walhalla /usr/lib/firefox/plugins % ln -s &lt;jre&gt;/plugin/&lt;i386|sparc&gt;/ns7/libjavaplugin_oji.so .
+&lt;/jre&gt;&lt;/firefox-installation&gt;&lt;/pre&gt;
+&lt;p&gt;Nun muss man den Firefox nur noch neu starten.&lt;/p&gt;
+&lt;p&gt;
+Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Oracle nicht hinbekommt eine 64-Bit JRE zu bauen, welche auch Applets ausführt? Man kann es auch &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;dirty&lt;/a&gt; lösen: Einfach den 32-Bit Müll mit in das 64-Bit Paket packen, so wie ich es händisch mache.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Thunderbird 3.0.4</title>
+      <link>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</link>
+      <pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</guid>
+      <description>&lt;p&gt;
+F&amp;uuml;r Solaris 10 gibt es auch den Thunderbird 3.0.4, da ich meine Einstellungen unter Open Solaris und Solaris 10 nutzen m&amp;ouml;chte. Auf meiner Solaris 10 Installation habe ich nur einen 2.0er Thunderbird. Dieser vertr&amp;auml;gt nicht alle Einstellungen von einem 3er Thunderbird von Open Solaris&lt;/p&gt;
+&lt;p&gt;
+Bei &lt;a href=&#34;http://www.sunfreeware.com&#34;&gt;Sunfreeware&lt;/a&gt; gibt ein Pakage f&amp;uuml;r den &lt;a href=&#34;ftp://ftp.sunfreeware.com/pub/freeware/mozilla/thunderbird-3.0.4.en-US.opensolaris-sparc-pkg.bz2&#34;&gt;Thunderbird&lt;/a&gt;. Ich hatte nach dem Starten von Thunderbird den folgenden Fehler&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@odysseus ~ $ /opt/sfw/bin/thunderbird
+ld.so.1: thunderbird-bin: fatal: relocation error: file /opt/sfw/lib/thunderbird/thunderbird-bin: symbol g_slice_set_config: referenced symbol not found
+/opt/sfw/lib/thunderbird/run-mozilla.sh: line 131:   551 Killed                  &#34;$prog&#34; ${1+&#34;$@&#34;}
+&lt;/pre&gt;
+&lt;p&gt;Das ganze kann man einfach fixen indem man den &lt;tt&gt;LD_LIBRARY_PATH&lt;/tt&gt; um &lt;tt&gt;/opt/sfw/lib/&lt;/tt&gt; erweitert. Ich habe au&amp;szlig;erdem die folgende Zeile in der Datei &lt;tt&gt;/opt/sfw/lib/thunderbird/thunderbird&lt;/tt&gt; hinzugef&amp;uuml;gt:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+export LD_LIBRARY_PATH=/opt/sfw/lib/:$LD_LIBRARY_PATH
+&lt;/pre&gt;
+&lt;p&gt;So funktioniert auch der thunderbird, falls ein User seinen  &lt;tt&gt;LD_LIBRARY_PATH&lt;/tt&gt; selbstst&amp;auml;ndig &amp;auml;ndert.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mehr Software für Solaris</title>
+      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <description>&lt;p&gt;
+Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
+&lt;p&gt;
+Ich habe das Gefühl, das in &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw&#34;&gt;Erlangen&lt;/a&gt; die meisten Pakages zu finden sind. Deswegen habe ich in meine &lt;tt&gt;/opt/csw/etc/pkgutil.conf&lt;/tt&gt; die folgende Zeile eingetragen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+# Mirror to use for downloads
+# See http://www.blastwave.org/mirrors.php for alternative mirrors
+# Default: http://blastwave.network.com/csw/unstable
+#mirror=http://blastwave.network.com/csw/unstable
+mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
+&lt;/pre&gt;
+&lt;p&gt;Wenn man &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; noch nicht nutzt, dann kann man &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw/README&#34;&gt;hier&lt;/a&gt; nachlesen, wie man sich diese Packages zugänglich macht. Auf jeden Fall sollte man in der  &lt;tt&gt;/opt/csw/etc/pkgutil.conf&lt;/tt&gt; nachsehen, ob &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw/unstable/&#34;&gt;http://csw.informatik.uni-erlangen.de/csw/unstable/&lt;/a&gt; als mirror eingetragen ist.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OpenSolaris auf einer V880 installieren</title>
+      <link>http://localhost:1313/post/2010/02/opensolaris-auf-einer-v880-installieren/</link>
+      <pubDate>Wed, 24 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/02/opensolaris-auf-einer-v880-installieren/</guid>
+      <description>&lt;p&gt;Ich habe heute OpenSolaris auf einer &lt;a href=&#34;http://sunsolve.sun.com/handbook_pub/validateUser.do?target=Systems/SunFire880/SunFire880&#34;&gt;SunFire V880&lt;/a&gt; installiert. Das ganze war nicht ganz so trivial wie ich mir das gedacht habe. Ich habe dazu den &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Project+caiman/TextInstallerProject&#34;&gt;Textinstaller&lt;/a&gt; benutzt. Diese basiert auf Build 131. Man kann sich das Image z.B. von &lt;a href=&#34;http://www.genunix.org/&#34;&gt;genunix.org&lt;/a&gt; herunter laden.&lt;br /&gt;
+Hier war mein erster Fehler, ich hatte nich geprüft ob die Checksumme stimmt. Aber irgendwie wollte die Installation auch bei dem 3. Versuch nicht klappen. Die rettende Idee, war einmal die Checksumme vom Image zu bestimmen. Nun habe ich gesehen, dass diese nicht gestimmt hat.&lt;br /&gt;
+Nachdem ich ein ganze Image auf eine DVD gebrannt ließ sich OpenSolaris auch installieren. Das Netzwerk kann man zur Zeit nur via DHCP konfigurieren, was ich nicht wollte. Nachdem die Installation fertig war, habe ich mit &lt;a href=&#34;https://blog.binfalse.de/&#34;&gt;Martin&lt;/a&gt; das Netzwerk konfiguriert.   Das macht man wie folgt:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;jack@dijkstra ~ $  cat /etc/nwam/llp
+eri0 dhcp
+ge0 static 192.168.1.100/25
+&lt;/pre&gt;
+&lt;p&gt;Die default-Route setzt man in der /etc/defaultrouter:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+jack@dijkstra ~ $  cat /etc/defaultrouter
+192.168.1.126
+&lt;/pre&gt;
+&lt;p&gt;Als nächstes stand das spiegeln des rpool auf den Plan. Dazu habe ich mit format -e der 2. Platte ein SMI-Label verpasst und die ganze Platte in Slice 0 gepackt.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;jack@dijkstra ~ $ pfexec zpool attach -f rpool c1t0d0s0 c1t1d0s0&lt;/pre&gt;
+&lt;p&gt;Abschließend muss man noch die Platte bootbar machen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;jack@dijkstra ~ $ pfexec installboot -F zfs /usr/platform/`uname -i`/lib/fs/zfs/bootblk /dev/rdsk/c1t1d0s0&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sensoren mit Nagios abfragen</title>
+      <link>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</link>
+      <pubDate>Thu, 10 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</guid>
+      <description>&lt;p&gt;Ich wollte verschiedene Sparc-Rechner mit &lt;a href=&#34;http://www.nagios.org/&#34;&gt;Nagios&lt;/a&gt; überwachen.
+Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.&lt;/p&gt;
+
+&lt;p&gt;Es funktioniert ganz gut, wenn jemand Probleme mit dem Plugin hat, dann kann ich versuchen es zu verbessern.
+Man kann das &lt;a href=&#34;http://blogs.sun.com/rennecke/resource/stuff/check_solaris_sensors&#34;&gt;Plugin auch hier&lt;/a&gt; herunter laden.
+Ich parse die Ausgabe von &lt;code&gt;prtpicl&lt;/code&gt;. Wenn die Temperatur &lt;strong&gt;HighWarningThreshold  $warn&lt;/strong&gt; übersteigt, dann wird
+warning zurück gegeben. Wenn &lt;strong&gt;HighWarningThreshold&lt;/strong&gt; überschritten wird, dann gibt das Plugin critical zurück.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;#!/usr/bin/perl -w
+
+# File:    check_solaris_sensors
+# Purpose: prtpicl output parser
+# Author:  Michael Rennecke michael.rennecke@sun.com
+# Date:    2009/07/08
+# Version: 0.2
+
+use strict;
+
+my $warn        = 15;
+my $prtpicl     = &amp;quot;/usr/sbin/prtpicl&amp;quot;;
+my @diag        = ();
+my @sensor_data = ();
+my $state       = 0;
+my $output      = &amp;quot;&amp;quot;;
+
+unless(open(DIAG, &amp;quot;$prtpicl -v -c temperature-sensor | &amp;quot;)) {
+    print STDERR &amp;quot;Initialization error - Can&#39;t execute  $prtpicl -v -c temperature-sensor!\n&amp;quot;;
+    exit(3);
+}
+
+while(){
+    push(@diag, $_);
+}
+close(DIAG);
+
+unless( @diag &amp;amp;gt; 0) {
+    print STDERR &amp;quot;Can&#39;t find any temperature-sensor!\n&amp;quot;;
+    exit(3);
+}
+
+sub change_state {
+    if ($_[0] &amp;amp;gt; $state) {
+        $state = $_[0];
+    }
+}
+
+my $sensor      = undef;
+my $warning     = undef;
+my $critical    = undef;
+my $temperature = undef;
+my $get_temp    = 0;
+
+foreach my $line (@diag) {
+
+    $get_temp = 0;
+
+    if ($line =~ /\s*([a-zA-Z0-9_]+)\s*\(temperature-sensor/) {
+        $sensor = $1;
+    } elsif ($line =~ /:HighWarningThreshold\s*(\d+)/) {
+        $warning = $1;
+    } elsif ($line =~ /:Temperature\s*(\d+)/) {
+        $temperature = $1;
+        $get_temp = 1;
+    }
+
+    if ($get_temp == 1) {
+        if ($temperature &amp;amp;lt;= $warning - $warn) {
+            &amp;amp;amp;change_state(0);
+        } elsif ($temperature &amp;amp;lt;= $warning) {
+            &amp;amp;amp;change_state(1);
+        } else {
+            &amp;amp;amp;change_state(2);
+        }
+    $output = &amp;quot;$output $sensor: ${temperature}°C &amp;quot;;
+    }
+
+}
+
+if ($state == 0) {
+    $output = &amp;quot;Temperature OK --$output \n&amp;quot;;
+} elsif ($state == 1) {
+    $output = &amp;quot;Temperature WARNING --$output \n&amp;quot;;
+} elsif ($state == 2) {
+    $output = &amp;quot;Temperature CRITICAL --$output \n&amp;quot;;
+} else {
+    $output = &amp;quot;Temperature UNKNOWN --$output \n&amp;quot;;
+}
+
+print STDOUT &amp;quot;$output&amp;quot;;
+exit ($state);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

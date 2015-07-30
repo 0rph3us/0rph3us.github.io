@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Michael im Netz</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>go in 6 Schritten installieren</title>
+      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <description>
+
+&lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
+veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
+Das ist mit Bordmitteln fast unmöglich.&lt;/p&gt;
+
+&lt;p&gt;Für diese Probleme gibt es Abhilfe: Den go Versionsmanager &lt;a href=&#34;https://github.com/moovweb/gvm&#34;&gt;gvm&lt;/a&gt;. Ich gebe zu, dass das ganze etwas von einem
+Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg &lt;code&gt;go&lt;/code&gt; zu installieren&lt;/p&gt;
+
+&lt;h3 id=&#34;1-voraussetzungen:68e336974a9292a1000070f844d9d073&#34;&gt;1. Voraussetzungen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit installiert man die Voraussetzungen, um &lt;code&gt;go&lt;/code&gt; compilieren zu können.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-clone-das-repo-in-dein-home:68e336974a9292a1000070f844d9d073&#34;&gt;2. clone das Repo in Dein home&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bash &amp;lt; &amp;lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Diese Komandozeile lädt mit &lt;a href=&#34;http://curl.haxx.se/&#34;&gt;curl&lt;/a&gt; ein Skript herunter und lässt es von der &lt;a href=&#34;http://www.gnu.org/software/bash/&#34;&gt;bash&lt;/a&gt; ausführen. Dabei
+der Inhalt vom git-Repository nach &lt;code&gt;~/.gvm&lt;/code&gt; kopiert&lt;/p&gt;
+
+&lt;h3 id=&#34;3-gvm-in-der-shell-verfügbar-machen:68e336974a9292a1000070f844d9d073&#34;&gt;3. gvm in der shell verfügbar machen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;[[ -s &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot; ]] &amp;amp;&amp;amp; source &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die Zeile muss man in seine &lt;code&gt;~/.bashrc&lt;/code&gt; bzw. &lt;code&gt;~/.zshrc&lt;/code&gt; einfügen, damit die Umgebungsvariablen und Komandos
+von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
+führt das Komando noch einmal in der aktuellen Shell aus.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-nachsehen-ob-gvm-installiert-ist:68e336974a9292a1000070f844d9d073&#34;&gt;4. nachsehen, ob gvm installiert ist&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm version
+Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-go-golang-installieren:68e336974a9292a1000070f844d9d073&#34;&gt;5. go (golang) installieren&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm listall
+
+gvm gos (available` sh
+...
+   go1.4
+   go1.4.1
+   go1.4.2
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man sieht alle Versionen von &lt;code&gt;go&lt;/code&gt; So installiert man eine spezifische &lt;code&gt;go&lt;/code&gt; Version, z.B. 1.4.2.
+&lt;em&gt;Installieren&lt;/em&gt; ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
+d.h. es werden &lt;strong&gt;keine&lt;/strong&gt; Binärpakete heruntergeladen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm install go1.4.2
+Downloading Go source...
+Installing go1.4...
+* Compiling...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;6-gvm-mitteilen-welche-version-von-go-man-nutzen-möchte:68e336974a9292a1000070f844d9d073&#34;&gt;6. gvm mitteilen, welche Version von go man nutzen möchte&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm use go1.4.2
+Now using version go1.4.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann noch nachsehen, welche Version &lt;code&gt;go&lt;/code&gt; hat.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go version
+go version go1.4.2 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Passwortmanager</title>
+      <link>http://localhost:1313/post/2015/02/passwortmanager/</link>
+      <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/passwortmanager/</guid>
+      <description>
+
+&lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
+von solchen Tools, aber keins hat mich mich bis überzeugt.&lt;/p&gt;
+
+&lt;h3 id=&#34;meine-anforderungen-sind:723e36c0d653eead54808cb1e59efd78&#34;&gt;Meine Anforderungen sind&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;einfach zu bedienen&lt;/li&gt;
+&lt;li&gt;einfache synchronisation zwischen mehreren Geräten&lt;/li&gt;
+&lt;li&gt;leichtgewichtig&lt;/li&gt;
+&lt;li&gt;eine GUI ist nicht nötig&lt;/li&gt;
+&lt;li&gt;Windowsunterstützung ist mir egal, da ich kein Windows nutze&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://keepass.info/&#34;&gt;KeePass 2&lt;/a&gt; würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass
+es recht schwergewichtig ist, weil ich dafür noch &lt;a href=&#34;http://www.mono-project.com/&#34;&gt;Mono&lt;/a&gt; benötige, was ich sonst nicht auf meinen Rechnern habe.&lt;/p&gt;
+
+&lt;h2 id=&#34;pass-der-standard-unix-passwortmanager:723e36c0d653eead54808cb1e59efd78&#34;&gt;pass - Der Standard Unix Passwortmanager&lt;/h2&gt;
+
+&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange.
+Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit &lt;a href=&#34;https://www.gnupg.org/&#34;&gt;GnuPG&lt;/a&gt; verschlüsselt und bei Bedarf
+in einen &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt;-Repository versioniert. Durch die Verwendung von git ist es auch möglich die Passwörter über
+verschiedene Clients hinweg zu sychronisieren.&lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;a href=&#34;http://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; über die Paketverwaltung der meisten Distributionen installieren. Es ist auch ohne weiteres
+möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass &lt;em&gt;nur&lt;/em&gt; ein Shell-Skript
+ist, welches einige Standarttools sowie GnuPG und git nutzt.&lt;/p&gt;
+
+&lt;h3 id=&#34;anwendung:723e36c0d653eead54808cb1e59efd78&#34;&gt;Anwendung&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;pass init EE75C6FE
+mkdir: created directory ‘/home/rennecke/.password-store’
+Password store initialized for EE75C6FE Password Storage Key.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es wird eine leere Passwortdatenbank erstellt und zum verschküsseln der Passwörter wird der GnuPG Key &lt;code&gt;EE75C6FE&lt;/code&gt;
+verwenden. Man kann den Key auch mit der dazugehörigen Emailadresse angeben.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pass git init 
+Initialized empty Git repository in /home/rennecke/.password-store/.git/ 
+[master (root-commit) 998c8fd] Added current contents of password store. 
+1 file changed, 1 insertion(+) 
+create mode 100644 .gpg-id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen. Nun kann alle Möglichkeiten
+von git nutzen. Die &lt;code&gt;&amp;lt;parameter&amp;gt;&lt;/code&gt; von &lt;code&gt;pass git &amp;lt;parameter&amp;gt;&lt;/code&gt; sind alle möglichen Parameter, welche git
+aktzeptiert, &lt;code&gt;pass&lt;/code&gt; alles was nach git kommt 1:1 an &lt;code&gt;git&lt;/code&gt; weiter.&lt;/p&gt;
+
+&lt;p&gt;An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
+kann sich &lt;a href=&#34;http://git.zx2c4.com/password-store/about/#EXTENDED%20GIT%20EXAMPLE&#34;&gt;hier&lt;/a&gt; einen Überblick verschaffen.&lt;/p&gt;
+
+&lt;h3 id=&#34;android-app:723e36c0d653eead54808cb1e59efd78&#34;&gt;Android App&lt;/h3&gt;
+
+&lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App &lt;a href=&#34;https://github.com/zeapo/Android-Password-Store&#34;&gt;Password Store&lt;/a&gt;. Sie überzeugt mich, durch ein
+gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte
+ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich &lt;a href=&#34;http://www.openkeychain.org/&#34;&gt;OpenKeychain&lt;/a&gt;. OpenKeychain unterstüzt selbstverständlich
+auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
+
+&lt;h3 id=&#34;nachtrag:723e36c0d653eead54808cb1e59efd78&#34;&gt;Nachtrag&lt;/h3&gt;
+
+&lt;p&gt;Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
+Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
+falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn
+man täglich diese Schlüssel nutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BMP085 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
+&lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;Stromverbrauch
+
+&lt;ul&gt;
+&lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;0.1 μA Standby&lt;/li&gt;
+&lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
+&lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
+den &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; anspricht. Beim Anschließen muss man aber aufpassen, da die
+verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
+steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
+bei denen man die Pins noch anlöten muss.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
+Die orange und violette Leitung sind der I²C-Bus, wobei
+orange SDA (Serial Data) und violett SCL (Serial Clock) ist. &lt;a href=&#34;http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm&#34;&gt;Hier&lt;/a&gt; findet man ein
+paar mehr technische Informationen zum I²C-Bus&lt;/p&gt;
+
+&lt;h2 id=&#34;programmierung:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;h3 id=&#34;betriebssystem-vorbereiten:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Betriebssystem vorbereiten&lt;/h3&gt;
+
+&lt;p&gt;Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
+installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kümmern wir uns um die Kernelmodule. Bei &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; muss man die die Module
+noch in der Datei &lt;code&gt;/etc/modprobe.d/raspi-blacklist.conf&lt;/code&gt; mit einer Raute &lt;code&gt;#&lt;/code&gt;
+am Zeilenanfang auskommentieren. Dazu muss man &lt;code&gt;root&lt;/code&gt; oder den Editor mit &lt;code&gt;sudo&lt;/code&gt;
+starten.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+echo &amp;quot;i2c-dev&amp;quot; &amp;gt;&amp;gt; /etc/modules
+echo &amp;quot;i2c_bcm2708&amp;quot; &amp;gt;&amp;gt; /etc/modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit man bequem auf den Sensor zugreifen kann, sollte man auch gleich die passende
+Python-Bibliothek von Adafruit installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/adafruit/Adafruit_Python_BMP
+cd Adafruit_Python_BMP
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es gibt auch hier im &lt;code&gt;examples&lt;/code&gt;-Verzeichnis einige Beispiele.&lt;/p&gt;
+
+&lt;h3 id=&#34;minimalbeispiel:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Minimalbeispiel&lt;/h3&gt;
+
+&lt;p&gt;Das kleine Python-Programm muss als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_BMP.BMP085 as BMP085
+
+bmp085 = BMP085.BMP085()
+
+# Read the current temperature
+temp   = bmp085.read_temperature()
+
+# Read the current barometric pressure level
+pressure = bmp085.read_pressure()
+
+# calculate hPa
+pressure = pressure / 100.0
+
+print &amp;quot;Temperature:  {:8.2f} °C&amp;quot;.format(temp)
+print &amp;quot;Pressure:     {:8.2f} hPa&amp;quot;.format(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man kann auch mit Hilfe der &lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_BMP&#34;&gt;Bibliothek&lt;/a&gt; die &lt;a href=&#34;http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel&#34;&gt;Höhe barometrisch&lt;/a&gt; bestimmen und auch den Luftdruck
+auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DHT22 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</link>
+      <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Was kann der DHT22?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;kostet zwischen 6€ und 9€&lt;/li&gt;
+&lt;li&gt;3,3 - 5V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;max. 2.5 mA (während der Datenübertragung)&lt;/li&gt;
+&lt;li&gt;40-50 µA Standby-Strom&lt;/li&gt;
+&lt;li&gt;Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 80°C ± 0,5°C&lt;/li&gt;
+&lt;li&gt;Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Um den DHT22 am Raspberry Pi zu betreiben ist noch ein &lt;a href=&#34;http://www.elektronik-kompendium.de/public/schaerer/pullr.htm&#34;&gt;Pullup-Widerstand&lt;/a&gt; von 4,7 bis 10kΩ nötig.
+Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
+nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.&lt;/p&gt;
+
+&lt;h3 id=&#34;belegung-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Belegung DHT22&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pin 1: 3,3V&lt;/li&gt;
+&lt;li&gt;Pin 2: Daten&lt;/li&gt;
+&lt;li&gt;Pin 3: frei&lt;/li&gt;
+&lt;li&gt;Pin 4: Masse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programmierung:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;p&gt;Es gibt von Adafruit eine Python-&lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_DHT.git&#34;&gt;Bibliothek&lt;/a&gt;, welche sehr einfach zu nutzen ist, um den Sensor
+abzufragen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Im &lt;code&gt;examples&lt;/code&gt; Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss
+bedenken, dass der Code als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift. &lt;a href=&#34;http://pi.gadgetoid.com/pinout&#34;&gt;Hier&lt;/a&gt; findet man Nummerierung
+der Pins.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_DHT
+
+# GPIO pin for DTH-22
+# see http://pi.gadgetoid.com/pinout
+pin = 4
+
+# Try to grab a sensor reading.  Use the read_retry method which will retry up
+# to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+
+if humidity is None or temperature is None:
+    print &#39;Failed to get reading DTH-22. Try again!&#39;
+else:
+    print &amp;quot;Temperature: %8.2f°C&amp;quot; % temperature
+    print &amp;quot;Humidity:    %8.2f%%&amp;quot; % humidity
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neuer Blog</title>
+      <link>http://localhost:1313/post/2014/07/neuer-blog/</link>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/neuer-blog/</guid>
+      <description>
+
+&lt;p&gt;Ich habe mich entschlossen, meinen alten &lt;a href=&#34;http://wpde.org/&#34;&gt;Wordpress&lt;/a&gt;-Blog einzudampfen. Ich
+fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen
+&amp;ldquo;gut&amp;rdquo; aussehenden Blog mit &amp;ldquo;wenig&amp;rdquo; Arbeit zu pflegen.&lt;/p&gt;
+
+&lt;p&gt;Nun bin ich auf &lt;a href=&#34;http://jekyllbootstrap.com&#34;&gt;JekyllBootstrap&lt;/a&gt; und &lt;a href=&#34;https://github.com/dhulihan/hooligan&#34;&gt;Hooligan&lt;/a&gt; gestoßen.
+Am Theme habe ich etwas etwas Hand angelegt. Als
+Versionsverwaltung nutze ich &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt;. Der gesamte Blog ist als
+Code auf &lt;a href=&#34;https://github.com/0rph3us/jekyll-bootstrap&#34;&gt;github&lt;/a&gt; zu finden.&lt;/p&gt;
+
+&lt;p&gt;Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.&lt;/p&gt;
+
+&lt;h2 id=&#34;der-alte:35e6c4eaf33501dfb90b608aab77ae63&#34;&gt;Der Alte&lt;/h2&gt;
+
+&lt;p&gt;Ich habe bzw. bin noch dabei die gesamten Inhalte des alten Wordpress zu portieren. Das meiste habe
+ich automatisch migriert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
+die alten Posts überarbeiten.&lt;/p&gt;
+
+&lt;h2 id=&#34;technik:35e6c4eaf33501dfb90b608aab77ae63&#34;&gt;Technik&lt;/h2&gt;
+
+&lt;p&gt;Die erste Version des Blogs wird auf meinen Raspberry Pi laufen. Als Webserver verwende ich Nginx, außerdem
+verwende ich Varnish zum cachen. Ich hoffe, dass mit diesem Setup die Geschwindigkeit des Blog
+erträglich bleibt.&lt;/p&gt;
+
+&lt;p&gt;In weiteren Beiträgen werde ich schreiben wie das Setup genau aussieht. Ich auch noch etwas
+am ausprobieren.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

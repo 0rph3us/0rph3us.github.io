@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fuse on Michael im Netz</title>
+    <link>http://localhost:1313/tags/fuse/</link>
+    <description>Recent content in Fuse on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 23 Sep 2009 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fuse/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>sshfs für OpenSolaris</title>
+      <link>http://localhost:1313/post/2009/09/sshfs-f%C3%BCr-opensolaris/</link>
+      <pubDate>Wed, 23 Sep 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2009/09/sshfs-f%C3%BCr-opensolaris/</guid>
+      <description>&lt;p&gt;Ich wollte mal endlich auch unter Open Solaris &lt;a href=&#34;http://de.wikipedia.org/wiki/SSHFS&#34;&gt;sshfs&lt;/a&gt; haben, deswegen habe ich mich informiert wie man das anstellt. Infos findet man unter&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.opensolaris.org/os/project/fuse/&#34;&gt;Projekt fuse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fuse.sourceforge.net/sshfs.html&#34;&gt;Projekt sshfs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Vorarbeiten für Open Solaris&lt;/h4&gt;
+&lt;p&gt;folgende Packte muss man installiert haben:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SUNWgnome-common-devel&lt;/li&gt;
+&lt;li&gt;sunstudioexpress&lt;/li&gt;
+&lt;li&gt;SUNWmercurial&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Installation von SUNWonbld&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Packet für die eigene Architektur &lt;a href=&#34;http://dlc.sun.com/osol/on/downloads/current/&#34;&gt;hier&lt;/a&gt; herunterladen
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ bunzip2 SUNWonbld.i386.tar.bz2
+rennecke@trantor ~ $ tar xfv SUNWonbld.i386.tar  rennecke@trantor ~ $ pfexec /usr/sbin/pkgadd -d onbld SUNWonbld&lt;/pre&gt;
+&lt;p&gt;Alternativ kann man auch das Packet &lt;em&gt;SUNWonbld&lt;/em&gt; über &lt;tt&gt;pkg&lt;/tt&gt; installieren&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Pfad anpassen&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;tt&gt;$ export PATH=/opt/onbld/bin:/opt/onbld/bin/i386:/opt/SunStudioExpress/bin:/usr/bin:/usr/sfw/bin:$PATH&lt;/tt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;fuse installieren&lt;/h4&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ mkdir fuse; cd fuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/libfuse libfuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/fusefs fusefs
+rennecke@trantor fuse $ cd libfuse/
+rennecke@trantor libfuse $ make
+rennecke@trantor libfuse $ make install
+rennecke@trantor libfuse $ make pkg
+rennecke@trantor libfuse $ cd ../fusefs/kernel
+rennecke@trantor kernel $ make
+rennecke@trantor kernel $ make install
+rennecke@trantor kernel $ make pkg
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d packages SUNWfusefs
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d ../../libfuse/packages SUNWlibfuse &lt;/pre&gt;
+&lt;h4&gt;sshfs installieren&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fuse.sourceforge.net/sshfs.html&#34;&gt;Quellen von sshfs bei sourceforge runter laden&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor fuse $ gunzip sshfs-fuse-2.2.tar.gz
+rennecke@trantor fuse $ tar xf sshfs-fuse-2.2.tar
+rennecke@trantor fuse $ cd sshfs-fuse-2.2
+rennecke@trantor sshfs-fuse-2.2 $ ./configure --prefix=/usr
+rennecke@trantor sshfs-fuse-2.2 $ make
+rennecke@trantor sshfs-fuse-2.2 $ pfexec make install&lt;/pre&gt;
+&lt;h4&gt;sshfs benutzen&lt;/h4&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@trantor ~ $ sshfs rennecke@zeus:/home/rennecke /mnt&lt;/pre&gt;
+&lt;p&gt;Es gibt auch eine Manpage zu &lt;tt&gt;sshfs&lt;/tt&gt; ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

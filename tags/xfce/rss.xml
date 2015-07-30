@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xfce on Michael im Netz</title>
+    <link>http://localhost:1313/tags/xfce/</link>
+    <description>Recent content in Xfce on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 31 Dec 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/xfce/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gnome-Keyring und Xfce</title>
+      <link>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</link>
+      <pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</guid>
+      <description>&lt;p&gt;Ich bin seit kurzen von &lt;a href=&#34;http://www.gnome.org/&#34;&gt;Gnome&lt;/a&gt; auf &lt;a href=&#34;http://www.xfce.org/&#34;&gt;Xfce&lt;/a&gt; umgestiegen.
+Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WARNING: gnome-keyring:: couldn&#39;t connect to: /home/rennecke/.cache/keyring-4OkyiQ/pkcs11: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das ganze lässt sich beheben, wenn man in der &lt;code&gt;/etc/xdg/autostart/gnome-keyring-pkcs11.desktop&lt;/code&gt; die folgende Zeile von:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;OnlyShowIn=GNOME;Unity;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;OnlyShowIn=GNOME;Unity;XFCE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ändert. Nach dem neu anmelden bzw. Neustarten ist der Fehler weg. Ich habe diesen Fehler unter &lt;a href=&#34;http://www.debian.org/&#34;&gt;Debian&lt;/a&gt; und &lt;a href=&#34;http://xubuntu.org/&#34;&gt;Xubuntu&lt;/a&gt; beobachtet.
+Der Fehler scheint &lt;a href=&#34;http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=649408&#34;&gt;dieser Bug&lt;/a&gt; zu sein.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

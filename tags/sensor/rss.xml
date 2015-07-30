@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sensor on Michael im Netz</title>
+    <link>http://localhost:1313/tags/sensor/</link>
+    <description>Recent content in Sensor on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Fri, 17 Oct 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sensor/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>BMP085 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
+&lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;Stromverbrauch
+
+&lt;ul&gt;
+&lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;0.1 μA Standby&lt;/li&gt;
+&lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
+&lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
+den &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; anspricht. Beim Anschließen muss man aber aufpassen, da die
+verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
+steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
+bei denen man die Pins noch anlöten muss.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
+Die orange und violette Leitung sind der I²C-Bus, wobei
+orange SDA (Serial Data) und violett SCL (Serial Clock) ist. &lt;a href=&#34;http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm&#34;&gt;Hier&lt;/a&gt; findet man ein
+paar mehr technische Informationen zum I²C-Bus&lt;/p&gt;
+
+&lt;h2 id=&#34;programmierung:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;h3 id=&#34;betriebssystem-vorbereiten:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Betriebssystem vorbereiten&lt;/h3&gt;
+
+&lt;p&gt;Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
+installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kümmern wir uns um die Kernelmodule. Bei &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; muss man die die Module
+noch in der Datei &lt;code&gt;/etc/modprobe.d/raspi-blacklist.conf&lt;/code&gt; mit einer Raute &lt;code&gt;#&lt;/code&gt;
+am Zeilenanfang auskommentieren. Dazu muss man &lt;code&gt;root&lt;/code&gt; oder den Editor mit &lt;code&gt;sudo&lt;/code&gt;
+starten.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+echo &amp;quot;i2c-dev&amp;quot; &amp;gt;&amp;gt; /etc/modules
+echo &amp;quot;i2c_bcm2708&amp;quot; &amp;gt;&amp;gt; /etc/modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit man bequem auf den Sensor zugreifen kann, sollte man auch gleich die passende
+Python-Bibliothek von Adafruit installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/adafruit/Adafruit_Python_BMP
+cd Adafruit_Python_BMP
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es gibt auch hier im &lt;code&gt;examples&lt;/code&gt;-Verzeichnis einige Beispiele.&lt;/p&gt;
+
+&lt;h3 id=&#34;minimalbeispiel:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Minimalbeispiel&lt;/h3&gt;
+
+&lt;p&gt;Das kleine Python-Programm muss als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_BMP.BMP085 as BMP085
+
+bmp085 = BMP085.BMP085()
+
+# Read the current temperature
+temp   = bmp085.read_temperature()
+
+# Read the current barometric pressure level
+pressure = bmp085.read_pressure()
+
+# calculate hPa
+pressure = pressure / 100.0
+
+print &amp;quot;Temperature:  {:8.2f} °C&amp;quot;.format(temp)
+print &amp;quot;Pressure:     {:8.2f} hPa&amp;quot;.format(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man kann auch mit Hilfe der &lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_BMP&#34;&gt;Bibliothek&lt;/a&gt; die &lt;a href=&#34;http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel&#34;&gt;Höhe barometrisch&lt;/a&gt; bestimmen und auch den Luftdruck
+auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DHT22 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</link>
+      <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Was kann der DHT22?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;kostet zwischen 6€ und 9€&lt;/li&gt;
+&lt;li&gt;3,3 - 5V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;max. 2.5 mA (während der Datenübertragung)&lt;/li&gt;
+&lt;li&gt;40-50 µA Standby-Strom&lt;/li&gt;
+&lt;li&gt;Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 80°C ± 0,5°C&lt;/li&gt;
+&lt;li&gt;Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Um den DHT22 am Raspberry Pi zu betreiben ist noch ein &lt;a href=&#34;http://www.elektronik-kompendium.de/public/schaerer/pullr.htm&#34;&gt;Pullup-Widerstand&lt;/a&gt; von 4,7 bis 10kΩ nötig.
+Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
+nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.&lt;/p&gt;
+
+&lt;h3 id=&#34;belegung-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Belegung DHT22&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pin 1: 3,3V&lt;/li&gt;
+&lt;li&gt;Pin 2: Daten&lt;/li&gt;
+&lt;li&gt;Pin 3: frei&lt;/li&gt;
+&lt;li&gt;Pin 4: Masse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programmierung:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;p&gt;Es gibt von Adafruit eine Python-&lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_DHT.git&#34;&gt;Bibliothek&lt;/a&gt;, welche sehr einfach zu nutzen ist, um den Sensor
+abzufragen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Im &lt;code&gt;examples&lt;/code&gt; Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss
+bedenken, dass der Code als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift. &lt;a href=&#34;http://pi.gadgetoid.com/pinout&#34;&gt;Hier&lt;/a&gt; findet man Nummerierung
+der Pins.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_DHT
+
+# GPIO pin for DTH-22
+# see http://pi.gadgetoid.com/pinout
+pin = 4
+
+# Try to grab a sensor reading.  Use the read_retry method which will retry up
+# to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+
+if humidity is None or temperature is None:
+    print &#39;Failed to get reading DTH-22. Try again!&#39;
+else:
+    print &amp;quot;Temperature: %8.2f°C&amp;quot; % temperature
+    print &amp;quot;Humidity:    %8.2f%%&amp;quot; % humidity
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gnome on Michael im Netz</title>
+    <link>http://localhost:1313/tags/gnome/</link>
+    <description>Recent content in Gnome on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 28 Feb 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gnome/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Probleme mit dem SunRay-Server</title>
+      <link>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</link>
+      <pubDate>Mon, 28 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</guid>
+      <description>&lt;p&gt;Ich habe heute etwas l&amp;auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der &lt;a href=&#34;http://www.sun-rays.org/&#34;&gt;SunRay&lt;/a&gt;-Server nicht l&amp;auml;uft.&lt;/p&gt;
+&lt;p&gt;
+Ein Fehler war schnell gefunden: Der &lt;a href=&#34;http://projects.gnome.org/gdm/&#34;&gt;gdm&lt;/a&gt; lief nicht.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+sunray ~ # svcs -a | grep gdm
+disabled       11:38:23 svc:/application/gdm2-login:default
+sunray ~ # svcadm enable svc:/application/gdm2-login:default
+&lt;/pre&gt;
+&lt;p&gt;
+Nun konnte man sich via &lt;a href=&#34;http://www.opengroup.org/cde/&#34;&gt;CDE&lt;/a&gt; einloggen, aber nicht mit dem &lt;a href=&#34;http://www.sun.com/software/solaris/javadesktopsystem.xml&#34;&gt;Java Desktop&lt;/a&gt;, welcher auf &lt;a href=&#34;http://www.gnome.org/&#34;&gt;gnome&lt;/a&gt; basiert. Nach nervigen Suchen hat sich auch &lt;a href=&#34;https://users.informatik.uni-halle.de/~ruttkies/RforRocks/&#34;&gt;Rumpel&lt;/a&gt; zu mir gesetzt. Dabei ist mir aufgefallen, dass in &lt;tt&gt;/tmp&lt;/tt&gt; nur &lt;tt&gt;root&lt;/tt&gt; schreiben darf, nachdem in &lt;tt&gt;/tmp&lt;/tt&gt; wieder jeder schreiben durfte, lief wieder alles korrekt.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Privat on Michael im Netz</title>
+    <link>http://localhost:1313/categories/privat/</link>
+    <description>Recent content in Privat on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 01 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/privat/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Update</title>
+      <link>http://localhost:1313/post/2015/07/update/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/07/update/</guid>
+      <description>&lt;p&gt;Ich bin länger zum bloggen gekommen, da ich aktuell recht ausgelastet bin. Meine
+letzten Beträge habe ich während der Zugfahrt zuwischen Halle und Leipzig
+geschrieben. Da man in diesen Zügen kaum noch einen Sitzplatz bekommt, ist es
+recht schwer im Zug zu schreiben.&lt;/p&gt;
+
+&lt;p&gt;Ich kann nur sagen, dass die deutsche Bahn immer wieder Spaß macht&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Mein nächster Beitrag wird hoffentlich über Privoxy und Tor sein. Dieses Gespann
+läuft schon eigige Zeit auf meinen Pi.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Danke Primacom</title>
+      <link>http://localhost:1313/post/2015/03/danke-primacom/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;http://localhost:1313/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
+IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hallo github</title>
+      <link>http://localhost:1313/post/2015/02/hallo-github/</link>
+      <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/hallo-github/</guid>
+      <description>
+
+&lt;p&gt;Nachdem mich die &lt;a href=&#34;http://www.primacom.de/&#34;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
+meinen statischen Blog erst einmal auf github weiter zu schreiben. So ist er für
+alle erreichbar und es gibt auch ssl.&lt;/p&gt;
+
+&lt;h2 id=&#34;nachtrag-vom-19-02-2015:1eb5e6da15f0aea3bd088b726eb0ce0e&#34;&gt;Nachtrag vom 19.02.2015&lt;/h2&gt;
+
+&lt;p&gt;Ich habe die Tage mit der primacom telefoniert, da sie auf mein Bug-Ticket seit Wochen
+nicht antworten. Das Problem ist bekannt und hat mit dem &lt;a href=&#34;http://www.lvz-online.de/leipzig/wirtschaft/primacom-stoerung-von-internet-und-telefon-behoben-wartezeiten-beim-kundendienst/r-wirtschaft-a-269133.html&#34;&gt;großen Crash&lt;/a&gt; der primacom zu tun.&lt;/p&gt;
+
+&lt;p&gt;In 2 bis 3 Monaten soll es wieder öffentliche IPs geben. Wenn ich jetzt eine öffentliche IP
+möchte, dann muss ich 20€ pro Monat bezahlen. Das ist in meinen Augen eine Frecheit. Für 20€
+pro Monat bekommt schon einen kleinen virtuellen Server mit einer eigenen IP Adresse zu den
+man einen VPN-Tunnel aufbauen kann.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chrome und selbst signierte Zertifikate</title>
+      <link>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</link>
+      <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</guid>
+      <description>
+
+&lt;p&gt;Heute habe ich festgestellt, dass Google den &lt;a href=&#34;http://www.google.de/intl/de/chrome/browser/&#34;&gt;Chrome&lt;/a&gt;-Browser (Version 37.0.2062.94 (64-Bit))
+verhunzt hat. Es gibt jetzt einen &lt;strong&gt;Privacy Error&lt;/strong&gt; wenn eine Seite, wie dieser Blog,
+ein selbst signiertes SSL-Zertifikat benutzt. Bis jetzt gab es einen &lt;strong&gt;SSL Error&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;chromium:c1300b2c90762b5984abb067105b084d&#34;&gt;Chromium&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;The site&#39;s security certificate is not trusted!
+
+You attempted to reach blog.rennecke.dyndns.dk, but the server presented a certificate
+issued by an entity that is not trusted by your computer&#39;s operating system. This may 
+mean that the server has generated its own security credentials, which Chromium cannot 
+rely on for identity information, or an attacker may be trying to intercept your communications.
+
+You should not proceed, especially if you have never seen this warning before for this site.
+
+Proceed anyway       Back to safety
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;chome-jetzt:c1300b2c90762b5984abb067105b084d&#34;&gt;Chome jetzt&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Your connection is not private
+
+Attackers might be trying to steal your information from blog.rennecke.dyndns.dk 
+(for example, passwords, messages, or credit cards).
+
+advanced    Back to safety
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Diese Meldung finde ich unter aller Sau! Verdient Google auch an den Zertifikatverkäufen oder weswegen
+muss der Hinweis so drastisch ausfallen, dass ein nicht technikaffiner Nutzer nicht mehr auf meinen
+Blog kommt? Erst wenn man &lt;em&gt;advanced&lt;/em&gt; ausklappt hat man die Möglichkeit auf die Seit zu kommen. In
+Zeiten von Abhörskandalen darf man nicht selbst signierte Zertifikate boykottieren. So wächst nur
+die Hemmschwelle SSL einzusetzen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ich werde modern</title>
+      <link>http://localhost:1313/post/2014/08/ich-werde-modern/</link>
+      <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/08/ich-werde-modern/</guid>
+      <description>&lt;p&gt;Mein altes Telefon hat den Geist aufgegeben. Das war der Anlass dafür, dass ich
+mich entschlossen habe in  der Gegenwart anzukommen - Ich habe meine alte
+Telefonzelle durch ein modernes Smartphone ersetzt. Ein Smartphone hält mich aber
+nicht davon ab, mit meinen Laptop zu schreiben. Die Vorzüge einer &amp;ldquo;großen&amp;rdquo;
+Tastatur möchte ich nicht missen.&lt;/p&gt;
+
+&lt;p&gt;Nach etwas herumspielen kam die Ernüchterung: Trotz Android 4.4.4 gibt es Apps,
+welche die SSL-Konfiguration von meinen Pi nicht mögen und sich nicht verbinden
+können. Diese scheinen alle in Java geschrieben zu sein&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Trotz dieses Dämpfers macht das neue &amp;ldquo;Spielzeug&amp;rdquo; Spaß. Ich habe schon ein paar
+Ideen, wie ich in Verbindung mit meinen Pi einen echten Mehrwert für mich
+generien kann.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mein Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/07/mein-raspberry-pi/</link>
+      <pubDate>Wed, 30 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/mein-raspberry-pi/</guid>
+      <description>&lt;p&gt;Ich habe seit einiger Zeit einen &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt;, aber warum habe ich mir einen gekauft? Da ich inzwischen
+Papa bin, musste meine Rechnerburg zugunsten des Kinderzimmers weichen. Ich hatte dann überlegt, ob ich
+mir einen Rootserver miete oder einfach einen &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Pi&lt;/a&gt; zum &lt;em&gt;spielen&lt;/em&gt; kaufe.&lt;/p&gt;
+
+&lt;p&gt;Am Raspberry Pi hat mich immer die magere Ausstattung an RAM und CPU gestört. Aus diesem Grund habe ich
+überlegt, ob ich mir nicht lieber ein &lt;a href=&#34;http://cubieboard.org/tag/cubietruck/&#34;&gt;Cubietruck&lt;/a&gt; anschaffe. Zum Schluss habe ich mich für einen Pi
+entschieden, da er der günstige Einstieg in die Welt der Mini-Computer ist und ich kann ihn ohne
+Probleme über den USB-Port vom Router mit Strom versorgen.&lt;/p&gt;
+
+&lt;p&gt;Warum möchte man einen Mini-Rechner haben? Das ist ganz einfach: Ich finde den Kalenderservice von google
+ganz toll, aber die Integration mit Thunderbird finde ich einfach grausam. Ich möchte auch meine ganzen
+Kontakte an einen zentralen Ort haben und dieser sollte nicht irgendwo in &lt;em&gt;Cloud&lt;/em&gt; sein. Das waren die
+ersten Ideen, welche ich mit dem Pi umsetzen wollte. Etwas später ist noch dieser Blog und eine
+&lt;a href=&#34;https://www.dropbox.com/&#34;&gt;Dropbox&lt;/a&gt;-Alternative hinzugekommen.&lt;/p&gt;
+
+&lt;p&gt;Aktuell bin ich noch am basteln, aber ich werde hier von meinen Fortschritten berichten. Das meiste läuft,
+aber ich bin noch am verbessern.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ich bin Vater</title>
+      <link>http://localhost:1313/post/2013/09/ich-bin-vater/</link>
+      <pubDate>Mon, 30 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2013/09/ich-bin-vater/</guid>
+      <description>&lt;p&gt;Ich bin seit dem 12.09.2013 Vater. Mein Sohn heißt Julius Franz und hält meine
+Frau und mich auf Trapp. Das schlimmste sind die ganzen Behördengänge/Formalitäten.
+Meine Frau und ich kommen und manchmal wie bei Asterix und Obelix in &lt;em&gt;Das Haus das Verrückte&lt;/em&gt; macht vor.&lt;/p&gt;
+
+&lt;p&gt;Wir haben auch schon eine Bestätigung für unseren Kindergartenplatz von der Stadt: September 2018
+(Das Jahr ist richtig) Nun müssen wir noch die ganzen freien Träger aufsuchen, um vielleicht
+ein paar Jahre früher einen Platz zu bekommen.&lt;/p&gt;
+
+&lt;p&gt;Wenn Deutschland kinderfreundlicher werden soll, dann sollte man auch den ganzen Papierkram
+minimieren und nicht nur neue Zuwendungen schaffen für die man wieder eine Seite ausfüllen muss.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Heiraten und deutsche Bürokratie</title>
+      <link>http://localhost:1313/post/2011/10/heiraten-und-deutsche-b%C3%BCrokratie/</link>
+      <pubDate>Sun, 16 Oct 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/10/heiraten-und-deutsche-b%C3%BCrokratie/</guid>
+      <description>&lt;p&gt;Ich möchte im nächsten Jahr heiraten und habe mich deswegen schon einmal informiert, was ich alles machen muss.
+Das ich beim Standesamt meine Geburtsurkunde vorlegen muss war mir schon klar. Aber so einfach ist das ganze nicht.
+Ich bin in der misslichen Lage, dass ich nicht in der Stadt heiraten möchte, in der ich geboren bin und außerdem habe
+ich eine &lt;a href=&#34;https://de.wikipedia.org/wiki/Deutsche_Demokratische_Republik&#34;&gt;DDR&lt;/a&gt;-Geburtsurkunde.
+Diese wird vom Standesamt nicht anerkannt. Wenn man trotzdem heiraten möchte, dann benötigt man einen
+&lt;em&gt;Auszug aus dem Geburtsregister&lt;/em&gt;. Dieses Stück Papier entspricht im großen und ganzen einer
+beglaubigten Kopie meiner Geburtsurkunde. Nun meine Frage: Was soll dieser &lt;em&gt;Scheiß&lt;/em&gt; ??
+Ich muss für eine Abschrift Geld bezahlen, von der ich das Original habe&amp;hellip; Meine Verlobte ist in der
+Stadt in der wir heiraten möchten geborgen. In diesem Fall reicht die Geburtsurkunde. Ich finde so etwas äußerst
+frech, aber was hat man für Alternativen?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Briefvorlage mit LaTeX</title>
+      <link>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</link>
+      <pubDate>Sat, 30 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</guid>
+      <description>
+
+&lt;p&gt;Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon.
+Aus diesem Grund wollte ich in meiner $$ \LaTeX $$-Vorlage für meine Briefe beide Nummern stehen haben.
+Die &lt;a href=&#34;http://developer.berlios.de/projects/koma-script3/&#34;&gt;KOMA-Skript&lt;/a&gt; Pakete können von Haus aus, nur eine
+Telefonnummer, deswegen habe ich meine Vorlage, welche ich von &lt;a href=&#34;http://meet-unix.org/&#34;&gt;meet-unix&lt;/a&gt; habe, wie folgt angepasst.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\ProvidesFile{letter_options.lco}[letter-class-option file]
+
+% symbols: (cell)phone, email
+\RequirePackage{marvosym}
+% for gray color in header
+\RequirePackage{color}
+\RequirePackage[utf8]{inputenc}
+
+\KOMAoptions{
+foldmarks=true,
+foldmarks=BlmTP,
+%fromurl=true,
+fromemail=true,
+fromphone=true,
+fromalign=right,
+fromrule=aftername,
+fromemail=true,
+footsepline=off
+}
+
+% define gray for header
+\definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
+\definecolor{familynamecolor}{rgb}{0.45,0.45,0.45}
+
+\setkomavar{fromname}{\color{firstnamecolor}Michael\color{familynamecolor}Rennecke}
+\setkomafont{fromname}{\fontsize{38}{40}\sffamily\mdseries\upshape}
+
+\setkomafont{fromrule}{\color{firstnamecolor}}
+\@setplength{fromrulethickness}{0.25ex}
+
+\setkomafont{addressee}{\small}
+\setkomavar{fromaddress}{Solarisgasse 2\12345 Tuxhausen}
+
+\newkomavar[\Mobilefone]{frommobilephone} 
+\setkomavar{frommobilephone}{(01\,60)~1\,00\,00\,00}
+\setkomavar{fromphone}[\Telefon]{(03\,45)~000\,00\,00\,00}
+
+\setkomavar{fromemail}[\Letter]{michael.rennecke@gmail.com}
+%\setkomavar{fromurl}[]{http://0rpheus.net}
+
+\firsthead{
+  \noindent
+  \parbox[b]{\useplength{firstheadwidth}}{
+    \noindent%
+    \raggedleft%
+    {\usekomafont{fromname}\usekomavar{fromname}}\
+    \rule{\useplength{firstheadwidth}}{1pt}\
+    \usekomavar{fromaddress}\
+    \Telefon\enskip\usekomavar{fromphone}\
+    \Mobilefone\enskip\usekomavar{frommobilephone}\
+    \Letter\enskip\usekomavar{fromemail}
+  }
+}
+
+\setkomafont{fromaddress}{\small\rmfamily\mdseries\slshape}
+\setkomavar{backaddress}{Michael Rennecke, Tuxgasse 5, 06121 Halle (Saale)}
+ 
+\setkomavar{signature}{Michael Rennecke
+% signature same indention level as rest
+\renewcommand*{\raggedsignature}{\raggedright}
+% space for signature
+\@setplength{sigbeforevskip}{1.7cm}
+
+\endinput
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;beipieldokument:3fac007e186036068c6cdae2a2ac4984&#34;&gt;Beipieldokument&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\documentclass[letter_options,parskip=half+,version=last,fontsize=11pt,DIV=11,BCOR=10mm, DIN]{scrlttr2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,ngerman]{babel}
+\usepackage{amssymb}
+\usepackage{lmodern}
+
+% overall sans serif font
+\renewcommand{\familydefault}{\sfdefault}
+
+\setkomavar{subject}{Was machst Du}
+\setkomavar{place}{Halle (Saale)}
+
+\begin{document}
+\begin{letter}{Karl Mustermann\ Straße 4\ 06019 Halle (Saale)}
+
+
+\opening{Sehr geehrte Damen und Herren,}
+  blabla
+
+  \closing{Mit freundlichem Gruß}
+\end{letter}
+
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar,
+die meine Vorlage noch verbessern ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Junior System Architekt</title>
+      <link>http://localhost:1313/post/2011/03/junior-system-architekt/</link>
+      <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/03/junior-system-architekt/</guid>
+      <description>&lt;p&gt;
+So wie es aussieht, habe ich demnächst ein Job als Junior System Architekt. Ich freue mich schon auf meinen ersten Arbeitstag, leider werde ich nicht mit Solaris arbeiten, wenigsten Linux und nicht Windows. Demnächst ließt man sicher hier mehr ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Richtfest einer Mensa in Halle</title>
+      <link>http://localhost:1313/post/2011/02/richtfest-einer-mensa-in-halle/</link>
+      <pubDate>Mon, 28 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/02/richtfest-einer-mensa-in-halle/</guid>
+      <description>&lt;p&gt;
+Heute fand um 16:30 Uhr das feierliche Richtfest des Mensa-Neubau am &lt;a href=&#34;http://de.wikipedia.org/wiki/Veit_Ludwig_von_Seckendorff&#34;&gt;von-Seckendorff&lt;/a&gt;-Platz. Die Festrede haben der Vorsitzenden des Verwaltungsrates Herr Prof. Lilie, der Finanzminister Herr Bullerjahn, die Kultusministerin Frau Prof. Wolff und der Rektor der Martin-Luther-Universität Halle-Wittenberg Herr Prof. Sträter gehalten. Im Anschluss haben der Stadtrat Herr Tobias Kogge sowie der Architekt Herr Prof. Schulz ihr Grußworte überbracht.&lt;/p&gt;
+&lt;p&gt;Zum Schluss kommen noch ein paar Impressionen vom Richtfest.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>partielle Sonnenfinsternis</title>
+      <link>http://localhost:1313/post/2011/01/partielle-sonnenfinsternis/</link>
+      <pubDate>Tue, 04 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/01/partielle-sonnenfinsternis/</guid>
+      <description>&lt;p&gt;Ich habe ein paar Bilder von der partiellen Sonnenfinsternis am 04.01.2011 gemacht. Der Wettergott war leider nicht ganz auf meiner Seite.  Man kann die Sonne nur erahnen... Ich hoffe ihr habt trotzdem etwas Spaß an Bildern. Ich habe versucht etwas mit der Helligkeit herum zu spielen, damit die Farben besser heraus kommen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meine Canon EOS 40D</title>
+      <link>http://localhost:1313/post/2010/09/meine-canon-eos-40d/</link>
+      <pubDate>Tue, 07 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/09/meine-canon-eos-40d/</guid>
+      <description>&lt;p&gt;Seit gestern bin ich stolzer Besitzer einer &lt;a href=&#34;http://www.traumflieger.de/desktop/kameras/cam_40d.php&#34;&gt;Canon EOS 40D&lt;/a&gt;. Ich muss sagen es ist eine super Kamera. Sie passt sehr gut in meine großen Hände.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meine neue Festplatte</title>
+      <link>http://localhost:1313/post/2010/01/meine-neue-festplatte/</link>
+      <pubDate>Tue, 19 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/01/meine-neue-festplatte/</guid>
+      <description>&lt;p&gt;Ich habe vor ein paar Tagen geschrieben, dass ich Ärger mit der Post hatte. Nachdem ich endlich zu Hause war, habe ich die enthaltene Festplatte in meinen Rechner eingebaut. Ich wollte damit eine alte Festplatte ersetzt mit &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/&#34;&gt;zfs&lt;/a&gt; als Dateisystem ist das ganz einfach: 						&lt;tt&gt;zpool replace daten c4d0 c11d0&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;Nun schreibt zfs die Daten von der Platte c4d0 auf die Platte c11d0, das geht im laufenden Betrieb. Mit &lt;tt&gt;zpool status&lt;/tt&gt; kann man sich ansehen, wie weit das kopieren der Daten fortgeschritten ist. 						Wenn man Platten ersetzt, dann muss die neue Platte mindestens so groß sein, wie die alte Platte.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Die liebe Post Teil 2</title>
+      <link>http://localhost:1313/post/2010/01/die-liebe-post-teil-2/</link>
+      <pubDate>Sun, 17 Jan 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/01/die-liebe-post-teil-2/</guid>
+      <description>&lt;p&gt;Ich habe nun endlich meine Festplatte. Die Post war leider nicht in der Lage mir zu sagen, wo sich mein Paket befindet.
+Nachdem ich einige Postämter abgeklappert habe, fand ich schlielßich mein Paket.
+Nun baue ich den Inhalt meines Paket - eine 2TB Festplatte in meinen Rechner ein.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

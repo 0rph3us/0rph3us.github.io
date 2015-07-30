@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bmp085 on Michael im Netz</title>
+    <link>http://localhost:1313/tags/bmp085/</link>
+    <description>Recent content in Bmp085 on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 11 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bmp085/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Probleme beim Upgrade auf den Pi 2</title>
+      <link>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
+      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
+ein paar Experimente mit dem 2,4 GHz Sender &lt;a href=&#34;http://www.mikrocontroller.net/articles/NRF24L01_Tutorial&#34;&gt;NRF24L01&lt;/a&gt;. Dabei musste ich feststellen, dass der &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; und
+das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34;&gt;SPI (Serial Peripheral Interface)&lt;/a&gt; nicht wie gewohnt funktionieren.&lt;/p&gt;
+
+&lt;p&gt;Beim Kernel 3.18 gab es einige Änderungen, die einen das Leben schwer machen. Es gibt auf stackechange eine
+&lt;a href=&#34;http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f&#34;&gt;kurze Zusammenfassung&lt;/a&gt; und eine &lt;a href=&#34;http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658&#34;&gt;sehr Ausführliche auf raspberrypi.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Wer es kurz und knackig mag, der fügt die folgenden Zeilen in &lt;code&gt;/boot/config.txt&lt;/code&gt; ein und startet den Pi neu.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dtparam=i2c1=on
+dtparam=spi=on
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BMP085 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
+&lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;Stromverbrauch
+
+&lt;ul&gt;
+&lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;0.1 μA Standby&lt;/li&gt;
+&lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
+&lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
+den &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; anspricht. Beim Anschließen muss man aber aufpassen, da die
+verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
+steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
+bei denen man die Pins noch anlöten muss.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
+Die orange und violette Leitung sind der I²C-Bus, wobei
+orange SDA (Serial Data) und violett SCL (Serial Clock) ist. &lt;a href=&#34;http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm&#34;&gt;Hier&lt;/a&gt; findet man ein
+paar mehr technische Informationen zum I²C-Bus&lt;/p&gt;
+
+&lt;h2 id=&#34;programmierung:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;h3 id=&#34;betriebssystem-vorbereiten:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Betriebssystem vorbereiten&lt;/h3&gt;
+
+&lt;p&gt;Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
+installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kümmern wir uns um die Kernelmodule. Bei &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; muss man die die Module
+noch in der Datei &lt;code&gt;/etc/modprobe.d/raspi-blacklist.conf&lt;/code&gt; mit einer Raute &lt;code&gt;#&lt;/code&gt;
+am Zeilenanfang auskommentieren. Dazu muss man &lt;code&gt;root&lt;/code&gt; oder den Editor mit &lt;code&gt;sudo&lt;/code&gt;
+starten.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+echo &amp;quot;i2c-dev&amp;quot; &amp;gt;&amp;gt; /etc/modules
+echo &amp;quot;i2c_bcm2708&amp;quot; &amp;gt;&amp;gt; /etc/modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit man bequem auf den Sensor zugreifen kann, sollte man auch gleich die passende
+Python-Bibliothek von Adafruit installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/adafruit/Adafruit_Python_BMP
+cd Adafruit_Python_BMP
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es gibt auch hier im &lt;code&gt;examples&lt;/code&gt;-Verzeichnis einige Beispiele.&lt;/p&gt;
+
+&lt;h3 id=&#34;minimalbeispiel:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Minimalbeispiel&lt;/h3&gt;
+
+&lt;p&gt;Das kleine Python-Programm muss als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_BMP.BMP085 as BMP085
+
+bmp085 = BMP085.BMP085()
+
+# Read the current temperature
+temp   = bmp085.read_temperature()
+
+# Read the current barometric pressure level
+pressure = bmp085.read_pressure()
+
+# calculate hPa
+pressure = pressure / 100.0
+
+print &amp;quot;Temperature:  {:8.2f} °C&amp;quot;.format(temp)
+print &amp;quot;Pressure:     {:8.2f} hPa&amp;quot;.format(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man kann auch mit Hilfe der &lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_BMP&#34;&gt;Bibliothek&lt;/a&gt; die &lt;a href=&#34;http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel&#34;&gt;Höhe barometrisch&lt;/a&gt; bestimmen und auch den Luftdruck
+auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

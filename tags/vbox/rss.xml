@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vbox on Michael im Netz</title>
+    <link>http://localhost:1313/tags/vbox/</link>
+    <description>Recent content in Vbox on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 08 Feb 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vbox/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Virtual Box-Clienten auf raw-Devices</title>
+      <link>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</link>
+      <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</guid>
+      <description>&lt;p&gt;Dan man mit zfs kann man auch volumes anlegen kann, wollte ich mal testen, ob man auch einen &lt;a href=&#34;http://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt;-Client auch auf ein solches Volume installieren kann. Es benötige einiges an Vorbereitungen, aber es geht wie folgt:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; Volume erzeugen:
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ pfexec  zfs create -s -V 200g daten/vol_win&lt;/pre&gt;
+&lt;p&gt;man erzeugt hiermit ein Volume, welches 200 GB groß ist. Es fordert den Speicher erst an, wenn dieser benötigt wird.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt; VirtualBox-User Zugriff auf das raw-Device geben:
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ pfexec chown rennecke:staff /dev/zvol/rdsk/daten/vol_win
+rennecke@walhalla VirtualBox $ pfexec chmod 660 /dev/zvol/rdsk/daten/vol_win&lt;/pre&gt;
+&lt;p&gt;Das Device VirtualBox bekannt geben. Ich möchte diese Platten nicht bei den virtuellen Platten liegen haben.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ mkdir ~/.VirtualBox/raw-disk
+rennecke@walhalla VirtualBox $ cd /opt/VirtualBox/
+rennecke@walhalla VirtualBox $ VBoxManage internalcommands createrawvmdk -filename /home/rennecke/.VirtualBox/raw-disk/windows-raw.vmdk -rawdisk /dev/zvol/rdsk/daten/vol_win -register&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt; Fertig: Nun kann man in VirtualBox auf das Volume zugreifen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Man sollte aber wissen, was man tut. Man kann sich mit dieser Vorgehensweise ganz schnell etwas kaputt machen, z.B. indem man VirtualBox das falsche raw-Device übergibt. Das ganze hat auch noch einen anderen Schönheitsfehler. Man kann keine Snapshots mit VirtualBox erzeugen. Diese werden als Datei im Dateisystem auf dem Host abgelegt. Man kann aber Snapshots mit zfs erstellen, um Sicherungen der Virtuellen Maschine zu haben. Vielleicht gibt es irgendwann eine VirtualBox-Version, welche Features von zfs nutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

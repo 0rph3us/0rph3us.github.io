@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Modernes Logging // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="Modernes Logging" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2015/02/modernes-logging/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Inhalt</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#rsyslog-unter-ubuntu-14-04-installieren:0f1926dffb36411c33c28d4643e7a8d5">rsyslog unter Ubuntu 14.04 installieren</a></li>
+<li><a href="#elasticsearch-installieren:0f1926dffb36411c33c28d4643e7a8d5">Elasticsearch installieren</a></li>
+<li><a href="#rsyslog-konfigurieren:0f1926dffb36411c33c28d4643e7a8d5">rsyslog konfigurieren</a></li>
+<li><a href="#kibana-installieren:0f1926dffb36411c33c28d4643e7a8d5">Kibana installieren</a></li>
+<li><a href="#anmerkung:0f1926dffb36411c33c28d4643e7a8d5">Anmerkung</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2015/02/modernes-logging/">Modernes Logging</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Februar</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+				
+					<a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Achtung: Es gibt einen <a href="http://localhost:1313/post/2015/02/modernes-logging-teil-2/">2. Teil des Artikels</a>, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;pastet</p>
+
+<p>In <a href="http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29">Java</a>-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus <a href="http://www.elasticsearch.org/">Elasticsearch</a>, einen Volltextindex zum speichern der Nahrichten. Diese werden von <a href="http://logstash.net/">Logstash</a> verarbeitet und zum Index geschickt. <a href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> wird zum
+visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet <a href="http://de.wikipedia.org/wiki/Syslog">syslog</a> zum versenden von Lognachrichten. In vieles Distributionen wird <a href="http://www.rsyslog.com/">rsyslog</a> zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.</p>
+
+<p>Die folgende Anleitung beschreibt, wie man das ganze unter Ubuntu 14.04 einrichtet. Ich beschreibe kein komplettes Setup, es ist als Einstieg in die Thematik gedacht.</p>
+
+<h3 id="rsyslog-unter-ubuntu-14-04-installieren:0f1926dffb36411c33c28d4643e7a8d5">rsyslog unter Ubuntu 14.04 installieren</h3>
+
+<p>Eine Konsole öffnen und das Repository hinzufügen. Es handelt sich hierbei um das <a href="http://www.rsyslog.com/ubuntu-repository/">offizelle Repository</a> von rsyslog. Rsyslog ist in den offizellen Repositories von Ubuntu nicht auf dem neusten Stand, außerdem gibt kein Paket mit dem Elasticsearchsupport.</p>
+
+<pre><code class="language-sh">sudo add-apt-repository ppa:adiscon/v8-stable
+</code></pre>
+
+<p>Den Cache von <code>apt</code> aktualisieren und <code>rsyslog</code> mit der Elasticsearch Unterstützung installieren</p>
+
+<pre><code class="language-sh">sudo apt-get update
+sudo apt-get install rsyslog rsyslog-elasticsearch
+</code></pre>
+
+<h3 id="elasticsearch-installieren:0f1926dffb36411c33c28d4643e7a8d5">Elasticsearch installieren</h3>
+
+<p>deb-Paket herunterladen und installieren. Die Installation über das deb-Paket hat den Vorteil, dass man Elasticsearch einfach updaten kann und es gibt auch schon init-Skripte.</p>
+
+<pre><code class="language-sh">wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.3.deb
+sudo dpkg -i elasticsearch-1.4.3.deb
+sudo update-rc.d elasticsearch defaults
+</code></pre>
+
+<p>Elasticsearch konfigurieren. Dazu muss man die Datei <code>/etc/elasticsearch/elasticsearch.yml</code> im Editor seine Wahl öffnen und die folgenden Zeilen einkommentieren und ändern</p>
+
+<pre><code class="language-yaml"># Set the number of shards (splits) of an index (5 by default):
+#
+index.number_of_shards: 1
+
+# Set the number of replicas (additional copies) of an index (1 by default):
+#
+index.number_of_replicas: 0
+</code></pre>
+
+<p>Elasticsearch starten:</p>
+
+<pre><code class="language-sh">sudo service elasticsearch start
+</code></pre>
+
+<h3 id="rsyslog-konfigurieren:0f1926dffb36411c33c28d4643e7a8d5">rsyslog konfigurieren</h3>
+
+<p>Man muss nun dafür sorgen, dass die Lognahrichten von rsyslog nach Elasticsearch geschrieben werden. Als erstes legt man ein <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html">Mapping</a> in Elasticsearch an. Damit sagt man Elasticsearch, dass es das Feld <code>program</code> <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html">nicht analysieren</a> soll. Außerdem sollen die Dokumente nach <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-ttl-field.html">90 Tagen gelöscht</a> werden.</p>
+
+<pre><code class="language-sh">curl -XPUT 'http://localhost:9200/logstash' -d '{
+  &quot;mappings&quot;: {
+    &quot;events&quot; : {
+      &quot;_ttl&quot; : {
+        &quot;enabled&quot; : true,
+        &quot;default&quot; : &quot;90d&quot;
+        },
+      &quot;properties&quot; : {
+        &quot;program&quot; : {
+          &quot;type&quot; : &quot;string&quot;,
+          &quot;index&quot; : &quot;not_analyzed&quot;,
+          &quot;norms&quot; : {
+            &quot;enabled&quot; : false
+          }
+        }
+      }
+    }
+  }
+}'
+</code></pre>
+
+<p>Nach man die Datei  <code>/etc/rsyslog.d/30-elasticsearch.conf</code> erstellt hat, muss
+man nur noch <code>rsyslog</code> neu starten. Wenn es Probleme gibt kann man mit <code>rsyslogd -N1</code> die Konfiguraion überprüfen.</p>
+
+<pre><code class="language-sh">sudo su -
+cat &lt;&lt; EOF &gt; /etc/rsyslog.d/30-elasticsearch.conf
+#module(load=&quot;imuxsock&quot;)       # for listening to /dev/log, normal not needed
+module(load=&quot;omelasticsearch&quot;) # for outputting to Elasticsearch
+
+# this is for index names to be like: logstash-YYYY.MM.DD
+template(name=&quot;logstash-index&quot;
+  type=&quot;list&quot;) {
+    constant(value=&quot;logstash-&quot;)
+    property(name=&quot;timereported&quot; dateFormat=&quot;rfc3339&quot; position.from=&quot;1&quot; position.to=&quot;4&quot;)
+    constant(value=&quot;.&quot;)
+    property(name=&quot;timereported&quot; dateFormat=&quot;rfc3339&quot; position.from=&quot;6&quot; position.to=&quot;7&quot;)
+    constant(value=&quot;.&quot;)
+    property(name=&quot;timereported&quot; dateFormat=&quot;rfc3339&quot; position.from=&quot;9&quot; position.to=&quot;10&quot;)
+}
+
+# use only one index, useful only for local usage
+template(name=&quot;logstash&quot; type=&quot;string&quot; string=&quot;logstash&quot;)
+
+# this is for formatting our syslog in JSON with @timestamp
+template(name=&quot;plain-syslog&quot;
+  type=&quot;list&quot;) {
+    constant(value=&quot;{&quot;)
+      constant(value=&quot;\&quot;@timestamp\&quot;:\&quot;&quot;)     property(name=&quot;timereported&quot; dateFormat=&quot;rfc3339&quot;)
+      constant(value=&quot;\&quot;,\&quot;host\&quot;:\&quot;&quot;)        property(name=&quot;hostname&quot;)
+      constant(value=&quot;\&quot;,\&quot;severity\&quot;:\&quot;&quot;)    property(name=&quot;syslogseverity-text&quot;)
+      constant(value=&quot;\&quot;,\&quot;facility\&quot;:\&quot;&quot;)    property(name=&quot;syslogfacility-text&quot;)
+      constant(value=&quot;\&quot;,\&quot;tag\&quot;:\&quot;&quot;)         property(name=&quot;syslogtag&quot; format=&quot;json&quot;)
+      constant(value=&quot;\&quot;,\&quot;program\&quot;:\&quot;&quot;)     property(name=&quot;programname&quot;)
+      constant(value=&quot;\&quot;,\&quot;message\&quot;:\&quot;&quot;)     property(name=&quot;msg&quot; format=&quot;json&quot;)
+    constant(value=&quot;\&quot;}&quot;)
+}
+
+# this is where we actually send the logs to Elasticsearch (localhost:9200 by default)
+action(type=&quot;omelasticsearch&quot;
+    template=&quot;plain-syslog&quot;
+    searchIndex=&quot;logstash&quot;
+    dynSearchIndex=&quot;on&quot;)
+
+EOF
+/etc/init.d/rsyslog restart
+exit
+</code></pre>
+
+<h3 id="kibana-installieren:0f1926dffb36411c33c28d4643e7a8d5">Kibana installieren</h3>
+
+<p>Für Kibana gibt es leider keinen bequemen Installationsweg. Deswegen beschreibe ich den Weg, der schnell und einfach zum Ziel führt, aber auf keinen Fall sinnvoll für den produktiven Betrieb ist. Man läd Kibana herunter und startet es.</p>
+
+<pre><code class="language-sh">wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-rc1-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-rc1-linux-x64.tar.gz
+kibana-4.0.0-rc1-linux-x64/bin/kibana
+</code></pre>
+
+<p>Nun kann man auf Kibana über <code>http://127.0.0.1:5601/</code> im Browser zugreifen. Man muss nur noch Kibana sagen, welchen Index es benutzen soll. Das geht realtiv intuitiv.</p>
+
+<h3 id="anmerkung:0f1926dffb36411c33c28d4643e7a8d5">Anmerkung</h3>
+
+<p>Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows nutzen. Ich habe hier alle Technologien nur angeschitten, für ein richtiges Setup muss man noch viel mehr beachten und konfigurieren.</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-logging" href="http://localhost:1313//tags/logging">logging</a>,
+	                
+	                <a class="post-tag post-tag-elasticsearch" href="http://localhost:1313//tags/elasticsearch">elasticsearch</a>,
+	                
+	                <a class="post-tag post-tag-kibana" href="http://localhost:1313//tags/kibana">kibana</a>,
+	                
+	                <a class="post-tag post-tag-syslog" href="http://localhost:1313//tags/syslog">syslog</a>,
+	                
+	                <a class="post-tag post-tag-rsyslog" href="http://localhost:1313//tags/rsyslog">rsyslog</a>,
+	                
+	                <a class="post-tag post-tag-logstash" href="http://localhost:1313//tags/logstash">logstash</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2015/02/pakete-selbst-bauen/">Pakete selbst bauen</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2015/02/skripte-parallelisieren/">Skripte parallelisieren</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

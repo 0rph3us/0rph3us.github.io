@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Linux // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="Linux" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/categories/linux/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="http://localhost:1313/categories/linux/index.xml" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <a name="top"></a>
+      
+
+      <div class="posts">
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/04/kaputtes-system-nach-restore-mit-obnam/">kaputtes System nach Restore mit Obnam</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>20</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Obnam ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende. Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen. sudo obnam --generation=243130 restore --to=/ /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht die Platte geschrottet hat, habe ich mit grml auf die Platte geschaut.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/04/kaputtes-system-nach-restore-mit-obnam/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/03/einen-dns-server-selbst-betreiben/">Einen DNS Server selbst betreiben</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+					        <a class="post-category post-category-raspberry-pi" href="http://localhost:1313//categories/raspberry-pi">raspberry pi</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich habe mir die Tage einen eigenen DNS-Server aufgesetzt. Er macht das Leben einfacher, wenn man mehrere Dienste im eigenen Netzwerk betreibt. Dazu habe ich PowerDNS mit einem MySQL-Backend. Das ganze lässt sich mit der Weboberfläche poweradmin sehr einfach bedienen. Man sollte aber bedenken, dass jeder Fehler ein komisches Verhalten zur Folge haben kann, wenn man z.B. Zone im DNS überschreibt. Die Installation auf dem Raspberry Pi mit Raspbian gestaltet sich realtiv einfach.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/03/einen-dns-server-selbst-betreiben/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/02/modernes-logging-teil-2/">Modernes Logging Teil 2</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>24</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich habe in meinen letzten Beitrag über Logging schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann. Inzwischen wurde Kibana in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die finale Version zeigen und auf das Repository von Elasticsearch hinweisen. Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration im Elasticsearch anpassen. Vorarbeiten Als erstes fährt man Kibana herunter und updatet Elasricsearch auf die Version 1.4.4.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/02/modernes-logging-teil-2/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/02/pakete-selbst-bauen/">Pakete selbst bauen</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>19</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	binfalse hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf deb-Pakete während RedHat und Fedora auf rpm-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/02/pakete-selbst-bauen/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/02/modernes-logging/">Modernes Logging</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Achtung: Es gibt einen 2. Teil des Artikels, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;pastet In Java-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus Elasticsearch, einen Volltextindex zum speichern der Nahrichten. Diese werden von Logstash verarbeitet und zum Index geschickt. Kibana wird zum visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/02/modernes-logging/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/02/skripte-parallelisieren/">Skripte parallelisieren</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>12</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich bash-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche langwierig sind und leicht parallelisierbar sind. Hier kann das Programm parallel helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und n Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist n die Anzahl der Prozessorkerne.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/02/skripte-parallelisieren/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2014/09/rss-reader-selbst-betreiben/">RSS Reader selbst betreiben</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>4 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-raspberry-pi" href="http://localhost:1313//categories/raspberry-pi">Raspberry Pi</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit als nicht mehr zeitgemäß galten. Ich finde, dass sie zur Zeit immer beliebter werden. Ich möchte meine Feeds immer dabei und nicht viele Apps auf dem Smartphone installieren, nur um meinen 20 News-Seiten zu folgen. Das ganze im Browser zu lesen kann auf mobilen Devices nervig werden, entweder ist die mobile Seite nicht wirklich brauchbar oder man hat zu viele Seite, welche man lesen möchte.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2014/09/rss-reader-selbst-betreiben/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/">Webserver auf dem Raspberry Pi installieren</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-raspberry-pi" href="http://localhost:1313//categories/raspberry-pi">Raspberry Pi</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Da man auf dem Raspberry Pi nicht sehr viele Ressourcen zur Verfügung hat, scheidet Apache als Webserver für mich aus. Ich habe lighttpd und Nginx ausprobiert. Von lighttpd war ich am Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizierter wurde, war ich nicht mehr in Lage in die Ideen mit lighttpd umzusetzen. Die Ursache liegt weniger im Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonfigurationen sowie der Default-Konfiguration wenn man lighttpd bei Raspbian installiert.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2014/07/raspberry-pi-auf-jessie-updaten/">Raspberry Pi auf Jessie updaten</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-raspberry-pi" href="http://localhost:1313//categories/raspberry-pi">Raspberry Pi</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Das aktuell Raspbian basiert auf Debian 7 &ldquo;Wheezy&rdquo;. Seit einiger Zeit gibt es auch Raspbian Pakete für Debian 8 &ldquo;Jessie&rdquo;. Jessie ist der Nachfolger von &ldquo;Wheezy&rdquo;. Die Pakete von &ldquo;Jessie&rdquo; sind um einiges aktueller, als die von &ldquo;Wheezy&rdquo;. Das bedeutet aber, dass sie nicht unbedingt so stabil sein können. Ich habe bis jetzt noch keine negativen Erfahrungen gemacht. Aktualisierung ausführen Die folgenden Schritte müssen alle als Benutzer root ausgeführt werden. Entweder man loggt sie als root ein, man schreibt sudo vor jedes Komando oder man öffnet eine root-Shell mit sudo -i.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2014/07/raspberry-pi-auf-jessie-updaten/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2014/07/neuer-blog/">Neuer Blog</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Jul</span> <span class="post-date-year">2014</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">tools</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich habe mich entschlossen, meinen alten Wordpress-Blog einzudampfen. Ich fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen &ldquo;gut&rdquo; aussehenden Blog mit &ldquo;wenig&rdquo; Arbeit zu pflegen. Nun bin ich auf JekyllBootstrap und Hooligan gestoßen. Am Theme habe ich etwas etwas Hand angelegt. Als Versionsverwaltung nutze ich git. Der gesamte Blog ist als Code auf github zu finden. Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2014/07/neuer-blog/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2013/12/gnome-keyring-und-xfce/">Gnome-Keyring und Xfce</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>31</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich bin seit kurzen von Gnome auf Xfce umgestiegen. Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufen: WARNING: gnome-keyring:: couldn't connect to: /home/rennecke/.cache/keyring-4OkyiQ/pkcs11: No such file or directory Das ganze lässt sich beheben, wenn man in der /etc/xdg/autostart/gnome-keyring-pkcs11.desktop die folgende Zeile von: OnlyShowIn=GNOME;Unity; in OnlyShowIn=GNOME;Unity;XFCE ändert. Nach dem neu anmelden bzw. Neustarten ist der Fehler weg. Ich habe diesen Fehler unter Debian und Xubuntu beobachtet. Der Fehler scheint dieser Bug zu sein.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2013/12/gnome-keyring-und-xfce/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2013/05/hadoop-cluster-und-das-netzwerk/">Hadoop Cluster und das Netzwerk</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-hpc" href="http://localhost:1313//categories/hpc">HPC</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&gt; Java -&gt; Hadoop. Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop Schrott-Rechner verwenden kann. Hier wird der Begriff Commodity Hardware etwas falsch interpretiert. Commodity Hardware bezeichnet im Hadoop-Kontext keine spezielle Hardware verwendet wird. Große Datenbankensysteme verwenden in der Regel sehr spezielle Hardware.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2013/05/hadoop-cluster-und-das-netzwerk/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/">Acrobat Reader für Debian wheezy</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich hatte heute wieder eine pdf mit Formularen in, welche in einen alternativen Viewer nicht wirklich funktioniert hat. Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst. echo &quot;deb http://www.deb-multimedia.org wheezy main non-free&quot; &gt;&gt; /etc/apt/sources.list gpg --keyserver pgpkeys.mit.edu --recv-key 07DC563D1F41B907 gpg -a --export 07DC563D1F41B907 | apt-key add - dpkg --add-architecture i386 apt-get update apt-get install acroread P.S.: Auf meinen Servern benutze ich /etc/apt/sources.list.d/&lt;listname&gt;.list für zusätzliche Paketlisten.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2013/05/debian-wheezy-ist-stable/">Debian wheezy ist stable</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>5</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2013</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Seit gestern, den 04.05.2013 ist Debian Wheezy stable. Nun beginnt die gute Zeit für meine produktiven Systeme. Ich habe schon letzten Sommer einige Systeme auf Wheezy laufen, da ich ein paar Features benötigt habe bzw. haben wollte. Ich bin gespannt ob Unschönheiten/Bugs in cgroups gefixt wurden. Ich würde gerne mit Hilfe von cgroups die Stabilität eines Hadoop/Hypertable-Clusters erhöhen. Unter Vollast habe ich immer wieder mit partiellen Abstürzen zu kämpfen, was bei zu viel CPU-Last über Memory-Leaks bis zu Timeouts geht, also die gesamte Palette.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2013/05/debian-wheezy-ist-stable/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2011/08/letzte-rettung-von-mysql/">Letzte Rettung von MySQL</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>8</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-datenbank" href="http://localhost:1313//categories/datenbank">Datenbank</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">Tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich hatte heute wieder Spaß mit MySQL. Die InnoDB Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich MySQL immer wieder neu gestartet hat. MySQL war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen. Mit Hilfe von innodb_force_recovery kann man MySQL dazu bringen, dass es Tabellen wieder her stellt. Diese Option schreibt man einfach in die my.cnf. Er kann die Werte von 1 bis 6 annehmen.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2011/08/letzte-rettung-von-mysql/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2011/05/nosql-datenbanken/">noSQL Datenbanken</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">May</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">Tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich arbeite inzwischen bei Unister als Junior Systemarchitekt. Zu meinen ersten Aufgaben hat gezählt eine Architektur für eine eine Datenbank zu schaffen, welche mit sehr hohen Schreibaufkommen zurecht kommt. Als Datenbank haben wir mongoDB benutzt. Dabei handelt es sich um eine noSQL-Datenbank. Diese Dazenbanken haben kein festes Datenbankschema. Die ersten Ergebnisse waren sehr erschütternd. Die Schreibperformence war einfach zu gering. Da man bei mongoDB nichts konfigurieren kann (Im Vergleich zu klassischen Datenbanken, wie MySQL oder PostgreSQL) war ich erst einmal ratlos.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2011/05/nosql-datenbanken/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/">verschlüsselte Volumes bequem mounten</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>3 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-programmieren" href="http://localhost:1313//categories/programmieren">Programmieren</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich habe mein home verschlüsselt. Dieses wird automatisch, beim anmelden gemountet. Da ich in mein home noch ein paar andere verschlüsselte Dateisysteme einhänge funktionieren die Standard-Mittel, wie /etc/crypttab nicht. Dabei ergibt sich das folgende Problem: Die Volumes werden beim booten eingehangen und zu diesen Zeitpunkt existiert mein home noch nicht. Da ich faul bin möchte ich auch möglichst wenig Passwörter eingeben, weiterhin soll meine Freundin auch den Rechner anmachen können und nicht an meinen Passwort scheitern.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/">verschlüsseltes home automatisch mounten</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>25</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Mar</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich bin inzwischen auf Debian umgestiegen. Mein home sollte natürlich verschlüsselt sein. Wenn man zum verschlüsseln dm-crypt/LUKS nutzt und die Dateisysteme in der /etc/crypttab einbindet, muss man beim booten das Passwort eingeben (Ich setzte voraus, dass man via Passwort verschlüsselt und nicht mit einem Keyfile). Es ist viel interessanter, wenn das home beim anmelden automatisch gemountet wird. Das geht, wenn man pam_mount benutzt. Im folgenden beschreibe ich wie man ein verschlüsseltes home anlegt, welches automatisch gemountet wird.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2011/02/cloud-computing/">Cloud Computing</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>21</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Feb</span> <span class="post-date-year">2011</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-hpc" href="http://localhost:1313//categories/hpc">HPC</a>
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Ich höre immer öfter von Cloud Computing. Jedes mal hört sich das ganze wie eine ganz neue Idee an. Dabei ist Cloud Computing, nach meiner Ansicht, ein alter Hut. Dieser hat bestimmt schon 50 Jahre auf dem Buckel. Was man unter Cloud Computing versteht kann nachlesen. Was ist aber der eigentliche Kern hinter der ganzen Geschichte? Beim Cloud Computing werden Rechen-, Speicherkapazitäten oder Dienste dynamisch zur Verfügung gestellt. Diese Kapazitäten und Dienste werden in der Regel über ein Netzwerk zugänglich gemacht.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2011/02/cloud-computing/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/09/cf-karten-mounten/">CF-Karten mounten</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>7</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man Compact Flash-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen. rennecke@trantor ~ % blkid /dev/sda1: UUID="5C8CF5697CA93BD8" TYPE="ntfs" /dev/sda5: UUID="f1b2836f-81bf-4f75-9ae0-f2c284871891" TYPE="swap" /dev/sda6: LABEL="debian-root" UUID="c00a4da53-1763-42e1-878d-3e096cad760b" TYPE="ext4" /dev/sda7: UUID="60eca5b7-09ef-4b82-bf59-1a8360c8c6c1" TYPE="crypto_LUKS" /dev/mapper/home: UUID="6cbebba6-e725-4549-bafe-8809ff73f27f" TYPE="ext4" /dev/hda1: SEC_TYPE="msdos" LABEL="EOS_DIGITAL" TYPE="vfat" rennecke@trantor ~ % su Passwort: root@trantor /home/rennecke $ mkdir /media/flash Nun weiß ich, dass meine CF-Karten das Device /dev/hda1 haben.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/09/cf-karten-mounten/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2010/08/neues-logo-f%C3%BCr-iceweasel/">Neues Logo für Iceweasel</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>16</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Aug</span> <span class="post-date-year">2010</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+      					
+					        <a class="post-category post-category-sonstiges" href="http://localhost:1313//categories/sonstiges">sonstiges</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Es werden neue Logos für Ice[weasel | ape | dove] gesucht. Ich habe mir mit Martin, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2010/08/neues-logo-f%C3%BCr-iceweasel/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+      </div>
+
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

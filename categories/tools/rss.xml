@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Michael im Netz</title>
+    <link>http://localhost:1313/categories/tools/</link>
+    <description>Recent content in Tools on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/tools/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>kaputtes System nach Restore mit Obnam</title>
+      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit &lt;a href=&#34;https://grml.org/&#34;&gt;grml&lt;/a&gt; auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles.&lt;/p&gt;
+
+&lt;p&gt;Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus &lt;a href=&#34;https://launchpad.net/~chris-bigballofwax/+archive/ubuntu/obnam-ppa&#34;&gt;dieser PPA&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modernes Logging Teil 2</title>
+      <link>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</guid>
+      <description>
+
+&lt;p&gt;Ich habe in meinen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
+Inzwischen wurde &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
+finale Version zeigen und auf das &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
+
+&lt;p&gt;Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
+im Elasticsearch anpassen.&lt;/p&gt;
+
+&lt;h3 id=&#34;vorarbeiten:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Vorarbeiten&lt;/h3&gt;
+
+&lt;p&gt;Als erstes fährt man Kibana herunter und updatet Elasricsearch auf die Version 1.4.4. Das geht sehr einfach, wenn man das
+entsprechende &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository&lt;/a&gt; benutzt. Dann ist es nur noch ein &lt;code&gt;apt-get install elasticsearch&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;update-auf-kibana-4:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Update auf Kibana 4&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-linux-x64.tar.gz
+
+# Index updaten
+BODY=`curl -XGET &#39;localhost:9200/.kibana/config/4.0.0-rc1/_source&#39;`; curl -XPUT &amp;quot;localhost:9200/.kibana/config/4.0.0&amp;quot; -d &amp;quot;$BODY&amp;quot; &amp;amp;&amp;amp; curl -XDELETE &amp;quot;localhost:9200/.kibana/config/4.0.0-rc1&amp;quot;
+
+# kibana starten
+kibana-4.0.0-linux-x64/bin/kibana
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;nachtrag-06-03-2015:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Nachtrag 06.03.2015&lt;/h3&gt;
+
+&lt;p&gt;Es wurde &lt;a href=&#34;https://www.elasticsearch.org/blog/kibana-4-0-1-released/&#34;&gt;Kibana 4.0.1&lt;/a&gt; released. Diese Version hat ein paar Bugfixes und man auch den Index nicht updaten, wenn man den Release Candidate noch installiert hat.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modernes Logging</title>
+      <link>http://localhost:1313/post/2015/02/modernes-logging/</link>
+      <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/modernes-logging/</guid>
+      <description>
+
+&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&#34;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&#34;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&#34;http://logstash.net/&#34;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; wird zum
+visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&#34;http://de.wikipedia.org/wiki/Syslog&#34;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&#34;http://www.rsyslog.com/&#34;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;
+
+&lt;p&gt;Die folgende Anleitung beschreibt, wie man das ganze unter Ubuntu 14.04 einrichtet. Ich beschreibe kein komplettes Setup, es ist als Einstieg in die Thematik gedacht.&lt;/p&gt;
+
+&lt;h3 id=&#34;rsyslog-unter-ubuntu-14-04-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;rsyslog unter Ubuntu 14.04 installieren&lt;/h3&gt;
+
+&lt;p&gt;Eine Konsole öffnen und das Repository hinzufügen. Es handelt sich hierbei um das &lt;a href=&#34;http://www.rsyslog.com/ubuntu-repository/&#34;&gt;offizelle Repository&lt;/a&gt; von rsyslog. Rsyslog ist in den offizellen Repositories von Ubuntu nicht auf dem neusten Stand, außerdem gibt kein Paket mit dem Elasticsearchsupport.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo add-apt-repository ppa:adiscon/v8-stable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Den Cache von &lt;code&gt;apt&lt;/code&gt; aktualisieren und &lt;code&gt;rsyslog&lt;/code&gt; mit der Elasticsearch Unterstützung installieren&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install rsyslog rsyslog-elasticsearch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;elasticsearch-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Elasticsearch installieren&lt;/h3&gt;
+
+&lt;p&gt;deb-Paket herunterladen und installieren. Die Installation über das deb-Paket hat den Vorteil, dass man Elasticsearch einfach updaten kann und es gibt auch schon init-Skripte.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.3.deb
+sudo dpkg -i elasticsearch-1.4.3.deb
+sudo update-rc.d elasticsearch defaults
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elasticsearch konfigurieren. Dazu muss man die Datei &lt;code&gt;/etc/elasticsearch/elasticsearch.yml&lt;/code&gt; im Editor seine Wahl öffnen und die folgenden Zeilen einkommentieren und ändern&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# Set the number of shards (splits) of an index (5 by default):
+#
+index.number_of_shards: 1
+
+# Set the number of replicas (additional copies) of an index (1 by default):
+#
+index.number_of_replicas: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elasticsearch starten:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo service elasticsearch start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rsyslog-konfigurieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;rsyslog konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Man muss nun dafür sorgen, dass die Lognahrichten von rsyslog nach Elasticsearch geschrieben werden. Als erstes legt man ein &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html&#34;&gt;Mapping&lt;/a&gt; in Elasticsearch an. Damit sagt man Elasticsearch, dass es das Feld &lt;code&gt;program&lt;/code&gt; &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html&#34;&gt;nicht analysieren&lt;/a&gt; soll. Außerdem sollen die Dokumente nach &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-ttl-field.html&#34;&gt;90 Tagen gelöscht&lt;/a&gt; werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -XPUT &#39;http://localhost:9200/logstash&#39; -d &#39;{
+  &amp;quot;mappings&amp;quot;: {
+    &amp;quot;events&amp;quot; : {
+      &amp;quot;_ttl&amp;quot; : {
+        &amp;quot;enabled&amp;quot; : true,
+        &amp;quot;default&amp;quot; : &amp;quot;90d&amp;quot;
+        },
+      &amp;quot;properties&amp;quot; : {
+        &amp;quot;program&amp;quot; : {
+          &amp;quot;type&amp;quot; : &amp;quot;string&amp;quot;,
+          &amp;quot;index&amp;quot; : &amp;quot;not_analyzed&amp;quot;,
+          &amp;quot;norms&amp;quot; : {
+            &amp;quot;enabled&amp;quot; : false
+          }
+        }
+      }
+    }
+  }
+}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nach man die Datei  &lt;code&gt;/etc/rsyslog.d/30-elasticsearch.conf&lt;/code&gt; erstellt hat, muss
+man nur noch &lt;code&gt;rsyslog&lt;/code&gt; neu starten. Wenn es Probleme gibt kann man mit &lt;code&gt;rsyslogd -N1&lt;/code&gt; die Konfiguraion überprüfen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+cat &amp;lt;&amp;lt; EOF &amp;gt; /etc/rsyslog.d/30-elasticsearch.conf
+#module(load=&amp;quot;imuxsock&amp;quot;)       # for listening to /dev/log, normal not needed
+module(load=&amp;quot;omelasticsearch&amp;quot;) # for outputting to Elasticsearch
+
+# this is for index names to be like: logstash-YYYY.MM.DD
+template(name=&amp;quot;logstash-index&amp;quot;
+  type=&amp;quot;list&amp;quot;) {
+    constant(value=&amp;quot;logstash-&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;1&amp;quot; position.to=&amp;quot;4&amp;quot;)
+    constant(value=&amp;quot;.&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;6&amp;quot; position.to=&amp;quot;7&amp;quot;)
+    constant(value=&amp;quot;.&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;9&amp;quot; position.to=&amp;quot;10&amp;quot;)
+}
+
+# use only one index, useful only for local usage
+template(name=&amp;quot;logstash&amp;quot; type=&amp;quot;string&amp;quot; string=&amp;quot;logstash&amp;quot;)
+
+# this is for formatting our syslog in JSON with @timestamp
+template(name=&amp;quot;plain-syslog&amp;quot;
+  type=&amp;quot;list&amp;quot;) {
+    constant(value=&amp;quot;{&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;@timestamp\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;host\&amp;quot;:\&amp;quot;&amp;quot;)        property(name=&amp;quot;hostname&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;severity\&amp;quot;:\&amp;quot;&amp;quot;)    property(name=&amp;quot;syslogseverity-text&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;facility\&amp;quot;:\&amp;quot;&amp;quot;)    property(name=&amp;quot;syslogfacility-text&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;tag\&amp;quot;:\&amp;quot;&amp;quot;)         property(name=&amp;quot;syslogtag&amp;quot; format=&amp;quot;json&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;program\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;programname&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;message\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;msg&amp;quot; format=&amp;quot;json&amp;quot;)
+    constant(value=&amp;quot;\&amp;quot;}&amp;quot;)
+}
+
+# this is where we actually send the logs to Elasticsearch (localhost:9200 by default)
+action(type=&amp;quot;omelasticsearch&amp;quot;
+    template=&amp;quot;plain-syslog&amp;quot;
+    searchIndex=&amp;quot;logstash&amp;quot;
+    dynSearchIndex=&amp;quot;on&amp;quot;)
+
+EOF
+/etc/init.d/rsyslog restart
+exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;kibana-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Kibana installieren&lt;/h3&gt;
+
+&lt;p&gt;Für Kibana gibt es leider keinen bequemen Installationsweg. Deswegen beschreibe ich den Weg, der schnell und einfach zum Ziel führt, aber auf keinen Fall sinnvoll für den produktiven Betrieb ist. Man läd Kibana herunter und startet es.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-rc1-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-rc1-linux-x64.tar.gz
+kibana-4.0.0-rc1-linux-x64/bin/kibana
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man auf Kibana über &lt;code&gt;http://127.0.0.1:5601/&lt;/code&gt; im Browser zugreifen. Man muss nur noch Kibana sagen, welchen Index es benutzen soll. Das geht realtiv intuitiv.&lt;/p&gt;
+
+&lt;h3 id=&#34;anmerkung:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Anmerkung&lt;/h3&gt;
+
+&lt;p&gt;Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows nutzen. Ich habe hier alle Technologien nur angeschitten, für ein richtiges Setup muss man noch viel mehr beachten und konfigurieren.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Skripte parallelisieren</title>
+      <link>http://localhost:1313/post/2015/02/skripte-parallelisieren/</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/skripte-parallelisieren/</guid>
+      <description>
+
+&lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;code&gt;parallel&lt;/code&gt; als Ersatz für &lt;code&gt;xargs&lt;/code&gt; nehmen oder um Schleifen zu parallelisieren. Auf der Seite von &lt;code&gt;parallel&lt;/code&gt; gibt es viele &lt;a href=&#34;http://www.gnu.org/software/parallel/man.html&#34;&gt;Beispiele&lt;/a&gt;, welche über das parallelisieren von Schleifen hinaus gehen.&lt;/p&gt;
+
+&lt;h3 id=&#34;aktueller-anwendungsfall:cb1bfcf9cf27c64f5ffffa51a1dd92e0&#34;&gt;Aktueller Anwendungsfall&lt;/h3&gt;
+
+&lt;p&gt;Ich nutze &lt;code&gt;parallel&lt;/code&gt; zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_File_System&#34;&gt;NFS&lt;/a&gt;-Freigabe. Ich habe &lt;a href=&#34;http://rsync.samba.org/&#34;&gt;rsync&lt;/a&gt; und &lt;code&gt;cp&lt;/code&gt; probiert. &lt;code&gt;rsync&lt;/code&gt; ist in meinen Fall langsamer als &lt;code&gt;cp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aus diesem Grund habe ich &lt;code&gt;cp&lt;/code&gt;, wie folgt parallelisiert:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;find . -type f -mtime -2 | parallel --jobs 16 /usr/sbin/backup_helper.sh {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt; auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
+
+&lt;p&gt;Das script &lt;code&gt;backup_helper.sh&lt;/code&gt; sieht wie folgt aus:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cat /usr/sbin/backup_helper.sh
+#!/bin/bash
+
+base=&amp;quot;$(dirname ${1})&amp;quot;
+mkdir -p &amp;quot;/backup/${base}&amp;quot;
+cp &amp;quot;${1}&amp;quot; &amp;quot;/backup/${1}&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rrdtool und json</title>
+      <link>http://localhost:1313/post/2014/10/rrdtool-und-json/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/rrdtool-und-json/</guid>
+      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
+Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
+visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
+angezeigt.&lt;/p&gt;
+
+&lt;p&gt;Meine Idee war, dass ich aus der RRD-Datenbank einige Daten zu json konvertiere, um sie dann
+mit Highcharts anzuzeigen. Die json-Daten wollte ich mit einem ajax-Request nachladen. Da ich
+so gut wie keine JavaScript- und JQuerry-Kenntnisse habe, habe ich sehr lange vergeblich
+probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte &amp;ldquo;json&amp;rdquo; mir angesehen
+habe, ist mir aufgefallen, dass es kein valides json ist&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Weil ich noch ein Erfolgserlebnis haben wollte, bin ich auf den validen xml-Export von
+RRDtool umgestiegen. Danach hat der Prototyp funktioniert.&lt;/p&gt;
+
+&lt;p&gt;Nach etwas Recherche im Netz, bin ich auch auf ein &lt;a href=&#34;https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825&#34;&gt;Bug-Ticket&lt;/a&gt; gestoßen, welches den kaputten
+json-Export anspricht.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neuer Blog</title>
+      <link>http://localhost:1313/post/2014/07/neuer-blog/</link>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/neuer-blog/</guid>
+      <description>
+
+&lt;p&gt;Ich habe mich entschlossen, meinen alten &lt;a href=&#34;http://wpde.org/&#34;&gt;Wordpress&lt;/a&gt;-Blog einzudampfen. Ich
+fand Wordpress schon immer recht schwergewichtig, aber ich kannte bis jetzt keine Alternative um einen
+&amp;ldquo;gut&amp;rdquo; aussehenden Blog mit &amp;ldquo;wenig&amp;rdquo; Arbeit zu pflegen.&lt;/p&gt;
+
+&lt;p&gt;Nun bin ich auf &lt;a href=&#34;http://jekyllbootstrap.com&#34;&gt;JekyllBootstrap&lt;/a&gt; und &lt;a href=&#34;https://github.com/dhulihan/hooligan&#34;&gt;Hooligan&lt;/a&gt; gestoßen.
+Am Theme habe ich etwas etwas Hand angelegt. Als
+Versionsverwaltung nutze ich &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt;. Der gesamte Blog ist als
+Code auf &lt;a href=&#34;https://github.com/0rph3us/jekyll-bootstrap&#34;&gt;github&lt;/a&gt; zu finden.&lt;/p&gt;
+
+&lt;p&gt;Da ich nun offline am Blog arbeiten kann, möchte ich wieder aktiver sein.&lt;/p&gt;
+
+&lt;h2 id=&#34;der-alte:35e6c4eaf33501dfb90b608aab77ae63&#34;&gt;Der Alte&lt;/h2&gt;
+
+&lt;p&gt;Ich habe bzw. bin noch dabei die gesamten Inhalte des alten Wordpress zu portieren. Das meiste habe
+ich automatisch migriert. Dadurch kann es noch Leichen im Layout geben. Ich werde nach und nach
+die alten Posts überarbeiten.&lt;/p&gt;
+
+&lt;h2 id=&#34;technik:35e6c4eaf33501dfb90b608aab77ae63&#34;&gt;Technik&lt;/h2&gt;
+
+&lt;p&gt;Die erste Version des Blogs wird auf meinen Raspberry Pi laufen. Als Webserver verwende ich Nginx, außerdem
+verwende ich Varnish zum cachen. Ich hoffe, dass mit diesem Setup die Geschwindigkeit des Blog
+erträglich bleibt.&lt;/p&gt;
+
+&lt;p&gt;In weiteren Beiträgen werde ich schreiben wie das Setup genau aussieht. Ich auch noch etwas
+am ausprobieren.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Neuer GPG-Key</title>
+      <link>http://localhost:1313/post/2013/09/neuer-gpg-key/</link>
+      <pubDate>Mon, 09 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2013/09/neuer-gpg-key/</guid>
+      <description>&lt;p&gt;Nach den ganzen &lt;a href=&#34;http://www.nsa.gov/&#34;&gt;NSA&lt;/a&gt;-Enthüllungen, habe ich mich wieder mit Public-Key-Kryptografie beschäftigt. Mein bisheriger &lt;a href=&#34;http://www.gnupg.org/&#34;&gt;GPG&lt;/a&gt;-Schüssel D12E87BA hat &lt;a href=&#34;http://www.itl.nist.gov/fipspubs/fip186.htm&#34;&gt;DSA&lt;/a&gt; und &lt;a href=&#34;http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren&#34;&gt;ElGamal&lt;/a&gt; verwendet. Ich habe damals diese Algorithmen damals gewählt, da ich keinen &#34;Standard-Key&#34; haben wollte. Die Längen sind auch nach heutigen Maßstäben ausreichend. Es aber &lt;a href=&#34;http://rdist.root.org/2010/11/19/dsa-requirements-for-random-k-value/&#34;&gt;Angriffe für DSA&lt;/a&gt;, welche darauf beruhen, dass die Zufallszahlen von Zufallszahlengeneratoren nicht zufällig sind. Da ich meinen Schlüssel auf beliebigen Rechnern und auch Endgeräten nutzen möchte, kann ich nicht immer sicher stellen, dass der Zufallszahlengenerator wirklich korrekt seine Arbeit macht. Aus diesem Grund habe ich mir ein neues Schlüsselpaar mit &lt;a href=&#34;http://de.wikipedia.org/wiki/RSA-Kryptosystem&#34;&gt;RSA&lt;/a&gt; zum verschlüsseln und signieren erstellt.&lt;/p&gt;
+&lt;p&gt;Es ist nicht ganz unwahrscheinlich, dass &lt;a href=&#34;http://news.cnet.com/8301-13578_3-57591560-38/facebooks-outmoded-web-crypto-opens-door-to-nsa-spying/&#34;&gt;große Organisationen 1024 Bit RSA Schüssel faktorisieren&lt;/a&gt; können. Ein Schlüssellänge von 2048 Bit gilt als sicher und 4096 Bit als paranoid. Ich bin lieber paranoid und nehme 4096 lange Schlüssel, da diese Schüssellänge auf heutigen Rechnern kein Problem darstellt und von fast allen Implementieren von GPG unterstützt wird.&lt;/p&gt;
+&lt;p&gt;Mein neuer Key ist &lt;a href=&#34;http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;amp;search=0x617EB806EE75C6FE&#34;&gt;EE75C6FE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Letzte Rettung von MySQL</title>
+      <link>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</link>
+      <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</guid>
+      <description>&lt;p&gt;
+Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
+&lt;p&gt;
+Mit Hilfe von &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/forcing-innodb-recovery.html&#34;&gt;innodb_force_recovery&lt;/a&gt; kann man MySQL dazu bringen, dass es Tabellen wieder her stellt. Diese Option schreibt man einfach in die &lt;tt&gt;my.cnf&lt;/tt&gt;. Er kann die Werte von 1 bis 6 annehmen. Je höher der Wert ist, desto höher ist die Wahrscheinlichkeit, dass die Tabelle wieder hergestellt werden kann. Aber Achtung: Je größer der Wert ist, desto mehr Daten kann MySQL beim Wiederherstellen zerstören. Es ist deswegen ratsam den Wert inkrementell zu erhöhen, dieses Vorgehen dauert evtl. länger, aber man geht nicht in Gefahr unnötig Daten zu verlieren.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>noSQL Datenbanken</title>
+      <link>http://localhost:1313/post/2011/05/nosql-datenbanken/</link>
+      <pubDate>Wed, 18 May 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/05/nosql-datenbanken/</guid>
+      <description>&lt;p&gt;
+Ich arbeite inzwischen bei &lt;a href=&#34;http://www.unister.de/&#34;&gt;Unister&lt;/a&gt; als &lt;a href=&#34;http://0rpheus.net/privat/junior-system-architekt&#34;&gt;Junior Systemarchitekt&lt;/a&gt;. Zu meinen ersten Aufgaben hat gezählt eine Architektur für eine eine Datenbank zu schaffen, welche mit sehr hohen Schreibaufkommen zurecht kommt. Als Datenbank haben wir &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; benutzt. Dabei handelt es sich um eine &lt;a href=&#34;http://nosql-database.org/&#34;&gt;noSQL&lt;/a&gt;-Datenbank. Diese Dazenbanken haben kein festes Datenbankschema.&lt;/p&gt;
+&lt;p&gt;
+Die ersten Ergebnisse waren sehr erschütternd. Die Schreibperformence war einfach zu gering. Da man bei &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; nichts konfigurieren kann (Im Vergleich zu klassischen Datenbanken, wie MySQL oder PostgreSQL) war ich erst einmal ratlos. Das ganze konnte mit Clustern nicht verbessert werden. Eine genaue Untersuchung der Applikation hat ergeben, dass die Daten synchron und damit blockierend geschrieben wurden. Nachdem die Inserts nicht blockierend und in Batches umgesetzt wurden konnte schon ein Performancesprung festgestellt werden. Das konnte weiter verbessert werden, als wir die einzufügenden Daten in der Applikation nach dem Index vorsortiert eingefügt haben. Die Ursache liegt darin, das die Datenbank den Batch schneller abarbeiten kann und weniger Operationen auf dem Index nötig sind.&lt;/p&gt;
+&lt;p&gt;
+Zum Schluss möchte ich noch ein paar Worte zum Clustern von &lt;a href=&#34;http://www.mongodb.org/&#34;&gt;mongoDB&lt;/a&gt; verlieren. Es wird alles mitgebracht um schnell einen Cluster aufzusetzten. Ich habe es es leider geschafft, durch den Absturz von einem Knoten, den gesamten Cluster zu zerstören. Also sollte man bei Wichtigen Daten für Redundanz im Cluster sorgen. Es gibt auch viele Mittel in mongoDB um diese Redundanz zu erreichen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mercurial</title>
+      <link>http://localhost:1313/post/2011/02/mercurial/</link>
+      <pubDate>Tue, 22 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/02/mercurial/</guid>
+      <description>&lt;p&gt;Ich wollte eben, mal schnell ein &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;-Repository einen Bekannten zur Verfügung stellen. Also habe ich es auf seinen Server kopiert. Nun kam die Überraschung: Es ging nicht mehr. Es gibt die typischen dubiosen Fehlermeldungen von &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;, bei denen niemand weiß was los ist. Da ich schon sehr lange unter Solaris mit &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt; arbeite kenne ich so ein paar Fallstricke.&lt;/p&gt;
+&lt;p&gt;In diesem Fall war die &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;-Versionen verschieden. In vielen Fällen, kann man das wie folgt beheben:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+# remote-Server
+rennecke@odin /export/repos % hg init newrepo
+# local host
+rennecke@walhalla ~/repo (hg)-[default] % hg push ssh://rennecke@odin//export/repos/newrepo
+&lt;/pre&gt;
+&lt;p&gt;
+Nachdem man auf dem Server ein leeren Repo angelegt hat, kann man die Inhalte rein pushen. Wenn man hinter einem Proxy-Server ist, kann man diesen gleich mit angeben:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@trantor ~ % hg --config http_proxy.host=my-proxy.org:3128 clone  ssh://rennecke@odin//export/repos/newrepo
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tree Tab Style bei Firefox</title>
+      <link>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</link>
+      <pubDate>Sat, 08 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</guid>
+      <description>&lt;p&gt;Ich nutze schon sehr lange den &lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt;Tree Tab Style&lt;/a&gt; für Firefox. Heute ist mein Firefox unter Solaris alle 3 Minuten abgestürzt. Bis ich auf die Idee gekommen bin, dass es evtl. mein&lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt; Tree Tab Style Plugin&lt;/a&gt; ist. Der Firefox hat gemeint, dass es kein Update gibt. Also habe ich auf der &lt;a href=&#34;http://piro.sakura.ne.jp/xul/_treestyletab.html.en#download&#34;&gt;Projektseite des Entwickler&lt;/a&gt; nachgeschaut und dort gab es ein Update. Dieses funktioniert. Ob dieser Fehler nur bei Solaris auftritt weiß ich nicht.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Im SunStudio die STL nutzen</title>
+      <link>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</link>
+      <pubDate>Fri, 26 Nov 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</guid>
+      <description>&lt;p&gt;Mir ist die Tage beim programmieren negativ aufgefallen, dass sich im  Sun Studio 12 Express einige Funktionen anderst sind, als in der STL  spezifiziert. Mir ist es bei &lt;em&gt;std::sort&lt;/em&gt; aufgefallen. Man kann normal &lt;em&gt;sort&lt;/em&gt; eine Funktion übergeben, welche die Elemente vergleicht. Diese  Überladung existiert in der Sun STL nicht. Das ist bekannt und wurde  schon an anderen Stellen diskutiert. Wenn man die STL nutzen möchte,  dann muss man dem Compiler die Option &lt;em&gt;-library=stlport4&lt;/em&gt; mitgeben, dann  wird die standartkonforme STL verwendet.&lt;/p&gt;
+&lt;p&gt;Im Sun Studio kann man diese Option unter Additional Options mit angeben.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nutzer anlegen im Active Directory</title>
+      <link>http://localhost:1313/post/2010/10/nutzer-anlegen-im-active-directory/</link>
+      <pubDate>Wed, 27 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/10/nutzer-anlegen-im-active-directory/</guid>
+      <description>&lt;p&gt;Ich habe vor einigen Tagen mich mit dem &lt;a href=&#34;http://www.rrzn.uni-hannover.de/fileadmin/it_sicherheit/pdf/SiTaWS05-ActiveDir.pdf&#34;&gt;Active Directory&lt;/a&gt;
+beschäftigen müssen. Für mich als Solaris-User ist das eine ganz andere Welt. Deswegen habe ich mich sehr schwer getan,
+ohne &lt;a href=&#34;https://meet-unix.org/&#34;&gt;Martin&lt;/a&gt; wär dieser Artikel nicht möglich gewesen. Er stand mir mit Rat und Tat eine
+Stunde telefonisch zur Verfügung. Danke noch einmal!&lt;/p&gt;
+
+&lt;p&gt;Nun zu meinen Problem: Ich wollte Nutzer aus einer spool-Datei automatisch in das Active Directory eintragen. Weiterhin mussten die Benutzer in die
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Organizational_Unit&#34;&gt;Organizational Unit&lt;/a&gt; &lt;code&gt;peter_lustig_user&lt;/code&gt; verschoben werden. Das anlegen der Nutzer habe ich noch
+alleine hinbekommen. Dazu habe ich aus zahlreichen Skripten Codezeilen kopiert. Aber das Verschieben habe ich nicht hinbekommen.
+&lt;a href=&#34;https://meet-unix.org/&#34;&gt;Martin&lt;/a&gt;  hat mich auf die Active Directory Tools von Microsoft hingeweisen. Diese fangen alle mit &lt;strong&gt;ds&lt;/strong&gt; an.
+Mit &lt;a href=&#34;http://ss64.com/nt/dsquery.html&#34;&gt;dsquery *&lt;/a&gt; habe ich mich durch die Struktur des Active Directory gewühlt. Das grafische Frontend ist zwar
+schön, aber da habe ich nicht mitbekommen, aber da weiß ich nicht wie der &lt;a href=&#34;http://www.comptechdoc.org/os/windows/win2k/win2kadname.html&#34;&gt;Distinguished Name&lt;/a&gt; aussieht&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Zum Schluss bin ich zu folgen Skript gekommen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-vb.net&#34;&gt;Set args = WScript.Arguments
+profile_pfad = &amp;quot;\odin\homes\%username%\profile&amp;quot;
+gruppe_neu = &amp;quot;benutzer&amp;quot;
+if args.count &amp;lt;&amp;gt; 1 then
+	MsgBox &amp;quot;Es muss genau eine spool-Datei angegeben werden&amp;quot;
+	Wscript.quit
+End If
+Randomize
+protokoll = &amp;quot;C:\Dokumente und Einstellungen\Administrator\Desktop\skripte\protokoll.txt&amp;quot;
+Set fs = CreateObject(&amp;quot;Scripting.FileSystemObject&amp;quot;)
+&#39; Das WScript.Network-Objekt liefert den Namen des Computers
+Set net = CreateObject(&amp;quot;WScript.Network&amp;quot;)
+&#39; Protokolldatei öffnen
+Set output = fs.CreateTextFile(protokoll, True)
+&#39;Holt den Namen des Computers aus dem net Objekt
+name = net.ComputerName
+Set computer = GetObject(&amp;quot;WinNT://&amp;quot; &amp;amp; name)
+&#39; Datei öffnen
+dateiname = args(0)
+If Not fs.FileExists(dateiname) Then
+	MsgBox &amp;quot;Die Datei (&amp;quot; &amp;amp; dateiname &amp;amp; &amp;quot;) existiert am angegebenen Ort nicht!&amp;quot;
+	WScript.Quit
+End If
+Set infos = fs.OpenTextFile(dateiname)
+&#39; Datei zeilenweise bis zum Ende (atEndOfStream) lesen:
+Do Until infos.AtEndOfStream
+	&#39; eine Zeile einlesen
+	zeile = infos.ReadLine
+	&#39; Informationen durch Semikola splitten
+	details = Split(zeile, &amp;quot;;&amp;quot;)
+	username = Trim(details(0))
+	&#39; Konto anlegen
+	Set kontoneu = computer.Create(&amp;quot;User&amp;quot;, Trim(details(0)))
+	kontoneu.FullName = Trim(details(1))
+	kontoneu.Profile = profile_pfad
+	&#39; Passwort auslesen, wenn es das default-Passwort ist, dann generiere ein Passwort
+	passwort =  Trim(details(2))
+	if passwort = &amp;quot;du34!$7_.4-@&amp;quot; then
+		passwort = Trim(genPasswort)
+		kontoneu.PasswordExpired = CLng(1)
+	end if
+	kontoneu.SetPassword passwort
+	&#39; Ablaufdatum setzten
+	if trim(details(3)) &amp;lt;&amp;gt; &amp;quot;never&amp;quot; then
+		kontoneu.AccountExpirationDate = Trim(details(3))
+	end if
+	&#39; Normales Benutzerkonto
+	kontoneu.UserFlags = 512
+	if not fs.FolderExists(&amp;quot;\odin\homes\&amp;quot; &amp;amp; username) then
+		set folder = fs.CreateFolder(&amp;quot;\odin\homes\&amp;quot; &amp;amp; username)
+		set folder_files = fs.createfolder(&amp;quot;\odin\homes\&amp;quot; &amp;amp; username &amp;amp; &amp;quot;\files&amp;quot;)
+		set folder_profile = fs.createfolder(&amp;quot;\odin\homes\&amp;quot; &amp;amp; username &amp;amp; &amp;quot;\profile&amp;quot;)
+		set IShellDispatch2 = CreateObject(&amp;quot;Shell.Application&amp;quot;)
+		Call IShellDispatch2.ShellExecute(&amp;quot;C:\skripte\subinacl&amp;quot;, &amp;quot;/file \odin\homes\&amp;quot; &amp;amp; username &amp;amp; &amp;quot; /setowner=&amp;quot; &amp;amp; username, , , 0)
+		Call IShellDispatch2.ShellExecute(&amp;quot;c:\skripte\subinacl&amp;quot;, &amp;quot;/subdirectories \odin\homes\&amp;quot; &amp;amp; username &amp;amp; &amp;quot; /setowner=&amp;quot; &amp;amp; username, , , 0)
+		Call IShellDispatch2.ShellExecute(&amp;quot;C:\skripte\cacls&amp;quot;, &amp;quot;\odin\homes\&amp;quot; &amp;amp; username &amp;amp; &amp;quot; /T /G Administratoren:F &amp;quot; &amp;amp; username &amp;amp; &amp;quot;:F System:F &amp;lt; echo j&amp;quot;, , , 0)
+	end if
+	err.clear
+	On Error Resume Next
+	kontoneu.SetInfo
+	if Err.number = 0 then
+		WriteLog &amp;quot;Benutzername:  &amp;quot; &amp;amp; username &amp;amp; &amp;quot;   Passwort: &amp;quot; &amp;amp; passwort
+		AddToGroup gruppe_neu, kontoneu.ADsPath
+		&#39; User in die ou peter_lustig_user verschieben
+		set dsMove = CreateObject(&amp;quot;Shell.Application&amp;quot;)
+		dsMoveArg = &amp;quot; &amp;quot; &amp;amp; Chr(34) &amp;amp; &amp;quot;CN=&amp;quot; &amp;amp; username &amp;amp; &amp;quot;,CN=Users,DC=w2k8-pool,DC=windows,DC=0rpheus,DC=net&amp;quot; &amp;amp; Chr(34) &amp;amp; _
+	                       &amp;quot; -newparent &amp;quot; &amp;amp; Chr(34) &amp;amp; &amp;quot;OU=peter_lustig_user,DC=w2k8-pool,DC=windows,DC=0rpheus,DC=net&amp;quot; &amp;amp; Chr(34)
+		Call dsMove.ShellExecute(&amp;quot;dsmove&amp;quot;, dsMoveArg, , ,0)
+	else
+		if Err.number = -2147022672 then
+			WriteLog &amp;quot;Fehler beim Anlegen von &amp;quot; &amp;amp; username &amp;amp; &amp;quot;: Nutzer existiert bereits&amp;quot;
+		else
+			WriteLog &amp;quot;Fehler beim Anlegen von &amp;quot; &amp;amp; username &amp;amp; &amp;quot;: &amp;quot; &amp;amp; Err.Number
+		end if
+	end if
+	Err.Clear
+Loop
+&#39; Dateien schließen
+infos.Close
+output.Close
+&#39; Protokoll anzeigen:
+&#39;SYS: Microsoft (r) Script Runtime
+Set wshshell = CreateObject(&amp;quot;WScript.Shell&amp;quot;)
+wshshell.Run &amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;amp; protokoll &amp;amp; &amp;quot;&amp;quot;&amp;quot;&amp;quot;
+Sub AddToGroup(gruppenname, kontoname)
+	On Error Resume Next
+	Set gruppe = GetObject(&amp;quot;WinNT://&amp;quot; &amp;amp; ComputerName &amp;amp; &amp;quot;/&amp;quot; &amp;amp; gruppenname &amp;amp; &amp;quot;,group&amp;quot;)
+	gruppe.Add kontoname
+	gruppe.SetInfo
+	If Err.number = 0 Then
+		&#39;WriteLog &amp;quot;Konto ist Mitglied in Gruppe &amp;quot; &amp;amp; gruppenname
+	Else
+		&#39;WriteLog &amp;quot;Konto konnte nicht zum Mitglied in Gruppe &amp;quot; &amp;amp; gruppenname &amp;amp; &amp;quot; gemacht werden.&amp;quot;
+	End If
+	Err.Clear
+End Sub
+
+Sub WriteLog(text)
+	&#39; eine Zeile ins Protokoll schreiben und Leerzeile einfügen
+	output.WriteLine text &amp;amp; vbCrLf &amp;amp; vbCrLf
+End Sub
+
+function genPasswort()
+	password = &amp;quot;&amp;quot;
+	for i=1 to 12
+		if Int(100*Rnd mod 2 ) = 1 then
+			password = password &amp;amp; chr(Int(61*Rnd+33))
+		else
+			password = password &amp;amp; chr(Int(29*Rnd+97))
+		end if
+	next
+	genPasswort = password
+end function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Der AD-Guru oder Windows-Hardcore User wird sicher sagen, wie dumm ist das denn, das geht in einen 3-Zeiler.
+Aber ich kann kein Windows und will es eigentlich auch nicht lernen :P Wenn ich Zeit hätte wüsste ich wie man
+mit den &lt;code&gt;ds&lt;/code&gt;&lt;em&gt;-Tools das ganze schöner machen könnte. Ich habe das komplette Skript hier rein gestellt, da
+man sicher die ein oder andere Zeile klauen kann *g&lt;/em&gt;. Der Passwortgenerator ist schlecht,
+es war aber die schnellste Lösung.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optischer Randausgleich</title>
+      <link>http://localhost:1313/post/2010/09/optischer-randausgleich/</link>
+      <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/09/optischer-randausgleich/</guid>
+      <description>&lt;p&gt;Ich schreibe meine Diplomarbeit mit LaTeX. Da bekommt man auch einen schönen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz,
+unter beachtung möglicher Worttrennungen  berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch
+verbessern, indem man den &lt;em&gt;optischen Randausgleich&lt;/em&gt; nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert
+des linken Rand gleich ist. Ein Bindestrich ragt z.B. mehr in Rand hinein als ein m. da ein Bindestrich weniger schwarz enthält als ein m.
+Für das Auge sieht der linke  Rand nun gerade aus. Man muss dafür nur das Package  &lt;strong&gt;microtype&lt;/strong&gt; einbinden.
+&lt;a href=&#34;http://www.ctan.org/tex-archive/macros/latex/contrib/microtype/microtype.pdf&#34;&gt;Hier&lt;/a&gt; ist die Doku dazu.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;...
+%optischer Randausgleich aktivieren
+\usepackage{microtype}             % ist auf alten Installation nicht immer vorhanden
+% \usepackage[activate]{pdfcprot}  % wird nicht mehr weiter entwickelt
+...
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>LaTeX: Bilder an eine bestimmte Stelle platzieren</title>
+      <link>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</link>
+      <pubDate>Fri, 27 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</guid>
+      <description>&lt;p&gt;Wenn man bei LaTeX  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
+LaTeX  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
+dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package &lt;code&gt;here&lt;/code&gt;, welches inzwischen
+bei &lt;a href=&#34;http://tug.org/texlive/&#34;&gt;TeX Live&lt;/a&gt; durch &lt;code&gt;float&lt;/code&gt; ersetzt wurde.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\usepackage{float} % lädt das Paket zum erzwingen der Grafikposition
+%\usepackage{here} auf älteren LaTeX Distributionen
+
+\begin{document}
+
+\begin{figure}[H]
+   %mit dem großen H wird die Grafikposition auf HERE gesetzt
+   \centering
+   \fbox{ %erzeugt einen Rahmen um die Grafik
+      \includegraphics[angle=0,width=5cm]{Bild.png}
+   }
+\end{figure}
+
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

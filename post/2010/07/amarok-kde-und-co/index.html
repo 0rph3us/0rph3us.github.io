@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    amarok, KDE und Co // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="amarok, KDE und Co" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2010/07/amarok-kde-und-co/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2010/07/amarok-kde-und-co/">amarok, KDE und Co</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Juli</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-solaris" href="http://localhost:1313//categories/solaris">Solaris</a>
+				
+					<a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">Tools</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von <a href="http://blog.hajma.cz/">Pavel Heimlich</a> betreut. Er hat dafür ein eigenes Repo. Ich nutze nur <a href="http://amarok.kde.org/">amarok</a>, welches ich an eine mysql-DB gebunden habe.</p>
+<p>
+Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an <a href="http://www.opensolaris.org/jive/thread.jspa?threadID=130031&tstart=0">dbus</a>. Mein aktueller Build 142 macht das ganze sicher auch besser...</p>
+<p>
+Der primäre Server ist <a href="http://solaris.bionicmutton.org:10000/">http://solaris.bionicmutton.org:10000/</a> Die nimmt keine neuen Verbindungen mehr an, wenn seine Downloadgeschwindigkeit ca. 100kBit/s ist. Ich habe gute Erfahrungen mit den Mirror gemacht: <a href="http://pkg.osladil.cz:30000/">http://pkg.osladil.cz:30000/</a>. Vielleicht kommt das mal in die offizellen Repos mit rein, die sind aber auch nicht gerade schnell....</p>
+<p>
+Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf meinen Build 142. Ich hoffe, dass Illumos bals aus den Puschen kommt...</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-amarok" href="http://localhost:1313//tags/amarok">amarok</a>,
+	                
+	                <a class="post-tag post-tag-kde" href="http://localhost:1313//tags/kde">KDE</a>,
+	                
+	                <a class="post-tag post-tag-opensolaris" href="http://localhost:1313//tags/opensolaris">OpenSolaris</a>,
+	                
+	                <a class="post-tag post-tag-pkg" href="http://localhost:1313//tags/pkg">pkg</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/">Wie ärgere ich mein zfs</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2010/07/erste-erfahrung-mit-build-142/">Erste Erfahrung mit Build 142</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

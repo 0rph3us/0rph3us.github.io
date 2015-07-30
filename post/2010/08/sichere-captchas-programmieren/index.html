@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    &#34;Sichere&#34; Captchas programmieren // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="&#34;Sichere&#34; Captchas programmieren" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2010/08/sichere-captchas-programmieren/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2010/08/sichere-captchas-programmieren/">&#34;Sichere&#34; Captchas programmieren</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> August</span> <span class="post-date-year">2010</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-programmieren" href="http://localhost:1313//categories/programmieren">Programmieren</a>
+				
+					<a class="post-category post-category-sonstiges" href="http://localhost:1313//categories/sonstiges">sonstiges</a>
+				
+					<a class="post-category post-category-tools" href="http://localhost:1313//categories/tools">Tools</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>
+Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>, oder <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> benutzen. Persönlich habe ich eine Abneigung gegen <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a> und <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>. <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen <a href="http://www.w3.org/TR/xhtml1/">xhtml 1.0 strict</a>-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.</p>
+<h2>Wie komme ich zum sicheren Captcha</h2>
+<p>Wenn ich auf Sessions verzichten möchte, so muss ich die Lösung des Captcha mit auf die Seite schreiben. Das kann man in einen <em>nicht sichtbaren</em> Feld machen. Damit man dieses Feld nicht so einfach auslesen kann, schreibt man einen <a href="http://burtleburtle.net/bob/hash/index.html">Hash</a> hinein bzw. man verschlüsselt den Inhalt.</p>
+<pre lang="php" line="1">
+define(KEY, "Ich bin ein Key");
+define(IV, "KlyV6gxG3MOPzlfuj8azF6sKKTnsdsiN58i0zjHA0EU=");
+
+function Crypt($plaintext){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    /* Intialize encryption */
+    mcrypt_generic_init($td, $key, $iv);
+
+    /* Encrypt data */
+    $encrypted = mcrypt_generic($td, $plaintext);
+
+    /* Terminate decryption handle and close module */
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return base64_encode($encrypted);
+}
+
+function Decrypt($chiffre){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    $chiffre = base64_decode($chiffre);
+    mcrypt_generic_init($td, $key, $iv);
+    $plaintext = mdecrypt_generic($td, $chiffre);
+
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return $plaintext;
+}
+
+function draw_captcha_form(){
+    .....
+    $time = time() + 60*30;
+    $captchaSolution = "Test"
+    echo "\t\n\tBitte Captcha lösen<br />\n";
+    // erzeuge ein Captcha
+    echo "\t\n";
+    echo "\t" . '
+<input name="captvalue" id="captvalue" value="" size="40" tabindex="4" type="text" />' . "\n";
+    echo "\t"    . '
+<input name="captcha" value="'. Crypt($time . "~" . $captchaSolution . "~" . $REMOTE_ADDR) . '" type="hidden"/>' . "\n";
+}
+
+function check_post($) {
+    ....
+    $captcha = $_POST['captvalue'];
+    list($timeOld, $secret, $addr) = explode('~',Decrypt($_POST['captcha']));
+    ....
+    if($timeOld <= time()){
+            echo "Deine Zeit ist abgelaufen";
+            return;
+    }
+    if($addr != $REMOTE_ADDR){
+            echo "Falsche IP";
+            return;
+    }
+    if($secret != $captcha){
+            echo "Falsches Captcha";
+            return;
+    }
+    .....
+}
+</pre>
+<p>
+Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich generiere z.B. Matheaufgaben.</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-captcha" href="http://localhost:1313//tags/captcha">captcha</a>,
+	                
+	                <a class="post-tag post-tag-hack" href="http://localhost:1313//tags/hack">hack</a>,
+	                
+	                <a class="post-tag post-tag-php" href="http://localhost:1313//tags/php">php</a>,
+	                
+	                <a class="post-tag post-tag-security" href="http://localhost:1313//tags/security">Security</a>,
+	                
+	                <a class="post-tag post-tag-xhtml" href="http://localhost:1313//tags/xhtml">xhtml</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2010/08/shared-memory-allocator-mit-der-stl/">Shared memory Allocator mit der STL</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2010/08/captcha/">Captcha</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

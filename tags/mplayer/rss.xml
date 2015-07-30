@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mplayer on Michael im Netz</title>
+    <link>http://localhost:1313/tags/mplayer/</link>
+    <description>Recent content in Mplayer on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Fri, 12 Mar 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mplayer/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mplayer für OpenSolaris</title>
+      <link>http://localhost:1313/post/2010/03/mplayer-f%C3%BCr-opensolaris/</link>
+      <pubDate>Fri, 12 Mar 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/03/mplayer-f%C3%BCr-opensolaris/</guid>
+      <description>&lt;p&gt;Es gibt &lt;a href=&#34;http://blogs.sun.com/observatory/entry/compiling_mplayer_on_opensolaris_this&#34;&gt;hier&lt;/a&gt; schon eine Anleitung, wie man den mplayer mit einer GUI übersetzt. Diese Anleitung funktioniert ganz gut, aber &lt;a href=&#34;http://de.wikipedia.org/wiki/MEncoder&#34;&gt;mencoder&lt;/a&gt; arbeitet nicht richtig.&lt;/p&gt;
+&lt;p&gt;Aus diesem Grund kommt hier meine Anleitung. Diese sieht wie folgt aus:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla tmp $ pfexec pkg install SUNWgcc SUNWgmake SUNWxorg-headers SUNWGtk SUNWsfwhea gcc-dev-4 gcc-runtime-4&lt;/pre&gt;
+&lt;p&gt;Nachdem man sich den Code heruntergeladen und entpackt hat setzt man noch ein paar Umgebungsvariablen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla mplayer-export-2010-02-18 $ export CC=/usr/bin/gcc-4.3.2 bzw. export CC=/usr/gcc/4.3/bin/gcc
+rennecke@walhalla mplayer-export-2010-02-18 $ export PATH=/usr/gnu/bin/:$PATH
+rennecke@walhalla mplayer-export-2010-02-18 $ ./configure  --prefix=/opt/mplayer --enable-gui
+rennecke@walhalla mplayer-export-2010-02-18 $ make
+rennecke@walhalla mplayer-export-2010-02-18 $ pfexec make install&lt;/pre&gt;
+&lt;p&gt;Der Rest funktioniert, wird &lt;a href=&#34;http://blogs.sun.com/observatory/entry/compiling_mplayer_on_opensolaris_this&#34;&gt;hier&lt;/a&gt; beschrieben.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

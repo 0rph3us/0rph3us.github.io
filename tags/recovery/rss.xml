@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recovery on Michael im Netz</title>
+    <link>http://localhost:1313/tags/recovery/</link>
+    <description>Recent content in Recovery on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 08 Aug 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/recovery/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Letzte Rettung von MySQL</title>
+      <link>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</link>
+      <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</guid>
+      <description>&lt;p&gt;
+Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
+&lt;p&gt;
+Mit Hilfe von &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/forcing-innodb-recovery.html&#34;&gt;innodb_force_recovery&lt;/a&gt; kann man MySQL dazu bringen, dass es Tabellen wieder her stellt. Diese Option schreibt man einfach in die &lt;tt&gt;my.cnf&lt;/tt&gt;. Er kann die Werte von 1 bis 6 annehmen. Je höher der Wert ist, desto höher ist die Wahrscheinlichkeit, dass die Tabelle wieder hergestellt werden kann. Aber Achtung: Je größer der Wert ist, desto mehr Daten kann MySQL beim Wiederherstellen zerstören. Es ist deswegen ratsam den Wert inkrementell zu erhöhen, dieses Vorgehen dauert evtl. länger, aber man geht nicht in Gefahr unnötig Daten zu verlieren.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

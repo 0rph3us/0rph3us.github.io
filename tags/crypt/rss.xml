@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crypt on Michael im Netz</title>
+    <link>http://localhost:1313/tags/crypt/</link>
+    <description>Recent content in Crypt on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Sat, 26 Mar 2011 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/crypt/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>verschlüsselte Volumes bequem mounten</title>
+      <link>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</link>
+      <pubDate>Sat, 26 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</guid>
+      <description>&lt;p&gt;Ich habe mein home verschlüsselt. Dieses wird automatisch, beim anmelden gemountet.
+Da ich in mein home noch ein paar andere verschlüsselte Dateisysteme einhänge funktionieren die Standard-Mittel,
+wie &lt;code&gt;/etc/crypttab&lt;/code&gt; nicht. Dabei ergibt sich das folgende Problem: Die Volumes werden beim booten eingehangen
+und zu diesen Zeitpunkt existiert mein home noch nicht.&lt;/p&gt;
+
+&lt;p&gt;Da ich &lt;em&gt;faul&lt;/em&gt; bin möchte ich auch möglichst wenig Passwörter eingeben, weiterhin soll meine Freundin
+auch den Rechner anmachen können und nicht an meinen Passwort scheitern. Deswegen wird nur mein
+home via Passwort entschlüsselt, für die anderen Dateisysteme kommen &lt;em&gt;key-files&lt;/em&gt; zum Einsatz. Diese
+liegen in meinen &lt;strong&gt;verschlüsselten&lt;/strong&gt; home.&lt;/p&gt;
+
+&lt;p&gt;Da ich mir selbst nicht vertraue, möchte ich den &lt;a href=&#34;http://linux.die.net/man/8/sudo&#34;&gt;sudo&lt;/a&gt;-Mechanismus
+oder &lt;a href=&#34;http://linux.die.net/man/2/setuid&#34;&gt;suid&lt;/a&gt;-Bits nicht benutzten. Deswegen habe ich mir die beiden
+Skripte &lt;code&gt;cryptdisks_start&lt;/code&gt; und &lt;code&gt;cryptdisks_stop&lt;/code&gt; genauer angesehen. In einen ersten Schritt habe ich mir eine
+&lt;code&gt;/etc/user_crypttab&lt;/code&gt; erzeugt.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;root@walhalla ~ # cat /etc/user_crypttab
+# definition             volume                        key                                   options      mountpoint                mountoptions
+data--group-video_crypt  /dev/mapper/data--group-video /home/rennecke/key-files/video-key    luks         /home/rennecke/Videos     noatime
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die ersten vier Parameter entsprechen denen, der &lt;a href=&#34;http://linux.die.net/man/5/crypttab&#34;&gt;crypttab&lt;/a&gt;,
+&lt;em&gt;mountpoint&lt;/em&gt; und &lt;em&gt;mountoptions&lt;/em&gt; sind entsprechen den gleichnamigen Optionen von
+&lt;a href=&#34;http://linux.die.net/man/8/mount&#34;&gt;mount&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mein &lt;code&gt;user_cryptdisks_start&lt;/code&gt;-Skript sieht wie folgt aus:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/bin/sh
+
+# user_cryptdisks_start - wrapper around cryptsetup which parses
+# /etc/user_crypttab, just like mount parses /etc/fstab.
+
+# Initial code stolen from cryptdisks_start by Jon Dowland &amp;lt;jon@alcopop.org&amp;gt;
+# Copyright (C) 2011 by Michael Rennecke &amp;lt;michael_rennecke@gmx.net&amp;gt;
+# License: GNU General Public License, v2 or any later
+# (http://www.gnu.org/copyleft/gpl.html)
+
+CRYPTTAB=&amp;quot;/etc/user_crypttab&amp;quot;
+
+set -e
+
+if [ $# -lt 1 ]; then
+	echo &amp;quot;usage: $0 &amp;lt;name&amp;gt;&amp;quot; &amp;gt;&amp;amp;2
+	echo &amp;gt;&amp;amp;2
+	echo &amp;quot;reads $CRYPTTAB and starts the mapping corresponding to &amp;lt;name&amp;gt;&amp;quot; &amp;gt;&amp;amp;2
+	exit 1
+fi
+
+. /lib/cryptsetup/cryptdisks.functions
+
+INITSTATE=&amp;quot;manual&amp;quot;
+DEFAULT_LOUD=&amp;quot;yes&amp;quot;
+
+if [ -x &amp;quot;/usr/bin/id&amp;quot; ] &amp;amp;&amp;amp; [ &amp;quot;$(/usr/bin/id -u)&amp;quot;  != &amp;quot;0&amp;quot; ]; then
+	log_warning_msg &amp;quot;$0 needs root privileges&amp;quot;
+	exit 1
+fi
+
+log_action_begin_msg &amp;quot;Starting crypto disk&amp;quot;
+mount_fs
+
+
+count=0
+tablen=&amp;quot;$(egrep -vc &amp;quot;^[[:space:]]*(#|$)&amp;quot; &amp;quot;$CRYPTTAB&amp;quot;)&amp;quot;
+egrep -v &amp;quot;^[[:space:]]*(#|$)&amp;quot; &amp;quot;$CRYPTTAB&amp;quot; | while read dst src key opts mnt mopts; do
+	count=$(( $count + 1 ))
+	echo &amp;quot;&amp;quot;
+	if [ &amp;quot;$1&amp;quot; = &amp;quot;$dst&amp;quot; ]; then
+		ret=0
+		handle_crypttab_line_start &amp;quot;$dst&amp;quot; &amp;quot;$src&amp;quot; &amp;quot;$key&amp;quot; &amp;quot;$opts&amp;quot; &amp;lt;&amp;amp;3 || ret=$?
+		echo &amp;quot;&amp;quot;
+		fsck -pv /dev/mapper/$dst
+		echo &amp;quot;&amp;quot;
+		mount -o $mopts /dev/mapper/$dst $mnt
+	elif [ $count -ge $tablen ]; then
+		ret=1
+		device_msg &amp;quot;$1&amp;quot; &amp;quot;failed, not found in user_crypttab&amp;quot;
+	else
+		continue
+	fi
+	umount_fs
+	log_action_end_msg $ret
+	exit $ret
+done 3&amp;lt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Zum Schluss noch mein  &lt;code&gt;user_cryptdisks_stop&lt;/code&gt;-Skript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/bin/sh
+
+# user_cryptdisks_stop - wrapper around cryptsetup which parses
+# /etc/user_crypttab, just like mount parses /etc/fstab.
+
+# Initial code stolen from cryptdisks_stop by Jonas Meurer &amp;lt;jonas@freesources.org&amp;gt;
+# Copyright (C) 2011 by Michael Rennecke &amp;lt;michael_rennecke@gmx.net&amp;gt;
+# License: GNU General Public License, v2 or any later
+# (http://www.gnu.org/copyleft/gpl.html)
+
+CRYPTTAB=/etc/user_crypttab
+
+set -e
+
+if [ $# -lt 1 ]; then
+	echo &amp;quot;usage: $0 &amp;lt;name&amp;gt;&amp;quot; &amp;gt;&amp;amp;2
+	echo &amp;gt;&amp;amp;2
+	echo &amp;quot;reads $CRYPTTAB and stops the mapping corresponding to &amp;lt;name&amp;gt;&amp;quot; &amp;gt;&amp;amp;2
+	exit 1
+fi
+
+. /lib/cryptsetup/cryptdisks.functions
+
+INITSTATE=&amp;quot;manual&amp;quot;
+DEFAULT_LOUD=&amp;quot;yes&amp;quot;
+
+if [ -x &amp;quot;/usr/bin/id&amp;quot; ] &amp;amp;&amp;amp; [ &amp;quot;$(/usr/bin/id -u)&amp;quot;  != &amp;quot;0&amp;quot; ]; then
+	log_warning_msg &amp;quot;$0 needs root privileges&amp;quot;
+	exit 1
+fi
+
+log_action_begin_msg &amp;quot;Stopping crypto disk&amp;quot;
+echo &amp;quot;&amp;quot;
+
+count=0
+tablen=&amp;quot;$(egrep -vc &amp;quot;^[[:space:]]*(#|$)&amp;quot; &amp;quot;$CRYPTTAB&amp;quot;)&amp;quot;
+egrep -v &amp;quot;^[[:space:]]*(#|$)&amp;quot; &amp;quot;$CRYPTTAB&amp;quot; | while read dst src key opts mnt mopts; do
+	count=$(( $count + 1 ))
+	if [ &amp;quot;$1&amp;quot; = &amp;quot;$dst&amp;quot; ]; then
+		umount $mnt
+
+		ret=0
+		handle_crypttab_line_stop &amp;quot;$dst&amp;quot; &amp;quot;$src&amp;quot; &amp;quot;$key&amp;quot; &amp;quot;$opts&amp;quot; &amp;lt;&amp;amp;3 || ret=$?
+	elif [ $count -ge $tablen ]; then
+		ret=1
+		device_msg &amp;quot;$1&amp;quot; &amp;quot;failed, not found in user_crypttab&amp;quot;
+	else
+		continue
+	fi
+	log_action_end_msg $ret
+	exit $ret
+done 3&amp;lt;&amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die beiden Skripte kann nun &lt;code&gt;root&lt;/code&gt; ausführen, um Dateisysteme einzuhängen. Bei jeden einhängen
+wird geschaut, ob ein &lt;a href=&#34;http://linux.die.net/man/8/fsck&#34;&gt;fsck&lt;/a&gt; nötig ist.
+Mein Dank gilt &lt;a href=&#34;https://blog.meet-unix.org/&#34;&gt;meet-unix&lt;/a&gt;, er hat stand mit mit Rat zu
+Seite, da ich noch etwas &lt;em&gt;Solaris&lt;/em&gt;-geschädigt bin.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>verschlüsseltes home automatisch mounten</title>
+      <link>http://localhost:1313/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</link>
+      <pubDate>Fri, 25 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</guid>
+      <description>
+
+&lt;p&gt;Ich bin inzwischen auf &lt;a href=&#34;http://www.debian.org/&#34;&gt;Debian&lt;/a&gt; umgestiegen. Mein home sollte natürlich verschlüsselt sein. Wenn man zum verschlüsseln
+&lt;a href=&#34;http://www.saout.de/misc/dm-crypt/&#34;&gt;dm-crypt&lt;/a&gt;/&lt;a href=&#34;http://linux.die.net/man/8/cryptsetup&#34;&gt;LUKS&lt;/a&gt; nutzt und die Dateisysteme in der &lt;code&gt;/etc/crypttab&lt;/code&gt; einbindet,
+muss man beim booten das Passwort eingeben (Ich setzte voraus, dass man via Passwort verschlüsselt und nicht mit einem Keyfile). Es ist viel
+interessanter, wenn das home beim anmelden automatisch gemountet wird. Das geht, wenn man &lt;a href=&#34;http://pam-mount.sourceforge.net/&#34;&gt;pam_mount&lt;/a&gt; benutzt.
+Im folgenden beschreibe ich wie man ein verschlüsseltes home anlegt, welches automatisch gemountet wird.&lt;/p&gt;
+
+&lt;h2 id=&#34;vorbereitung-anlegen-eines-volume-ich-nutze-lvm:a1b250d963e63d4efc9c74d05c217ed9&#34;&gt;Vorbereitung: Anlegen eines Volume (ich nutze lvm)&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cryptsetup luksFormat --cipher aes-cbc-essiv:sha256 /dev/data-group/home_rennecke
+cryptsetup luksOpen /dev/data-group/home_rennecke data--group--home_rennecke_crypt
+mkfs.ext4 /dev/mapper/data--group--home_rennecke_crypt
+cryptsetup luksClose /dev/mapper/data--group--home_rennecke_crypt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit das home automatisch gemountet wird muss man in der &lt;code&gt;/etc/security/pam_mount.conf.xml&lt;/code&gt; das folgende einfügen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;!-- Volume definitions --&amp;gt;
+&amp;lt;volume user=&amp;quot;rennecke&amp;quot; fstype=&amp;quot;crypt&amp;quot; path=&amp;quot;/dev/mapper/data--group-home--rennecke&amp;quot; mountpoint=&amp;quot;/home/rennecke&amp;quot; options=&amp;quot;fsck,noatime&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das Passwort vom verschlüsselten home und das Passwort vom login müssen gleich sein! Wenn man sich nun einloggt, dann wird das home automatisch eingehangen.&lt;/p&gt;
+
+&lt;h2 id=&#34;hinweis:a1b250d963e63d4efc9c74d05c217ed9&#34;&gt;Hinweis:&lt;/h2&gt;
+
+&lt;p&gt;Das &lt;code&gt;pam_mount&lt;/code&gt;-Modul arbeitet nicht ganz transparent! mount zeigt nicht die wirklichen mount-Punkte an. Diese werden aber mit &lt;code&gt;cat /proc/mount&lt;/code&gt; angezeigt.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

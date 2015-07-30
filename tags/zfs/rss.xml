@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zfs on Michael im Netz</title>
+    <link>http://localhost:1313/tags/zfs/</link>
+    <description>Recent content in Zfs on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Fri, 22 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/zfs/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Platz sparen mit zfs</title>
+      <link>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</link>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</guid>
+      <description>&lt;p&gt;
+Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;amp;dirty&lt;/a&gt; die Kompression und die Deduplikation von zfs f&amp;uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&amp;szlig;end die alte Version gel&amp;ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: &lt;tt&gt;du -hs&lt;/tt&gt; zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass &lt;strong&gt;d&lt;/strong&gt;isk &lt;strong&gt;u&lt;/strong&gt;sage wörtlich zu nehmen ist. &lt;tt&gt;du&lt;/tt&gt; zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das &lt;a href=&#34;http://www.gnu.org/&#34;&gt;GNU&lt;/a&gt;-&lt;tt&gt;du&lt;/tt&gt; kann hier Abhilfe schaffen, mit &lt;tt&gt;/usr/gnu/bin/du --apparent-size -hs&lt;/tt&gt; bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der &lt;a href=&#34;http://www.cuddletech.com/blog/pivot/entry.php?id=983&#34;&gt;Blogeintrag von Ben Rockwood&lt;/a&gt; lesenswert.&lt;/p&gt;
+&lt;p&gt;
+Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. Ich habe &lt;tt&gt;zfs compression=on ....&lt;/tt&gt; gesetzt, also keine gzip-Kompression benutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wie ärgere ich mein zfs</title>
+      <link>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
+      <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
+      <description>&lt;p&gt;
+&lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame &lt;a href=&#34;http://www.systemhelden.com/&#34;&gt;Systemheld&lt;/a&gt;, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.&lt;/p&gt;
+&lt;h4&gt;Was kann zfs nicht&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;im laufenden Betrieb mehr Plattenausfälle verkraften als die zur Verfügung stehende Redundanz&lt;/li&gt;
+&lt;li&gt;im laufenden Betrieb mehr Platten tauschen, als man Redundanz hat&lt;/li&gt;
+&lt;li&gt;mit kaputten Platten laufen&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Auch wenn es zu den einen oder andern Punkt abweichende Behauptungen gibt, so muss ich hier ausdrücklich sagen, dass ein solches Verhalten im Allgemeinen Fall &lt;strong&gt;unmöglich&lt;/strong&gt; ist. Es &lt;strong&gt;kann&lt;/strong&gt; hingegen sein, dass man aus einem zerstörten zpool noch Daten retten kann. Das funktioniert aber nur mit &lt;strong&gt;Glück&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4&gt;Was kann zfs&lt;/h4&gt;
+&lt;p&gt;Das folgende habe ich auf einer &lt;a href=&#34;http://docs.sun.com/app/docs/coll/e450?l=en&#34;&gt;Sun Enterprise E450&lt;/a&gt; und einem &lt;a href=&#34;http://docs.sun.com/app/docs/coll/d1000-arrray&#34;&gt;StorEdge D1000&lt;/a&gt; ausprobiert. Im StorEdge hatte ich einen bunten Mix aus 36 GB und 18 GB Platten. Das folgende &lt;strong&gt;sollte&lt;/strong&gt; man nicht an einem Produktivsystem ausprobieren! Bei den Testläufen habe ich &lt;tt&gt;/dev/random&lt;/tt&gt; bzw. &lt;tt&gt;/dev/zero&lt;/tt&gt; in eine Datei, auf den betreffenden zpool geschrieben.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sämtliche Schweinereien mit den Platten gehen, solange man die Redundanz einhält.&lt;/li&gt;
+&lt;li&gt;Die Platten vom Strom trennen oder ein Systemabsturz provozieren. Das zfs überlebt das alles und bleibt konsistent&lt;/li&gt;
+&lt;li&gt;Wenn das System herunter gefahren ist, alle Platten des &lt;strong&gt;nicht exportierten&lt;/strong&gt; zpool mischen. Das ärgert das zfs schon sehr,&lt;br /&gt;
+       ich musste meinen zpool exportieren und wieder importieren, damit alles wieder korrekt funktioniert hat&lt;/li&gt;
+&lt;li&gt;Aus einen buten Plattenmix ein raidz bzw. ein raidz2 bauen. Das macht aber aus Performancesicht &lt;strong&gt;keinen&lt;/strong&gt; Sinn.&lt;/li&gt;
+&lt;li&gt;Im laufenden Betrieb eine Platte wechseln (wenn man Redundanz hat)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+Das war eigenlich alles, was ich mit zfs probiert habe. Ich hatte nicht mehr dumme Ideen. zfs verhält sich auf Dateien anderst als auf echten Devices. Was daran liegt, dass Dateien evtl. noch im Cache sind. Jeder, der die Möglichkeit hat, sollte einige Szenarien vorher einmal ausprobieren.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Was bringt Deduplikation?</title>
+      <link>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</link>
+      <pubDate>Tue, 27 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</guid>
+      <description>&lt;p&gt;Heute war ich beim &lt;a href=&#34;http://de.sun.com/sunnews/events/2010/apr/sunday_halle_magdeburg/&#34;&gt;Sun Day in Halle&lt;/a&gt;. Detlef Drewanz hat einen interessanten Befehl im Bezug auf &lt;a href=&#34;http://0rpheus.net/solaris/deduplikation&#34;&gt;Deduplikation&lt;/a&gt; genannt: &lt;tt&gt;zdb -S &amp;lt;poolname&amp;gt;&lt;/tt&gt;&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;&lt;/tt&gt;Damit lässt sich ermitteln, was eine Deduplikation des zpool bringen würde.&lt;/p&gt;
+&lt;p&gt;&lt;br class=&#34;spacer_&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Eigenschaften von Zonen</title>
+      <link>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</link>
+      <pubDate>Thu, 22 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</guid>
+      <description>&lt;p&gt;
+Ich wurde in Bezug auf diesen &lt;a href=&#34;http://0rpheus.net/solaris/eine-zone-in-10-minuten&#34;&gt;Blog-Eintrag&lt;/a&gt; gefragt, was es f&amp;uuml;r Zoneneigenschaften gibt, welche man f&amp;uuml;r Regelmentierungen verwenden kann.&lt;/p&gt;
+&lt;p&gt;
+Als ersten m&amp;ouml;chte ich zeigen, wie man den Hauptspeicher limitieren kann. &lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone
+zonecfg:myzone&gt; add capped-memory
+zonecfg:myzone:capped-memory&gt; set physical=500m
+zonecfg:myzone:capped-memory&gt; set swap=1g
+zonecfg:myzone:capped-memory&gt; set locked=100m
+zonecfg:myzone:capped-memory&gt; end
+zonecfg:myzone&gt; exit
+&lt;/pre&gt;
+&lt;dl&gt;
+&lt;dt&gt;physical&lt;/dt&gt;
+&lt;dd&gt;
+     Hierbei handelt es sich um eine Limitierung des physischen Hauptspeicher. Wenn mehr Speicher angefordert wird, dann kann dieser ausgelagert werden.&lt;br /&gt;
+     Eine Zone kann diesen Wert &amp;uuml;berschreiten und mehr Speicher anfordern.
+  &lt;/dd&gt;
+&lt;dt&gt;swap&lt;/dt&gt;
+&lt;dd&gt;
+      Das ist eine Begrenzung des virtuellen Speicher, d.h. eine Zone kann nicht mehr Speicher anfordern. Wenn ein Prozess in der Zone mehr Speicher anfordert, so    schl&amp;auml;gt diese Speicheranforderung fehl.
+   &lt;/dd&gt;
+&lt;dt&gt;locked&lt;/dt&gt;
+&lt;dd&gt;
+     Der allokierte Speicher ein Zone kann bis auf diesen Wert ausgelagert werden
+  &lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;
+Neben dem Hauptspeicher kann man auch die CPUs regelmentieren. Man dedizierter CPUs zuweisen oder das Scheduling ver&amp;auml;ndern. &lt;a href=&#34;http://docs.sun.com/app/docs/doc/817-1592/rmfss-4?l=en&amp;a=view&#34;&gt;Hier&lt;/a&gt; gibt eine gute &amp;Uuml;bersicht, bzgl. der Definition der CPU Shares.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone
+zonecfg:myzone&gt; add dedicated-cpu
+zonecfg:myzone:dedicated-cpu&gt; set ncpus=1-4
+zonecfg:myzone:dedicated-cpu&gt; end
+zonecfg:myzone&gt; exit
+&lt;/pre&gt;
+&lt;p&gt;Was passiert nun?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Beim booten der Zone werden die CPUs 1-4 werden aus dem default-Pool entfernt&lt;/li&gt;
+&lt;li&gt;Es wird ein tempor&amp;auml;er Pool erstellt mit den CPUs 1-4&lt;/li&gt;
+&lt;li&gt;Beim stoppen der Zone werden die CPUs 1-4 wieder dem default-Pool zur verf&amp;uuml;gung gestellt.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Man kann auch sagen, dass eine Zone z.B. maximal 2,5 CPUs benutzen kann. Das sieht wie folgt aus:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone
+zonecfg:myzone&gt; add capped-cpu
+zonecfg:myzone:capped-cpu&gt; set ncpus=2.5
+zonecfg:myzone:capped-cpu&gt; end
+zonecfg:myzone&gt; exit
+&lt;/pre&gt;
+&lt;p&gt;Nun m&amp;ouml;chte ich zeigen, wie man eine Zone 200 CPU-Shares und die FSS (Fair Share Scheduling) Klasse zuweist&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone
+zonecfg:myzone&gt; set cpu-shares=200
+zonecfg:myzone&gt; set scheduling-class=FSS
+zonecfg:myzone&gt; exit
+&lt;/pre&gt;
+&lt;p&gt;Als letztes Quota zum Thema CPU m&amp;ouml;chte ich zeigen, wie man die Anzahl der Threads/Prozesse begrenzt. Die folgende Zone kann maximal 250 Threads ausf&amp;uuml;hren. Ein einzelner Prozess ohne Thredas z&amp;auml;hlt als ein Thread.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone
+zonecfg:myzone&gt; add rctl
+zonecfg:myzone:rctl&gt; set name=zone.max-lwps
+zonecfg:myzone:rctl&gt; add value (priv=privileged,limit=250,action=deny)
+zonecfg:myzone:rctl&gt; end
+&lt;/pre&gt;
+&lt;p&gt;Man kann auf diese Weise auch noch andere Resourcen kontrollieren. &lt;a href=&#34;http://docs.sun.com/app/docs/doc/820-2316/rmctrls-1?l=de&amp;a=view&#34;&gt;Hier&lt;/a&gt; findet man eine &amp;Uuml;bersicher &amp;uuml;ber die Resource Controls&lt;/p&gt;
+&lt;p&gt;F&amp;uuml;r Zonen kann es auch interssant sein, den Plattenpatz zu begrenzen. Da in Open Solaris zfs das default-Dateisystem ist, kann man Quotas und Reservations &amp;uuml;ber die entsprechenden zfs-Eigenschaften machen. Die Wurzel der Zone liegt auf dem Dateisystem &lt;tt&gt;zones/myzone&lt;/tt&gt;&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+root@global$ zonecfg -z myzone zfs set quota=10g zones/myzone
+root@global$ zonecfg -z myzone zfs set reservation=5g zones/myzone
+&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Deduplikation</title>
+      <link>http://localhost:1313/post/2010/02/deduplikation/</link>
+      <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/02/deduplikation/</guid>
+      <description>&lt;p&gt;Einige haben bestimmt schon von den Deduplikations-Feature in zfs gehört. Ich hatte leider keine Zeit ehr darüber zu schreiben. Bei Dedublikation speichert man doppelte Blöcke nur einmal. Diese kann man recht schnell erzeugen, wenn man eine Datei kopiert. Man kann auch gezielt Deduplikation nutzen. So kann man jeder Nutzer seine eigene Musiksammlung haben, denn doppelte Lieder benötigen keinen zusätzlichen Platz.&lt;/p&gt;
+&lt;p&gt;Ich möchte auch nicht meiner Freundin überall Schreibrechte geben, nicht dass sie ausversehen meine &lt;a href=&#34;http://www.marioranieri.at/&#34;&gt;Mario Ranieri&lt;/a&gt;-Sammlung löscht. Kann sie mit ihren home nicht so umgehen, wie unter &lt;a href=&#34;http://de.wikipedia.org/wiki/Microsoft_Windows&#34;&gt;Windoof&lt;/a&gt;, dann ist Open Solaris nicht mehr schön. Also ist Dedublikation die administratorfreundliche Lösung, denn man spart Platz und die User freuen sich über mehr Freiheiten. Es gibt noch viele andere Fälle, bei denen Deduplikation nützlich ist. In Unis und in Firmen haben auch einige Leute die gleichen Daten im home. Ich habe bei mir in allen zpools Deduplukation an. Es stimmt, dass Deduplikation CPU-Leistung braucht. Ich muss Sun recht geben, dass heutige CPUs genug Leistung haben und das nebenbei mit erledigen. Ich habe es noch nie erlebt, dass ich beim kopieren von Daten oder ähnlichen Aktionen mein System lahm gelegt habe.&lt;/p&gt;
+&lt;p&gt;Wie findet &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt; eigenlich die doppelten Blöcke? In der default-Einstellung wird von den Blöcken eine &lt;a href=&#34;http://de.wikipedia.org/wiki/Secure_Hash_Algorithm&#34;&gt;SHA-256&lt;/a&gt;-Prüfsumme gebildet. Wenn 2 Prüfsummen gleich sind, dann sagt &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt;, dass die Blöcke gleich sind. Für paranoide Leute bietet &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt; die Möglichkeit, dass man im Falle von 2 gleichen Prüfsummen die Blöcke (Es besteht die Möglichkeit, dass 2 unterschiedliche Blöcke die selbe Prüfsumme haben, das ist aber viel unwahrscheinlicher als unerkannte ECC-Fehler) noch einmal Byteweise vergleicht. Das wird aber sehr teuer. Das 2 Blöcke die selbe Prüfsumme haben tritt immer auf, wenn diese gleich sind. Also sollte man nicht denken, dass man die Blöcke nur Byteweise vergleicht, wenn die Prüfsummen gleich sind aber die Blockinhalte unterschiedlich. Die Deduplikation arbeitet im gesamten Pool, d.h. wenn man Dateien von einem Dateisystem in ein anderes kopiert werden die Daten auch dedupliziert.&lt;/p&gt;
+&lt;p&gt;Das ganze aktiviert man wie folgt:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ $  pfexec zfs set dedup=on rpool&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Virtual Box-Clienten auf raw-Devices</title>
+      <link>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</link>
+      <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</guid>
+      <description>&lt;p&gt;Dan man mit zfs kann man auch volumes anlegen kann, wollte ich mal testen, ob man auch einen &lt;a href=&#34;http://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt;-Client auch auf ein solches Volume installieren kann. Es benötige einiges an Vorbereitungen, aber es geht wie folgt:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; Volume erzeugen:
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ pfexec  zfs create -s -V 200g daten/vol_win&lt;/pre&gt;
+&lt;p&gt;man erzeugt hiermit ein Volume, welches 200 GB groß ist. Es fordert den Speicher erst an, wenn dieser benötigt wird.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt; VirtualBox-User Zugriff auf das raw-Device geben:
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ pfexec chown rennecke:staff /dev/zvol/rdsk/daten/vol_win
+rennecke@walhalla VirtualBox $ pfexec chmod 660 /dev/zvol/rdsk/daten/vol_win&lt;/pre&gt;
+&lt;p&gt;Das Device VirtualBox bekannt geben. Ich möchte diese Platten nicht bei den virtuellen Platten liegen haben.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla VirtualBox $ mkdir ~/.VirtualBox/raw-disk
+rennecke@walhalla VirtualBox $ cd /opt/VirtualBox/
+rennecke@walhalla VirtualBox $ VBoxManage internalcommands createrawvmdk -filename /home/rennecke/.VirtualBox/raw-disk/windows-raw.vmdk -rawdisk /dev/zvol/rdsk/daten/vol_win -register&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt; Fertig: Nun kann man in VirtualBox auf das Volume zugreifen.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Man sollte aber wissen, was man tut. Man kann sich mit dieser Vorgehensweise ganz schnell etwas kaputt machen, z.B. indem man VirtualBox das falsche raw-Device übergibt. Das ganze hat auch noch einen anderen Schönheitsfehler. Man kann keine Snapshots mit VirtualBox erzeugen. Diese werden als Datei im Dateisystem auf dem Host abgelegt. Man kann aber Snapshots mit zfs erstellen, um Sicherungen der Virtuellen Maschine zu haben. Vielleicht gibt es irgendwann eine VirtualBox-Version, welche Features von zfs nutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

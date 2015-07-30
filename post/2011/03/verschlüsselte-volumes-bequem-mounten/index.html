@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    verschlüsselte Volumes bequem mounten // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15-DEV" />
+
+  <meta property="og:title" content="verschlüsselte Volumes bequem mounten" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/" />
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/base-0.5-min.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/pure-0.5-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://localhost:1313//css/redlounge.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/categories.css">
+  <link rel="stylesheet" href="http://localhost:1313//css/font-awesome.min.css">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+
+    
+  
+  <link rel="stylesheet" href="http://localhost:1313//css/solarized_light-8.4.min.css">
+  
+  <script src="http://localhost:1313//css/highlight-8.4.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    <h1 class="brand-title">Michael Rennecke</h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http://localhost:1313/">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="/rss/index.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/">verschlüsselte Volumes bequem mounten</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>26</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> März</span> <span class="post-date-year">2011</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-linux" href="http://localhost:1313//categories/linux">Linux</a>
+				
+					<a class="post-category post-category-programmieren" href="http://localhost:1313//categories/programmieren">Programmieren</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            <p>Ich habe mein home verschlüsselt. Dieses wird automatisch, beim anmelden gemountet.
+Da ich in mein home noch ein paar andere verschlüsselte Dateisysteme einhänge funktionieren die Standard-Mittel,
+wie <code>/etc/crypttab</code> nicht. Dabei ergibt sich das folgende Problem: Die Volumes werden beim booten eingehangen
+und zu diesen Zeitpunkt existiert mein home noch nicht.</p>
+
+<p>Da ich <em>faul</em> bin möchte ich auch möglichst wenig Passwörter eingeben, weiterhin soll meine Freundin
+auch den Rechner anmachen können und nicht an meinen Passwort scheitern. Deswegen wird nur mein
+home via Passwort entschlüsselt, für die anderen Dateisysteme kommen <em>key-files</em> zum Einsatz. Diese
+liegen in meinen <strong>verschlüsselten</strong> home.</p>
+
+<p>Da ich mir selbst nicht vertraue, möchte ich den <a href="http://linux.die.net/man/8/sudo">sudo</a>-Mechanismus
+oder <a href="http://linux.die.net/man/2/setuid">suid</a>-Bits nicht benutzten. Deswegen habe ich mir die beiden
+Skripte <code>cryptdisks_start</code> und <code>cryptdisks_stop</code> genauer angesehen. In einen ersten Schritt habe ich mir eine
+<code>/etc/user_crypttab</code> erzeugt.</p>
+
+<pre><code class="language-sh">root@walhalla ~ # cat /etc/user_crypttab
+# definition             volume                        key                                   options      mountpoint                mountoptions
+data--group-video_crypt  /dev/mapper/data--group-video /home/rennecke/key-files/video-key    luks         /home/rennecke/Videos     noatime
+</code></pre>
+
+<p>Die ersten vier Parameter entsprechen denen, der <a href="http://linux.die.net/man/5/crypttab">crypttab</a>,
+<em>mountpoint</em> und <em>mountoptions</em> sind entsprechen den gleichnamigen Optionen von
+<a href="http://linux.die.net/man/8/mount">mount</a>.</p>
+
+<p>Mein <code>user_cryptdisks_start</code>-Skript sieht wie folgt aus:</p>
+
+<pre><code class="language-sh">#!/bin/sh
+
+# user_cryptdisks_start - wrapper around cryptsetup which parses
+# /etc/user_crypttab, just like mount parses /etc/fstab.
+
+# Initial code stolen from cryptdisks_start by Jon Dowland &lt;jon@alcopop.org&gt;
+# Copyright (C) 2011 by Michael Rennecke &lt;michael_rennecke@gmx.net&gt;
+# License: GNU General Public License, v2 or any later
+# (http://www.gnu.org/copyleft/gpl.html)
+
+CRYPTTAB=&quot;/etc/user_crypttab&quot;
+
+set -e
+
+if [ $# -lt 1 ]; then
+	echo &quot;usage: $0 &lt;name&gt;&quot; &gt;&amp;2
+	echo &gt;&amp;2
+	echo &quot;reads $CRYPTTAB and starts the mapping corresponding to &lt;name&gt;&quot; &gt;&amp;2
+	exit 1
+fi
+
+. /lib/cryptsetup/cryptdisks.functions
+
+INITSTATE=&quot;manual&quot;
+DEFAULT_LOUD=&quot;yes&quot;
+
+if [ -x &quot;/usr/bin/id&quot; ] &amp;&amp; [ &quot;$(/usr/bin/id -u)&quot;  != &quot;0&quot; ]; then
+	log_warning_msg &quot;$0 needs root privileges&quot;
+	exit 1
+fi
+
+log_action_begin_msg &quot;Starting crypto disk&quot;
+mount_fs
+
+
+count=0
+tablen=&quot;$(egrep -vc &quot;^[[:space:]]*(#|$)&quot; &quot;$CRYPTTAB&quot;)&quot;
+egrep -v &quot;^[[:space:]]*(#|$)&quot; &quot;$CRYPTTAB&quot; | while read dst src key opts mnt mopts; do
+	count=$(( $count + 1 ))
+	echo &quot;&quot;
+	if [ &quot;$1&quot; = &quot;$dst&quot; ]; then
+		ret=0
+		handle_crypttab_line_start &quot;$dst&quot; &quot;$src&quot; &quot;$key&quot; &quot;$opts&quot; &lt;&amp;3 || ret=$?
+		echo &quot;&quot;
+		fsck -pv /dev/mapper/$dst
+		echo &quot;&quot;
+		mount -o $mopts /dev/mapper/$dst $mnt
+	elif [ $count -ge $tablen ]; then
+		ret=1
+		device_msg &quot;$1&quot; &quot;failed, not found in user_crypttab&quot;
+	else
+		continue
+	fi
+	umount_fs
+	log_action_end_msg $ret
+	exit $ret
+done 3&lt;&amp;1
+</code></pre>
+
+<p>Zum Schluss noch mein  <code>user_cryptdisks_stop</code>-Skript:</p>
+
+<pre><code class="language-sh">#!/bin/sh
+
+# user_cryptdisks_stop - wrapper around cryptsetup which parses
+# /etc/user_crypttab, just like mount parses /etc/fstab.
+
+# Initial code stolen from cryptdisks_stop by Jonas Meurer &lt;jonas@freesources.org&gt;
+# Copyright (C) 2011 by Michael Rennecke &lt;michael_rennecke@gmx.net&gt;
+# License: GNU General Public License, v2 or any later
+# (http://www.gnu.org/copyleft/gpl.html)
+
+CRYPTTAB=/etc/user_crypttab
+
+set -e
+
+if [ $# -lt 1 ]; then
+	echo &quot;usage: $0 &lt;name&gt;&quot; &gt;&amp;2
+	echo &gt;&amp;2
+	echo &quot;reads $CRYPTTAB and stops the mapping corresponding to &lt;name&gt;&quot; &gt;&amp;2
+	exit 1
+fi
+
+. /lib/cryptsetup/cryptdisks.functions
+
+INITSTATE=&quot;manual&quot;
+DEFAULT_LOUD=&quot;yes&quot;
+
+if [ -x &quot;/usr/bin/id&quot; ] &amp;&amp; [ &quot;$(/usr/bin/id -u)&quot;  != &quot;0&quot; ]; then
+	log_warning_msg &quot;$0 needs root privileges&quot;
+	exit 1
+fi
+
+log_action_begin_msg &quot;Stopping crypto disk&quot;
+echo &quot;&quot;
+
+count=0
+tablen=&quot;$(egrep -vc &quot;^[[:space:]]*(#|$)&quot; &quot;$CRYPTTAB&quot;)&quot;
+egrep -v &quot;^[[:space:]]*(#|$)&quot; &quot;$CRYPTTAB&quot; | while read dst src key opts mnt mopts; do
+	count=$(( $count + 1 ))
+	if [ &quot;$1&quot; = &quot;$dst&quot; ]; then
+		umount $mnt
+
+		ret=0
+		handle_crypttab_line_stop &quot;$dst&quot; &quot;$src&quot; &quot;$key&quot; &quot;$opts&quot; &lt;&amp;3 || ret=$?
+	elif [ $count -ge $tablen ]; then
+		ret=1
+		device_msg &quot;$1&quot; &quot;failed, not found in user_crypttab&quot;
+	else
+		continue
+	fi
+	log_action_end_msg $ret
+	exit $ret
+done 3&lt;&amp;
+</code></pre>
+
+<p>Die beiden Skripte kann nun <code>root</code> ausführen, um Dateisysteme einzuhängen. Bei jeden einhängen
+wird geschaut, ob ein <a href="http://linux.die.net/man/8/fsck">fsck</a> nötig ist.
+Mein Dank gilt <a href="https://blog.meet-unix.org/">meet-unix</a>, er hat stand mit mit Rat zu
+Seite, da ich noch etwas <em>Solaris</em>-geschädigt bin.</p>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-crypt" href="http://localhost:1313//tags/crypt">crypt</a>,
+	                
+	                <a class="post-tag post-tag-crypttab" href="http://localhost:1313//tags/crypttab">crypttab</a>,
+	                
+	                <a class="post-tag post-tag-debian" href="http://localhost:1313//tags/debian">Debian</a>,
+	                
+	                <a class="post-tag post-tag-dm-crypt" href="http://localhost:1313//tags/dm-crypt">dm-crypt</a>,
+	                
+	                <a class="post-tag post-tag-security" href="http://localhost:1313//tags/security">Security</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/post/2011/05/nosql-datenbanken/">noSQL Datenbanken</a>
+		            </div>
+		            
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/">verschlüsseltes home automatisch mounten</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

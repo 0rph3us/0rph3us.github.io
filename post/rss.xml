@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Michael im Netz</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Eine eigene CA mit OpenSSL in 5 Minuten</title>
+      <link>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</link>
+      <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/07/eine-eigene-ca-mit-openssl-in-5-minuten/</guid>
+      <description>
+
+&lt;p&gt;Wenn man seine eigenen Dienste mit SSL/&lt;a href=&#34;https://de.wikipedia.org/wiki/Transport_Layer_Security&#34;&gt;TLS&lt;/a&gt; absichern möchte benötigt man Zertifikate. Inzwischen
+gibt es auch kostenlose Zertifikate, diese haben aber Einschränkungen. Wenn man dynDNS verwendet bekommt
+man keine offizellen Zertifikate, da man nicht der Eigentümer der Domain ist. Oft hat jeder Dienst, den man
+anbietet auch einen eigene Subdomain. Wenn man mehrere Subdomains auf dem selben Port benötigt man ein
+Wildcard-Zertifikat&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:116aed65bb730b226540f3cd4bf4c27a:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:116aed65bb730b226540f3cd4bf4c27a:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. Dieses ist nach meinen Kenntnisstand nicht kostenlos zu bekommen.&lt;/p&gt;
+
+&lt;p&gt;Wenn man nicht nur einen Webserver, sondern auch einen Jabber-Server betreibt lohnt es sich eine eigene
+CA (Certificate Authority) betreiben, mit der man alle seine Zertifikate unterschreibt. Damit alle Clients
+der CA vertrauen muss diese nur bekannt machen. Danach wird allen Zertifikaten vertraut, welche von der CA
+unterschrieben wurden.&lt;/p&gt;
+
+&lt;p&gt;Ein weiterer Vorteil: Mit der eigenen CA ist man im Zweifel auf der sicheren Seite. In den letzten Jahren
+ist es öfter vorgekommen, dass gefälschte Zertifikate im Umlauf waren. Es gibt also Gründe den großen
+CAs zu misstrauen&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:116aed65bb730b226540f3cd4bf4c27a:2&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:116aed65bb730b226540f3cd4bf4c27a:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;certificate-authority-erstellen:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Certificate Authority erstellen&lt;/h2&gt;
+
+&lt;p&gt;Als erstes muss man einen geheimen privaten Schlüssel generieren:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;openssl genrsa -aes256 -out ca-key.pem 4096
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Der Schlüssel wird in der Datei &lt;code&gt;ca-key.pem&lt;/code&gt; gespeichert und hat eine Länge von 4096 Bit. Man kann auch einen
+längeren bzw. kürzeren Schlüssel erzeugen. 2048 Bit sehe ich als absolutes Minimum an. Durch Verwendung der
+Option &lt;code&gt;-aes256&lt;/code&gt; wird der Schküssel mit einem Passwort geschützt. Der Schlüssel der CA muss besonderst
+geschützt werden, denn mit ihm könnte sich ein Angreifer beliebige Zertifikate ausstellen. Die Verschlüsselung
+mit einem Passwort bietet einen zusätzlichen Schutz. Das Passwort muss man bei jeder Verwendung des Schlüssels
+eingeben.&lt;/p&gt;
+
+&lt;p&gt;Als nächstes muss man das root-Zertifikat der CA erzeugen. Dieses kann man dann in die Browser und in die
+Betriebssysteme importieren. Das Zertifikat wird wie folgt generiert:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;openssl req -x509 -new -nodes -extensions v3_ca -key ca-key.pem -days 3650 -out ca-root.pem -sha512
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dieses Zertifikat hat eine Gültigkeit von 10 Jahren (3650 Tage). Die Attribute der CA können wie folgt sein:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Country Name (2 letter code) [AU]:DE
+State or Province Name (full name) [Some-State]:Saxony-Anhalt
+Locality Name (eg, city) []:Halle (Saale)
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:bude
+Organizational Unit Name (eg, section) []:IT
+Common Name (eg, YOUR name) []:example.net
+Email Address []:meine.email-adresse.net
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;root-zertifikat-auf-den-clients-importieren:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Root-Zertifikat auf den Clients importieren&lt;/h2&gt;
+
+&lt;h3 id=&#34;debian-ubuntu:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Debian / Ubuntu&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo cp ca-root.pem /usr/share/ca-certificates/myca-root.crt
+sudo dpkg-reconfigure ca-certificates
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mozilla-firefox-thunderbird:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Mozilla Firefox / Thunderbird&lt;/h3&gt;
+
+&lt;p&gt;Mozilla Firefox verwaltet Zertifikate selbst. Ein neues Zertifikat wird importiert unter &lt;em&gt;Einstellungen&lt;/em&gt; =&amp;gt; &lt;em&gt;Erweitert&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate anzeigen&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifizierungsstellen&lt;/em&gt; =&amp;gt; &lt;em&gt;Importieren&lt;/em&gt;. Wählt die Datei &lt;code&gt;ca-root.pem&lt;/code&gt; aus. Wählt die Option &lt;em&gt;Dieser CA vertrauen, um Websites zu identifizieren&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;chromium-google-chrome:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Chromium / Google Chrome&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Einstellungen&lt;/em&gt; =&amp;gt; &lt;em&gt;Erweiterte Einstellungen anzeigen&lt;/em&gt; (unten) =&amp;gt; &lt;em&gt;HTTPS/SSL&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifikate verwalten&lt;/em&gt; =&amp;gt; &lt;em&gt;Zertifizierungsstellen&lt;/em&gt; =&amp;gt; &lt;em&gt;Importieren&lt;/em&gt; =&amp;gt; &lt;code&gt;ca-root-pem&lt;/code&gt; auswählen =&amp;gt; &lt;em&gt;Diesem Zertifikat zur Identifizierung von Websites vertrauen&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ein-neues-zertifikat-ausstellen:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Ein neues Zertifikat ausstellen&lt;/h2&gt;
+
+&lt;p&gt;Als erstes muss man sich wieder einen privaten Schlüssel erzeuge.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;openssl genrsa -out cert-key.pem 4096
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Bei den Zertifikaten sollte man in den meisten Fällen kein Passwort setzten. Wenn man es z.B. für einen Webserver benötigt,
+dann müsste man das Passwort bei jedem Start eingeben.&lt;/p&gt;
+
+&lt;p&gt;Nun muss man eine Zertifikatsanfrage erstellen. Ganz wichtig ist der &lt;strong&gt;Common Name&lt;/strong&gt; dieses Attribut &lt;em&gt;muss&lt;/em&gt; so lauten, wie der Hostname
+des Servers, auf den es ausgestellt ist. Wenn man nur via IP zugreifen möchte, dann ist der Common Name die IP, mit den man den Dienst
+ansprechen möchte. Es sind auch Wildcard-zertifikate möchte *.example.com gilt für foo.example.com bar.example.com, aber nicht für foo.bar.example.com.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;openssl req -new -key cert-key.pem -out cert.csr -sha512
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Wenn man fertig ist, dann erhält man die Zertifikatsanfrage in &lt;code&gt;cert.csr&lt;/code&gt;, die kann von CA weiter verarbeitet werden. Dabei wird der öffentliche
+Schlüssel des angefragten Zertifikats.&lt;/p&gt;
+
+&lt;p&gt;Mit der root-CA, deren Schlüssel und der Zertifikatsanfrage erstellt man ein signiertes Zertifikat, welches 1 Jahr gültig ist.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;openssl x509 -req -in cert.csr -CA ca-root.pem -CAkey ca-key.pem -CAcreateserial -out cert-pub.pem -days 365 -sha512
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Openssl fragt nach dem dem Passwort der root-CA. Wenn dan signierte Zertifikat erstellt wurde kann man die Zertifikatsanfrage &lt;code&gt;cert.csr&lt;/code&gt; löschen.
+Das öffentliche Zertifikat befindet sich in der Datei &lt;code&gt;cert-pub.pem&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;das-zertifikat-benutzen:116aed65bb730b226540f3cd4bf4c27a&#34;&gt;Das Zertifikat benutzen&lt;/h2&gt;
+
+&lt;p&gt;Für einen Webserver benötigt man die folgenden 3 Teile:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Privater Schlüssel des Zertifikats &lt;code&gt;cert-key.pem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Öffentlicher Schlüssel des Zertifikats &lt;code&gt;cert-pub.pem&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Öffentlicher Schlüssel der CA &lt;code&gt;ca-root.pem&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Je nach Server ist es nötig die CA und den öffentlichen Schlüssel in einer Datei zu haben. Das kann man wie folgt machen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cat ca-root.pem &amp;gt;&amp;gt; cert-pub.pem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;wenn sie SNI nicht unterstützen. Eine weitere Alternative sind SAN-Zertifikate (diese sind auf mehrere Subdomains ausgestellt), diese gibt es auch nicht für lau.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:116aed65bb730b226540f3cd4bf4c27a:1&#34;&gt;Seit TLS 1.0 kann man auch durch &lt;a href=&#34;https://de.wikipedia.org/wiki/Server_Name_Indication&#34;&gt;SNI&lt;/a&gt; mehrere Zertifikate nutzen. SNI unterstützen ältere Browser noch nicht, evtl. hat man auch mit Apps Probleme,
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:116aed65bb730b226540f3cd4bf4c27a:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:116aed65bb730b226540f3cd4bf4c27a:2&#34;&gt;Dazu muss sie aber aus seinen Browser und Betriebssystem löschen. Das ist nicht unbedingt sehr sinnvoll.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:116aed65bb730b226540f3cd4bf4c27a:2&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Update</title>
+      <link>http://localhost:1313/post/2015/07/update/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/07/update/</guid>
+      <description>&lt;p&gt;Ich bin länger zum bloggen gekommen, da ich aktuell recht ausgelastet bin. Meine
+letzten Beträge habe ich während der Zugfahrt zuwischen Halle und Leipzig
+geschrieben. Da man in diesen Zügen kaum noch einen Sitzplatz bekommt, ist es
+recht schwer im Zug zu schreiben.&lt;/p&gt;
+
+&lt;p&gt;Ich kann nur sagen, dass die deutsche Bahn immer wieder Spaß macht&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Mein nächster Beitrag wird hoffentlich über Privoxy und Tor sein. Dieses Gespann
+läuft schon eigige Zeit auf meinen Pi.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>kaputtes System nach Restore mit Obnam</title>
+      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit &lt;a href=&#34;https://grml.org/&#34;&gt;grml&lt;/a&gt; auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles.&lt;/p&gt;
+
+&lt;p&gt;Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus &lt;a href=&#34;https://launchpad.net/~chris-bigballofwax/+archive/ubuntu/obnam-ppa&#34;&gt;dieser PPA&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Danke Primacom</title>
+      <link>http://localhost:1313/post/2015/03/danke-primacom/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;http://localhost:1313/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
+IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Einen DNS Server selbst betreiben</title>
+      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <description>
+
+&lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
+man mehrere Dienste im eigenen Netzwerk betreibt. Dazu habe ich &lt;a href=&#34;https://www.powerdns.com/&#34;&gt;PowerDNS&lt;/a&gt; mit einem &lt;a href=&#34;http://de.wikipedia.org/wiki/MySQL&#34;&gt;MySQL&lt;/a&gt;-Backend.
+Das ganze lässt sich mit der Weboberfläche &lt;a href=&#34;http://www.poweradmin.org/&#34;&gt;poweradmin&lt;/a&gt; sehr einfach bedienen. Man sollte aber bedenken,
+dass jeder Fehler ein komisches Verhalten zur Folge haben kann, wenn man z.B. &lt;a href=&#34;http://de.wikipedia.org/wiki/Zone_%28DNS%29&#34;&gt;Zone&lt;/a&gt; im DNS überschreibt.&lt;/p&gt;
+
+&lt;p&gt;Die Installation auf dem &lt;a href=&#34;http://www.raspberrypi.org/help/what-is-a-raspberry-pi/&#34;&gt;Raspberry Pi&lt;/a&gt; mit &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; gestaltet sich realtiv einfach. Am besten macht macht
+das ganze als &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-von-mysql:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Installation von MySQL&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install mysql-server mysql-client php5-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach habt Ihr MySQL installiert und auch den php Client, welchen wir später noch brauchen. Während
+der Installation werdet ihr nach dem &lt;code&gt;root&lt;/code&gt;-Passwort für den MySQL Server gefragt.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-von-powerdns:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Installation von PowerDNS&lt;/h3&gt;
+
+&lt;p&gt;Die Installation möchte Euch bei der Einrichtung der Datenbank behilflich sein. Aber wir konfigurieren
+alles per Hand. Bei mir die automatische Konfiguration nicht so gut funktioniert.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo su
+apt-get install pdns-server pdns-backend-mysql dnsutils
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;einrichten-der-datenbank:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Einrichten der Datenbank&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;CREATE DATABASE powerdns;
+GRANT ALL ON powerdns.* TO powerdns@127.0.0.1 IDENTIFIED BY &#39;GeheimesPasswort&#39;;
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das muss man in die &lt;code&gt;mysql&lt;/code&gt; Konsole eintragen. Zu dieser gelangt man so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql -uroot -p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun importieren wir das Datenbank-Schema für PowerDNS&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql -uroot -p powerdns &amp;lt; /usr/share/doc/pdns-backend-mysql/nodnssec-3.x_to_3.4.0_schema.mysql.sql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;powerdns-konfigurieren:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;PowerDNS konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Die Datei &lt;code&gt;/etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt; muss wie folgt verändert werden:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# MySQL Configuration
+#
+# Launch gmysql backend
+launch+=gmysql
+
+# gmysql parameters
+gmysql-host=127.0.0.1
+gmysql-port=3306
+gmysql-dbname=powerdns
+gmysql-user=powerdns
+gmysql-password=GeheimesPasswort
+gmysql-dnssec=yes
+# gmysql-socket=
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun muss  man sie noch schützen &lt;code&gt;sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt;. Nun
+wurder Der Server nur lokal funktionieren und nur seine eigenen Zonen auflösen können. Damit man
+er auch noch über alle anderen Zonen Auskunft geben kann und jedes Gerät im LAN ihn nutzen kann
+muss man ein paar Zeilen in der &lt;code&gt;/etc/powerdns/pdns.conf&lt;/code&gt; ändern
+(sie sind schön auskommentiert enthälten, ohne Parameter).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;recursor=8.8.8.8
+
+allow-recursion=127.0.0.1,192.168.0.0/24
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ich gehe davon aus, dass Euer LAN ein 192.168.0.0/24 Netz ist, sonst anpassen ;-).&lt;/p&gt;
+
+&lt;h3 id=&#34;test:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Test&lt;/h3&gt;
+
+&lt;p&gt;Wenn alles funktioniert, dann kann man den DNS Server wie folgt testen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dig google.de @8.8.8.8  
+
+; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.9.5-3ubuntu0.2-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; google.de @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 49993
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.de.                     IN      A
+
+;; ANSWER SECTION:
+google.de.              299     IN      A       173.194.32.255
+google.de.              299     IN      A       173.194.32.248
+google.de.              299     IN      A       173.194.32.239
+google.de.              299     IN      A       173.194.32.247
+
+;; Query time: 87 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Wed Mar 18 07:12:42 CET 2015
+;; MSG SIZE  rcvd: 102
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;poweradmin-installieren:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Poweradmin installieren&lt;/h3&gt;
+
+&lt;p&gt;Damit man den DNS Server einfach/schnell bedienen kann, installiert man &lt;a href=&#34;http://www.poweradmin.org/&#34;&gt;poweradmin&lt;/a&gt;. Das ist
+eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
+
+&lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+
+&lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install php5-mcrypt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun beginnt die Installtion&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo su
+cd /var/www
+wget https://github.com/poweradmin/poweradmin/archive/v2.1.7.zip
+unzip v2.1.7.zip
+rm v2.1.7.zip
+mv poweradmin-2.1.7 poweradmin
+cat &amp;lt;&amp;lt; EOF &amp;gt; /etc/nginx/sites-available/powerdns
+server {
+    listen 80;
+    server_name &amp;lt;IP des Raspberry Pi&amp;gt;;
+    
+    root /var/www/poweradmin;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
+
+    access_log      /var/log/nginx/poweradmin.access.log;
+    error_log       /var/log/nginx/poweradmin.error.log;
+}
+EOF
+ln -s /etc/nginx/sites-available/powerdns /etc/nginx/sites-enabled/powerdns
+service nginx reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
+und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
+Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Probleme beim Upgrade auf den Pi 2</title>
+      <link>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
+      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
+ein paar Experimente mit dem 2,4 GHz Sender &lt;a href=&#34;http://www.mikrocontroller.net/articles/NRF24L01_Tutorial&#34;&gt;NRF24L01&lt;/a&gt;. Dabei musste ich feststellen, dass der &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; und
+das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34;&gt;SPI (Serial Peripheral Interface)&lt;/a&gt; nicht wie gewohnt funktionieren.&lt;/p&gt;
+
+&lt;p&gt;Beim Kernel 3.18 gab es einige Änderungen, die einen das Leben schwer machen. Es gibt auf stackechange eine
+&lt;a href=&#34;http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f&#34;&gt;kurze Zusammenfassung&lt;/a&gt; und eine &lt;a href=&#34;http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658&#34;&gt;sehr Ausführliche auf raspberrypi.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Wer es kurz und knackig mag, der fügt die folgenden Zeilen in &lt;code&gt;/boot/config.txt&lt;/code&gt; ein und startet den Pi neu.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dtparam=i2c1=on
+dtparam=spi=on
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ein Pi wird kommen</title>
+      <link>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</guid>
+      <description>&lt;p&gt;Mein &lt;a href=&#34;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
+ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
+sich alles viel flüssiger an. Da ich &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch
+etwas zäh.&lt;/p&gt;
+
+&lt;p&gt;Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
+dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
+Images.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>go in 6 Schritten installieren</title>
+      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <description>
+
+&lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
+veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
+Das ist mit Bordmitteln fast unmöglich.&lt;/p&gt;
+
+&lt;p&gt;Für diese Probleme gibt es Abhilfe: Den go Versionsmanager &lt;a href=&#34;https://github.com/moovweb/gvm&#34;&gt;gvm&lt;/a&gt;. Ich gebe zu, dass das ganze etwas von einem
+Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg &lt;code&gt;go&lt;/code&gt; zu installieren&lt;/p&gt;
+
+&lt;h3 id=&#34;1-voraussetzungen:68e336974a9292a1000070f844d9d073&#34;&gt;1. Voraussetzungen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit installiert man die Voraussetzungen, um &lt;code&gt;go&lt;/code&gt; compilieren zu können.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-clone-das-repo-in-dein-home:68e336974a9292a1000070f844d9d073&#34;&gt;2. clone das Repo in Dein home&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bash &amp;lt; &amp;lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Diese Komandozeile lädt mit &lt;a href=&#34;http://curl.haxx.se/&#34;&gt;curl&lt;/a&gt; ein Skript herunter und lässt es von der &lt;a href=&#34;http://www.gnu.org/software/bash/&#34;&gt;bash&lt;/a&gt; ausführen. Dabei
+der Inhalt vom git-Repository nach &lt;code&gt;~/.gvm&lt;/code&gt; kopiert&lt;/p&gt;
+
+&lt;h3 id=&#34;3-gvm-in-der-shell-verfügbar-machen:68e336974a9292a1000070f844d9d073&#34;&gt;3. gvm in der shell verfügbar machen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;[[ -s &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot; ]] &amp;amp;&amp;amp; source &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die Zeile muss man in seine &lt;code&gt;~/.bashrc&lt;/code&gt; bzw. &lt;code&gt;~/.zshrc&lt;/code&gt; einfügen, damit die Umgebungsvariablen und Komandos
+von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
+führt das Komando noch einmal in der aktuellen Shell aus.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-nachsehen-ob-gvm-installiert-ist:68e336974a9292a1000070f844d9d073&#34;&gt;4. nachsehen, ob gvm installiert ist&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm version
+Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-go-golang-installieren:68e336974a9292a1000070f844d9d073&#34;&gt;5. go (golang) installieren&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm listall
+
+gvm gos (available` sh
+...
+   go1.4
+   go1.4.1
+   go1.4.2
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man sieht alle Versionen von &lt;code&gt;go&lt;/code&gt; So installiert man eine spezifische &lt;code&gt;go&lt;/code&gt; Version, z.B. 1.4.2.
+&lt;em&gt;Installieren&lt;/em&gt; ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
+d.h. es werden &lt;strong&gt;keine&lt;/strong&gt; Binärpakete heruntergeladen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm install go1.4.2
+Downloading Go source...
+Installing go1.4...
+* Compiling...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;6-gvm-mitteilen-welche-version-von-go-man-nutzen-möchte:68e336974a9292a1000070f844d9d073&#34;&gt;6. gvm mitteilen, welche Version von go man nutzen möchte&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm use go1.4.2
+Now using version go1.4.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann noch nachsehen, welche Version &lt;code&gt;go&lt;/code&gt; hat.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go version
+go version go1.4.2 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modernes Logging Teil 2</title>
+      <link>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</link>
+      <pubDate>Tue, 24 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/modernes-logging-teil-2/</guid>
+      <description>
+
+&lt;p&gt;Ich habe in meinen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging/&#34;&gt;letzten Beitrag über Logging&lt;/a&gt; schon geschrieben, wie man eine moderne Logging-Infrastruktur aufsetzten kann.
+Inzwischen wurde &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; in der Version 4 finale freigegeben. In diesem Artikel möchte ich das Upgrade auf die
+finale Version zeigen und auf das &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository von Elasticsearch&lt;/a&gt; hinweisen.&lt;/p&gt;
+
+&lt;p&gt;Kibana in der finalen Version 4 lässt sich genauso installieren, wie der Release Candidate. Man muss nur die Konfiguration
+im Elasticsearch anpassen.&lt;/p&gt;
+
+&lt;h3 id=&#34;vorarbeiten:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Vorarbeiten&lt;/h3&gt;
+
+&lt;p&gt;Als erstes fährt man Kibana herunter und updatet Elasricsearch auf die Version 1.4.4. Das geht sehr einfach, wenn man das
+entsprechende &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html&#34;&gt;Repository&lt;/a&gt; benutzt. Dann ist es nur noch ein &lt;code&gt;apt-get install elasticsearch&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;update-auf-kibana-4:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Update auf Kibana 4&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-linux-x64.tar.gz
+
+# Index updaten
+BODY=`curl -XGET &#39;localhost:9200/.kibana/config/4.0.0-rc1/_source&#39;`; curl -XPUT &amp;quot;localhost:9200/.kibana/config/4.0.0&amp;quot; -d &amp;quot;$BODY&amp;quot; &amp;amp;&amp;amp; curl -XDELETE &amp;quot;localhost:9200/.kibana/config/4.0.0-rc1&amp;quot;
+
+# kibana starten
+kibana-4.0.0-linux-x64/bin/kibana
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;nachtrag-06-03-2015:568e9c6fc3669f1cee0d24068e094cd2&#34;&gt;Nachtrag 06.03.2015&lt;/h3&gt;
+
+&lt;p&gt;Es wurde &lt;a href=&#34;https://www.elasticsearch.org/blog/kibana-4-0-1-released/&#34;&gt;Kibana 4.0.1&lt;/a&gt; released. Diese Version hat ein paar Bugfixes und man auch den Index nicht updaten, wenn man den Release Candidate noch installiert hat.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pakete selbst bauen</title>
+      <link>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</link>
+      <pubDate>Thu, 19 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://binfalse.de/&#34;&gt;binfalse&lt;/a&gt; hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf &lt;a href=&#34;http://de.wikipedia.org/wiki/Debian-Paket&#34;&gt;deb&lt;/a&gt;-Pakete während RedHat und Fedora auf &lt;a href=&#34;http://de.wikipedia.org/wiki/RPM_Package_Manager&#34;&gt;rpm&lt;/a&gt;-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll &lt;strong&gt;Sktripte&lt;/strong&gt; zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.&lt;/p&gt;
+
+&lt;p&gt;Um unnötige Komplikationen zu vermeiden, gibt es Tool &lt;a href=&#34;https://github.com/jordansissel/fpm/wiki&#34;&gt;fpm&lt;/a&gt;. Es kann unter anderm deb- und rpm-Pakete erstellen. fpm ist in &lt;a href=&#34;https://www.ruby-lang.org/de/&#34;&gt;ruby&lt;/a&gt; geschrieben. Aus diesem Grund muss man etwas Vorarbeit leisten.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-von-fpm-unter-ubuntu-debian:697271e97aa2539a916944cbda9fcb5e&#34;&gt;Installation von fpm unter Ubuntu/Debian&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install ruby-dev build-essential
+sudo gem install fpm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Wenn das &lt;a href=&#34;http://guides.rubygems.org/what-is-a-gem/&#34;&gt;gem&lt;/a&gt; &lt;code&gt;fpm&lt;/code&gt; installiert ist, dann gibt es den Befehl &lt;code&gt;fpm&lt;/code&gt; im &lt;code&gt;PATH&lt;/code&gt;. Man kann das ganze wie folgt testen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;fpm -h
+Intro:
+
+  This is fpm version 1.3.3
+
+  If you think something is wrong, it&#39;s probably a bug! :)
+  Please file these here: https://github.com/jordansissel/fpm/issues
+
+  You can find support on irc (#fpm on freenode irc) or via email with
+  fpm-users@googlegroups.com
+
+Usage:
+    fpm [OPTIONS] [ARGS] ...
+
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man anfangen Pakte zu bauen. Ein Aufruf sieht im einfachsten Fall so aus: &lt;code&gt;fpm -s source_type -t target_type  source_name_or_location&lt;/code&gt; Der &lt;strong&gt;source_type&lt;/strong&gt; bzw. &lt;strong&gt;target_type&lt;/strong&gt; können die verschiedensten Paketformate sein. Einige Pakettype benötigen Hilfsprogramme, damit &lt;code&gt;fpm&lt;/code&gt; sie erstellen kann. Da ich annehme, dass &lt;code&gt;fpm&lt;/code&gt; auf einen Debian bzw. Ubuntu benutzt wird, zeige ich im folgenden Beispiel wie man aus einen &lt;a href=&#34;http://guides.rubygems.org/what-is-a-gem/&#34;&gt;ruby&lt;/a&gt; ein deb-Paket baut.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;fpm -s gem -t deb bundler
+Erstellt package {: path =&amp;gt; &amp;quot;rubygem-bundler_1.6.5_all.deb&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es wird die Datei &lt;code&gt;rubygem-bundler_1.6.5_all.deb&lt;/code&gt; im aktuellen Verzeichnis erstellt. (Ihre Versionsnummer kann abweichen). Diese kann man dann ganz einfach installieren (oder zu einen Repository hinzufügen).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo dpkg -i rubygem-bundler_1.6.5_all.de
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Wenn die Quelle ein &lt;strong&gt;Standart Reporitory&lt;/strong&gt; wie &lt;a href=&#34;https://rubygems.org/&#34;&gt;rubygems.org&lt;/a&gt; für ruby gems  oder  &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;npm&lt;/a&gt; für &lt;a href=&#34;http://nodejs.org/&#34;&gt;nodejs&lt;/a&gt; Pakete, dann ist fpm in der Lage automatisch alle benötigten Dateien herunterzuladen.&lt;/p&gt;
+
+&lt;p&gt;Es ist auch sehr einfach möglich fremde Software zu packen, welche man compilieren muss. Im Allgemeinen sieht das wie folgt aus:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Vorbereitung
+mkdir ~/build
+cd ~/build
+git clone https://github.com/cool/cool-app
+cd cool-app
+
+# bauen
+make
+mkdir -p /tmp/cool-app 
+make install DESTDIR=/tmp/cool-app
+fpm -s -t dir deb -C /tmp/cool-app \
+  --name cool-app-name \
+  --version 1.0.0 \
+  --iteration 1 \
+  --depends &amp;quot;Abhänigkeit 1 (&amp;gt;= 2.0.0)&amp;quot; \
+  --depends &amp;quot;Abhänigkeit 2&amp;quot; \
+  --description &amp;quot;Ein Beispielpaket&amp;quot; \
+ .
+
+fpm -s -t dir rpm -C /tmp/cool-app \
+  --name cool-app-name \
+  --version 1.0.0 \
+  --iteration 1 \
+  --depends &amp;quot;Abhänigkeit 1 (&amp;gt;= 2.0.0)&amp;quot; \
+  --depends &amp;quot;Abhänigkeit 2&amp;quot; \
+  --description &amp;quot;Ein Beispielpaket&amp;quot; \
+  .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man erhält dann im aktuellen Verzeichnis ein &lt;code&gt;rpm&lt;/code&gt;- und ein &lt;code&gt;deb&lt;/code&gt;-Paket. So kann man einfach und schnell Pakete für das eigene System bauen oder für andere, wenn man z.B. selbst Software bereit stellt. Man kann auch statt des &lt;code&gt;.&lt;/code&gt; am Ende des &lt;code&gt;fpm&lt;/code&gt;-Komandos sagt, dass der gesamte Inhalt von unter &lt;code&gt;/tmp/cool-app&lt;/code&gt; in das Paket soll. Man kann/sollte auch die Vezeichnisse einzeln angeben z.B. &lt;code&gt;etc/cool-app usr/bin usr/share/man&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;sources:697271e97aa2539a916944cbda9fcb5e&#34;&gt;Sources&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;gem&lt;/strong&gt; ruby-gem (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;python&lt;/strong&gt; &lt;a href=&#34;https://www.python.org/&#34;&gt;python&lt;/a&gt;-Module, welche &lt;code&gt;easy_install&lt;/code&gt; unterstützen (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pear&lt;/strong&gt; &lt;a href=&#34;http://php.net/&#34;&gt;php&lt;/a&gt;-Module (automatischer Download von &lt;a href=&#34;http://pear.php.net/&#34;&gt;pear.php.net&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dir&lt;/strong&gt; Verzeichnis&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tar&lt;/strong&gt; &lt;a href=&#34;http://de.wikipedia.org/wiki/Tar&#34;&gt;tar&lt;/a&gt;-Archiv&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pear&lt;/strong&gt; php-Module (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rpm&lt;/strong&gt; &lt;a href=&#34;http://de.wikipedia.org/wiki/RPM_Package_Manager&#34;&gt;rpm&lt;/a&gt;-Paket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;deb&lt;/strong&gt; deb-Paket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zip&lt;/strong&gt; &lt;a href=&#34;http://de.wikipedia.org/wiki/ZIP-Dateiformat&#34;&gt;zip&lt;/a&gt;-Archiv&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;empty&lt;/strong&gt; erzeugt ein leeres Paket, welches man oft für Metapakte benutzt&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;npm&lt;/strong&gt; nodejs Module (automaticher Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cpan&lt;/strong&gt; peal-Module (automatischer Download)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;osxpkg&lt;/strong&gt; Mac OS X Pakete (nur auf Mac verfügbar)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;targets:697271e97aa2539a916944cbda9fcb5e&#34;&gt;Targets&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;deb&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rpm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zip&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tar&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dir&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sh&lt;/strong&gt; (selbst entpackendes Shell skript, welches ein &lt;a href=&#34;http://www.bzip.org/&#34;&gt;bzip2&lt;/a&gt; gepacktes tar enthält)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;osxpkg&lt;/strong&gt; (nur auf Mac verfügbar)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;solaris&lt;/strong&gt; Solaris Pakete (nur auf Solaris möglich)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pkgin&lt;/strong&gt; BSD pakete (nur auf BSD möglich)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;puppet&lt;/strong&gt; (&lt;a href=&#34;http://puppetlabs.com/puppet/what-is-puppet&#34;&gt;puppet&lt;/a&gt;-Modul, aktuell noch nicht implementiert)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Modernes Logging</title>
+      <link>http://localhost:1313/post/2015/02/modernes-logging/</link>
+      <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/modernes-logging/</guid>
+      <description>
+
+&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&#34;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&#34;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&#34;http://logstash.net/&#34;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; wird zum
+visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&#34;http://de.wikipedia.org/wiki/Syslog&#34;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&#34;http://www.rsyslog.com/&#34;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;
+
+&lt;p&gt;Die folgende Anleitung beschreibt, wie man das ganze unter Ubuntu 14.04 einrichtet. Ich beschreibe kein komplettes Setup, es ist als Einstieg in die Thematik gedacht.&lt;/p&gt;
+
+&lt;h3 id=&#34;rsyslog-unter-ubuntu-14-04-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;rsyslog unter Ubuntu 14.04 installieren&lt;/h3&gt;
+
+&lt;p&gt;Eine Konsole öffnen und das Repository hinzufügen. Es handelt sich hierbei um das &lt;a href=&#34;http://www.rsyslog.com/ubuntu-repository/&#34;&gt;offizelle Repository&lt;/a&gt; von rsyslog. Rsyslog ist in den offizellen Repositories von Ubuntu nicht auf dem neusten Stand, außerdem gibt kein Paket mit dem Elasticsearchsupport.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo add-apt-repository ppa:adiscon/v8-stable
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Den Cache von &lt;code&gt;apt&lt;/code&gt; aktualisieren und &lt;code&gt;rsyslog&lt;/code&gt; mit der Elasticsearch Unterstützung installieren&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install rsyslog rsyslog-elasticsearch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;elasticsearch-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Elasticsearch installieren&lt;/h3&gt;
+
+&lt;p&gt;deb-Paket herunterladen und installieren. Die Installation über das deb-Paket hat den Vorteil, dass man Elasticsearch einfach updaten kann und es gibt auch schon init-Skripte.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.4.3.deb
+sudo dpkg -i elasticsearch-1.4.3.deb
+sudo update-rc.d elasticsearch defaults
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elasticsearch konfigurieren. Dazu muss man die Datei &lt;code&gt;/etc/elasticsearch/elasticsearch.yml&lt;/code&gt; im Editor seine Wahl öffnen und die folgenden Zeilen einkommentieren und ändern&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;# Set the number of shards (splits) of an index (5 by default):
+#
+index.number_of_shards: 1
+
+# Set the number of replicas (additional copies) of an index (1 by default):
+#
+index.number_of_replicas: 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Elasticsearch starten:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo service elasticsearch start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;rsyslog-konfigurieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;rsyslog konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Man muss nun dafür sorgen, dass die Lognahrichten von rsyslog nach Elasticsearch geschrieben werden. Als erstes legt man ein &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html&#34;&gt;Mapping&lt;/a&gt; in Elasticsearch an. Damit sagt man Elasticsearch, dass es das Feld &lt;code&gt;program&lt;/code&gt; &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html&#34;&gt;nicht analysieren&lt;/a&gt; soll. Außerdem sollen die Dokumente nach &lt;a href=&#34;http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-ttl-field.html&#34;&gt;90 Tagen gelöscht&lt;/a&gt; werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;curl -XPUT &#39;http://localhost:9200/logstash&#39; -d &#39;{
+  &amp;quot;mappings&amp;quot;: {
+    &amp;quot;events&amp;quot; : {
+      &amp;quot;_ttl&amp;quot; : {
+        &amp;quot;enabled&amp;quot; : true,
+        &amp;quot;default&amp;quot; : &amp;quot;90d&amp;quot;
+        },
+      &amp;quot;properties&amp;quot; : {
+        &amp;quot;program&amp;quot; : {
+          &amp;quot;type&amp;quot; : &amp;quot;string&amp;quot;,
+          &amp;quot;index&amp;quot; : &amp;quot;not_analyzed&amp;quot;,
+          &amp;quot;norms&amp;quot; : {
+            &amp;quot;enabled&amp;quot; : false
+          }
+        }
+      }
+    }
+  }
+}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nach man die Datei  &lt;code&gt;/etc/rsyslog.d/30-elasticsearch.conf&lt;/code&gt; erstellt hat, muss
+man nur noch &lt;code&gt;rsyslog&lt;/code&gt; neu starten. Wenn es Probleme gibt kann man mit &lt;code&gt;rsyslogd -N1&lt;/code&gt; die Konfiguraion überprüfen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+cat &amp;lt;&amp;lt; EOF &amp;gt; /etc/rsyslog.d/30-elasticsearch.conf
+#module(load=&amp;quot;imuxsock&amp;quot;)       # for listening to /dev/log, normal not needed
+module(load=&amp;quot;omelasticsearch&amp;quot;) # for outputting to Elasticsearch
+
+# this is for index names to be like: logstash-YYYY.MM.DD
+template(name=&amp;quot;logstash-index&amp;quot;
+  type=&amp;quot;list&amp;quot;) {
+    constant(value=&amp;quot;logstash-&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;1&amp;quot; position.to=&amp;quot;4&amp;quot;)
+    constant(value=&amp;quot;.&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;6&amp;quot; position.to=&amp;quot;7&amp;quot;)
+    constant(value=&amp;quot;.&amp;quot;)
+    property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot; position.from=&amp;quot;9&amp;quot; position.to=&amp;quot;10&amp;quot;)
+}
+
+# use only one index, useful only for local usage
+template(name=&amp;quot;logstash&amp;quot; type=&amp;quot;string&amp;quot; string=&amp;quot;logstash&amp;quot;)
+
+# this is for formatting our syslog in JSON with @timestamp
+template(name=&amp;quot;plain-syslog&amp;quot;
+  type=&amp;quot;list&amp;quot;) {
+    constant(value=&amp;quot;{&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;@timestamp\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;timereported&amp;quot; dateFormat=&amp;quot;rfc3339&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;host\&amp;quot;:\&amp;quot;&amp;quot;)        property(name=&amp;quot;hostname&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;severity\&amp;quot;:\&amp;quot;&amp;quot;)    property(name=&amp;quot;syslogseverity-text&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;facility\&amp;quot;:\&amp;quot;&amp;quot;)    property(name=&amp;quot;syslogfacility-text&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;tag\&amp;quot;:\&amp;quot;&amp;quot;)         property(name=&amp;quot;syslogtag&amp;quot; format=&amp;quot;json&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;program\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;programname&amp;quot;)
+      constant(value=&amp;quot;\&amp;quot;,\&amp;quot;message\&amp;quot;:\&amp;quot;&amp;quot;)     property(name=&amp;quot;msg&amp;quot; format=&amp;quot;json&amp;quot;)
+    constant(value=&amp;quot;\&amp;quot;}&amp;quot;)
+}
+
+# this is where we actually send the logs to Elasticsearch (localhost:9200 by default)
+action(type=&amp;quot;omelasticsearch&amp;quot;
+    template=&amp;quot;plain-syslog&amp;quot;
+    searchIndex=&amp;quot;logstash&amp;quot;
+    dynSearchIndex=&amp;quot;on&amp;quot;)
+
+EOF
+/etc/init.d/rsyslog restart
+exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;kibana-installieren:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Kibana installieren&lt;/h3&gt;
+
+&lt;p&gt;Für Kibana gibt es leider keinen bequemen Installationsweg. Deswegen beschreibe ich den Weg, der schnell und einfach zum Ziel führt, aber auf keinen Fall sinnvoll für den produktiven Betrieb ist. Man läd Kibana herunter und startet es.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-rc1-linux-x64.tar.gz
+tar xfvz kibana-4.0.0-rc1-linux-x64.tar.gz
+kibana-4.0.0-rc1-linux-x64/bin/kibana
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man auf Kibana über &lt;code&gt;http://127.0.0.1:5601/&lt;/code&gt; im Browser zugreifen. Man muss nur noch Kibana sagen, welchen Index es benutzen soll. Das geht realtiv intuitiv.&lt;/p&gt;
+
+&lt;h3 id=&#34;anmerkung:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Anmerkung&lt;/h3&gt;
+
+&lt;p&gt;Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows nutzen. Ich habe hier alle Technologien nur angeschitten, für ein richtiges Setup muss man noch viel mehr beachten und konfigurieren.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Skripte parallelisieren</title>
+      <link>http://localhost:1313/post/2015/02/skripte-parallelisieren/</link>
+      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/skripte-parallelisieren/</guid>
+      <description>
+
+&lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;code&gt;parallel&lt;/code&gt; als Ersatz für &lt;code&gt;xargs&lt;/code&gt; nehmen oder um Schleifen zu parallelisieren. Auf der Seite von &lt;code&gt;parallel&lt;/code&gt; gibt es viele &lt;a href=&#34;http://www.gnu.org/software/parallel/man.html&#34;&gt;Beispiele&lt;/a&gt;, welche über das parallelisieren von Schleifen hinaus gehen.&lt;/p&gt;
+
+&lt;h3 id=&#34;aktueller-anwendungsfall:cb1bfcf9cf27c64f5ffffa51a1dd92e0&#34;&gt;Aktueller Anwendungsfall&lt;/h3&gt;
+
+&lt;p&gt;Ich nutze &lt;code&gt;parallel&lt;/code&gt; zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_File_System&#34;&gt;NFS&lt;/a&gt;-Freigabe. Ich habe &lt;a href=&#34;http://rsync.samba.org/&#34;&gt;rsync&lt;/a&gt; und &lt;code&gt;cp&lt;/code&gt; probiert. &lt;code&gt;rsync&lt;/code&gt; ist in meinen Fall langsamer als &lt;code&gt;cp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Aus diesem Grund habe ich &lt;code&gt;cp&lt;/code&gt;, wie folgt parallelisiert:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;find . -type f -mtime -2 | parallel --jobs 16 /usr/sbin/backup_helper.sh {}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt; auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
+
+&lt;p&gt;Das script &lt;code&gt;backup_helper.sh&lt;/code&gt; sieht wie folgt aus:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cat /usr/sbin/backup_helper.sh
+#!/bin/bash
+
+base=&amp;quot;$(dirname ${1})&amp;quot;
+mkdir -p &amp;quot;/backup/${base}&amp;quot;
+cp &amp;quot;${1}&amp;quot; &amp;quot;/backup/${1}&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Passwortmanager</title>
+      <link>http://localhost:1313/post/2015/02/passwortmanager/</link>
+      <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/passwortmanager/</guid>
+      <description>
+
+&lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
+außerdem sollte man es regelmäßig wechseln und dann muss es auch noch &lt;em&gt;komplex&lt;/em&gt; sein. Da ich mir
+nicht 100 Passwörter merken kann, verwende ich einen Passwortmanager. Es gibt eine ganze Reihe
+von solchen Tools, aber keins hat mich mich bis überzeugt.&lt;/p&gt;
+
+&lt;h3 id=&#34;meine-anforderungen-sind:723e36c0d653eead54808cb1e59efd78&#34;&gt;Meine Anforderungen sind&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;einfach zu bedienen&lt;/li&gt;
+&lt;li&gt;einfache synchronisation zwischen mehreren Geräten&lt;/li&gt;
+&lt;li&gt;leichtgewichtig&lt;/li&gt;
+&lt;li&gt;eine GUI ist nicht nötig&lt;/li&gt;
+&lt;li&gt;Windowsunterstützung ist mir egal, da ich kein Windows nutze&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://keepass.info/&#34;&gt;KeePass 2&lt;/a&gt; würde meine meisten Anforderungen erfüllen. Aber ich werde mit dem Tool nicht wirklich warm. Ich finde auch, dass
+es recht schwergewichtig ist, weil ich dafür noch &lt;a href=&#34;http://www.mono-project.com/&#34;&gt;Mono&lt;/a&gt; benötige, was ich sonst nicht auf meinen Rechnern habe.&lt;/p&gt;
+
+&lt;h2 id=&#34;pass-der-standard-unix-passwortmanager:723e36c0d653eead54808cb1e59efd78&#34;&gt;pass - Der Standard Unix Passwortmanager&lt;/h2&gt;
+
+&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; gefunden habe, war ich glücklich. Dieser Passwortmanager hat alles was ich verlange.
+Das schöne ist, dass pass auf Standarttools setzt. Die Daten werden mit &lt;a href=&#34;https://www.gnupg.org/&#34;&gt;GnuPG&lt;/a&gt; verschlüsselt und bei Bedarf
+in einen &lt;a href=&#34;http://git-scm.com/&#34;&gt;git&lt;/a&gt;-Repository versioniert. Durch die Verwendung von git ist es auch möglich die Passwörter über
+verschiedene Clients hinweg zu sychronisieren.&lt;/p&gt;
+
+&lt;p&gt;Man kann &lt;a href=&#34;http://www.passwordstore.org/&#34;&gt;pass&lt;/a&gt; über die Paketverwaltung der meisten Distributionen installieren. Es ist auch ohne weiteres
+möglich pass via git checkout zu installieren. Das geht deswegen so einfach, weil pass &lt;em&gt;nur&lt;/em&gt; ein Shell-Skript
+ist, welches einige Standarttools sowie GnuPG und git nutzt.&lt;/p&gt;
+
+&lt;h3 id=&#34;anwendung:723e36c0d653eead54808cb1e59efd78&#34;&gt;Anwendung&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;pass init EE75C6FE
+mkdir: created directory ‘/home/rennecke/.password-store’
+Password store initialized for EE75C6FE Password Storage Key.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es wird eine leere Passwortdatenbank erstellt und zum verschküsseln der Passwörter wird der GnuPG Key &lt;code&gt;EE75C6FE&lt;/code&gt;
+verwenden. Man kann den Key auch mit der dazugehörigen Emailadresse angeben.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pass git init 
+Initialized empty Git repository in /home/rennecke/.password-store/.git/ 
+[master (root-commit) 998c8fd] Added current contents of password store. 
+1 file changed, 1 insertion(+) 
+create mode 100644 .gpg-id
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jetzt wird noch leere Passwortdatenbank unter Versionskontrolle genommen. Nun kann alle Möglichkeiten
+von git nutzen. Die &lt;code&gt;&amp;lt;parameter&amp;gt;&lt;/code&gt; von &lt;code&gt;pass git &amp;lt;parameter&amp;gt;&lt;/code&gt; sind alle möglichen Parameter, welche git
+aktzeptiert, &lt;code&gt;pass&lt;/code&gt; alles was nach git kommt 1:1 an &lt;code&gt;git&lt;/code&gt; weiter.&lt;/p&gt;
+
+&lt;p&gt;An dieser Stelle möchte ich nicht die Dokumentation von pass abschreiben, da ich es auch recht intuitiv finde. Man
+kann sich &lt;a href=&#34;http://git.zx2c4.com/password-store/about/#EXTENDED%20GIT%20EXAMPLE&#34;&gt;hier&lt;/a&gt; einen Überblick verschaffen.&lt;/p&gt;
+
+&lt;h3 id=&#34;android-app:723e36c0d653eead54808cb1e59efd78&#34;&gt;Android App&lt;/h3&gt;
+
+&lt;p&gt;Für alle Android-Nutzer gibt es noch ein richtiges Sahnestück, die App &lt;a href=&#34;https://github.com/zeapo/Android-Password-Store&#34;&gt;Password Store&lt;/a&gt;. Sie überzeugt mich, durch ein
+gutes Bedienkonzept und sie kann alle Funktionen von pass nutzen. Sie unterstützt auch mit einem Passwort gesicherte
+ssh-Schlüssel. Zur Verwaltung der GnuPG-Schlüssel nutzte ich &lt;a href=&#34;http://www.openkeychain.org/&#34;&gt;OpenKeychain&lt;/a&gt;. OpenKeychain unterstüzt selbstverständlich
+auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
+
+&lt;h3 id=&#34;nachtrag:723e36c0d653eead54808cb1e59efd78&#34;&gt;Nachtrag&lt;/h3&gt;
+
+&lt;p&gt;Wie ihr im letzten Absatz bemerkt habt, muss ich mir trotzdem 2 Passwörter merken und bei KeyPass 2 ist es nur ein Passwort.
+Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
+falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn
+man täglich diese Schlüssel nutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hallo github</title>
+      <link>http://localhost:1313/post/2015/02/hallo-github/</link>
+      <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/hallo-github/</guid>
+      <description>
+
+&lt;p&gt;Nachdem mich die &lt;a href=&#34;http://www.primacom.de/&#34;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
+meinen statischen Blog erst einmal auf github weiter zu schreiben. So ist er für
+alle erreichbar und es gibt auch ssl.&lt;/p&gt;
+
+&lt;h2 id=&#34;nachtrag-vom-19-02-2015:1eb5e6da15f0aea3bd088b726eb0ce0e&#34;&gt;Nachtrag vom 19.02.2015&lt;/h2&gt;
+
+&lt;p&gt;Ich habe die Tage mit der primacom telefoniert, da sie auf mein Bug-Ticket seit Wochen
+nicht antworten. Das Problem ist bekannt und hat mit dem &lt;a href=&#34;http://www.lvz-online.de/leipzig/wirtschaft/primacom-stoerung-von-internet-und-telefon-behoben-wartezeiten-beim-kundendienst/r-wirtschaft-a-269133.html&#34;&gt;großen Crash&lt;/a&gt; der primacom zu tun.&lt;/p&gt;
+
+&lt;p&gt;In 2 bis 3 Monaten soll es wieder öffentliche IPs geben. Wenn ich jetzt eine öffentliche IP
+möchte, dann muss ich 20€ pro Monat bezahlen. Das ist in meinen Augen eine Frecheit. Für 20€
+pro Monat bekommt schon einen kleinen virtuellen Server mit einer eigenen IP Adresse zu den
+man einen VPN-Tunnel aufbauen kann.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rrdtool und json</title>
+      <link>http://localhost:1313/post/2014/10/rrdtool-und-json/</link>
+      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/rrdtool-und-json/</guid>
+      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
+Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
+visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
+angezeigt.&lt;/p&gt;
+
+&lt;p&gt;Meine Idee war, dass ich aus der RRD-Datenbank einige Daten zu json konvertiere, um sie dann
+mit Highcharts anzuzeigen. Die json-Daten wollte ich mit einem ajax-Request nachladen. Da ich
+so gut wie keine JavaScript- und JQuerry-Kenntnisse habe, habe ich sehr lange vergeblich
+probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte &amp;ldquo;json&amp;rdquo; mir angesehen
+habe, ist mir aufgefallen, dass es kein valides json ist&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Weil ich noch ein Erfolgserlebnis haben wollte, bin ich auf den validen xml-Export von
+RRDtool umgestiegen. Danach hat der Prototyp funktioniert.&lt;/p&gt;
+
+&lt;p&gt;Nach etwas Recherche im Netz, bin ich auch auf ein &lt;a href=&#34;https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825&#34;&gt;Bug-Ticket&lt;/a&gt; gestoßen, welches den kaputten
+json-Export anspricht.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

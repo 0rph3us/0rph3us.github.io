@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on Michael im Netz</title>
+    <link>http://localhost:1313/categories/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/raspberry-pi/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Einen DNS Server selbst betreiben</title>
+      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <description>
+
+&lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
+man mehrere Dienste im eigenen Netzwerk betreibt. Dazu habe ich &lt;a href=&#34;https://www.powerdns.com/&#34;&gt;PowerDNS&lt;/a&gt; mit einem &lt;a href=&#34;http://de.wikipedia.org/wiki/MySQL&#34;&gt;MySQL&lt;/a&gt;-Backend.
+Das ganze lässt sich mit der Weboberfläche &lt;a href=&#34;http://www.poweradmin.org/&#34;&gt;poweradmin&lt;/a&gt; sehr einfach bedienen. Man sollte aber bedenken,
+dass jeder Fehler ein komisches Verhalten zur Folge haben kann, wenn man z.B. &lt;a href=&#34;http://de.wikipedia.org/wiki/Zone_%28DNS%29&#34;&gt;Zone&lt;/a&gt; im DNS überschreibt.&lt;/p&gt;
+
+&lt;p&gt;Die Installation auf dem &lt;a href=&#34;http://www.raspberrypi.org/help/what-is-a-raspberry-pi/&#34;&gt;Raspberry Pi&lt;/a&gt; mit &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; gestaltet sich realtiv einfach. Am besten macht macht
+das ganze als &lt;code&gt;root&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-von-mysql:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Installation von MySQL&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo apt-get install mysql-server mysql-client php5-mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach habt Ihr MySQL installiert und auch den php Client, welchen wir später noch brauchen. Während
+der Installation werdet ihr nach dem &lt;code&gt;root&lt;/code&gt;-Passwort für den MySQL Server gefragt.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation-von-powerdns:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Installation von PowerDNS&lt;/h3&gt;
+
+&lt;p&gt;Die Installation möchte Euch bei der Einrichtung der Datenbank behilflich sein. Aber wir konfigurieren
+alles per Hand. Bei mir die automatische Konfiguration nicht so gut funktioniert.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo su
+apt-get install pdns-server pdns-backend-mysql dnsutils
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;einrichten-der-datenbank:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Einrichten der Datenbank&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sql&#34;&gt;CREATE DATABASE powerdns;
+GRANT ALL ON powerdns.* TO powerdns@127.0.0.1 IDENTIFIED BY &#39;GeheimesPasswort&#39;;
+FLUSH PRIVILEGES;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das muss man in die &lt;code&gt;mysql&lt;/code&gt; Konsole eintragen. Zu dieser gelangt man so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql -uroot -p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun importieren wir das Datenbank-Schema für PowerDNS&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mysql -uroot -p powerdns &amp;lt; /usr/share/doc/pdns-backend-mysql/nodnssec-3.x_to_3.4.0_schema.mysql.sql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;powerdns-konfigurieren:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;PowerDNS konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Die Datei &lt;code&gt;/etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt; muss wie folgt verändert werden:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# MySQL Configuration
+#
+# Launch gmysql backend
+launch+=gmysql
+
+# gmysql parameters
+gmysql-host=127.0.0.1
+gmysql-port=3306
+gmysql-dbname=powerdns
+gmysql-user=powerdns
+gmysql-password=GeheimesPasswort
+gmysql-dnssec=yes
+# gmysql-socket=
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun muss  man sie noch schützen &lt;code&gt;sudo chmod 660 /etc/powerdns/pdns.d/pdns.local.gmysql.conf&lt;/code&gt;. Nun
+wurder Der Server nur lokal funktionieren und nur seine eigenen Zonen auflösen können. Damit man
+er auch noch über alle anderen Zonen Auskunft geben kann und jedes Gerät im LAN ihn nutzen kann
+muss man ein paar Zeilen in der &lt;code&gt;/etc/powerdns/pdns.conf&lt;/code&gt; ändern
+(sie sind schön auskommentiert enthälten, ohne Parameter).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;recursor=8.8.8.8
+
+allow-recursion=127.0.0.1,192.168.0.0/24
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ich gehe davon aus, dass Euer LAN ein 192.168.0.0/24 Netz ist, sonst anpassen ;-).&lt;/p&gt;
+
+&lt;h3 id=&#34;test:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Test&lt;/h3&gt;
+
+&lt;p&gt;Wenn alles funktioniert, dann kann man den DNS Server wie folgt testen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dig google.de @8.8.8.8  
+
+; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.9.5-3ubuntu0.2-Ubuntu &amp;lt;&amp;lt;&amp;gt;&amp;gt; google.de @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 49993
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.de.                     IN      A
+
+;; ANSWER SECTION:
+google.de.              299     IN      A       173.194.32.255
+google.de.              299     IN      A       173.194.32.248
+google.de.              299     IN      A       173.194.32.239
+google.de.              299     IN      A       173.194.32.247
+
+;; Query time: 87 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Wed Mar 18 07:12:42 CET 2015
+;; MSG SIZE  rcvd: 102
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;poweradmin-installieren:816d60a4fac4f6ba0b121cbbf32c84d1&#34;&gt;Poweradmin installieren&lt;/h3&gt;
+
+&lt;p&gt;Damit man den DNS Server einfach/schnell bedienen kann, installiert man &lt;a href=&#34;http://www.poweradmin.org/&#34;&gt;poweradmin&lt;/a&gt;. Das ist
+eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
+
+&lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+
+&lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get install php5-mcrypt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun beginnt die Installtion&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo su
+cd /var/www
+wget https://github.com/poweradmin/poweradmin/archive/v2.1.7.zip
+unzip v2.1.7.zip
+rm v2.1.7.zip
+mv poweradmin-2.1.7 poweradmin
+cat &amp;lt;&amp;lt; EOF &amp;gt; /etc/nginx/sites-available/powerdns
+server {
+    listen 80;
+    server_name &amp;lt;IP des Raspberry Pi&amp;gt;;
+    
+    root /var/www/poweradmin;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
+
+    access_log      /var/log/nginx/poweradmin.access.log;
+    error_log       /var/log/nginx/poweradmin.error.log;
+}
+EOF
+ln -s /etc/nginx/sites-available/powerdns /etc/nginx/sites-enabled/powerdns
+service nginx reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
+und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
+Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Probleme beim Upgrade auf den Pi 2</title>
+      <link>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
+      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
+      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
+ein paar Experimente mit dem 2,4 GHz Sender &lt;a href=&#34;http://www.mikrocontroller.net/articles/NRF24L01_Tutorial&#34;&gt;NRF24L01&lt;/a&gt;. Dabei musste ich feststellen, dass der &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; und
+das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34;&gt;SPI (Serial Peripheral Interface)&lt;/a&gt; nicht wie gewohnt funktionieren.&lt;/p&gt;
+
+&lt;p&gt;Beim Kernel 3.18 gab es einige Änderungen, die einen das Leben schwer machen. Es gibt auf stackechange eine
+&lt;a href=&#34;http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f&#34;&gt;kurze Zusammenfassung&lt;/a&gt; und eine &lt;a href=&#34;http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658&#34;&gt;sehr Ausführliche auf raspberrypi.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Wer es kurz und knackig mag, der fügt die folgenden Zeilen in &lt;code&gt;/boot/config.txt&lt;/code&gt; ein und startet den Pi neu.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dtparam=i2c1=on
+dtparam=spi=on
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ein Pi wird kommen</title>
+      <link>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</link>
+      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</guid>
+      <description>&lt;p&gt;Mein &lt;a href=&#34;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
+ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
+sich alles viel flüssiger an. Da ich &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch
+etwas zäh.&lt;/p&gt;
+
+&lt;p&gt;Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
+dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
+Images.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>BMP085 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Kosten: 8 - 12€&lt;/li&gt;
+&lt;li&gt;1,8 - 3,6V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;Stromverbrauch
+
+&lt;ul&gt;
+&lt;li&gt;3 µA (ultra-low power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;32 µA (advanced power mode, 1Hz Samplingrate)&lt;/li&gt;
+&lt;li&gt;0.1 μA Standby&lt;/li&gt;
+&lt;li&gt;max. 650 μA in der Spitze&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 85°C&lt;/li&gt;
+&lt;li&gt;Luftdruck: 300 bis 1100 hPa&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Der BMP085 ist ganz einfach am Raspberry Pi zu betreiben, da man ihn über
+den &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; anspricht. Beim Anschließen muss man aber aufpassen, da die
+verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
+steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
+bei denen man die Pins noch anlöten muss.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
+Die orange und violette Leitung sind der I²C-Bus, wobei
+orange SDA (Serial Data) und violett SCL (Serial Clock) ist. &lt;a href=&#34;http://www.timmermann.org/ralph/index.htm?http://www.ralph.timmermann.org/elektronik/i2c.htm&#34;&gt;Hier&lt;/a&gt; findet man ein
+paar mehr technische Informationen zum I²C-Bus&lt;/p&gt;
+
+&lt;h2 id=&#34;programmierung:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;h3 id=&#34;betriebssystem-vorbereiten:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Betriebssystem vorbereiten&lt;/h3&gt;
+
+&lt;p&gt;Um den I²C-Bus ansprechen zu können, muss man 2 Kernel-Module laden und ein paar Pakete
+installieren. Unter Raspbian und Debian ist alles in den Standard-Paketquellen verfügbar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev python-smbus
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kümmern wir uns um die Kernelmodule. Bei &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; muss man die die Module
+noch in der Datei &lt;code&gt;/etc/modprobe.d/raspi-blacklist.conf&lt;/code&gt; mit einer Raute &lt;code&gt;#&lt;/code&gt;
+am Zeilenanfang auskommentieren. Dazu muss man &lt;code&gt;root&lt;/code&gt; oder den Editor mit &lt;code&gt;sudo&lt;/code&gt;
+starten.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+echo &amp;quot;i2c-dev&amp;quot; &amp;gt;&amp;gt; /etc/modules
+echo &amp;quot;i2c_bcm2708&amp;quot; &amp;gt;&amp;gt; /etc/modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit man bequem auf den Sensor zugreifen kann, sollte man auch gleich die passende
+Python-Bibliothek von Adafruit installieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git clone https://github.com/adafruit/Adafruit_Python_BMP
+cd Adafruit_Python_BMP
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Es gibt auch hier im &lt;code&gt;examples&lt;/code&gt;-Verzeichnis einige Beispiele.&lt;/p&gt;
+
+&lt;h3 id=&#34;minimalbeispiel:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Minimalbeispiel&lt;/h3&gt;
+
+&lt;p&gt;Das kleine Python-Programm muss als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_BMP.BMP085 as BMP085
+
+bmp085 = BMP085.BMP085()
+
+# Read the current temperature
+temp   = bmp085.read_temperature()
+
+# Read the current barometric pressure level
+pressure = bmp085.read_pressure()
+
+# calculate hPa
+pressure = pressure / 100.0
+
+print &amp;quot;Temperature:  {:8.2f} °C&amp;quot;.format(temp)
+print &amp;quot;Pressure:     {:8.2f} hPa&amp;quot;.format(pressure)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man kann auch mit Hilfe der &lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_BMP&#34;&gt;Bibliothek&lt;/a&gt; die &lt;a href=&#34;http://de.wikipedia.org/wiki/Barometrische_H%C3%B6henformel&#34;&gt;Höhe barometrisch&lt;/a&gt; bestimmen und auch den Luftdruck
+auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen vergleichbar.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>DHT22 am Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</link>
+      <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</guid>
+      <description>
+
+&lt;h2 id=&#34;was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Was kann der DHT22?&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;kostet zwischen 6€ und 9€&lt;/li&gt;
+&lt;li&gt;3,3 - 5V Eingangsspannung&lt;/li&gt;
+&lt;li&gt;max. 2.5 mA (während der Datenübertragung)&lt;/li&gt;
+&lt;li&gt;40-50 µA Standby-Strom&lt;/li&gt;
+&lt;li&gt;Luftfeuchtigkeit: 0 bis 100% relative Luftfeuchtigkeit mit ±2% Genauigkeit&lt;/li&gt;
+&lt;li&gt;Temperaturbereich: -40 bis 80°C ± 0,5°C&lt;/li&gt;
+&lt;li&gt;Sampling Rate: max. 0,5Hz (eine Messung in 2 Sekunden)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;aufbau:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Aufbau&lt;/h2&gt;
+
+&lt;p&gt;Um den DHT22 am Raspberry Pi zu betreiben ist noch ein &lt;a href=&#34;http://www.elektronik-kompendium.de/public/schaerer/pullr.htm&#34;&gt;Pullup-Widerstand&lt;/a&gt; von 4,7 bis 10kΩ nötig.
+Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
+nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
+DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.&lt;/p&gt;
+
+&lt;h3 id=&#34;belegung-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Belegung DHT22&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Pin 1: 3,3V&lt;/li&gt;
+&lt;li&gt;Pin 2: Daten&lt;/li&gt;
+&lt;li&gt;Pin 3: frei&lt;/li&gt;
+&lt;li&gt;Pin 4: Masse&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;programmierung:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Programmierung&lt;/h2&gt;
+
+&lt;p&gt;Es gibt von Adafruit eine Python-&lt;a href=&#34;https://github.com/adafruit/Adafruit_Python_DHT.git&#34;&gt;Bibliothek&lt;/a&gt;, welche sehr einfach zu nutzen ist, um den Sensor
+abzufragen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get update
+sudo apt-get install build-essential python-dev
+git clone https://github.com/adafruit/Adafruit_Python_DHT.git
+cd Adafruit_Python_DHT
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Im &lt;code&gt;examples&lt;/code&gt; Verzeichnis findet man ein paar Beispiele. Der folgende Code ist
+ein funktionierendes Minimalbeispiel, welches man einfach erweitern kann. Man muss
+bedenken, dass der Code als &lt;code&gt;root&lt;/code&gt; bzw. mit &lt;code&gt;sudo&lt;/code&gt; ausgeführt werden, da man
+direkt auf die Hardware des Raspberry Pi zugreift. &lt;a href=&#34;http://pi.gadgetoid.com/pinout&#34;&gt;Hier&lt;/a&gt; findet man Nummerierung
+der Pins.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#
+
+import Adafruit_DHT
+
+# GPIO pin for DTH-22
+# see http://pi.gadgetoid.com/pinout
+pin = 4
+
+# Try to grab a sensor reading.  Use the read_retry method which will retry up
+# to 15 times to get a sensor reading (waiting 2 seconds between each retry).
+humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
+
+if humidity is None or temperature is None:
+    print &#39;Failed to get reading DTH-22. Try again!&#39;
+else:
+    print &amp;quot;Temperature: %8.2f°C&amp;quot; % temperature
+    print &amp;quot;Humidity:    %8.2f%%&amp;quot; % humidity
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RSS Reader selbst betreiben</title>
+      <link>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</link>
+      <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</guid>
+      <description>
+
+&lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
+als nicht mehr zeitgemäß galten. Ich finde, dass sie zur Zeit immer beliebter
+werden. Ich möchte meine Feeds immer dabei und nicht viele Apps auf dem Smartphone
+installieren, nur um meinen 20 News-Seiten zu folgen. Das ganze im Browser zu
+lesen kann auf mobilen Devices nervig werden, entweder ist die mobile Seite nicht
+wirklich brauchbar oder man hat zu viele Seite, welche man lesen möchte.&lt;/p&gt;
+
+&lt;p&gt;Da viele Seiten einen &lt;a href=&#34;http://de.wikipedia.org/wiki/Web-Feed&#34;&gt;Feed&lt;/a&gt; anbieten, kann man diese abonnieren und in einen
+Feed-Reader zusammen führen. Es gibt Menschen, wie mich, die keinen Reader wie
+&lt;a href=&#34;http://feedly.com/&#34;&gt;Feedly&lt;/a&gt; nutzen möchten.&lt;/p&gt;
+
+&lt;p&gt;Mit einem &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt; kann man einfach selbst einen RSS-Reader an der heimischen
+DSL-Leitung betreiben. Dazu benutze ich &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; als Webserver, &lt;a href=&#34;http://www.mysql.de/&#34;&gt;MySQL&lt;/a&gt; als Datenbank
+sowie &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; als Reader. Als Betriebssystem nutze ich Raspbian.&lt;/p&gt;
+
+&lt;h2 id=&#34;nginx-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Nginx installieren&lt;/h2&gt;
+
+&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
+Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
+mit SSL/TLS absichern.&lt;/p&gt;
+
+&lt;h2 id=&#34;mysql-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;MySQL installieren&lt;/h2&gt;
+
+&lt;p&gt;Die grundlegende Installation von MySQL geht leicht von der Hand. Da man nur einige
+Pakte installieren muss. Die nötige Datenbank ist auch schnell eingerichtet.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# zu root werden
+sudo su -
+
+apt-get update
+apt-get install mysql-server mysql-client php5-mysql php5-curl
+
+# Datenbanken einrichten
+mysql -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+[...]
+mysql&amp;gt; CREATE DATABASE ttrss;
+Query OK, 1 row affected (0.01 sec)
+ 
+mysql&amp;gt; GRANT ALL ON ttrss.* TO ttrss@localhost IDENTIFIED BY &#39;GeheimesPasswort&#39;;
+Query OK, 0 rows affected (0.02 sec)
+ 
+mysql&amp;gt; exit
+Bye
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mysql-härten:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;MySQL härten&lt;/h3&gt;
+
+&lt;p&gt;Mit dem folgenden Tool kann man seine MySQL noch härten. Dazu löscht
+es die Test-Datenbanken und anonyme Benutzer. Weiterhin ist ein
+Remote Login für den Benutzer &lt;code&gt;root&lt;/code&gt; nicht mehr möglich.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# zu root werden
+sudo su -
+mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tiny-tiny-rss-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Tiny Tiny RSS installieren&lt;/h2&gt;
+
+&lt;p&gt;Man lädt sich die &lt;a href=&#34;https://github.com/gothfox/Tiny-Tiny-RSS/releases&#34;&gt;aktuellste Version&lt;/a&gt; von &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; in das Document Root-Verzeichnis
+von Nginx und entpackt es&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# zu root werden
+sudo su -
+cd /usr/share/nginx/www
+wget https://github.com/gothfox/Tiny-Tiny-RSS/archive/1.13.tar.gz
+tar xfvz 1.13.tar.gz
+mv Tiny-Tiny-RSS-1.13/ tt-rss/
+chown -R www-data:www-data tt-rss/
+rm 1.13.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nachdem man das alles gemacht hat, führt man die Installation von Tiny Tiny RSS im Browser fort. Dazu
+&lt;code&gt;http(s)://IP/tt-rss/install/&lt;/code&gt;
+Dort wählen wir MySQL in dem Feld &lt;em&gt;Database type&lt;/em&gt;, geben als &lt;em&gt;Username&lt;/em&gt; und &lt;em&gt;Database name&lt;/em&gt;
+&lt;em&gt;ttrss&lt;/em&gt; an und geben das Passwort, welches für den MySQL Benutzer &lt;em&gt;ttrss&lt;/em&gt; angelegt hat,
+in das Feld &lt;em&gt;Password&lt;/em&gt; ein. Der Port ist 3306. In das Feld &lt;em&gt;Host name&lt;/em&gt; schreiben wir 127.0.0.1
+Anschließend klicken wir auf &lt;em&gt;Test configuration&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Wenn alles richtig war, dann erscheint &lt;em&gt;Database test succeeded&lt;/em&gt;. Nach einem Klick auf
+&lt;em&gt;Initialize database&lt;/em&gt; können wir aus der Textbox die Konfiguration kopieren.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+cat &amp;lt;&amp;lt; EOF &amp;gt; /usr/share/nginx/www/tt-rss/config.php
+kopierten Text hier einfügen
+EOF  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;feeds-aktualisieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Feeds aktualisieren&lt;/h3&gt;
+
+&lt;p&gt;Dazu muss man die folgende Zeile in die &lt;code&gt;crontab&lt;/code&gt; von &lt;code&gt;root&lt;/code&gt; eintragen:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;*/30 * * * * su www-data -s /bin/bash -c &#39;/usr/bin/php /var/www/tt-rss/update.php --feeds --quiet&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tiny-tiny-rss-für-das-smartphone:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Tiny Tiny RSS für das Smartphone&lt;/h2&gt;
+
+&lt;p&gt;Es gibt zwei Android Clients für Tiny Tiny RSS. Diese haben beide den Nachteil, dass sie unter Umständen
+Probleme mit den Ciphers der SSL Verschlüsselung haben. Da das bei mir der Fall war bin ich auf eine HTML
+App umgestiegen, welche auch noch auf meinen Raspberry Pi läuft. Dazu muss man nur &lt;a href=&#34;https://github.com/mboinet/ttrss-mobile/archive/1.0-1.tar.gz&#34;&gt;dieses Archiv&lt;/a&gt; herunter
+laden und entpacken, alternativ kann man auch das &lt;a href=&#34;https://github.com/mboinet/ttrss-mobile&#34;&gt;dazugehörige git-Repository&lt;/a&gt; klonen.&lt;/p&gt;
+
+&lt;p&gt;Man muss vorher sicherstellen, dass der API-Zugriff zu Tiny Tiny RSS erlaubt ist. Man loggt sich als ersten
+in TT-RSS ein und klickt dann auf &lt;em&gt;Aktionen&lt;/em&gt; -&amp;gt; &lt;em&gt;Einstellungen&lt;/em&gt; und &lt;em&gt;Aktiviere API-Zugang&lt;/em&gt; muss ein grünes
+Häkchen haben (wenn nicht anklicken).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo su -
+cd /usr/share/nginx/www
+wget https://github.com/mboinet/ttrss-mobile/archive/1.0-1.tar.gz
+tar xfvz 1.0-1.tar.gz
+mv ttrss-mobile-1.0-1 mobile
+cp mobile/scripts/conf.js{-dist,}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man unter &lt;code&gt;http(s)://IP/mobile/&lt;/code&gt; die HTML5 Anwendung für das Smartphone erreichen.&lt;/p&gt;
+
+&lt;h2 id=&#34;schlussbemerkung:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Schlussbemerkung&lt;/h2&gt;
+
+&lt;p&gt;Soll der soeben installierte Dienst auch außerhalb des eigenen Netzwerkes verfügbar sein, so müssen
+folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi und SPDY</title>
+      <link>http://localhost:1313/post/2014/09/raspberry-pi-und-spdy/</link>
+      <pubDate>Mon, 08 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/09/raspberry-pi-und-spdy/</guid>
+      <description>&lt;p&gt;Auf meinen Raspberry Pi hatte ich meinen Nginx so konfiguriert, dass er seine
+Inhalte auch per &lt;a href=&#34;http://de.wikipedia.org/wiki/SPDY&#34;&gt;SPDY&lt;/a&gt; ausliefern kann. Das hatte ganz seltsame Nebeneffekte
+bei einigen php-Anwendungen und diesem Blog. Ich habe eine weile gedacht, dass
+meine DSL-Leitung zu langsam ist, weil ich auch bei statischen Seiten Verbindungsabbrüche
+und halb geladenes &lt;a href=&#34;http://de.wikipedia.org/wiki/Cascading_Style_Sheets&#34;&gt;css&lt;/a&gt; hatte.
+Dann habe ich einen Versuch ohne &lt;a href=&#34;http://de.wikipedia.org/wiki/SPDY&#34;&gt;SPDY&lt;/a&gt; gemacht und die Performance ist spürbar
+besser geworden.&lt;/p&gt;
+
+&lt;p&gt;Mit SPDY soll der Seitenaufbau schneller sein, als mit TLS und HTTP, aber das scheint
+auf dem Raspberry Pi nicht der fall zu sein. Es fehlt ihm entweder an Ressourcen oder
+die Implementierung im Nginx ist nicht optimal. Ich tippe darauf, dass mein
+gesamtes Setup: Rasberry Pi und eine normale DSL-Leitung nicht geeignet sind um
+SPDY sinnvoll zu nutzen.&lt;/p&gt;
+
+&lt;p&gt;Durch diese Erfahung werde ich SPDY als Protokoll nicht mehr anbieten.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Webserver auf dem Raspberry Pi installieren</title>
+      <link>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
+      <pubDate>Thu, 31 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
+      <description>
+
+&lt;p&gt;Da man auf dem &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&#34;http://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt; als
+Webserver für mich aus. Ich habe &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; und &lt;a href=&#34;http://nginx.org&#34;&gt;Nginx&lt;/a&gt; ausprobiert. Von &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; war ich am
+Anfang sehr überzeugt. Er kann alles was man benötigt. Als mein Setup komplizierter wurde, war
+ich nicht mehr in Lage in die Ideen mit &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; umzusetzen. Die Ursache liegt weniger im
+Funktionsumfang, sondern an den zur Verfügung stehenden Tutorials, Beispielkonfigurationen sowie der
+Default-Konfiguration wenn man &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; bei Raspbian installiert. Den endgültigen &lt;em&gt;Todesstoß&lt;/em&gt; hat
+&lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; bekommen, als ich &lt;a href=&#34;https://www.phusionpassenger.com/&#34;&gt;Passanger&lt;/a&gt; ausprobieren wollte. Für &lt;a href=&#34;http://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt; und &lt;a href=&#34;http://nginx.org&#34;&gt;Nginx&lt;/a&gt; gibt es fertige
+&lt;a href=&#34;https://www.phusionpassenger.com/&#34;&gt;Passanger&lt;/a&gt;-Module bzw. funktionierenden Install-Skripte. Ich möchte nicht sagen, dass &lt;a href=&#34;http://www.lighttpd.net/&#34;&gt;lighttpd&lt;/a&gt; schlechter
+als &lt;a href=&#34;http://nginx.org&#34;&gt;Nginx&lt;/a&gt; ist, aber ich bin bei &amp;ldquo;komplexen&amp;rdquo; Setups mit mehreren virtuellen Hosts und rewrite-Magie
+besser mit &lt;a href=&#34;http://nginx.org&#34;&gt;Nginx&lt;/a&gt; zurecht gekommen.&lt;/p&gt;
+
+&lt;p&gt;Im folgenden werde ich mich auf &lt;a href=&#34;http://nginx.org&#34;&gt;Nginx&lt;/a&gt; &lt;em&gt;Engine-X&lt;/em&gt; konzentrieren. da es für ihn sehr viele Tutorials
+gibt und er sehr ressourcenschonend ist, ist er meiner Meinung nach die erste Wahl für den &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Viele werden mit nur einen Webserver nicht glücklich, weil ein Webserver nur statische Inhalte ausliefert.
+Damit Nginx php ausliefern kann benötigt man php auf seinen Rechner sowie den
+PHP Fast CGI Process Manager. Dieser verwaltet php-Prozesse, welche wiederum statisches HTML generieren
+und an den Nginx weiter geben.&lt;/p&gt;
+
+&lt;h2 id=&#34;nginx-mit-php-installieren-und-einrichten:db017475119777d596b8e698842c0f61&#34;&gt;Nginx mit php installieren und einrichten&lt;/h2&gt;
+
+&lt;p&gt;Vor der Installation von neuen Pakten sollte man nachsehen, ob es Updates gibt. Ein
+sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
+gerade wenn sie öffentlich erreichbar sind.&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}&lt;/p&gt;
+
+&lt;h1 id=&#34;zu-root-werden:db017475119777d596b8e698842c0f61&#34;&gt;zu root werden&lt;/h1&gt;
+
+&lt;p&gt;sudo su -&lt;/p&gt;
+
+&lt;p&gt;apt-get update
+apt-get upgrade&lt;/p&gt;
+
+&lt;p&gt;apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;nginx-konfigurieren:db017475119777d596b8e698842c0f61&#34;&gt;Nginx konfigurieren&lt;/h3&gt;
+
+&lt;p&gt;Wenn man nur einen virtuellen Host einrichten möchte, kann man die gesamte Konfiguration in der
+&lt;code&gt;/etc/nginx/ningx.conf&lt;/code&gt; erledigen. Das Aufteilen der Konfiguration in mehrere Dateien macht diese
+übersichtlicher. Somit ist es auch möglich virtuelle Host zu aktivieren und zu deaktivieren.&lt;/p&gt;
+
+&lt;p&gt;Meine Empfehlung ist, dass jede Applikation/Seite ein eigener Host ist. So hat jede Applikation
+ihr eigenes Log-File und eine übersichtliche Konfiguration.
+Der Nachteil ist, dass man mehrere (Sub) Domains benötigt. Das ist nicht
+mit allen Dyndns Anbietern möglich.&lt;/p&gt;
+
+&lt;p&gt;Konfigurationen, welche global gültig sind, schreibe ich auch
+in die &lt;code&gt;/etc/nginx/ningx.conf&lt;/code&gt;. Das sind z.B. ssl-Offloading, Redirekt zu https und die
+ssl-Konfiguration.&lt;/p&gt;
+
+&lt;p&gt;Das ist eine exemplarische Konfiguration eines Host, welcher php ausführt und auf Port 80 lauscht.
+Der Host lauscht auf die Namen &lt;em&gt;localhost&lt;/em&gt; und &lt;em&gt;awesomephp.example.com&lt;/em&gt;. Port 80 ist der
+Standardport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
+wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.&lt;/p&gt;
+
+&lt;p&gt;{% highlight nginx %}
+server {
+    listen 80;
+    server_name localhost awesomephp.example.com;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;root /var/www/awesomephp;
+index index.html index.php;
+
+location / {
+    try_files $uri $uri/ /index.php?$args;
+}
+
+location ~ ^(.+\.php)(.*)$ {
+    try_files $fastcgi_script_name =404;
+    fastcgi_split_path_info  ^(.+\.php)(.*)$;
+    fastcgi_pass   unix:/var/run/php5-fpm.sock;
+    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    fastcgi_param  PATH_INFO        $fastcgi_path_info;
+    include        /etc/nginx/fastcgi_params;
+}
+
+access_log      /var/log/nginx/awesome.access.log;
+error_log       /var/log/nginx/awesome.error.log;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Nachdem der Nginx konfiguriert ist muss man die Konfiguration nur noch neu laden.&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+service nginx reload
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;test-der-konfiguration:db017475119777d596b8e698842c0f61&#34;&gt;Test der Konfiguration&lt;/h3&gt;
+
+&lt;p&gt;Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
+folgenden Minimalbeispiel testen:&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+mkdir -p /var/www/awesomephp
+echo &amp;ldquo;&amp;lt;? phpinfo(); /&amp;gt;&amp;rdquo; &amp;gt; /var/www/awesomephp/info.php
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser &lt;code&gt;http://192.168.1.100/info.php&lt;/code&gt; aufrufen
+und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
+192.168.1.100 hat.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mein Raspberry Pi</title>
+      <link>http://localhost:1313/post/2014/07/mein-raspberry-pi/</link>
+      <pubDate>Wed, 30 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/mein-raspberry-pi/</guid>
+      <description>&lt;p&gt;Ich habe seit einiger Zeit einen &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt;, aber warum habe ich mir einen gekauft? Da ich inzwischen
+Papa bin, musste meine Rechnerburg zugunsten des Kinderzimmers weichen. Ich hatte dann überlegt, ob ich
+mir einen Rootserver miete oder einfach einen &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Pi&lt;/a&gt; zum &lt;em&gt;spielen&lt;/em&gt; kaufe.&lt;/p&gt;
+
+&lt;p&gt;Am Raspberry Pi hat mich immer die magere Ausstattung an RAM und CPU gestört. Aus diesem Grund habe ich
+überlegt, ob ich mir nicht lieber ein &lt;a href=&#34;http://cubieboard.org/tag/cubietruck/&#34;&gt;Cubietruck&lt;/a&gt; anschaffe. Zum Schluss habe ich mich für einen Pi
+entschieden, da er der günstige Einstieg in die Welt der Mini-Computer ist und ich kann ihn ohne
+Probleme über den USB-Port vom Router mit Strom versorgen.&lt;/p&gt;
+
+&lt;p&gt;Warum möchte man einen Mini-Rechner haben? Das ist ganz einfach: Ich finde den Kalenderservice von google
+ganz toll, aber die Integration mit Thunderbird finde ich einfach grausam. Ich möchte auch meine ganzen
+Kontakte an einen zentralen Ort haben und dieser sollte nicht irgendwo in &lt;em&gt;Cloud&lt;/em&gt; sein. Das waren die
+ersten Ideen, welche ich mit dem Pi umsetzen wollte. Etwas später ist noch dieser Blog und eine
+&lt;a href=&#34;https://www.dropbox.com/&#34;&gt;Dropbox&lt;/a&gt;-Alternative hinzugekommen.&lt;/p&gt;
+
+&lt;p&gt;Aktuell bin ich noch am basteln, aber ich werde hier von meinen Fortschritten berichten. Das meiste läuft,
+aber ich bin noch am verbessern.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi auf Jessie updaten</title>
+      <link>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
+      <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
+      <description>
+
+&lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 &amp;ldquo;Wheezy&amp;rdquo;. Seit einiger Zeit gibt
+es auch Raspbian Pakete für Debian 8 &amp;ldquo;Jessie&amp;rdquo;. Jessie ist der Nachfolger von &amp;ldquo;Wheezy&amp;rdquo;.
+Die Pakete von &amp;ldquo;Jessie&amp;rdquo; sind um einiges aktueller, als die von &amp;ldquo;Wheezy&amp;rdquo;. Das bedeutet
+aber, dass sie nicht unbedingt so stabil sein können. Ich habe bis jetzt noch keine
+negativen Erfahrungen gemacht.&lt;/p&gt;
+
+&lt;h3 id=&#34;aktualisierung-ausführen:91ca631d89320c543d2d97dabdf66c3d&#34;&gt;Aktualisierung ausführen&lt;/h3&gt;
+
+&lt;p&gt;Die folgenden Schritte müssen alle als Benutzer &lt;strong&gt;root&lt;/strong&gt; ausgeführt werden. Entweder man
+loggt sie als &lt;strong&gt;root&lt;/strong&gt; ein,  man schreibt &lt;code&gt;sudo&lt;/code&gt; vor jedes Komando oder man öffnet eine
+root-Shell mit &lt;code&gt;sudo -i&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Man muss die &lt;code&gt;/etc/apt/sources.list&lt;/code&gt; editieren. Dazu öffnet man sie mit einem Editor
+der Wahl (ich bevorzuge vi ;-)) und man ändert alle vorkommen von &lt;strong&gt;wheezy&lt;/strong&gt; in &lt;strong&gt;jessie&lt;/strong&gt;.
+Das ganze lässt sich auch automatisch mit &lt;code&gt;sed&lt;/code&gt; machen.&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+cp /etc/apt/sources.list{,.$(date +%F)} &amp;amp;&amp;amp; sed -e &amp;rsquo;s/wheezy/jessie/g&amp;rsquo; -i /etc/apt/sources.list
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Wenn man nicht weiß was man macht, dann sollte man die Datei lieber per Hand editieren. Bei mir gibt es nur
+eine Zeile und diese sollte dann wie folgt aussehen:&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+deb &lt;a href=&#34;http://mirrordirector.raspbian.org/raspbian/&#34;&gt;http://mirrordirector.raspbian.org/raspbian/&lt;/a&gt; jessie main contrib non-free rpi
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Und nun muss man nur noch den Raspberry Pi updaten:&lt;/p&gt;
+
+&lt;p&gt;{% highlight bash %}
+apt-get update &amp;amp;&amp;amp; apt-get dist-upgrade
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Das Update kann sehr lange dauern. Anschließend muss man den Raspberry Pi neu starten und das Update ist beendet!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

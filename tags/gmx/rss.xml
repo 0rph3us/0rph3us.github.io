@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gmx on Michael im Netz</title>
+    <link>http://localhost:1313/tags/gmx/</link>
+    <description>Recent content in Gmx on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 23 Aug 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gmx/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Zertifikatfehler bei gmx</title>
+      <link>http://localhost:1313/post/2010/08/zertifikatfehler-bei-gmx/</link>
+      <pubDate>Mon, 23 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/08/zertifikatfehler-bei-gmx/</guid>
+      <description>&lt;p&gt;Ich habe mich heute früh mit meinem thunderbird und icedove herumgeärgert, weil ich Zertifikatfehler von gmx bekommen habe. Ich dachte erst, dass es das &lt;a href=&#34;http://tools.ietf.org/html/rfc1939&#34;&gt;pop3&lt;/a&gt;-Zertifikat ist. Bis ich auf die Idee gekommen bin, dass es das Zertifikat für den mediacenter ist. Dort habe ich meine Kalender abgelegt.&lt;/p&gt;
+&lt;p&gt;
+Nachdem ich nun das Problem erkannt habe, habe ich eine Mail an den webmaster von gmx geschrieben. Die bekommt man mit &lt;tt&gt;whois&lt;/tt&gt; heraus. (In solchen Fragen vertraue ich keiner minderbemittelten Kraft aus einem Callcenter (Ich weiß nicht wie das Personal bei gmx ist)) Für mich war es sehr erfreulich, dass ich sehr zeitnah eine Antwort vom Webmaster bekommen habe. Dieser hat in der Zwischenzeit das Problem behoben bzw. beheben lassen.&lt;/p&gt;
+&lt;p&gt;
+Einem Admin können immer einmal Fehler passieren. Ich finde es gut, dass der Fehler schnell behoben wurde  und sich der Admin bedankt hat. So muss ich letztendlich sagen, weiter so gmx.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

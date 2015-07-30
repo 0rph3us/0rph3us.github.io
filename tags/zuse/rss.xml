@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zuse on Michael im Netz</title>
+    <link>http://localhost:1313/tags/zuse/</link>
+    <description>Recent content in Zuse on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 22 Jun 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/zuse/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Konrad Zuse wird 100</title>
+      <link>http://localhost:1313/post/2010/06/konrad-zuse-wird-100/</link>
+      <pubDate>Tue, 22 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/06/konrad-zuse-wird-100/</guid>
+      <description>&lt;p&gt;
+Der Vater des modernen Rechner würde heute 100 Jahre alt werden. &lt;a href=&#34;http://www.horst-zuse.homepage.t-online.de/konrad-zuse.html&#34;&gt;Konrad Zuse&lt;/a&gt; verstarb am 1995 im Alter von 85 Jahren. Zu seiner größten Leistung zählt, meiner Meinung nach, die &lt;a href=&#34;http://www.horst-zuse.homepage.t-online.de/z3.html&#34;&gt;Z3&lt;/a&gt;. Sie war der erste voll programmierbare, funktionsfähige und turingmächtige Digitalrechner der Erde. Die &lt;a href=&#34;http://www.horst-zuse.homepage.t-online.de/z3.html&#34;&gt;Z3&lt;/a&gt; konnte ihr Programm von Lochstreifen lesen. Das unterschied sie von anderen Rechnern ihrer Zeit.&lt;/p&gt;
+&lt;p&gt;
+Liebe US amerikanischen Blogleser, die Väter des ENIAC und des Atanasoff-Berry-Computer können den Anspruch von Zuse haben. Ein nicht universeller Rechner oder ein Rechner, den ich jedes mal neu verkabeln muss, ist kein moderner Rechner.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

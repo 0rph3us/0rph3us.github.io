@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blastwave on Michael im Netz</title>
+    <link>http://localhost:1313/tags/blastwave/</link>
+    <description>Recent content in Blastwave on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Thu, 03 Jun 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blastwave/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R, die Statistiksoftware installieren</title>
+      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <description>&lt;p&gt;
+Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+checking for iconv.h... yes
+checking for iconv... yes
+checking whether iconv accepts &#34;UTF-8&#34;, &#34;latin1&#34;, &#34;ASCII&#34; and &#34;UCS-*&#34;... no
+configure: error: a suitable iconv is essential
+&lt;/pre&gt;
+&lt;p&gt;Ich habe von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;blastwave&lt;/a&gt; &lt;strong&gt;libiconv&lt;/strong&gt; installiert und bei meiner Solaris 10 Box noch denn gcc 4. Bei OpenSolaris habe ich das Pakage &lt;strong&gt;pkg:/developer/gcc/gcc-43&lt;/strong&gt; installiert. Es gibt CGLAGS für &lt;a href=&#34;http://gcc.gnu.org/onlinedocs/gcc/SPARC-Options.html&#34;&gt;Sparc&lt;/a&gt; und für &lt;a href=&#34;http://gcc.gnu.org/onlinedocs/gcc/i386-and-x86_002d64-Options.html&#34;&gt;x86&lt;/a&gt;&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+rennecke@walhalla /tmp/R-2.11.1 % ./configure CFLAGS=-I/opt/csw/include \
+`&gt; LDFLAGS=-L/opt/csw/lib \
+`&gt; GCC=/usr/gcc/4.3/bin/gcc\
+`&gt; CFLAGS=&#39;&lt;falg 1&gt; &lt;flag 2&gt; &lt;flag 3&gt;&#39; \
+`&gt; --prefix=/opt/R
+....
+rennecke@walhalla /tmp/R-2.11.1 % gmake
+&lt;/flag&gt;&lt;/flag&gt;&lt;/falg&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mehr Software für Solaris</title>
+      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <description>&lt;p&gt;
+Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
+&lt;p&gt;
+Ich habe das Gefühl, das in &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw&#34;&gt;Erlangen&lt;/a&gt; die meisten Pakages zu finden sind. Deswegen habe ich in meine &lt;tt&gt;/opt/csw/etc/pkgutil.conf&lt;/tt&gt; die folgende Zeile eingetragen:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+# Mirror to use for downloads
+# See http://www.blastwave.org/mirrors.php for alternative mirrors
+# Default: http://blastwave.network.com/csw/unstable
+#mirror=http://blastwave.network.com/csw/unstable
+mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
+&lt;/pre&gt;
+&lt;p&gt;Wenn man &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; noch nicht nutzt, dann kann man &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw/README&#34;&gt;hier&lt;/a&gt; nachlesen, wie man sich diese Packages zugänglich macht. Auf jeden Fall sollte man in der  &lt;tt&gt;/opt/csw/etc/pkgutil.conf&lt;/tt&gt; nachsehen, ob &lt;a href=&#34;http://csw.informatik.uni-erlangen.de/csw/unstable/&#34;&gt;http://csw.informatik.uni-erlangen.de/csw/unstable/&lt;/a&gt; als mirror eingetragen ist.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

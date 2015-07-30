@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Admin on Michael im Netz</title>
+    <link>http://localhost:1313/tags/admin/</link>
+    <description>Recent content in Admin on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 19 Apr 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/admin/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Systemmails per Thunderbird abrufen</title>
+      <link>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</link>
+      <pubDate>Mon, 19 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/systemmails-per-thunderbird-abrufen/</guid>
+      <description>&lt;p&gt;
+Manchmal ist sch&amp;ouml;n, wenn man die Systemmail abrufen kann. Bei OpenSolaris gibt es per default keinen Nutzer root und ein normaler Nutzer darf nicht auf Mails von root zugreifen. Die saubere L&amp;ouml;sung ist, dass man einen Alias einrichtet. Dazu f&amp;uuml;gt man der &lt;tt&gt;/etc/aliases&lt;/tt&gt; die folgende Zeilen hinzu. Anschlie&amp;szlig;end werden alle Mails von root an jack weiter geleitet.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+#######################
+# Local aliases below #
+#######################
+
+root: jack
+&lt;/pre&gt;
+&lt;p&gt;Nachdem man das nun gemacht hat muss man die &lt;tt&gt;/etc/aliases&lt;/tt&gt; neu einlesen.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+jack@walhalla ~ % pfexec newaliases
+/etc/mail/aliases: 13 aliases, longest 10 bytes, 150 bytes total
+&lt;/pre&gt;
+&lt;p&gt;Nun schicken wir root eine Testmail. Dazu verwenden wir das Kommando &lt;tt&gt;mailx&lt;/tt&gt;. Um es zu beenden muss man &lt;strong&gt;.&lt;/strong&gt; dr&amp;uuml;cken.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+jack@walhalla ~ % mailx root
+Subject: Hallo
+Hallo Welt!
+.
+EOT
+&lt;/pre&gt;
+&lt;p&gt;Nun estellt man einen Symlink vom Mailverzeichnis, damit man die Mails auch im Thunderbird lesen kann. Es geht auch jeder ander Mailclient, welcher mit dem &lt;a href=&#34;http://www.qmail.org/man/man5/mbox.html&#34;&gt;mbox&lt;/a&gt;-Format umgehen kann&lt;/p&gt;
+&lt;p&gt;&lt;tt&gt;1ss1e32i.default&lt;/tt&gt; ist das aktuelle Profil, das ist auf jeden Rechner anders.&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;
+jack@walhalla ~ % ln -s /var/mail/jack .thunderbird/1ss1e32i.default/Mail/Local\ Folders/System
+&lt;/pre&gt;
+&lt;p&gt;Fertig! Nun hat man nach dem Neustart von Thunderbird ein Unterverzeichnis &lt;tt&gt;System&lt;/tt&gt; im Verzeichnis &lt;tt&gt;Lokale Ordner&lt;/tt&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

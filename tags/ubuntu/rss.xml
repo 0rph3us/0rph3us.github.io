@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Michael im Netz</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>kaputtes System nach Restore mit Obnam</title>
+      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
+Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Danach war meine aktuelle Session im Eimer und ich habe meinen Rechner neu gestartet. Danach gab es eine
+große Überraschung: Ich konnte mich nicht mehr einloggen. Nach dem ersten Schreck, dass obnam vielleicht
+die Platte geschrottet hat, habe ich mit &lt;a href=&#34;https://grml.org/&#34;&gt;grml&lt;/a&gt; auf die Platte geschaut. Alles war da. Nach einiger Zeit
+habe ich festgestellt, dass obnam die Rechte von / auf 700 geändert hat. Nachdem ich / wieder auf 755 geändert
+habe ging alles.&lt;/p&gt;
+
+&lt;p&gt;Es ist leider reproduzierbar, dass obnam die Rechte alle Verzechnisse beim Restore kaputt macht, welche
+es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie folgt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo obnam --generation=243130 restore --to=/home/rennecke/restore  /etc/apt/sources.list.d/adiscon-v8-stable-trusty.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das aktuelle Verhalten ist ein absolutes No-Go! Ich verwende die Version 1.9 aus &lt;a href=&#34;https://launchpad.net/~chris-bigballofwax/+archive/ubuntu/obnam-ppa&#34;&gt;dieser PPA&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>go in 6 Schritten installieren</title>
+      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
+      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <description>
+
+&lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
+veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
+Das ist mit Bordmitteln fast unmöglich.&lt;/p&gt;
+
+&lt;p&gt;Für diese Probleme gibt es Abhilfe: Den go Versionsmanager &lt;a href=&#34;https://github.com/moovweb/gvm&#34;&gt;gvm&lt;/a&gt;. Ich gebe zu, dass das ganze etwas von einem
+Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg &lt;code&gt;go&lt;/code&gt; zu installieren&lt;/p&gt;
+
+&lt;h3 id=&#34;1-voraussetzungen:68e336974a9292a1000070f844d9d073&#34;&gt;1. Voraussetzungen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get install curl git mercurial make binutils bison gcc build-essential
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Damit installiert man die Voraussetzungen, um &lt;code&gt;go&lt;/code&gt; compilieren zu können.&lt;/p&gt;
+
+&lt;h3 id=&#34;2-clone-das-repo-in-dein-home:68e336974a9292a1000070f844d9d073&#34;&gt;2. clone das Repo in Dein home&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bash &amp;lt; &amp;lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Diese Komandozeile lädt mit &lt;a href=&#34;http://curl.haxx.se/&#34;&gt;curl&lt;/a&gt; ein Skript herunter und lässt es von der &lt;a href=&#34;http://www.gnu.org/software/bash/&#34;&gt;bash&lt;/a&gt; ausführen. Dabei
+der Inhalt vom git-Repository nach &lt;code&gt;~/.gvm&lt;/code&gt; kopiert&lt;/p&gt;
+
+&lt;h3 id=&#34;3-gvm-in-der-shell-verfügbar-machen:68e336974a9292a1000070f844d9d073&#34;&gt;3. gvm in der shell verfügbar machen&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;[[ -s &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot; ]] &amp;amp;&amp;amp; source &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die Zeile muss man in seine &lt;code&gt;~/.bashrc&lt;/code&gt; bzw. &lt;code&gt;~/.zshrc&lt;/code&gt; einfügen, damit die Umgebungsvariablen und Komandos
+von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
+führt das Komando noch einmal in der aktuellen Shell aus.&lt;/p&gt;
+
+&lt;h3 id=&#34;4-nachsehen-ob-gvm-installiert-ist:68e336974a9292a1000070f844d9d073&#34;&gt;4. nachsehen, ob gvm installiert ist&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm version
+Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-go-golang-installieren:68e336974a9292a1000070f844d9d073&#34;&gt;5. go (golang) installieren&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm listall
+
+gvm gos (available` sh
+...
+   go1.4
+   go1.4.1
+   go1.4.2
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Man sieht alle Versionen von &lt;code&gt;go&lt;/code&gt; So installiert man eine spezifische &lt;code&gt;go&lt;/code&gt; Version, z.B. 1.4.2.
+&lt;em&gt;Installieren&lt;/em&gt; ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
+d.h. es werden &lt;strong&gt;keine&lt;/strong&gt; Binärpakete heruntergeladen.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm install go1.4.2
+Downloading Go source...
+Installing go1.4...
+* Compiling...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;6-gvm-mitteilen-welche-version-von-go-man-nutzen-möchte:68e336974a9292a1000070f844d9d073&#34;&gt;6. gvm mitteilen, welche Version von go man nutzen möchte&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm use go1.4.2
+Now using version go1.4.2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann noch nachsehen, welche Version &lt;code&gt;go&lt;/code&gt; hat.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go version
+go version go1.4.2 linux/amd64
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ntp on Michael im Netz</title>
+    <link>http://localhost:1313/tags/ntp/</link>
+    <description>Recent content in Ntp on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 13 Apr 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ntp/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>korrekte Uhrzeit</title>
+      <link>http://localhost:1313/post/2010/04/korrekte-uhrzeit/</link>
+      <pubDate>Tue, 13 Apr 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/04/korrekte-uhrzeit/</guid>
+      <description>&lt;p&gt;Für manche Dinge wie &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_File_System&#34;&gt;nfs&lt;/a&gt; ist es wichtig eine korrekte Uhrzeit auf allen Rechnern zu haben. Dies kann man durch die Sychronisation mit einem Zeit-Server erreichen. Unter Open Solaris müssen in der Datei &lt;tt&gt;/etc/inet/ntp.conf&lt;/tt&gt; die Zeitserver stehen mit den man sich synchronisieren möchte. Anschließend muss man den &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_Time_Protocol&#34;&gt;ntp&lt;/a&gt;-Server neu starten. Unten steht meine Konfiguration:&lt;/p&gt;
+&lt;pre lang=&#34;bash&#34;&gt;root@walhalla ~ $ cat /etc/inet/ntp.conf
+server 0.pool.ntp.org
+server 1.pool.ntp.org
+server 2.pool.ntp.org
+server 3.pool.ntp.org
+root@walhalla ~ $ svcadm restart svc:/network/ntp:default
+root@walhalla ~ $ ntpq -p
+remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
++wikisquare.de   129.69.1.153     2 u   58   64  377   28.259  -20.970   2.549
+*dexter.wzw.tum. 130.149.17.21    2 u   63   64  377   13.108  -17.224   1.370
++dnscache-frankf 131.188.3.222    2 u   56   64  377   25.993  -20.031   2.900
+-draco.fivemile. 192.53.103.108   2 u   63   64  377   20.565  -15.292   1.181
+&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;http://de.wikipedia.org/wiki/NTP-Pool&#34;&gt;Hier&lt;/a&gt; findet man noch einige Information über die verwendeten Zeitserver.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

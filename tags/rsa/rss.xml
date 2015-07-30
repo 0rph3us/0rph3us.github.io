@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsa on Michael im Netz</title>
+    <link>http://localhost:1313/tags/rsa/</link>
+    <description>Recent content in Rsa on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Mon, 09 Sep 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rsa/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Neuer GPG-Key</title>
+      <link>http://localhost:1313/post/2013/09/neuer-gpg-key/</link>
+      <pubDate>Mon, 09 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2013/09/neuer-gpg-key/</guid>
+      <description>&lt;p&gt;Nach den ganzen &lt;a href=&#34;http://www.nsa.gov/&#34;&gt;NSA&lt;/a&gt;-Enthüllungen, habe ich mich wieder mit Public-Key-Kryptografie beschäftigt. Mein bisheriger &lt;a href=&#34;http://www.gnupg.org/&#34;&gt;GPG&lt;/a&gt;-Schüssel D12E87BA hat &lt;a href=&#34;http://www.itl.nist.gov/fipspubs/fip186.htm&#34;&gt;DSA&lt;/a&gt; und &lt;a href=&#34;http://de.wikipedia.org/wiki/Elgamal-Verschl%C3%BCsselungsverfahren&#34;&gt;ElGamal&lt;/a&gt; verwendet. Ich habe damals diese Algorithmen damals gewählt, da ich keinen &#34;Standard-Key&#34; haben wollte. Die Längen sind auch nach heutigen Maßstäben ausreichend. Es aber &lt;a href=&#34;http://rdist.root.org/2010/11/19/dsa-requirements-for-random-k-value/&#34;&gt;Angriffe für DSA&lt;/a&gt;, welche darauf beruhen, dass die Zufallszahlen von Zufallszahlengeneratoren nicht zufällig sind. Da ich meinen Schlüssel auf beliebigen Rechnern und auch Endgeräten nutzen möchte, kann ich nicht immer sicher stellen, dass der Zufallszahlengenerator wirklich korrekt seine Arbeit macht. Aus diesem Grund habe ich mir ein neues Schlüsselpaar mit &lt;a href=&#34;http://de.wikipedia.org/wiki/RSA-Kryptosystem&#34;&gt;RSA&lt;/a&gt; zum verschlüsseln und signieren erstellt.&lt;/p&gt;
+&lt;p&gt;Es ist nicht ganz unwahrscheinlich, dass &lt;a href=&#34;http://news.cnet.com/8301-13578_3-57591560-38/facebooks-outmoded-web-crypto-opens-door-to-nsa-spying/&#34;&gt;große Organisationen 1024 Bit RSA Schüssel faktorisieren&lt;/a&gt; können. Ein Schlüssellänge von 2048 Bit gilt als sicher und 4096 Bit als paranoid. Ich bin lieber paranoid und nehme 4096 lange Schlüssel, da diese Schüssellänge auf heutigen Rechnern kein Problem darstellt und von fast allen Implementieren von GPG unterstützt wird.&lt;/p&gt;
+&lt;p&gt;Mein neuer Key ist &lt;a href=&#34;http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;amp;search=0x617EB806EE75C6FE&#34;&gt;EE75C6FE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

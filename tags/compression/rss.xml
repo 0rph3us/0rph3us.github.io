@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compression on Michael im Netz</title>
+    <link>http://localhost:1313/tags/compression/</link>
+    <description>Recent content in Compression on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Fri, 22 Oct 2010 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/compression/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Platz sparen mit zfs</title>
+      <link>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</link>
+      <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</guid>
+      <description>&lt;p&gt;
+Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;amp;dirty&lt;/a&gt; die Kompression und die Deduplikation von zfs f&amp;uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&amp;szlig;end die alte Version gel&amp;ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: &lt;tt&gt;du -hs&lt;/tt&gt; zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass &lt;strong&gt;d&lt;/strong&gt;isk &lt;strong&gt;u&lt;/strong&gt;sage wörtlich zu nehmen ist. &lt;tt&gt;du&lt;/tt&gt; zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das &lt;a href=&#34;http://www.gnu.org/&#34;&gt;GNU&lt;/a&gt;-&lt;tt&gt;du&lt;/tt&gt; kann hier Abhilfe schaffen, mit &lt;tt&gt;/usr/gnu/bin/du --apparent-size -hs&lt;/tt&gt; bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der &lt;a href=&#34;http://www.cuddletech.com/blog/pivot/entry.php?id=983&#34;&gt;Blogeintrag von Ben Rockwood&lt;/a&gt; lesenswert.&lt;/p&gt;
+&lt;p&gt;
+Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. Ich habe &lt;tt&gt;zfs compression=on ....&lt;/tt&gt; gesetzt, also keine gzip-Kompression benutzt.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
