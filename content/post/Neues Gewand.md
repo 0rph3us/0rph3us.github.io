@@ -3,7 +3,6 @@ Categories  = ["privat", "GoLang"]
 Description = ""
 Tags        = ["hugo", "golang"]
 date        = "2015-07-30T21:45:59+02:00"
-menu        = "main"
 title       = "Neues Gewand"
 
 +++
