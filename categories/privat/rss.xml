@@ -7,8 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Wed, 01 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2015 21:45:59 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/privat/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Neues Gewand</title>
+      <link>https://0rph3us.github.io/post/2015/07/neues-gewand/</link>
+      <pubDate>Thu, 30 Jul 2015 21:45:59 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/07/neues-gewand/</guid>
+      <description>&lt;p&gt;In der letzten Zeit habe ich mich mit &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; beschäftigt habe, bin ich auf &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; gestoßen. Man
+kann mit Hugo, wie mit &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; statische Webseiten generieren. Da Hugo um Größenordnungen
+schneller ist als Jekyll bin ich umgestiegen. Der Anstoß war, dass ich mein Layout ändern
+wollte. Das habe ich mit dem Umstieg auf Hugo gleich gemacht.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Update</title>
@@ -358,18 +371,6 @@ Heute fand um 16:30 Uhr das feierliche Richtfest des Mensa-Neubau am &lt;a href=
       <guid>https://0rph3us.github.io/post/2010/01/meine-neue-festplatte/</guid>
       <description>&lt;p&gt;Ich habe vor ein paar Tagen geschrieben, dass ich Ärger mit der Post hatte. Nachdem ich endlich zu Hause war, habe ich die enthaltene Festplatte in meinen Rechner eingebaut. Ich wollte damit eine alte Festplatte ersetzt mit &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/&#34;&gt;zfs&lt;/a&gt; als Dateisystem ist das ganz einfach: 						&lt;tt&gt;zpool replace daten c4d0 c11d0&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;Nun schreibt zfs die Daten von der Platte c4d0 auf die Platte c11d0, das geht im laufenden Betrieb. Mit &lt;tt&gt;zpool status&lt;/tt&gt; kann man sich ansehen, wie weit das kopieren der Daten fortgeschritten ist. 						Wenn man Platten ersetzt, dann muss die neue Platte mindestens so groß sein, wie die alte Platte.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Die liebe Post Teil 2</title>
-      <link>https://0rph3us.github.io/post/2010/01/die-liebe-post-teil-2/</link>
-      <pubDate>Sun, 17 Jan 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2010/01/die-liebe-post-teil-2/</guid>
-      <description>&lt;p&gt;Ich habe nun endlich meine Festplatte. Die Post war leider nicht in der Lage mir zu sagen, wo sich mein Paket befindet.
-Nachdem ich einige Postämter abgeklappert habe, fand ich schlielßich mein Paket.
-Nun baue ich den Inhalt meines Paket - eine 2TB Festplatte in meinen Rechner ein.&lt;/p&gt;
 </description>
     </item>
     

@@ -7,8 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2015 21:45:59 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Neues Gewand</title>
+      <link>https://0rph3us.github.io/post/2015/07/neues-gewand/</link>
+      <pubDate>Thu, 30 Jul 2015 21:45:59 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/07/neues-gewand/</guid>
+      <description>&lt;p&gt;In der letzten Zeit habe ich mich mit &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; beschäftigt habe, bin ich auf &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; gestoßen. Man
+kann mit Hugo, wie mit &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; statische Webseiten generieren. Da Hugo um Größenordnungen
+schneller ist als Jekyll bin ich umgestiegen. Der Anstoß war, dass ich mein Layout ändern
+wollte. Das habe ich mit dem Umstieg auf Hugo gleich gemacht.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Eine eigene CA mit OpenSSL in 5 Minuten</title>
@@ -914,31 +927,6 @@ nicht antworten. Das Problem ist bekannt und hat mit dem &lt;a href=&#34;http://
 möchte, dann muss ich 20€ pro Monat bezahlen. Das ist in meinen Augen eine Frecheit. Für 20€
 pro Monat bekommt schon einen kleinen virtuellen Server mit einer eigenen IP Adresse zu den
 man einen VPN-Tunnel aufbauen kann.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>rrdtool und json</title>
-      <link>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</link>
-      <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</guid>
-      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
-Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
-visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
-angezeigt.&lt;/p&gt;
-
-&lt;p&gt;Meine Idee war, dass ich aus der RRD-Datenbank einige Daten zu json konvertiere, um sie dann
-mit Highcharts anzuzeigen. Die json-Daten wollte ich mit einem ajax-Request nachladen. Da ich
-so gut wie keine JavaScript- und JQuerry-Kenntnisse habe, habe ich sehr lange vergeblich
-probiert einen Graph zu zeichnen. Als ich das von RRDtool generierte &amp;ldquo;json&amp;rdquo; mir angesehen
-habe, ist mir aufgefallen, dass es kein valides json ist&amp;hellip;&lt;/p&gt;
-
-&lt;p&gt;Weil ich noch ein Erfolgserlebnis haben wollte, bin ich auf den validen xml-Export von
-RRDtool umgestiegen. Danach hat der Prototyp funktioniert.&lt;/p&gt;
-
-&lt;p&gt;Nach etwas Recherche im Netz, bin ich auch auf ein &lt;a href=&#34;https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825&#34;&gt;Bug-Ticket&lt;/a&gt; gestoßen, welches den kaputten
-json-Export anspricht.&lt;/p&gt;
 </description>
     </item>
     
