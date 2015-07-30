@@ -3,6 +3,8 @@ languageCode = "de-DE"
 copyright    = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
 title        = "Michael im Netz"
 theme        = "redlounge"
+paginate     = 30
+rssuri       = "rss.xml"
 
 [[menu.main]]
     name = "Spickzettel"
@@ -29,7 +31,7 @@ theme        = "redlounge"
 
 [[menu.social]]
     pre        = "<i class='fa fa-rss'></i>"
-    url        = "/index.xml"
+    url        = "/rss.xml"
     identifier = "rss"
 
 
