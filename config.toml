@@ -1,7 +1,7 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
+baseurl = "https://0rph3us.github.io/"
 languageCode = "de-DE"
 copyright = "Diese Seite ist unter der [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) lizenziert."
-title = "My New Hugo Site"
+title = "Michael im Netz"
 theme = "redlounge"
 
 [[menu.main]]
@@ -39,7 +39,8 @@ theme = "redlounge"
 [permalinks]
     # Optional. Change the permalink format for the 'post' content type.
     # The format shown here is the same one Jekyll/Octopress uses by default.
-    post = "/blog/:year/:month/:day/:title/"
+    #post = "/blog/:year/:month/:day/:title/"
+    post = "/:section/:year/:month/:title/"
 
 [taxonomies]
   tag = "tags"
