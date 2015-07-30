@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de-DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-DE" lang="de-DE">
 
 <head>
   <title>
@@ -3065,6 +3065,41 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
+                      <a href="/post/2010/04/kein-upload-bei-wordpress/">Kein Upload bei Wordpress</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Martin hat mich darauf aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung Fehler beim Upload der ausgewählten Datei. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei wp-inludes/functions.php die mime-Typen etwas editiert: function get_allowed_mime_types() { static $mimes = false; if ( !$mimes ) { // Accepted MIME types are set here as PCRE unless provided $mimes = apply_filters( 'upload_mimes', array( 'jpg|jpeg|jpe' = 'image/jpeg', ...
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/04/kein-upload-bei-wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
                       <a href="/post/2010/04/bunter-host-in-der-codeumgebung/">bunter Host in der Codeumgebung</a>
                   </h1>
               </header>
@@ -3095,41 +3130,6 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/04/bunter-host-in-der-codeumgebung/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
-                      <a href="/post/2010/04/kein-upload-bei-wordpress/">Kein Upload bei Wordpress</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>18</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Martin hat mich darauf aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung Fehler beim Upload der ausgewählten Datei. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei wp-inludes/functions.php die mime-Typen etwas editiert: function get_allowed_mime_types() { static $mimes = false; if ( !$mimes ) { // Accepted MIME types are set here as PCRE unless provided $mimes = apply_filters( 'upload_mimes', array( 'jpg|jpeg|jpe' = 'image/jpeg', ...
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/04/kein-upload-bei-wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -3172,41 +3172,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/post/2010/04/wordpress/">wordpress</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                  <span class="post-date">
-                    <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
-                </span>
-                
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-                <div class="post-categories">
-                    
-                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
-                    
-                </div>
-                
-            </p>
-            <article class="post-summary">
-                  Ich bin aus Bequemlichkeitsgründen auf wordpress umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &lt;p&gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: TinyMCE Advanced. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.
-              </article>
-              <div class="read-more-link">
-                  <a href="/post/2010/04/wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/post/2010/04/korrekte-uhrzeit/">korrekte Uhrzeit</a>
                   </h1>
               </header>
@@ -3237,6 +3202,41 @@
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/04/korrekte-uhrzeit/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/post/2010/04/wordpress/">wordpress</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                  <span class="post-date">
+                    <span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">April</span> <span class="post-date-year">2010</span>
+                </span>
+                
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+                <div class="post-categories">
+                    
+                    <a class="post-category post-category-sonstiges" href="https://0rph3us.github.io/categories/sonstiges">sonstiges</a>
+                    
+                </div>
+                
+            </p>
+            <article class="post-summary">
+                  Ich bin aus Bequemlichkeitsgründen auf wordpress umgestiegen. Ich muss aber sagen der Editor ist echt grausam. Da er mir stellenweise &lt;p&gt;-Tags eingefügt hat, welche ich nicht wollte. Es gibt ein Plugin, welches einen besseren Editor zur Verfügung stellt: TinyMCE Advanced. Damit konnte ich die Fehler im html ausbessern. Unter Einstellungen hat man dann noch eine weitere Registerkarte zum konfigurieren.
+              </article>
+              <div class="read-more-link">
+                  <a href="/post/2010/04/wordpress/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
@@ -3657,7 +3657,7 @@
                 
             </p>
             <article class="post-summary">
-                  Da ich bei Sun Microsystems nicht mehr arbeite steht mir mein Blog bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
+                  Da ich bei [Sun Microsystems](http://www.sun.com/) nicht mehr arbeite steht mir mein [Blog](http://blogs.sun.com/rennecke/) bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/01/mein-neuer-blog/"><span class="read-more-slashes">//</span>Weiter...</a>
@@ -3692,7 +3692,7 @@
                 
             </p>
             <article class="post-summary">
-                  Da ich bei [Sun Microsystems](http://www.sun.com/) nicht mehr arbeite steht mir mein [Blog](http://blogs.sun.com/rennecke/) bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
+                  Da ich bei Sun Microsystems nicht mehr arbeite steht mir mein Blog bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
               </article>
               <div class="read-more-link">
                   <a href="/post/2010/01/mein-neuer-blog/"><span class="read-more-slashes">//</span>Weiter...</a>
@@ -3880,31 +3880,6 @@
                 <header class="post-header">
                     
                     <h1 class="post-title">
-                      <a href="/about/">Über mich</a>
-                  </h1>
-              </header>
-              <p class="post-meta">
-                  
-                
-                    
-                
-                
-                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
-                
-                
-            </p>
-            <article class="post-summary">
-                  Ich habe mein Diplom für Informatik an der MLU erworben. In dieser Zeit habe ich in der Rechnerbetriebsgruppe des Instituts für Informatik gearbeitet. Das administrieren von Solaris- und Linux-Servern zählte zu meinen Aufgaben, später habe ich hauptsächlich nur noch mit Solaris beschäftigt. Auf die Solarisschiene bin ich gekommen, da ich eine Stelle als Sun Campus Ambassador von Sun Microsystems hatte. Nach dem Studium habe ich in der Forschungs- und Entwicklungsabteilung von Unister als Systemarchitekt gearbeitet.
-              </article>
-              <div class="read-more-link">
-                  <a href="/about/"><span class="read-more-slashes">//</span>Weiter...</a>
-              </div>
-          </section>
-          
-            <section  class="post">
-                <header class="post-header">
-                    
-                    <h1 class="post-title">
                       <a href="/links/">Linksammlung</a>
                   </h1>
               </header>
@@ -3923,6 +3898,31 @@
               </article>
               <div class="read-more-link">
                   <a href="/links/"><span class="read-more-slashes">//</span>Weiter...</a>
+              </div>
+          </section>
+          
+            <section  class="post">
+                <header class="post-header">
+                    
+                    <h1 class="post-title">
+                      <a href="/about/">Über mich</a>
+                  </h1>
+              </header>
+              <p class="post-meta">
+                  
+                
+                    
+                
+                
+                    <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>1 Min. lesen</em></span>
+                
+                
+            </p>
+            <article class="post-summary">
+                  Ich habe mein Diplom für Informatik an der MLU erworben. In dieser Zeit habe ich in der Rechnerbetriebsgruppe des Instituts für Informatik gearbeitet. Das administrieren von Solaris- und Linux-Servern zählte zu meinen Aufgaben, später habe ich hauptsächlich nur noch mit Solaris beschäftigt. Auf die Solarisschiene bin ich gekommen, da ich eine Stelle als Sun Campus Ambassador von Sun Microsystems hatte. Nach dem Studium habe ich in der Forschungs- und Entwicklungsabteilung von Unister als Systemarchitekt gearbeitet.
+              </article>
+              <div class="read-more-link">
+                  <a href="/about/"><span class="read-more-slashes">//</span>Weiter...</a>
               </div>
           </section>
           
