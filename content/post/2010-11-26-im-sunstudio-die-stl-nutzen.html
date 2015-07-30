@@ -3,34 +3,12 @@ layout: post
 title: Im SunStudio die STL nutzen
 date: 2010-11-26
 categories:
-- Programmieren
-- Tools
+ - Programmieren
+ - Tools
 tags:
-- STL
-- Sun
-- Sun Studio
-status: publish
-type: post
-published: true
-meta:
-  _jd_tweet_this: ''
-  _jd_twitter: ''
-  _wp_jd_clig: ''
-  _wp_jd_bitly: ''
-  _wp_jd_wp: http://0rpheus.net/?p=4641
-  _wp_jd_yourls: ''
-  _wp_jd_url: ''
-  _wp_jd_target: http://0rpheus.net/?p=4641
-  _jd_wp_twitter: ''
-  _jd_post_meta_fixed: 'true'
-  _edit_last: '2'
-  _wp_old_slug: ''
-author:
-  login: rennecke
-  email: michael.rennecke@gmail.com
-  display_name: Michael Rennecke
-  first_name: Michael
-  last_name: Rennecke
+ - STL
+ - Sun
+ - Sun Studio
 ---
 <p>Mir ist die Tage beim programmieren negativ aufgefallen, dass sich im  Sun Studio 12 Express einige Funktionen anderst sind, als in der STL  spezifiziert. Mir ist es bei <em>std::sort</em> aufgefallen. Man kann normal <em>sort</em> eine Funktion übergeben, welche die Elemente vergleicht. Diese  Überladung existiert in der Sun STL nicht. Das ist bekannt und wurde  schon an anderen Stellen diskutiert. Wenn man die STL nutzen möchte,  dann muss man dem Compiler die Option <em>-library=stlport4</em> mitgeben, dann  wird die standartkonforme STL verwendet.</p>
 <p>Im Sun Studio kann man diese Option unter Additional Options mit angeben.</p>
