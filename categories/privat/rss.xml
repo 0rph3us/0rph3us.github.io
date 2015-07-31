@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Thu, 30 Jul 2015 21:45:59 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2015 21:58:07 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/privat/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sysadmind Day</title>
+      <link>https://0rph3us.github.io/post/2015/07/sysadmind-day/</link>
+      <pubDate>Fri, 31 Jul 2015 21:58:07 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/07/sysadmind-day/</guid>
+      <description>&lt;p&gt;Wie jedes Jahr ist heute, am letzten Freitag im Juli &lt;a href=&#34;https://de.wikipedia.org/wiki/System_Administrator_Appreciation_Day&#34;&gt;Sysadmin Day&lt;/a&gt;. Auch dieses Jahr war es für mich
+ein Tag wie jeder andere. Ich hoffe, dass einige User das hier lesen und im nächsten Jahr daran denken.&lt;/p&gt;
+
+&lt;p&gt;Ich möchte an dieser Stelle allen meinen Lesern zum Sysadmin Day gratulieren. Da die meisten von Euch
+Admins sind.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Neues Gewand</title>
@@ -360,17 +374,6 @@ Heute fand um 16:30 Uhr das feierliche Richtfest des Mensa-Neubau am &lt;a href=
       
       <guid>https://0rph3us.github.io/post/2010/09/meine-canon-eos-40d/</guid>
       <description>&lt;p&gt;Seit gestern bin ich stolzer Besitzer einer &lt;a href=&#34;http://www.traumflieger.de/desktop/kameras/cam_40d.php&#34;&gt;Canon EOS 40D&lt;/a&gt;. Ich muss sagen es ist eine super Kamera. Sie passt sehr gut in meine großen Hände.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Meine neue Festplatte</title>
-      <link>https://0rph3us.github.io/post/2010/01/meine-neue-festplatte/</link>
-      <pubDate>Tue, 19 Jan 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2010/01/meine-neue-festplatte/</guid>
-      <description>&lt;p&gt;Ich habe vor ein paar Tagen geschrieben, dass ich Ärger mit der Post hatte. Nachdem ich endlich zu Hause war, habe ich die enthaltene Festplatte in meinen Rechner eingebaut. Ich wollte damit eine alte Festplatte ersetzt mit &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/&#34;&gt;zfs&lt;/a&gt; als Dateisystem ist das ganz einfach: 						&lt;tt&gt;zpool replace daten c4d0 c11d0&lt;/tt&gt;&lt;/p&gt;
-&lt;p&gt;Nun schreibt zfs die Daten von der Platte c4d0 auf die Platte c11d0, das geht im laufenden Betrieb. Mit &lt;tt&gt;zpool status&lt;/tt&gt; kann man sich ansehen, wie weit das kopieren der Daten fortgeschritten ist. 						Wenn man Platten ersetzt, dann muss die neue Platte mindestens so groß sein, wie die alte Platte.&lt;/p&gt;
 </description>
     </item>
     

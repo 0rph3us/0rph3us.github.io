@@ -7,8 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Thu, 30 Jul 2015 21:45:59 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2015 21:58:07 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sysadmind Day</title>
+      <link>https://0rph3us.github.io/post/2015/07/sysadmind-day/</link>
+      <pubDate>Fri, 31 Jul 2015 21:58:07 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/07/sysadmind-day/</guid>
+      <description>&lt;p&gt;Wie jedes Jahr ist heute, am letzten Freitag im Juli &lt;a href=&#34;https://de.wikipedia.org/wiki/System_Administrator_Appreciation_Day&#34;&gt;Sysadmin Day&lt;/a&gt;. Auch dieses Jahr war es für mich
+ein Tag wie jeder andere. Ich hoffe, dass einige User das hier lesen und im nächsten Jahr daran denken.&lt;/p&gt;
+
+&lt;p&gt;Ich möchte an dieser Stelle allen meinen Lesern zum Sysadmin Day gratulieren. Da die meisten von Euch
+Admins sind.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Neues Gewand</title>
@@ -903,30 +917,6 @@ auch mit einem Passwort gesicherte private Schlüssel.&lt;/p&gt;
 Das ist aber kein Nachteil in meinen Augen. Jeder der ssh- und GnuPG-Schlüssel nutzt sollte sie mit einen Passwort sichern,
 falls das Gerät, auf dem sich der Schlüssel befindet kompromitiert wird. Die Passwörter muss man sich einfach merken, wenn
 man täglich diese Schlüssel nutzt.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hallo github</title>
-      <link>https://0rph3us.github.io/post/2015/02/hallo-github/</link>
-      <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/02/hallo-github/</guid>
-      <description>
-
-&lt;p&gt;Nachdem mich die &lt;a href=&#34;http://www.primacom.de/&#34;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen
-meinen statischen Blog erst einmal auf github weiter zu schreiben. So ist er für
-alle erreichbar und es gibt auch ssl.&lt;/p&gt;
-
-&lt;h2 id=&#34;nachtrag-vom-19-02-2015:1eb5e6da15f0aea3bd088b726eb0ce0e&#34;&gt;Nachtrag vom 19.02.2015&lt;/h2&gt;
-
-&lt;p&gt;Ich habe die Tage mit der primacom telefoniert, da sie auf mein Bug-Ticket seit Wochen
-nicht antworten. Das Problem ist bekannt und hat mit dem &lt;a href=&#34;http://www.lvz-online.de/leipzig/wirtschaft/primacom-stoerung-von-internet-und-telefon-behoben-wartezeiten-beim-kundendienst/r-wirtschaft-a-269133.html&#34;&gt;großen Crash&lt;/a&gt; der primacom zu tun.&lt;/p&gt;
-
-&lt;p&gt;In 2 bis 3 Monaten soll es wieder öffentliche IPs geben. Wenn ich jetzt eine öffentliche IP
-möchte, dann muss ich 20€ pro Monat bezahlen. Das ist in meinen Augen eine Frecheit. Für 20€
-pro Monat bekommt schon einen kleinen virtuellen Server mit einer eigenen IP Adresse zu den
-man einen VPN-Tunnel aufbauen kann.&lt;/p&gt;
 </description>
     </item>
     
