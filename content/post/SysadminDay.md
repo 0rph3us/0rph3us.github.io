@@ -3,8 +3,7 @@ Categories = ["privat"]
 Description = ""
 Tags = ["Sysadmin Day"]
 date = "2015-07-31T21:58:07+02:00"
-menu = "main"
-title = "Sysadmind Day"
+title = "Sysadmin Day"
 
 +++
 
