@@ -9,22 +9,36 @@
   {{ partial "og.html" . }}
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/base-0.5-min.css">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/pure-0.5-min.css">
   <!--[if lte IE 8]>
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/base-0.5-min.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/pure-0.5-min.css">
+
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-old-ie-min.css">
+
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/redlounge.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/categories.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/fonts.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/grids-responsive-0.5.0-min.css">
+
+    <!-- cat base-0.5-min.css pure-0.5-min.css grids-responsive-0.5.0-min.css redlounge.css categories.css font-awesome.min.css fonts.css > test.css -->
+    <!-- uglifycss test.css > $(uuidgen).css; rm test.css  -->
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/e0aa6c77-0138-4821-8613-8bd80ae8200c.css">
+
   <!--<![endif]-->
   <!--[if lt IE 9]>
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/base-0.5-min.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/pure-0.5-min.css">
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/redlounge.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/categories.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/fonts.css">
   <![endif]-->
 
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/redlounge.css">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/categories.css">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/fonts.css">
 
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
