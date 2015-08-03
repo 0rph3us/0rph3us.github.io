@@ -30,9 +30,10 @@ Admins sind.&lt;/p&gt;
       <pubDate>Thu, 30 Jul 2015 21:45:59 +0200</pubDate>
       
       <guid>https://0rph3us.github.io/post/2015/07/neues-gewand/</guid>
-      <description>&lt;p&gt;In der letzten Zeit habe ich mich mit &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; beschäftigt habe, bin ich auf &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; gestoßen. Man
+      <description>&lt;p&gt;In der letzten Zeit habe ich mich mit der Programmiersprache &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; beschäftigt. In diesem Zusammenhang
+bin ich auf &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; gestoßen. Man
 kann mit Hugo, wie mit &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt; statische Webseiten generieren. Da Hugo um Größenordnungen
-schneller ist als Jekyll bin ich umgestiegen. Der Anstoß war, dass ich mein Layout ändern
+schneller ist als Jekyll bin ich umgestiegen. Ein weiter Grund war, dass ich mein Layout ändern
 wollte. Das habe ich mit dem Umstieg auf Hugo gleich gemacht.&lt;/p&gt;
 </description>
     </item>
@@ -212,6 +213,18 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
     </item>
     
     <item>
+      <title>Danke Primacom</title>
+      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
+IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Einen DNS Server selbst betreiben</title>
       <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
@@ -375,18 +388,6 @@ service nginx reload
 &lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
 und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
 Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Danke Primacom</title>
-      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
-      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
-      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
-Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
-IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
 </description>
     </item>
     
