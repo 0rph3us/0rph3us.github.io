@@ -38,7 +38,7 @@ rssuri       = "rss.xml"
 
 [[menu.social]]
     pre        = "<i class='fa fa-rss'></i>"
-    url        = "/rss.xml"
+    url        = "https://0rph3us.github.io/rss.xml"
     identifier = "rss"
     weight     = 100
 
