@@ -7,9 +7,10 @@ title       = "Neues Gewand"
 
 +++
 
-In der letzten Zeit habe ich mich mit [go] beschäftigt habe, bin ich auf [Hugo] gestoßen. Man
+In der letzten Zeit habe ich mich mit der Programmiersprache [go] beschäftigt. In diesem Zusammenhang
+bin ich auf [Hugo] gestoßen. Man
 kann mit Hugo, wie mit [Jekyll] statische Webseiten generieren. Da Hugo um Größenordnungen
-schneller ist als Jekyll bin ich umgestiegen. Der Anstoß war, dass ich mein Layout ändern
+schneller ist als Jekyll bin ich umgestiegen. Ein weiter Grund war, dass ich mein Layout ändern
 wollte. Das habe ich mit dem Umstieg auf Hugo gleich gemacht.
 
 [go]: https://golang.org/
