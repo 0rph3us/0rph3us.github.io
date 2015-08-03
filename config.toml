@@ -30,6 +30,11 @@ rssuri       = "rss.xml"
     identifier = "github"
 
 [[menu.social]]
+    pre        = "<i class='fa fa-twitter'></i>"
+    url        = "https://twitter.com/0rph3us"
+    identifier = "twitter"
+
+[[menu.social]]
     pre        = "<i class='fa fa-rss'></i>"
     url        = "/rss.xml"
     identifier = "rss"
