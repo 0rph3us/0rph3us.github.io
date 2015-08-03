@@ -213,18 +213,6 @@ es nicht unter Kontrolle hat. Aus diesem Grund mache ich einen Restore jetzt wie
     </item>
     
     <item>
-      <title>Danke Primacom</title>
-      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
-      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
-      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
-Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
-IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Einen DNS Server selbst betreiben</title>
       <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
@@ -388,6 +376,18 @@ service nginx reload
 &lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
 und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
 Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Danke Primacom</title>
+      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
+      <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
+IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
 </description>
     </item>
     
