@@ -12,7 +12,7 @@ tags:
 ---
 
 
-[binfalse] hat mich dazu gebracht diesen Artiel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf [deb]-Pakete während RedHat und Fedora auf [rpm]-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll __Sktripte__ zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.
+[binfalse] hat mich dazu gebracht diesen Artikel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf [deb]-Pakete während RedHat und Fedora auf [rpm]-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll __Sktripte__ zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.
 
 Um unnötige Komplikationen zu vermeiden, gibt es Tool [fpm]. Es kann unter anderm deb- und rpm-Pakete erstellen. fpm ist in [ruby] geschrieben. Aus diesem Grund muss man etwas Vorarbeit leisten.
 
