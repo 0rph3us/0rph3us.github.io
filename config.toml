@@ -28,16 +28,19 @@ rssuri       = "rss.xml"
     pre        = "<i class='fa fa-github'></i>"
     url        = "https://github.com/0rph3us"
     identifier = "github"
+    weight     = 30
 
 [[menu.social]]
     pre        = "<i class='fa fa-twitterhack'></i>"
     url        = "https://twitter.com/0rph3us"
     identifier = "twitter"
+    weight     = 50
 
 [[menu.social]]
     pre        = "<i class='fa fa-rss'></i>"
     url        = "/rss.xml"
     identifier = "rss"
+    weight     = 100
 
 
 [author]
