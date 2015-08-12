@@ -84,6 +84,9 @@ h1.brand-title {
 	font-size: 3rem;
 	margin-bottom: 0.25rem;
 }
+h1.brand-title a {
+    text-decoration: none;
+}
 h2.brand-tagline {
 	font-size: 1.4rem;
 	margin-top: 0.25rem;
