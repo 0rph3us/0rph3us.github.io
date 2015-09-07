@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pkg on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/pkg/</link>
+    <link>http://localhost:1313/tags/pkg/</link>
     <description>Recent content in Pkg on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 17 Sep 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/pkg/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/pkg/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
@@ -84,10 +84,10 @@ de
     
     <item>
       <title>amarok, KDE und Co</title>
-      <link>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</link>
+      <link>http://localhost:1313/post/2010/07/amarok-kde-und-co/</link>
       <pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</guid>
+      <guid>http://localhost:1313/post/2010/07/amarok-kde-und-co/</guid>
       <description>&lt;p&gt;Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von &lt;a href=&#34;http://blog.hajma.cz/&#34;&gt;Pavel Heimlich&lt;/a&gt; betreut. Er hat dafür ein eigenes Repo. Ich nutze nur &lt;a href=&#34;http://amarok.kde.org/&#34;&gt;amarok&lt;/a&gt;, welches ich an eine mysql-DB gebunden habe.&lt;/p&gt;
 &lt;p&gt;
 Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an &lt;a href=&#34;http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0&#34;&gt;dbus&lt;/a&gt;. Mein aktueller Build 142 macht das ganze sicher auch besser...&lt;/p&gt;
@@ -100,10 +100,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>Neuer OpenSolaris Build</title>
-      <link>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</link>
+      <link>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</link>
       <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</guid>
+      <guid>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</guid>
       <description>&lt;p&gt;Es gibt inzwischen wieder einen neuen Build von OpenSolaris. Er wurde von Richard Lowe gebaut. Ich mache gearade das update und berichte später wie er läuft. Ihr könnt ihn auf &lt;a href=&#34;http://genunix.org/&#34;&gt;genunix.org&lt;/a&gt; beziehen.&lt;/p&gt;
 &lt;p&gt;
 &lt;strong&gt;Ganz Wichtig: Benutzt &lt;tt&gt;gtar&lt;/tt&gt; zum Entpacken&lt;/strong&gt;&lt;/p&gt;
@@ -112,10 +112,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>mehr Software für Solaris</title>
-      <link>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
       <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
       <description>&lt;p&gt;
 Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
 &lt;p&gt;
@@ -133,10 +133,10 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
     
     <item>
       <title>Update-Probleme bei Open Solaris</title>
-      <link>https://0rph3us.github.io/post/2010/02/update-probleme-bei-open-solaris/</link>
+      <link>http://localhost:1313/post/2010/02/update-probleme-bei-open-solaris/</link>
       <pubDate>Thu, 04 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/02/update-probleme-bei-open-solaris/</guid>
+      <guid>http://localhost:1313/post/2010/02/update-probleme-bei-open-solaris/</guid>
       <description>&lt;p&gt;Mein neuer Blog ist noch nicht so lange online und ich arbeite noch daran. Deswegen kommt diese Meldung etwas verspätet. Ich konnte bei meinen Rechnern nicht auf Build 131 updaten. Der Fehler äußerte sich wie folgt:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt; root@walhalla Videos $ pkg install -q SUNWipkg&lt;/pre&gt;
 &lt;p&gt;pkg: Angeforderter &#34;install&#34;-Vorgang würde sich auf Dateien auswirken, die im Live-Abbild nicht geändert werden können.&lt;br /&gt;

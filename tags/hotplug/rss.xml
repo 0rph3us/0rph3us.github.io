@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hotplug on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/hotplug/</link>
+    <link>http://localhost:1313/tags/hotplug/</link>
     <description>Recent content in Hotplug on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sat, 05 Sep 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/hotplug/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hotplug/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hotplug von Devices in Zonen</title>
-      <link>https://0rph3us.github.io/post/2009/09/hotplug-von-devices-in-zonen/</link>
+      <link>http://localhost:1313/post/2009/09/hotplug-von-devices-in-zonen/</link>
       <pubDate>Sat, 05 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2009/09/hotplug-von-devices-in-zonen/</guid>
+      <guid>http://localhost:1313/post/2009/09/hotplug-von-devices-in-zonen/</guid>
       <description>&lt;p&gt;Manchmal ist erforderlich, dass man einer Zone den Zugriff auf ein Device gewährt. Ich habe z.B. einer Zone mein
 externes LTO-2 Bandlaufwerk gegeben. Dieses ist über &lt;a href=&#34;http://de.wikipedia.org/wiki/Small_Computer_System_Interface&#34;&gt;SCSI&lt;/a&gt;
 mit dem Rechner verbunden. Da ich Strom sparen möchte und &lt;a href=&#34;http://de.wikipedia.org/wiki/Small_Computer_System_Interface&#34;&gt;SCSI&lt;/a&gt;

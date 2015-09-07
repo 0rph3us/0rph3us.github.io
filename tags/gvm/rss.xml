@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gvm on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/gvm/</link>
+    <link>http://localhost:1313/tags/gvm/</link>
     <description>Recent content in Gvm on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/gvm/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/gvm/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>go in 6 Schritten installieren</title>
-      <link>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</link>
+      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
       <description>
 
 &lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository

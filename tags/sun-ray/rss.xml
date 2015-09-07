@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sun Ray on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/sun-ray/</link>
+    <link>http://localhost:1313/tags/sun-ray/</link>
     <description>Recent content in Sun Ray on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 28 Feb 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/sun-ray/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/sun-ray/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Probleme mit dem SunRay-Server</title>
-      <link>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</link>
+      <link>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</link>
       <pubDate>Mon, 28 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</guid>
+      <guid>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</guid>
       <description>&lt;p&gt;Ich habe heute etwas l&amp;auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der &lt;a href=&#34;http://www.sun-rays.org/&#34;&gt;SunRay&lt;/a&gt;-Server nicht l&amp;auml;uft.&lt;/p&gt;
 &lt;p&gt;
 Ein Fehler war schnell gefunden: Der &lt;a href=&#34;http://projects.gnome.org/gdm/&#34;&gt;gdm&lt;/a&gt; lief nicht.&lt;/p&gt;

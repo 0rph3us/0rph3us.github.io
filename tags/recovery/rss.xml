@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recovery on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/recovery/</link>
+    <link>http://localhost:1313/tags/recovery/</link>
     <description>Recent content in Recovery on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 08 Aug 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/recovery/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/recovery/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Letzte Rettung von MySQL</title>
-      <link>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</link>
+      <link>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</link>
       <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</guid>
+      <guid>http://localhost:1313/post/2011/08/letzte-rettung-von-mysql/</guid>
       <description>&lt;p&gt;
 Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
 &lt;p&gt;

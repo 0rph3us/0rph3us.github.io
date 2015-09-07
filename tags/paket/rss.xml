@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paket on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/paket/</link>
+    <link>http://localhost:1313/tags/paket/</link>
     <description>Recent content in Paket on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 19 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/paket/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/paket/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Pakete selbst bauen</title>
-      <link>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</link>
+      <link>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</link>
       <pubDate>Thu, 19 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/pakete-selbst-bauen/</guid>
+      <guid>http://localhost:1313/post/2015/02/pakete-selbst-bauen/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://binfalse.de/&#34;&gt;binfalse&lt;/a&gt; hat mich dazu gebracht diesen Artikel zu schreiben. Die verschiedenen Paketformate der Linux-Distrubutionen können Softwareentwickler vor Probleme stellen, die ihre Software leicht installierbar gestalten möchten. Debian und Ubuntu setzen auf &lt;a href=&#34;http://de.wikipedia.org/wiki/Debian-Paket&#34;&gt;deb&lt;/a&gt;-Pakete während RedHat und Fedora auf &lt;a href=&#34;http://de.wikipedia.org/wiki/RPM_Package_Manager&#34;&gt;rpm&lt;/a&gt;-Pakete setzen. Diese beiden Fromate nicht nicht kompartibel zueinander. Die Werkzeuge, um die Pakte zu erstellen können viele als unnötig kompliziert befinden. Das schreckt ab, wenn man das Paket nur für sich oder für eine kleine Gruppe von Nutzern baut. Es ist auch durchaus sinnvoll &lt;strong&gt;Sktripte&lt;/strong&gt; zu paketetieren, da sich die Paketverwaltung um die Anhänigkeiten kümmern kann.&lt;/p&gt;

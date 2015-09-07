@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hpc on Michael im Netz</title>
-    <link>https://0rph3us.github.io/categories/hpc/</link>
+    <link>http://localhost:1313/categories/hpc/</link>
     <description>Recent content in Hpc on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 28 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/categories/hpc/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/hpc/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hadoop Cluster und das Netzwerk</title>
-      <link>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
+      <link>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
       <pubDate>Tue, 28 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
+      <guid>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
       <description>&lt;p&gt;Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&amp;gt; Java -&amp;gt; &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;.
 Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop &lt;em&gt;Schrott-Rechner&lt;/em&gt;
 verwenden kann. Hier wird der Begriff &lt;em&gt;Commodity Hardware&lt;/em&gt; etwas falsch interpretiert. Commodity Hardware bezeichnet im
@@ -40,10 +40,10 @@ Cluster noch eine Datenbank, wie &lt;a href=&#34;http://hypertable.com/&#34;&gt;
     
     <item>
       <title>Cloud Computing</title>
-      <link>https://0rph3us.github.io/post/2011/02/cloud-computing/</link>
+      <link>http://localhost:1313/post/2011/02/cloud-computing/</link>
       <pubDate>Mon, 21 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/02/cloud-computing/</guid>
+      <guid>http://localhost:1313/post/2011/02/cloud-computing/</guid>
       <description>&lt;p&gt;Ich höre immer öfter von Cloud Computing. Jedes mal hört sich das ganze wie eine ganz neue Idee an. Dabei ist Cloud Computing, nach meiner Ansicht, ein alter Hut. Dieser hat bestimmt schon 50 Jahre auf dem Buckel. Was man unter &lt;a href=&#34;http://de.wikipedia.org/wiki/Cloud_Computing&#34;&gt;Cloud Computing&lt;/a&gt; versteht kann nachlesen. Was ist aber der eigentliche Kern hinter der ganzen Geschichte?&lt;/p&gt;
 &lt;p&gt;Beim   Cloud Computing werden Rechen-, Speicherkapazitäten oder Dienste dynamisch zur Verfügung gestellt. Diese Kapazitäten und Dienste werden in der Regel über ein Netzwerk zugänglich gemacht. Auf den Mainframes der 1960er Jahre wurden auch Dienste und Ressourcen dynamisch angeboten und verwaltet. Die Rechenzeit wurde zum Teil auch bei den verschiedenen Kostenstellen gebucht. Auf diese Weise kann man auch aktuelle Enterprise-Server bzw. Mainframes ansetzten und dabei die Hardware dynamisch partitionieren.  Wo ist nun der Unterschied, ob man 4 volle Racks hat oder nur einen großen Rechner (1960 oder heute)?&lt;/p&gt;
 &lt;p&gt;Der Unterschied zu 1960 ist, das man seit einigen Jahren vorkonfiguriertes Blech mit entsprechenden Diensten kaufen kann. Ich habe den Vorteil, das ich auf das Blech und dem Dienst Garantie bekommen kann. Weiterhin gibt es Dienstleister, welche einen Dienste anbieten. Als Kunde muss man sich nicht mehr mit der Hardware belasten. Es ist aber durchaus interessant  im eigenen Rechenzentrum eine private Cloud zu betreiben. So kann man schnell auf sich änderte Bedingungen  reagieren.&lt;/p&gt;
@@ -54,10 +54,10 @@ Cluster noch eine Datenbank, wie &lt;a href=&#34;http://hypertable.com/&#34;&gt;
     
     <item>
       <title>Mehrkern oder nicht Mehrkern, dass ist die Frage</title>
-      <link>https://0rph3us.github.io/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</link>
+      <link>http://localhost:1313/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</link>
       <pubDate>Mon, 21 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</guid>
+      <guid>http://localhost:1313/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</guid>
       <description>&lt;p&gt;Ich habe inzwischen ein paar Experimente mit verschiedenen Mehrkernarchitekturen gemacht. Ich habe verschiende Algorithmen mit &lt;a href=&#34;http://en.wikipedia.org/wiki/Cilk&#34;&gt;Cilk++&lt;/a&gt; implementiert. Dabei kam es zu interessanten Ergebnissen. Ich hatte von superlinearen Speedup bis zu einem Speedup unter 1 alles. Aber woran liegt das, dass die Ergebnisse so weit auseinander gehen? Die schlechten Ergebnisse habe ich auf einem 2 Sockel &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=33927&#34;&gt;Intel Xeon E5420&lt;/a&gt;-System mit 32 GB RAM gemacht. In der Mitte lag ein 2 Sockel System mit &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=37111&#34;&gt;Intel Xeon X5570&lt;/a&gt; und 48 GB RAM Die besten Ergebnisse lieferte ein 4 Sockel Rechner mit 16 GB RAM und &lt;a href=&#34;http://www.cpu-world.com/CPUs/K8/AMD-Opteron%20852%20-%20OSP852FAA5BM.html&#34;&gt;AMD Opteron 852&lt;/a&gt; Prozessoren.&lt;/p&gt;
 &lt;p&gt;
 Eine Erklärung für das unterschiedliche abschneiden der Systeme ist die Anbindung an den RAM und die Caches. Bei dem AMD-System hat jeder (Einkern-) Prozessor privaten Cache und einen eignen Speicherkontroller. Hier gibt es keine Engpässe. Bei dem &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=37111&#34;&gt;Intel Xeon X5570&lt;/a&gt; sind die Speicherkontroller in der CPU, aber der L2 Cache ist shared zwischen 2 Kernen. &lt;a href=&#34;http://www.intel.com/technology/platform-technology/hyper-threading/&#34;&gt;Hyperthreading&lt;/a&gt; hat keine Verbesserung der Laufzeit gebacht. Am schlechtesten schnitt das &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=33927&#34;&gt;Intel Xeon E5420&lt;/a&gt;-System ab. Die beiden Prozessoren gehen über die Nordbrücke, um an den RAM zu gelangen. Ab einer bestimmten Problemgröße wurden die Algorithmen über die Speicherzugriffe sequenzialisiert.&lt;/p&gt;
@@ -66,10 +66,10 @@ Eine Erklärung für das unterschiedliche abschneiden der Systeme ist die Anbind
     
     <item>
       <title>Dein Freund der Cachemiss</title>
-      <link>https://0rph3us.github.io/post/2010/05/dein-freund-der-cachemiss/</link>
+      <link>http://localhost:1313/post/2010/05/dein-freund-der-cachemiss/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/dein-freund-der-cachemiss/</guid>
+      <guid>http://localhost:1313/post/2010/05/dein-freund-der-cachemiss/</guid>
       <description>&lt;p&gt;
 Ich habe in meinen &lt;a href=&#34;http://0rpheus.net/hpc/superlinearer-speedup&#34;&gt;letzten Eintrag &amp;uuml;ber Superlinearen Speedup&lt;/a&gt; geschrieben. Caching Effekte lassen sich auch in sequenziellen Programmen ausnutzen. So kann man l&amp;auml;sst sich die klassische Matrixmultiplikation um Gr&amp;ouml;&amp;szlig;enordnungen beschleunigen.&lt;/p&gt;
 &lt;p&gt;
@@ -160,14 +160,14 @@ int main(){
     
     <item>
       <title>Superlinearer Speedup</title>
-      <link>https://0rph3us.github.io/post/2010/05/superlinearer-speedup/</link>
+      <link>http://localhost:1313/post/2010/05/superlinearer-speedup/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/superlinearer-speedup/</guid>
+      <guid>http://localhost:1313/post/2010/05/superlinearer-speedup/</guid>
       <description>&lt;p&gt;Ich habe für meine Diplomarbeit die &lt;a href=&#34;http://de.wikipedia.org/wiki/Strassen-Algorithmus&#34;&gt;Matrixmultiplikation nach Strassen&lt;/a&gt; implementiert. Das ganze habe ich mit
 &lt;a href=&#34;http://en.wikipedia.org/wiki/Cilk&#34;&gt;Cilk++&lt;/a&gt; implementiert.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/strassen-results.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Speedup von Matrixmultiplikation nach Strassen&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/strassen-results-thumbnail.png&#34; alt=&#34;superlinearer Speedup&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/strassen-results.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Speedup von Matrixmultiplikation nach Strassen&#34;&gt;&lt;img src=&#34;http://localhost:1313/strassen-results-thumbnail.png&#34; alt=&#34;superlinearer Speedup&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Ich war recht erstaunt, als ich diese Ergebnisse gesehen habe. Es ist erklärbar, weswegen ich einen superlinearen
 &lt;a href=&#34;http://de.wikipedia.org/wiki/Speedup&#34;&gt;Speedup&lt;/a&gt; erreicht habe. Wenn ich auf 4 CPUs rechne habe ich mehr &lt;a href=&#34;http://de.wikipedia.org/wiki/Cache&#34;&gt;Cache&lt;/a&gt; zur Verfügung. Diesen hohen

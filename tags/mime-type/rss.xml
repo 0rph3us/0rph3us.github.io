@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mime Type on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/mime-type/</link>
+    <link>http://localhost:1313/tags/mime-type/</link>
     <description>Recent content in Mime Type on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 18 Apr 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/mime-type/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/mime-type/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Kein Upload bei Wordpress</title>
-      <link>https://0rph3us.github.io/post/2010/04/kein-upload-bei-wordpress/</link>
+      <link>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</link>
       <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/kein-upload-bei-wordpress/</guid>
+      <guid>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://blog.binfalse.de/&#34;&gt;Martin&lt;/a&gt; hat mich darauf  aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung &lt;strong&gt;Fehler beim Upload der ausgewählten Datei&lt;/strong&gt;. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei &lt;tt&gt;wp-inludes/functions.php&lt;/tt&gt; die &lt;a href=&#34;http://www.iana.org/assignments/media-types/index.html&#34;&gt;mime-Typen&lt;/a&gt; etwas editiert:&lt;/p&gt;
 &lt;pre lang=&#34;php&#34;&gt;function get_allowed_mime_types() {
 	static $mimes = false;

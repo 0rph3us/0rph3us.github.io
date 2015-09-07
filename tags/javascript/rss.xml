@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/javascript/</link>
+    <link>http://localhost:1313/tags/javascript/</link>
     <description>Recent content in Javascript on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 28 Oct 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/javascript/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/javascript/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>rrdtool und json</title>
-      <link>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</link>
+      <link>http://localhost:1313/post/2014/10/rrdtool-und-json/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</guid>
-      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
+      <guid>http://localhost:1313/post/2014/10/rrdtool-und-json/</guid>
+      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
 Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
 visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
 angezeigt.&lt;/p&gt;

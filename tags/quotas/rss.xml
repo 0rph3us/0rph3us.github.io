@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quotas on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/quotas/</link>
+    <link>http://localhost:1313/tags/quotas/</link>
     <description>Recent content in Quotas on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 22 Apr 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/quotas/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/quotas/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Eigenschaften von Zonen</title>
-      <link>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</link>
+      <link>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</link>
       <pubDate>Thu, 22 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</guid>
+      <guid>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</guid>
       <description>&lt;p&gt;
 Ich wurde in Bezug auf diesen &lt;a href=&#34;http://0rpheus.net/solaris/eine-zone-in-10-minuten&#34;&gt;Blog-Eintrag&lt;/a&gt; gefragt, was es f&amp;uuml;r Zoneneigenschaften gibt, welche man f&amp;uuml;r Regelmentierungen verwenden kann.&lt;/p&gt;
 &lt;p&gt;
@@ -93,10 +93,10 @@ root@global$ zonecfg -z myzone zfs set reservation=5g zones/myzone
     
     <item>
       <title>Eine Zone in 10 Minuten</title>
-      <link>https://0rph3us.github.io/post/2010/04/eine-zone-in-10-minuten/</link>
+      <link>http://localhost:1313/post/2010/04/eine-zone-in-10-minuten/</link>
       <pubDate>Thu, 15 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/eine-zone-in-10-minuten/</guid>
+      <guid>http://localhost:1313/post/2010/04/eine-zone-in-10-minuten/</guid>
       <description>&lt;p&gt;Ich kam gestern in die Verlegenheit mal schnell eine Zone aufsetzten zu müssen. Ich dachte mir, wenn ich das mal schnell mache, dann wenigsten mit RAM-Quota und CPU-Begrenzung. Es kann evtl. sein, dass man &lt;tt&gt;pkg:/service/resource&lt;/tt&gt; installieren muss. Dieses Paket ist f&amp;uuml;r die Verwaltung von RAM-Resourcen zust&amp;auml;ndig.&lt;/p&gt;
 &lt;p&gt;Ressourcenpools anstellen&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;rennecke@walhalla ~ % pfexec pooladm -e

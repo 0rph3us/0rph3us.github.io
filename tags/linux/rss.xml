@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/linux/</link>
+    <link>http://localhost:1313/tags/linux/</link>
     <description>Recent content in Linux on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/linux/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/linux/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -127,7 +127,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 
@@ -179,10 +179,10 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
     
     <item>
       <title>Passwortmanager</title>
-      <link>https://0rph3us.github.io/post/2015/02/passwortmanager/</link>
+      <link>http://localhost:1313/post/2015/02/passwortmanager/</link>
       <pubDate>Wed, 11 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/passwortmanager/</guid>
+      <guid>http://localhost:1313/post/2015/02/passwortmanager/</guid>
       <description>
 
 &lt;p&gt;Jeder kennt das Problem mit dem Passwörtern. Man sollte nicht überall das selbe Passwort verwenden,
@@ -256,10 +256,10 @@ man täglich diese Schlüssel nutzt.&lt;/p&gt;
     
     <item>
       <title>Webserver auf dem Raspberry Pi installieren</title>
-      <link>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
+      <link>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
       <pubDate>Thu, 31 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
+      <guid>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
       <description>
 
 &lt;p&gt;Da man auf dem &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&#34;http://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt; als
@@ -371,10 +371,10 @@ und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass
     
     <item>
       <title>Gnome-Keyring und Xfce</title>
-      <link>https://0rph3us.github.io/post/2013/12/gnome-keyring-und-xfce/</link>
+      <link>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</link>
       <pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/12/gnome-keyring-und-xfce/</guid>
+      <guid>http://localhost:1313/post/2013/12/gnome-keyring-und-xfce/</guid>
       <description>&lt;p&gt;Ich bin seit kurzen von &lt;a href=&#34;http://www.gnome.org/&#34;&gt;Gnome&lt;/a&gt; auf &lt;a href=&#34;http://www.xfce.org/&#34;&gt;Xfce&lt;/a&gt; umgestiegen.
 Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufen:&lt;/p&gt;
 
@@ -398,10 +398,10 @@ Der Fehler scheint &lt;a href=&#34;http://bugs.debian.org/cgi-bin/bugreport.cgi?
     
     <item>
       <title>Hadoop Cluster und das Netzwerk</title>
-      <link>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
+      <link>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
       <pubDate>Tue, 28 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
+      <guid>http://localhost:1313/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
       <description>&lt;p&gt;Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&amp;gt; Java -&amp;gt; &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;.
 Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop &lt;em&gt;Schrott-Rechner&lt;/em&gt;
 verwenden kann. Hier wird der Begriff &lt;em&gt;Commodity Hardware&lt;/em&gt; etwas falsch interpretiert. Commodity Hardware bezeichnet im
@@ -426,10 +426,10 @@ Cluster noch eine Datenbank, wie &lt;a href=&#34;http://hypertable.com/&#34;&gt;
     
     <item>
       <title>Acrobat Reader für Debian wheezy</title>
-      <link>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
+      <link>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
       <pubDate>Mon, 13 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
+      <guid>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
       <description>&lt;p&gt;Ich hatte heute wieder eine &lt;a href=&#34;http://www.adobe.com/devnet/pdf/pdf_reference.html&#34;&gt;pdf&lt;/a&gt; mit Formularen in,
 welche in einen alternativen Viewer nicht wirklich funktioniert hat.
 Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.&lt;/p&gt;
@@ -448,10 +448,10 @@ apt-get install acroread
     
     <item>
       <title>Junior System Architekt</title>
-      <link>https://0rph3us.github.io/post/2011/03/junior-system-architekt/</link>
+      <link>http://localhost:1313/post/2011/03/junior-system-architekt/</link>
       <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/03/junior-system-architekt/</guid>
+      <guid>http://localhost:1313/post/2011/03/junior-system-architekt/</guid>
       <description>&lt;p&gt;
 So wie es aussieht, habe ich demnächst ein Job als Junior System Architekt. Ich freue mich schon auf meinen ersten Arbeitstag, leider werde ich nicht mit Solaris arbeiten, wenigsten Linux und nicht Windows. Demnächst ließt man sicher hier mehr ;-)&lt;/p&gt;
 </description>
@@ -459,10 +459,10 @@ So wie es aussieht, habe ich demnächst ein Job als Junior System Architekt. Ich
     
     <item>
       <title>Platz sparen mit zfs</title>
-      <link>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</link>
+      <link>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</guid>
+      <guid>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</guid>
       <description>&lt;p&gt;
 Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;amp;dirty&lt;/a&gt; die Kompression und die Deduplikation von zfs f&amp;uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&amp;szlig;end die alte Version gel&amp;ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: &lt;tt&gt;du -hs&lt;/tt&gt; zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass &lt;strong&gt;d&lt;/strong&gt;isk &lt;strong&gt;u&lt;/strong&gt;sage wörtlich zu nehmen ist. &lt;tt&gt;du&lt;/tt&gt; zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das &lt;a href=&#34;http://www.gnu.org/&#34;&gt;GNU&lt;/a&gt;-&lt;tt&gt;du&lt;/tt&gt; kann hier Abhilfe schaffen, mit &lt;tt&gt;/usr/gnu/bin/du --apparent-size -hs&lt;/tt&gt; bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der &lt;a href=&#34;http://www.cuddletech.com/blog/pivot/entry.php?id=983&#34;&gt;Blogeintrag von Ben Rockwood&lt;/a&gt; lesenswert.&lt;/p&gt;
 &lt;p&gt;
@@ -472,23 +472,23 @@ Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. 
     
     <item>
       <title>Neues Logo für Iceweasel</title>
-      <link>https://0rph3us.github.io/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</link>
+      <link>http://localhost:1313/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</link>
       <pubDate>Mon, 16 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</guid>
+      <guid>http://localhost:1313/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</guid>
       <description>&lt;p&gt;Es werden &lt;a href=&#34;http://mozilla.debian.net/en-US/logos/&#34;&gt;neue Logos&lt;/a&gt; für Ice[weasel | ape | dove] gesucht.
 Ich habe mir mit &lt;a href=&#34;http://binfalse.de&#34;&gt;Martin&lt;/a&gt;, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/Iceweasel.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/Iceweasel-thumbnail.png&#34; alt=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/Iceweasel.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;img src=&#34;http://localhost:1313/Iceweasel-thumbnail.png&#34; alt=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Update Thunderbird</title>
-      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
+      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
+      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;

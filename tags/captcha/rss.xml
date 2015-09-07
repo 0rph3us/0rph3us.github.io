@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Captcha on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/captcha/</link>
+    <link>http://localhost:1313/tags/captcha/</link>
     <description>Recent content in Captcha on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Aug 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/captcha/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/captcha/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>&#34;Sichere&#34; Captchas programmieren</title>
-      <link>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</link>
+      <link>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</guid>
+      <guid>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</guid>
       <description>&lt;p&gt;
 Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;, oder &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; benutzen. Persönlich habe ich eine Abneigung gegen &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt; und &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;. &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen &lt;a href=&#34;http://www.w3.org/TR/xhtml1/&#34;&gt;xhtml 1.0 strict&lt;/a&gt;-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.&lt;/p&gt;
 &lt;h2&gt;Wie komme ich zum sicheren Captcha&lt;/h2&gt;
@@ -105,10 +105,10 @@ Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich gene
     
     <item>
       <title>Captcha</title>
-      <link>https://0rph3us.github.io/post/2010/08/captcha/</link>
+      <link>http://localhost:1313/post/2010/08/captcha/</link>
       <pubDate>Tue, 17 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/captcha/</guid>
+      <guid>http://localhost:1313/post/2010/08/captcha/</guid>
       <description>&lt;p&gt;Ich habe mir ein neues &lt;a href=&#34;http://de.wikipedia.org/wiki/CAPTCHA&#34;&gt;Captcha&lt;/a&gt;-Plugin gebaut. Dieses besteht aus netten Matheaufgaben. Diese gehen immer glatt auf. Ich muss noch etwas an dem Plugin pfeilen. Sagt mir was ihr davon haltet. Die Aufgaben werden via &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;[latex]\LaTeX[/latex]&lt;/a&gt; erzeugt.&lt;/p&gt;
 &lt;p&gt;Ich habe das Plugin etwas geändert, da &lt;a href=&#34;https://blog.binfalse.de/2010/08/cracked-a-captcha/&#34;&gt;Martin&lt;/a&gt; meinte es zu knacken...&lt;/p&gt;
 &lt;p&gt;Gut Martin hat es wieder geschafft, auf die &lt;em&gt;offensichtliche&lt;/em&gt; Art. Er ließt meine &lt;tt&gt;alt&lt;/tt&gt; bzw. &lt;tt&gt;title&lt;/tt&gt;-Attribute aus, welche meine Seite barrierefrei machen. Für das parsen hat er sich 3 Bier verdient&lt;/p&gt;

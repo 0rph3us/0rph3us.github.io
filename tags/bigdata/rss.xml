@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bigdata on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/bigdata/</link>
+    <link>http://localhost:1313/tags/bigdata/</link>
     <description>Recent content in Bigdata on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 11 Dec 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/bigdata/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/bigdata/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>BigData mit Hypertable</title>
-      <link>https://0rph3us.github.io/post/2011/12/bigdata-mit-hypertable/</link>
+      <link>http://localhost:1313/post/2011/12/bigdata-mit-hypertable/</link>
       <pubDate>Sun, 11 Dec 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/12/bigdata-mit-hypertable/</guid>
+      <guid>http://localhost:1313/post/2011/12/bigdata-mit-hypertable/</guid>
       <description>&lt;p&gt;Ich beschäftige mich beruflich gerade mit &lt;a href=&#34;http://de.wikipedia.org/wiki/Big_Data&#34;&gt;Big Data&lt;/a&gt; und deren Verarbeitung. Ich habe nur ein Problem, dass ich keine &lt;em&gt;gute&lt;/em&gt; Hardware dafür habe, oder gar ein ganzes Rechenzentrum, wie Fratzenbuch oder google. Bei der Suche nach einem Lösungsansatz für mein Problem bin ich auf &lt;a href=&#34;http://hypertable.org/&#34;&gt;Hypertable&lt;/a&gt; gestoßen.&lt;/p&gt;
 &lt;p&gt;
 Wenn es um BigData geht, wird oft &lt;a href=&#34;http://hbase.apache.org/&#34;&gt;HBase&lt;/a&gt; genannt. In keinen kleinen Prototypen, war HBase in einer VM gefühlt viel langsamer als Hypertable. Deswegen habe ich mich weiter mit Hypertable und nicht mit HBase beschäftigt.&lt;/p&gt;

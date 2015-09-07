@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nextgen Gallery on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/nextgen-gallery/</link>
+    <link>http://localhost:1313/tags/nextgen-gallery/</link>
     <description>Recent content in Nextgen Gallery on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 01 Mar 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/nextgen-gallery/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/nextgen-gallery/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bilder mit css nicht vergrößern</title>
-      <link>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
+      <link>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
       <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
+      <guid>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
       <description>&lt;p&gt;
 Ich habe in meinen Blog inzwischen auch Bilder und ich nutze die &lt;a href=&#34;http://nextgen-gallery.com/&#34;&gt;NextGEN Gallery&lt;/a&gt;. Aus Platzgründen verkleinere ich die Bilder. Die Bilder, welche im Hochformat sind sehen einfach grausam aus, da sie stark vergrößert werden. Durch den folgenden Hack im &lt;a href=&#34;http://www.w3.org/TR/2002/WD-CSS21-20020802/&#34;&gt;css&lt;/a&gt; werden die Bilder nicht mehr vergrößert. Dazu muss man die Datei &lt;tt&gt;nextgen-gallery/css/nggallery.css&lt;/tt&gt; wie folgt ändern:&lt;/p&gt;
 &lt;pre lang=&#34;css&#34;&gt;

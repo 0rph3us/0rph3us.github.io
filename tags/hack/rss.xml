@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hack on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/hack/</link>
+    <link>http://localhost:1313/tags/hack/</link>
     <description>Recent content in Hack on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 01 Mar 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/hack/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/hack/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Bilder mit css nicht vergrößern</title>
-      <link>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
+      <link>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
       <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
+      <guid>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
       <description>&lt;p&gt;
 Ich habe in meinen Blog inzwischen auch Bilder und ich nutze die &lt;a href=&#34;http://nextgen-gallery.com/&#34;&gt;NextGEN Gallery&lt;/a&gt;. Aus Platzgründen verkleinere ich die Bilder. Die Bilder, welche im Hochformat sind sehen einfach grausam aus, da sie stark vergrößert werden. Durch den folgenden Hack im &lt;a href=&#34;http://www.w3.org/TR/2002/WD-CSS21-20020802/&#34;&gt;css&lt;/a&gt; werden die Bilder nicht mehr vergrößert. Dazu muss man die Datei &lt;tt&gt;nextgen-gallery/css/nggallery.css&lt;/tt&gt; wie folgt ändern:&lt;/p&gt;
 &lt;pre lang=&#34;css&#34;&gt;
@@ -34,10 +34,10 @@ Achtung: Die Änderung geht bei einen automatischen Update des Plugins verloren!
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
@@ -106,10 +106,10 @@ de
     
     <item>
       <title>&#34;Sichere&#34; Captchas programmieren</title>
-      <link>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</link>
+      <link>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</guid>
+      <guid>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</guid>
       <description>&lt;p&gt;
 Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;, oder &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; benutzen. Persönlich habe ich eine Abneigung gegen &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt; und &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;. &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen &lt;a href=&#34;http://www.w3.org/TR/xhtml1/&#34;&gt;xhtml 1.0 strict&lt;/a&gt;-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.&lt;/p&gt;
 &lt;h2&gt;Wie komme ich zum sicheren Captcha&lt;/h2&gt;
@@ -199,10 +199,10 @@ Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich gene
     
     <item>
       <title>Captcha</title>
-      <link>https://0rph3us.github.io/post/2010/08/captcha/</link>
+      <link>http://localhost:1313/post/2010/08/captcha/</link>
       <pubDate>Tue, 17 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/captcha/</guid>
+      <guid>http://localhost:1313/post/2010/08/captcha/</guid>
       <description>&lt;p&gt;Ich habe mir ein neues &lt;a href=&#34;http://de.wikipedia.org/wiki/CAPTCHA&#34;&gt;Captcha&lt;/a&gt;-Plugin gebaut. Dieses besteht aus netten Matheaufgaben. Diese gehen immer glatt auf. Ich muss noch etwas an dem Plugin pfeilen. Sagt mir was ihr davon haltet. Die Aufgaben werden via &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;[latex]\LaTeX[/latex]&lt;/a&gt; erzeugt.&lt;/p&gt;
 &lt;p&gt;Ich habe das Plugin etwas geändert, da &lt;a href=&#34;https://blog.binfalse.de/2010/08/cracked-a-captcha/&#34;&gt;Martin&lt;/a&gt; meinte es zu knacken...&lt;/p&gt;
 &lt;p&gt;Gut Martin hat es wieder geschafft, auf die &lt;em&gt;offensichtliche&lt;/em&gt; Art. Er ließt meine &lt;tt&gt;alt&lt;/tt&gt; bzw. &lt;tt&gt;title&lt;/tt&gt;-Attribute aus, welche meine Seite barrierefrei machen. Für das parsen hat er sich 3 Bier verdient&lt;/p&gt;
@@ -212,10 +212,10 @@ date: 2010-08-17
     
     <item>
       <title>Wie ärgere ich mein zfs</title>
-      <link>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
+      <link>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
       <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
+      <guid>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
       <description>&lt;p&gt;
 &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame &lt;a href=&#34;http://www.systemhelden.com/&#34;&gt;Systemheld&lt;/a&gt;, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.&lt;/p&gt;
 &lt;h4&gt;Was kann zfs nicht&lt;/h4&gt;
@@ -242,10 +242,10 @@ Das war eigenlich alles, was ich mit zfs probiert habe. Ich hatte nicht mehr dum
     
     <item>
       <title>Java-Applet - eine sinnfreie Erfindung</title>
-      <link>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
       <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
       <description>&lt;p&gt;
 Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -281,10 +281,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>Kein Upload bei Wordpress</title>
-      <link>https://0rph3us.github.io/post/2010/04/kein-upload-bei-wordpress/</link>
+      <link>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</link>
       <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/kein-upload-bei-wordpress/</guid>
+      <guid>http://localhost:1313/post/2010/04/kein-upload-bei-wordpress/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://blog.binfalse.de/&#34;&gt;Martin&lt;/a&gt; hat mich darauf  aufmerksam gemacht, dass bei wordpress die Upload-Funktion für Dateien nicht funktioniert. Also habe ich es promt ausprobiert und siehe da es ging bei mir auch nicht. Die Fehlermeldung &lt;strong&gt;Fehler beim Upload der ausgewählten Datei&lt;/strong&gt;. das hilft einen gar nicht weiter. Die Ursache war, dass man per default in wordpress nur bekannte Dateien hinzufügen darf. Also habe ich in der Datei &lt;tt&gt;wp-inludes/functions.php&lt;/tt&gt; die &lt;a href=&#34;http://www.iana.org/assignments/media-types/index.html&#34;&gt;mime-Typen&lt;/a&gt; etwas editiert:&lt;/p&gt;
 &lt;pre lang=&#34;php&#34;&gt;function get_allowed_mime_types() {
 	static $mimes = false;
@@ -307,10 +307,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>bunter Host in der Codeumgebung</title>
-      <link>https://0rph3us.github.io/post/2010/04/bunter-host-in-der-codeumgebung/</link>
+      <link>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</link>
       <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/bunter-host-in-der-codeumgebung/</guid>
+      <guid>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</guid>
       <description>&lt;p&gt;Ich wurde gefragt, wie ich den user und den hostname in meinen Code-Umgebungen bunt bekomme. Ich benutze für das Syntaxhighlighting das Plugin &lt;a href=&#34;http://wordpress.org/extend/plugins/wp-syntax/&#34;&gt;WP-Syntax&lt;/a&gt;. Dieses wiederrum nutzt &lt;a href=&#34;http://qbnz.com/highlighter/&#34;&gt;GeSHi&lt;/a&gt; im Hintergrund.&lt;/p&gt;
 &lt;p&gt;Damit der Hostname bunt wird, habe ich die Syntax der bash etwas erweitert. Dazu habe ich in der Datei &lt;tt&gt;wp-content/plugins/wp-syntax/geshi/geshi&lt;/tt&gt; ein paar Zeilen hinzu gef&amp;uuml;gt:&lt;/p&gt;
 &lt;pre lang=&#34;php&#34;&gt;

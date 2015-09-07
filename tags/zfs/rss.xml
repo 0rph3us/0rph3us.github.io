@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zfs on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/zfs/</link>
+    <link>http://localhost:1313/tags/zfs/</link>
     <description>Recent content in Zfs on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 22 Oct 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/zfs/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/zfs/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Platz sparen mit zfs</title>
-      <link>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</link>
+      <link>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</guid>
+      <guid>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</guid>
       <description>&lt;p&gt;
 Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;amp;dirty&lt;/a&gt; die Kompression und die Deduplikation von zfs f&amp;uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&amp;szlig;end die alte Version gel&amp;ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: &lt;tt&gt;du -hs&lt;/tt&gt; zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass &lt;strong&gt;d&lt;/strong&gt;isk &lt;strong&gt;u&lt;/strong&gt;sage wörtlich zu nehmen ist. &lt;tt&gt;du&lt;/tt&gt; zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das &lt;a href=&#34;http://www.gnu.org/&#34;&gt;GNU&lt;/a&gt;-&lt;tt&gt;du&lt;/tt&gt; kann hier Abhilfe schaffen, mit &lt;tt&gt;/usr/gnu/bin/du --apparent-size -hs&lt;/tt&gt; bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der &lt;a href=&#34;http://www.cuddletech.com/blog/pivot/entry.php?id=983&#34;&gt;Blogeintrag von Ben Rockwood&lt;/a&gt; lesenswert.&lt;/p&gt;
 &lt;p&gt;
@@ -25,10 +25,10 @@ Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. 
     
     <item>
       <title>Wie ärgere ich mein zfs</title>
-      <link>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
+      <link>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
       <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
+      <guid>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
       <description>&lt;p&gt;
 &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame &lt;a href=&#34;http://www.systemhelden.com/&#34;&gt;Systemheld&lt;/a&gt;, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.&lt;/p&gt;
 &lt;h4&gt;Was kann zfs nicht&lt;/h4&gt;
@@ -55,10 +55,10 @@ Das war eigenlich alles, was ich mit zfs probiert habe. Ich hatte nicht mehr dum
     
     <item>
       <title>Was bringt Deduplikation?</title>
-      <link>https://0rph3us.github.io/post/2010/04/was-bringt-deduplikation/</link>
+      <link>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</link>
       <pubDate>Tue, 27 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/was-bringt-deduplikation/</guid>
+      <guid>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</guid>
       <description>&lt;p&gt;Heute war ich beim &lt;a href=&#34;http://de.sun.com/sunnews/events/2010/apr/sunday_halle_magdeburg/&#34;&gt;Sun Day in Halle&lt;/a&gt;. Detlef Drewanz hat einen interessanten Befehl im Bezug auf &lt;a href=&#34;http://0rpheus.net/solaris/deduplikation&#34;&gt;Deduplikation&lt;/a&gt; genannt: &lt;tt&gt;zdb -S &amp;lt;poolname&amp;gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;/tt&gt;Damit lässt sich ermitteln, was eine Deduplikation des zpool bringen würde.&lt;/p&gt;
 &lt;p&gt;&lt;br class=&#34;spacer_&#34; /&gt;&lt;/p&gt;
@@ -67,10 +67,10 @@ Das war eigenlich alles, was ich mit zfs probiert habe. Ich hatte nicht mehr dum
     
     <item>
       <title>Eigenschaften von Zonen</title>
-      <link>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</link>
+      <link>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</link>
       <pubDate>Thu, 22 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</guid>
+      <guid>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</guid>
       <description>&lt;p&gt;
 Ich wurde in Bezug auf diesen &lt;a href=&#34;http://0rpheus.net/solaris/eine-zone-in-10-minuten&#34;&gt;Blog-Eintrag&lt;/a&gt; gefragt, was es f&amp;uuml;r Zoneneigenschaften gibt, welche man f&amp;uuml;r Regelmentierungen verwenden kann.&lt;/p&gt;
 &lt;p&gt;
@@ -148,10 +148,10 @@ root@global$ zonecfg -z myzone zfs set reservation=5g zones/myzone
     
     <item>
       <title>Deduplikation</title>
-      <link>https://0rph3us.github.io/post/2010/02/deduplikation/</link>
+      <link>http://localhost:1313/post/2010/02/deduplikation/</link>
       <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/02/deduplikation/</guid>
+      <guid>http://localhost:1313/post/2010/02/deduplikation/</guid>
       <description>&lt;p&gt;Einige haben bestimmt schon von den Deduplikations-Feature in zfs gehört. Ich hatte leider keine Zeit ehr darüber zu schreiben. Bei Dedublikation speichert man doppelte Blöcke nur einmal. Diese kann man recht schnell erzeugen, wenn man eine Datei kopiert. Man kann auch gezielt Deduplikation nutzen. So kann man jeder Nutzer seine eigene Musiksammlung haben, denn doppelte Lieder benötigen keinen zusätzlichen Platz.&lt;/p&gt;
 &lt;p&gt;Ich möchte auch nicht meiner Freundin überall Schreibrechte geben, nicht dass sie ausversehen meine &lt;a href=&#34;http://www.marioranieri.at/&#34;&gt;Mario Ranieri&lt;/a&gt;-Sammlung löscht. Kann sie mit ihren home nicht so umgehen, wie unter &lt;a href=&#34;http://de.wikipedia.org/wiki/Microsoft_Windows&#34;&gt;Windoof&lt;/a&gt;, dann ist Open Solaris nicht mehr schön. Also ist Dedublikation die administratorfreundliche Lösung, denn man spart Platz und die User freuen sich über mehr Freiheiten. Es gibt noch viele andere Fälle, bei denen Deduplikation nützlich ist. In Unis und in Firmen haben auch einige Leute die gleichen Daten im home. Ich habe bei mir in allen zpools Deduplukation an. Es stimmt, dass Deduplikation CPU-Leistung braucht. Ich muss Sun recht geben, dass heutige CPUs genug Leistung haben und das nebenbei mit erledigen. Ich habe es noch nie erlebt, dass ich beim kopieren von Daten oder ähnlichen Aktionen mein System lahm gelegt habe.&lt;/p&gt;
 &lt;p&gt;Wie findet &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt; eigenlich die doppelten Blöcke? In der default-Einstellung wird von den Blöcken eine &lt;a href=&#34;http://de.wikipedia.org/wiki/Secure_Hash_Algorithm&#34;&gt;SHA-256&lt;/a&gt;-Prüfsumme gebildet. Wenn 2 Prüfsummen gleich sind, dann sagt &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt;, dass die Blöcke gleich sind. Für paranoide Leute bietet &lt;a href=&#34;http://chaosradio.ccc.de/cre049.html&#34;&gt;zfs&lt;/a&gt; die Möglichkeit, dass man im Falle von 2 gleichen Prüfsummen die Blöcke (Es besteht die Möglichkeit, dass 2 unterschiedliche Blöcke die selbe Prüfsumme haben, das ist aber viel unwahrscheinlicher als unerkannte ECC-Fehler) noch einmal Byteweise vergleicht. Das wird aber sehr teuer. Das 2 Blöcke die selbe Prüfsumme haben tritt immer auf, wenn diese gleich sind. Also sollte man nicht denken, dass man die Blöcke nur Byteweise vergleicht, wenn die Prüfsummen gleich sind aber die Blockinhalte unterschiedlich. Die Deduplikation arbeitet im gesamten Pool, d.h. wenn man Dateien von einem Dateisystem in ein anderes kopiert werden die Daten auch dedupliziert.&lt;/p&gt;
@@ -162,10 +162,10 @@ root@global$ zonecfg -z myzone zfs set reservation=5g zones/myzone
     
     <item>
       <title>Virtual Box-Clienten auf raw-Devices</title>
-      <link>https://0rph3us.github.io/post/2010/02/virtual-box-clienten-auf-raw-devices/</link>
+      <link>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</link>
       <pubDate>Mon, 08 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/02/virtual-box-clienten-auf-raw-devices/</guid>
+      <guid>http://localhost:1313/post/2010/02/virtual-box-clienten-auf-raw-devices/</guid>
       <description>&lt;p&gt;Dan man mit zfs kann man auch volumes anlegen kann, wollte ich mal testen, ob man auch einen &lt;a href=&#34;http://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt;-Client auch auf ein solches Volume installieren kann. Es benötige einiges an Vorbereitungen, aber es geht wie folgt:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt; Volume erzeugen:

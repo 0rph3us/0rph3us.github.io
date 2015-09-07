@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Logstash on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/logstash/</link>
+    <link>http://localhost:1313/tags/logstash/</link>
     <description>Recent content in Logstash on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 15 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/logstash/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/logstash/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Modernes Logging</title>
-      <link>https://0rph3us.github.io/post/2015/02/modernes-logging/</link>
+      <link>http://localhost:1313/post/2015/02/modernes-logging/</link>
       <pubDate>Sun, 15 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/modernes-logging/</guid>
+      <guid>http://localhost:1313/post/2015/02/modernes-logging/</guid>
       <description>
 
-&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
+&lt;p&gt;Achtung: Es gibt einen &lt;a href=&#34;http://localhost:1313/post/2015/02/modernes-logging-teil-2/&#34;&gt;2. Teil des Artikels&lt;/a&gt;, welchen sich vorher ansehen solle, bevor man hier alles copy&amp;amp;pastet&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://de.wikipedia.org/wiki/Java_%28Programmiersprache%29&#34;&gt;Java&lt;/a&gt;-Welt ist folgende Stack für Logging recht verbreitet, weil man mit ihm ein leistungsstarkes modernes und zentrales Logging umsetzten kann. Dieser Stack besteht aus &lt;a href=&#34;http://www.elasticsearch.org/&#34;&gt;Elasticsearch&lt;/a&gt;, einen Volltextindex zum speichern der Nahrichten. Diese werden von &lt;a href=&#34;http://logstash.net/&#34;&gt;Logstash&lt;/a&gt; verarbeitet und zum Index geschickt. &lt;a href=&#34;http://www.elasticsearch.org/overview/kibana/&#34;&gt;Kibana&lt;/a&gt; wird zum
 visualisieren der Volltextinhalte genommen. Ich finde Logstash zum reinen verschicken von Lognahrichten zu schwergewichtig und es bötigt zu viel Ressourcen. Linux verwendet &lt;a href=&#34;http://de.wikipedia.org/wiki/Syslog&#34;&gt;syslog&lt;/a&gt; zum versenden von Lognachrichten. In vieles Distributionen wird &lt;a href=&#34;http://www.rsyslog.com/&#34;&gt;rsyslog&lt;/a&gt; zum verarbeiten der Nahrichten verwendet. Das gute ist, dass man mit rsyslog auch direkt in Elasticsearch loggen kann. So kann man mit rsyslog, Elasticsearch und Kibana ein leichtgewichtigeres und modernes Logsystem bauen.&lt;/p&gt;

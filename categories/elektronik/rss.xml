@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Elektronik on Michael im Netz</title>
-    <link>https://0rph3us.github.io/categories/elektronik/</link>
+    <link>http://localhost:1313/categories/elektronik/</link>
     <description>Recent content in Elektronik on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 17 Oct 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/categories/elektronik/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/elektronik/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>BMP085 am Raspberry Pi</title>
-      <link>https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
       <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
       <description>
 
 &lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
@@ -43,7 +43,7 @@ verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei
@@ -113,10 +113,10 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
     
     <item>
       <title>DHT22 am Raspberry Pi</title>
-      <link>https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/</link>
+      <link>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</link>
       <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/</guid>
+      <guid>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</guid>
       <description>
 
 &lt;h2 id=&#34;was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Was kann der DHT22?&lt;/h2&gt;
@@ -137,7 +137,7 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.&lt;/p&gt;

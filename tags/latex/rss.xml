@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Latex on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/latex/</link>
+    <link>http://localhost:1313/tags/latex/</link>
     <description>Recent content in Latex on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 29 May 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/latex/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/latex/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Formelsatz für den Browser</title>
-      <link>https://0rph3us.github.io/post/2013/05/formelsatz-f%C3%BCr-den-browser/</link>
+      <link>http://localhost:1313/post/2013/05/formelsatz-f%C3%BCr-den-browser/</link>
       <pubDate>Wed, 29 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/formelsatz-f%C3%BCr-den-browser/</guid>
+      <guid>http://localhost:1313/post/2013/05/formelsatz-f%C3%BCr-den-browser/</guid>
       <description>&lt;p&gt;Ich habe &lt;a href=&#34;http://www.mathjax.org/&#34;&gt;MathJax&lt;/a&gt; entdeckt, damit kann man relativ einfach Formelsatz auch auf Webseiten machen. Das ganze gibt es auch als Wordpress-Plugin.&lt;/p&gt;
 
 &lt;p&gt;Hier ein Beispiel: (Padé-Approximation)&lt;/p&gt;
@@ -29,10 +29,10 @@ vor fremden JavaScript.&lt;/p&gt;
     
     <item>
       <title>Captcha</title>
-      <link>https://0rph3us.github.io/post/2010/08/captcha/</link>
+      <link>http://localhost:1313/post/2010/08/captcha/</link>
       <pubDate>Tue, 17 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/captcha/</guid>
+      <guid>http://localhost:1313/post/2010/08/captcha/</guid>
       <description>&lt;p&gt;Ich habe mir ein neues &lt;a href=&#34;http://de.wikipedia.org/wiki/CAPTCHA&#34;&gt;Captcha&lt;/a&gt;-Plugin gebaut. Dieses besteht aus netten Matheaufgaben. Diese gehen immer glatt auf. Ich muss noch etwas an dem Plugin pfeilen. Sagt mir was ihr davon haltet. Die Aufgaben werden via &lt;a href=&#34;http://www.latex-project.org/&#34;&gt;[latex]\LaTeX[/latex]&lt;/a&gt; erzeugt.&lt;/p&gt;
 &lt;p&gt;Ich habe das Plugin etwas geändert, da &lt;a href=&#34;https://blog.binfalse.de/2010/08/cracked-a-captcha/&#34;&gt;Martin&lt;/a&gt; meinte es zu knacken...&lt;/p&gt;
 &lt;p&gt;Gut Martin hat es wieder geschafft, auf die &lt;em&gt;offensichtliche&lt;/em&gt; Art. Er ließt meine &lt;tt&gt;alt&lt;/tt&gt; bzw. &lt;tt&gt;title&lt;/tt&gt;-Attribute aus, welche meine Seite barrierefrei machen. Für das parsen hat er sich 3 Bier verdient&lt;/p&gt;

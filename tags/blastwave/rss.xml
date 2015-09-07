@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blastwave on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/blastwave/</link>
+    <link>http://localhost:1313/tags/blastwave/</link>
     <description>Recent content in Blastwave on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 03 Jun 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/blastwave/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/blastwave/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>R, die Statistiksoftware installieren</title>
-      <link>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
       <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
       <description>&lt;p&gt;
 Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -39,10 +39,10 @@ rennecke@walhalla /tmp/R-2.11.1 % gmake
     
     <item>
       <title>mehr Software für Solaris</title>
-      <link>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
       <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
       <description>&lt;p&gt;
 Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
 &lt;p&gt;

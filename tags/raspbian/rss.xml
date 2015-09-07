@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspbian on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/raspbian/</link>
+    <link>http://localhost:1313/tags/raspbian/</link>
     <description>Recent content in Raspbian on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/raspbian/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/raspbian/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -127,7 +127,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 
@@ -179,10 +179,10 @@ Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
     
     <item>
       <title>Ein Pi wird kommen</title>
-      <link>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</link>
+      <link>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</link>
       <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</guid>
+      <guid>http://localhost:1313/post/2015/03/ein-pi-wird-kommen/</guid>
       <description>&lt;p&gt;Mein &lt;a href=&#34;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
 ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
 sich alles viel flüssiger an. Da ich &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch
@@ -196,10 +196,10 @@ Images.&lt;/p&gt;
     
     <item>
       <title>RSS Reader selbst betreiben</title>
-      <link>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</link>
+      <link>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</guid>
+      <guid>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
@@ -219,7 +219,7 @@ sowie &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; als Rea
 
 &lt;h2 id=&#34;nginx-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Nginx installieren&lt;/h2&gt;
 
-&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
+&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.&lt;/p&gt;
 
@@ -328,10 +328,10 @@ folgende Ports (80 und 443) im Router freigegeben werden.&lt;/p&gt;
     
     <item>
       <title>Webserver auf dem Raspberry Pi installieren</title>
-      <link>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
+      <link>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</link>
       <pubDate>Thu, 31 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
+      <guid>http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/</guid>
       <description>
 
 &lt;p&gt;Da man auf dem &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi&lt;/a&gt; nicht sehr viele Ressourcen zur Verfügung hat, scheidet &lt;a href=&#34;http://httpd.apache.org/&#34;&gt;Apache&lt;/a&gt; als
@@ -443,10 +443,10 @@ und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass
     
     <item>
       <title>Raspberry Pi auf Jessie updaten</title>
-      <link>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
+      <link>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
       <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
+      <guid>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
       <description>
 
 &lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 &amp;ldquo;Wheezy&amp;rdquo;. Seit einiger Zeit gibt

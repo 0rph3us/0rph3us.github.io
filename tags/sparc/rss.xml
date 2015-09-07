@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sparc on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/sparc/</link>
+    <link>http://localhost:1313/tags/sparc/</link>
     <description>Recent content in Sparc on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 03 Jun 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/sparc/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/sparc/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>R, die Statistiksoftware installieren</title>
-      <link>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
       <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
       <description>&lt;p&gt;
 Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -39,10 +39,10 @@ rennecke@walhalla /tmp/R-2.11.1 % gmake
     
     <item>
       <title>Update Thunderbird</title>
-      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
+      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
+      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;
@@ -52,10 +52,10 @@ Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a hre
     
     <item>
       <title>Java-Applet - eine sinnfreie Erfindung</title>
-      <link>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
       <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
       <description>&lt;p&gt;
 Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -91,10 +91,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>Thunderbird 3.0.4</title>
-      <link>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</link>
+      <link>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</link>
       <pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</guid>
+      <guid>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</guid>
       <description>&lt;p&gt;
 F&amp;uuml;r Solaris 10 gibt es auch den Thunderbird 3.0.4, da ich meine Einstellungen unter Open Solaris und Solaris 10 nutzen m&amp;ouml;chte. Auf meiner Solaris 10 Installation habe ich nur einen 2.0er Thunderbird. Dieser vertr&amp;auml;gt nicht alle Einstellungen von einem 3er Thunderbird von Open Solaris&lt;/p&gt;
 &lt;p&gt;
@@ -114,10 +114,10 @@ export LD_LIBRARY_PATH=/opt/sfw/lib/:$LD_LIBRARY_PATH
     
     <item>
       <title>mehr Software für Solaris</title>
-      <link>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
       <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
       <description>&lt;p&gt;
 Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
 &lt;p&gt;
@@ -135,10 +135,10 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
     
     <item>
       <title>OpenSolaris auf einer V880 installieren</title>
-      <link>https://0rph3us.github.io/post/2010/02/opensolaris-auf-einer-v880-installieren/</link>
+      <link>http://localhost:1313/post/2010/02/opensolaris-auf-einer-v880-installieren/</link>
       <pubDate>Wed, 24 Feb 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/02/opensolaris-auf-einer-v880-installieren/</guid>
+      <guid>http://localhost:1313/post/2010/02/opensolaris-auf-einer-v880-installieren/</guid>
       <description>&lt;p&gt;Ich habe heute OpenSolaris auf einer &lt;a href=&#34;http://sunsolve.sun.com/handbook_pub/validateUser.do?target=Systems/SunFire880/SunFire880&#34;&gt;SunFire V880&lt;/a&gt; installiert. Das ganze war nicht ganz so trivial wie ich mir das gedacht habe. Ich habe dazu den &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Project+caiman/TextInstallerProject&#34;&gt;Textinstaller&lt;/a&gt; benutzt. Diese basiert auf Build 131. Man kann sich das Image z.B. von &lt;a href=&#34;http://www.genunix.org/&#34;&gt;genunix.org&lt;/a&gt; herunter laden.&lt;br /&gt;
 Hier war mein erster Fehler, ich hatte nich geprüft ob die Checksumme stimmt. Aber irgendwie wollte die Installation auch bei dem 3. Versuch nicht klappen. Die rettende Idee, war einmal die Checksumme vom Image zu bestimmen. Nun habe ich gesehen, dass diese nicht gestimmt hat.&lt;br /&gt;
 Nachdem ich ein ganze Image auf eine DVD gebrannt ließ sich OpenSolaris auch installieren. Das Netzwerk kann man zur Zeit nur via DHCP konfigurieren, was ich nicht wollte. Nachdem die Installation fertig war, habe ich mit &lt;a href=&#34;https://blog.binfalse.de/&#34;&gt;Martin&lt;/a&gt; das Netzwerk konfiguriert.   Das macht man wie folgt:&lt;/p&gt;
@@ -160,10 +160,10 @@ jack@dijkstra ~ $  cat /etc/defaultrouter
     
     <item>
       <title>Sensoren mit Nagios abfragen</title>
-      <link>https://0rph3us.github.io/post/2009/09/sensoren-mit-nagios-abfragen/</link>
+      <link>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</link>
       <pubDate>Thu, 10 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2009/09/sensoren-mit-nagios-abfragen/</guid>
+      <guid>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</guid>
       <description>&lt;p&gt;Ich wollte verschiedene Sparc-Rechner mit &lt;a href=&#34;http://www.nagios.org/&#34;&gt;Nagios&lt;/a&gt; überwachen.
 Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.&lt;/p&gt;
 

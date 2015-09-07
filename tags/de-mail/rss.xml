@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>De Mail on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/de-mail/</link>
+    <link>http://localhost:1313/tags/de-mail/</link>
     <description>Recent content in De Mail on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 02 Oct 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/de-mail/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/de-mail/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sichere E-Mails</title>
-      <link>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</link>
+      <link>http://localhost:1313/post/2013/10/sichere-e-mails/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</guid>
+      <guid>http://localhost:1313/post/2013/10/sichere-e-mails/</guid>
       <description>&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.golem.de/news/gesellschaft-fuer-informatik-wir-brauchen-sichere-standardisierung-der-verschluesselung-1310-101928.html&#34;&gt;diesen Beitrag auf golem.de&lt;/a&gt;
 gelesen habe, ist mir wieder die ganze Misere mit &lt;a href=&#34;http://www.de-mail.de&#34;&gt;De-Mail&lt;/a&gt; und dem NSA-Skandal hoch gekommen.&lt;/p&gt;
 

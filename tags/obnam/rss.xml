@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Obnam on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/obnam/</link>
+    <link>http://localhost:1313/tags/obnam/</link>
     <description>Recent content in Obnam on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/obnam/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/obnam/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>kaputtes System nach Restore mit Obnam</title>
-      <link>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
+      <link>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
+      <guid>http://localhost:1313/post/2015/04/kaputtes-system-nach-restore-mit-obnam/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://obnam.org/&#34;&gt;Obnam&lt;/a&gt; ist ein nettes Backup-Tool, welches ich auf meinen Laptop unter Ubuntu 14.04 verwende.
 Ich wollte die Tage einen Restore von einer Datei machen und habe sie inplace wieder herstellen wollen.&lt;/p&gt;
 

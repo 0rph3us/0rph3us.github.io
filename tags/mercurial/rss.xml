@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mercurial on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/mercurial/</link>
+    <link>http://localhost:1313/tags/mercurial/</link>
     <description>Recent content in Mercurial on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Tue, 22 Feb 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/mercurial/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/mercurial/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mercurial</title>
-      <link>https://0rph3us.github.io/post/2011/02/mercurial/</link>
+      <link>http://localhost:1313/post/2011/02/mercurial/</link>
       <pubDate>Tue, 22 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/02/mercurial/</guid>
+      <guid>http://localhost:1313/post/2011/02/mercurial/</guid>
       <description>&lt;p&gt;Ich wollte eben, mal schnell ein &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;-Repository einen Bekannten zur Verfügung stellen. Also habe ich es auf seinen Server kopiert. Nun kam die Überraschung: Es ging nicht mehr. Es gibt die typischen dubiosen Fehlermeldungen von &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;, bei denen niemand weiß was los ist. Da ich schon sehr lange unter Solaris mit &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt; arbeite kenne ich so ein paar Fallstricke.&lt;/p&gt;
 &lt;p&gt;In diesem Fall war die &lt;a href=&#34;http://mercurial.selenic.com/&#34;&gt;Mercurial&lt;/a&gt;-Versionen verschieden. In vielen Fällen, kann man das wie folgt beheben:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;

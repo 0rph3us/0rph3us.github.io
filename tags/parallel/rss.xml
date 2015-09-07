@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Parallel on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/parallel/</link>
+    <link>http://localhost:1313/tags/parallel/</link>
     <description>Recent content in Parallel on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 12 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/parallel/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/parallel/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Skripte parallelisieren</title>
-      <link>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</link>
+      <link>http://localhost:1313/post/2015/02/skripte-parallelisieren/</link>
       <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</guid>
+      <guid>http://localhost:1313/post/2015/02/skripte-parallelisieren/</guid>
       <description>
 
 &lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;

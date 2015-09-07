@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Openindiana on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/openindiana/</link>
+    <link>http://localhost:1313/tags/openindiana/</link>
     <description>Recent content in Openindiana on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 17 Sep 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/openindiana/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/openindiana/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;

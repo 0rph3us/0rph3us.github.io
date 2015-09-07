@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cache on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/cache/</link>
+    <link>http://localhost:1313/tags/cache/</link>
     <description>Recent content in Cache on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 21 Jun 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/cache/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/cache/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Mehrkern oder nicht Mehrkern, dass ist die Frage</title>
-      <link>https://0rph3us.github.io/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</link>
+      <link>http://localhost:1313/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</link>
       <pubDate>Mon, 21 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</guid>
+      <guid>http://localhost:1313/post/2010/06/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage/</guid>
       <description>&lt;p&gt;Ich habe inzwischen ein paar Experimente mit verschiedenen Mehrkernarchitekturen gemacht. Ich habe verschiende Algorithmen mit &lt;a href=&#34;http://en.wikipedia.org/wiki/Cilk&#34;&gt;Cilk++&lt;/a&gt; implementiert. Dabei kam es zu interessanten Ergebnissen. Ich hatte von superlinearen Speedup bis zu einem Speedup unter 1 alles. Aber woran liegt das, dass die Ergebnisse so weit auseinander gehen? Die schlechten Ergebnisse habe ich auf einem 2 Sockel &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=33927&#34;&gt;Intel Xeon E5420&lt;/a&gt;-System mit 32 GB RAM gemacht. In der Mitte lag ein 2 Sockel System mit &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=37111&#34;&gt;Intel Xeon X5570&lt;/a&gt; und 48 GB RAM Die besten Ergebnisse lieferte ein 4 Sockel Rechner mit 16 GB RAM und &lt;a href=&#34;http://www.cpu-world.com/CPUs/K8/AMD-Opteron%20852%20-%20OSP852FAA5BM.html&#34;&gt;AMD Opteron 852&lt;/a&gt; Prozessoren.&lt;/p&gt;
 &lt;p&gt;
 Eine Erklärung für das unterschiedliche abschneiden der Systeme ist die Anbindung an den RAM und die Caches. Bei dem AMD-System hat jeder (Einkern-) Prozessor privaten Cache und einen eignen Speicherkontroller. Hier gibt es keine Engpässe. Bei dem &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=37111&#34;&gt;Intel Xeon X5570&lt;/a&gt; sind die Speicherkontroller in der CPU, aber der L2 Cache ist shared zwischen 2 Kernen. &lt;a href=&#34;http://www.intel.com/technology/platform-technology/hyper-threading/&#34;&gt;Hyperthreading&lt;/a&gt; hat keine Verbesserung der Laufzeit gebacht. Am schlechtesten schnitt das &lt;a href=&#34;http://ark.intel.com/Product.aspx?id=33927&#34;&gt;Intel Xeon E5420&lt;/a&gt;-System ab. Die beiden Prozessoren gehen über die Nordbrücke, um an den RAM zu gelangen. Ab einer bestimmten Problemgröße wurden die Algorithmen über die Speicherzugriffe sequenzialisiert.&lt;/p&gt;
@@ -24,10 +24,10 @@ Eine Erklärung für das unterschiedliche abschneiden der Systeme ist die Anbind
     
     <item>
       <title>Dein Freund der Cachemiss</title>
-      <link>https://0rph3us.github.io/post/2010/05/dein-freund-der-cachemiss/</link>
+      <link>http://localhost:1313/post/2010/05/dein-freund-der-cachemiss/</link>
       <pubDate>Fri, 14 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/dein-freund-der-cachemiss/</guid>
+      <guid>http://localhost:1313/post/2010/05/dein-freund-der-cachemiss/</guid>
       <description>&lt;p&gt;
 Ich habe in meinen &lt;a href=&#34;http://0rpheus.net/hpc/superlinearer-speedup&#34;&gt;letzten Eintrag &amp;uuml;ber Superlinearen Speedup&lt;/a&gt; geschrieben. Caching Effekte lassen sich auch in sequenziellen Programmen ausnutzen. So kann man l&amp;auml;sst sich die klassische Matrixmultiplikation um Gr&amp;ouml;&amp;szlig;enordnungen beschleunigen.&lt;/p&gt;
 &lt;p&gt;

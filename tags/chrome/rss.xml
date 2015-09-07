@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chrome on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/chrome/</link>
+    <link>http://localhost:1313/tags/chrome/</link>
     <description>Recent content in Chrome on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 29 Aug 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/chrome/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/chrome/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Chrome und selbst signierte Zertifikate</title>
-      <link>https://0rph3us.github.io/post/2014/08/chrome-und-selbst-signierte-zertifikate/</link>
+      <link>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</link>
       <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/08/chrome-und-selbst-signierte-zertifikate/</guid>
+      <guid>http://localhost:1313/post/2014/08/chrome-und-selbst-signierte-zertifikate/</guid>
       <description>
 
 &lt;p&gt;Heute habe ich festgestellt, dass Google den &lt;a href=&#34;http://www.google.de/intl/de/chrome/browser/&#34;&gt;Chrome&lt;/a&gt;-Browser (Version 37.0.2062.94 (64-Bit))

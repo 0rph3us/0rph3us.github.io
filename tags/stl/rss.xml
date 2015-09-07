@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Stl on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/stl/</link>
+    <link>http://localhost:1313/tags/stl/</link>
     <description>Recent content in Stl on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Fri, 26 Nov 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/stl/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/stl/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Im SunStudio die STL nutzen</title>
-      <link>https://0rph3us.github.io/post/2010/11/im-sunstudio-die-stl-nutzen/</link>
+      <link>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</link>
       <pubDate>Fri, 26 Nov 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/11/im-sunstudio-die-stl-nutzen/</guid>
+      <guid>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</guid>
       <description>&lt;p&gt;Mir ist die Tage beim programmieren negativ aufgefallen, dass sich im  Sun Studio 12 Express einige Funktionen anderst sind, als in der STL  spezifiziert. Mir ist es bei &lt;em&gt;std::sort&lt;/em&gt; aufgefallen. Man kann normal &lt;em&gt;sort&lt;/em&gt; eine Funktion übergeben, welche die Elemente vergleicht. Diese  Überladung existiert in der Sun STL nicht. Das ist bekannt und wurde  schon an anderen Stellen diskutiert. Wenn man die STL nutzen möchte,  dann muss man dem Compiler die Option &lt;em&gt;-library=stlport4&lt;/em&gt; mitgeben, dann  wird die standartkonforme STL verwendet.&lt;/p&gt;
 &lt;p&gt;Im Sun Studio kann man diese Option unter Additional Options mit angeben.&lt;/p&gt;
 </description>
@@ -23,10 +23,10 @@
     
     <item>
       <title>Shared memory Allocator mit der STL</title>
-      <link>https://0rph3us.github.io/post/2010/08/shared-memory-allocator-mit-der-stl/</link>
+      <link>http://localhost:1313/post/2010/08/shared-memory-allocator-mit-der-stl/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/shared-memory-allocator-mit-der-stl/</guid>
+      <guid>http://localhost:1313/post/2010/08/shared-memory-allocator-mit-der-stl/</guid>
       <description>&lt;p&gt;
 Ich habe mich die letzten Tage mit der &lt;a href=&#34;http://www.cplusplus.com/reference/stl/&#34;&gt;STL&lt;/a&gt; herungeärgert. Ich wollte einen Allocator schreiben, welcher mir die STL-Container in ein Shared Memory Segment legt. Ich habe es nicht wirklich hinbekommen. Inzwischen weiß ich, dass es die Leute von &lt;a href=&#34;http://www.boost.org/&#34;&gt;boost&lt;/a&gt; auch nicht hinbekommen haben. Aus diesem Grund werde ich nun &lt;a href=&#34;http://www.boost.org/&#34;&gt;boost&lt;/a&gt; benutzen und hoffen, dass die Performance nicht zu schlecht (unter &lt;a href=&#34;http://www.microsoft.com/germany/windows/&#34;&gt;Windows&lt;/a&gt;) ist. Das geheimnis ist, dass man die Container nach implementiert und die Implementierung kommt arbeitet korrekt in einem Shared Memory Segment.&lt;/p&gt;
 </description>

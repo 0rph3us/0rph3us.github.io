@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debian on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/debian/</link>
+    <link>http://localhost:1313/tags/debian/</link>
     <description>Recent content in Debian on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/debian/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/debian/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>go in 6 Schritten installieren</title>
-      <link>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</link>
+      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
       <description>
 
 &lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
@@ -93,10 +93,10 @@ go version go1.4.2 linux/amd64
     
     <item>
       <title>Raspberry Pi auf Jessie updaten</title>
-      <link>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
+      <link>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</link>
       <pubDate>Mon, 21 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
+      <guid>http://localhost:1313/post/2014/07/raspberry-pi-auf-jessie-updaten/</guid>
       <description>
 
 &lt;p&gt;Das aktuell Raspbian basiert auf Debian 7 &amp;ldquo;Wheezy&amp;rdquo;. Seit einiger Zeit gibt
@@ -138,10 +138,10 @@ apt-get update &amp;amp;&amp;amp; apt-get dist-upgrade
     
     <item>
       <title>Acrobat Reader für Debian wheezy</title>
-      <link>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
+      <link>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</link>
       <pubDate>Mon, 13 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
+      <guid>http://localhost:1313/post/2013/05/acrobat-reader-f%C3%BCr-debian-wheezy/</guid>
       <description>&lt;p&gt;Ich hatte heute wieder eine &lt;a href=&#34;http://www.adobe.com/devnet/pdf/pdf_reference.html&#34;&gt;pdf&lt;/a&gt; mit Formularen in,
 welche in einen alternativen Viewer nicht wirklich funktioniert hat.
 Den Arcobat Reader gibt es leider nicht als 64-Bit Paket, aber die 32-Bit Version tut auch ihren Dienst.&lt;/p&gt;
@@ -160,10 +160,10 @@ apt-get install acroread
     
     <item>
       <title>Debian wheezy ist stable</title>
-      <link>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</link>
+      <link>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</link>
       <pubDate>Sun, 05 May 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/05/debian-wheezy-ist-stable/</guid>
+      <guid>http://localhost:1313/post/2013/05/debian-wheezy-ist-stable/</guid>
       <description>&lt;p&gt;Seit gestern, den 04.05.2013 ist &lt;a href=&#34;http://www.debian.org/News/2013/20130504&#34;&gt;Debian Wheezy stable&lt;/a&gt;. Nun beginnt die gute Zeit für meine produktiven Systeme. Ich habe schon letzten Sommer einige Systeme auf Wheezy laufen, da ich ein paar Features benötigt habe bzw. haben wollte.&lt;/p&gt;
 &lt;p&gt;Ich bin gespannt ob Unschönheiten/Bugs in &lt;a href=&#34;https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt&#34;&gt;cgroups&lt;/a&gt; gefixt wurden. Ich würde gerne mit Hilfe von cgroups die Stabilität eines Hadoop/Hypertable-Clusters erhöhen. Unter Vollast habe ich immer wieder mit partiellen Abstürzen zu kämpfen, was bei zu viel CPU-Last über Memory-Leaks bis zu Timeouts geht, also die gesamte Palette.&lt;/p&gt;
 &lt;p&gt;P.S. Das mit dem Bild ist noch nicht vergessen ;-)&lt;/p&gt;
@@ -172,10 +172,10 @@ apt-get install acroread
     
     <item>
       <title>verschlüsselte Volumes bequem mounten</title>
-      <link>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</link>
+      <link>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</link>
       <pubDate>Sat, 26 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</guid>
+      <guid>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</guid>
       <description>&lt;p&gt;Ich habe mein home verschlüsselt. Dieses wird automatisch, beim anmelden gemountet.
 Da ich in mein home noch ein paar andere verschlüsselte Dateisysteme einhänge funktionieren die Standard-Mittel,
 wie &lt;code&gt;/etc/crypttab&lt;/code&gt; nicht. Dabei ergibt sich das folgende Problem: Die Volumes werden beim booten eingehangen
@@ -326,10 +326,10 @@ Seite, da ich noch etwas &lt;em&gt;Solaris&lt;/em&gt;-geschädigt bin.&lt;/p&gt;
     
     <item>
       <title>verschlüsseltes home automatisch mounten</title>
-      <link>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</link>
+      <link>http://localhost:1313/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</link>
       <pubDate>Fri, 25 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</guid>
+      <guid>http://localhost:1313/post/2011/03/verschl%C3%BCsseltes-home-automatisch-mounten/</guid>
       <description>
 
 &lt;p&gt;Ich bin inzwischen auf &lt;a href=&#34;http://www.debian.org/&#34;&gt;Debian&lt;/a&gt; umgestiegen. Mein home sollte natürlich verschlüsselt sein. Wenn man zum verschlüsseln
@@ -362,10 +362,10 @@ cryptsetup luksClose /dev/mapper/data--group--home_rennecke_crypt
     
     <item>
       <title>CF-Karten mounten</title>
-      <link>https://0rph3us.github.io/post/2010/09/cf-karten-mounten/</link>
+      <link>http://localhost:1313/post/2010/09/cf-karten-mounten/</link>
       <pubDate>Tue, 07 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/09/cf-karten-mounten/</guid>
+      <guid>http://localhost:1313/post/2010/09/cf-karten-mounten/</guid>
       <description>&lt;p&gt;
 Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man &lt;a href=&#34;http://de.wikipedia.org/wiki/CompactFlash&#34;&gt;Compact Flash&lt;/a&gt;-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen.&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -396,14 +396,14 @@ rennecke@trantor ~ % umount /media/flash
     
     <item>
       <title>Neues Logo für Iceweasel</title>
-      <link>https://0rph3us.github.io/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</link>
+      <link>http://localhost:1313/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</link>
       <pubDate>Mon, 16 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</guid>
+      <guid>http://localhost:1313/post/2010/08/neues-logo-f%C3%BCr-iceweasel/</guid>
       <description>&lt;p&gt;Es werden &lt;a href=&#34;http://mozilla.debian.net/en-US/logos/&#34;&gt;neue Logos&lt;/a&gt; für Ice[weasel | ape | dove] gesucht.
 Ich habe mir mit &lt;a href=&#34;http://binfalse.de&#34;&gt;Martin&lt;/a&gt;, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/Iceweasel.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/Iceweasel-thumbnail.png&#34; alt=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/Iceweasel.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;img src=&#34;http://localhost:1313/Iceweasel-thumbnail.png&#34; alt=&#34;alternatives Iceweasel-Logo&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

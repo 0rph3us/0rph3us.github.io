@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bug on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/bug/</link>
+    <link>http://localhost:1313/tags/bug/</link>
     <description>Recent content in Bug on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 02 May 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/bug/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/bug/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Ich bin ein robot</title>
-      <link>https://0rph3us.github.io/post/2010/05/ich-bin-ein-robot/</link>
+      <link>http://localhost:1313/post/2010/05/ich-bin-ein-robot/</link>
       <pubDate>Sun, 02 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/05/ich-bin-ein-robot/</guid>
+      <guid>http://localhost:1313/post/2010/05/ich-bin-ein-robot/</guid>
       <description>&lt;p&gt;Ich wollte heute mal wieder ein paar Flashgames anspielen. Dabei bin auf die folgende Fehlermeldung gestoßen: &lt;strong&gt;Error: invalid ipaddress or you are a robot, please contact support@ad2games.com&lt;/strong&gt; Das nenne ich einmal eine kreative Fehlermeldung! :P&lt;/p&gt;
 </description>
     </item>

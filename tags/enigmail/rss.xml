@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Enigmail on Michael im Netz</title>
-    <link>https://0rph3us.github.io/tags/enigmail/</link>
+    <link>http://localhost:1313/tags/enigmail/</link>
     <description>Recent content in Enigmail on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 02 Oct 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://0rph3us.github.io/tags/enigmail/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/enigmail/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Sichere E-Mails</title>
-      <link>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</link>
+      <link>http://localhost:1313/post/2013/10/sichere-e-mails/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2013/10/sichere-e-mails/</guid>
+      <guid>http://localhost:1313/post/2013/10/sichere-e-mails/</guid>
       <description>&lt;p&gt;Nachdem ich &lt;a href=&#34;http://www.golem.de/news/gesellschaft-fuer-informatik-wir-brauchen-sichere-standardisierung-der-verschluesselung-1310-101928.html&#34;&gt;diesen Beitrag auf golem.de&lt;/a&gt;
 gelesen habe, ist mir wieder die ganze Misere mit &lt;a href=&#34;http://www.de-mail.de&#34;&gt;De-Mail&lt;/a&gt; und dem NSA-Skandal hoch gekommen.&lt;/p&gt;
 
@@ -34,10 +34,10 @@ anstatt etwas vorhandenes zu vereinfachen bzw. Regeln über Algorithmen und Schl
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
@@ -106,10 +106,10 @@ de
     
     <item>
       <title>Update Thunderbird</title>
-      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
+      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
+      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;
@@ -119,10 +119,10 @@ Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a hre
     
     <item>
       <title>Thunderbird 3.0 mit Enigmail auf Open Solaris</title>
-      <link>https://0rph3us.github.io/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</link>
+      <link>http://localhost:1313/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</link>
       <pubDate>Mon, 18 Jan 2010 00:00:00 +0000</pubDate>
       
-      <guid>https://0rph3us.github.io/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</guid>
+      <guid>http://localhost:1313/post/2010/01/thunderbird-3.0-mit-enigmail-auf-open-solaris/</guid>
       <description>&lt;p&gt;Seit dem Build 130 ist der Thunderbird 3.0 im &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; &lt;a href=&#34;http://pkg.opensolaris.org/dev/&#34;&gt;dev-Repository&lt;/a&gt; verf&amp;uuml;gbar. Im n&amp;auml;chsten offiziellen Release, f&amp;uuml;r das man auch Support bekommt, wird er auch im Repository verf&amp;uuml;gbar sein. &lt;br /&gt;
 Auf der &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Projektseite von Enigmail&lt;/a&gt; gibt es leider noch kein Plugin f&amp;uuml;r Open Solaris. Ich habe aber auf &lt;a href=&#34;http://www.guengel.ch/&#34;&gt;guengel.ch&lt;/a&gt; ein Enigmail f&amp;uuml;r Open Solaris auf x86-Architektur gefunden.&lt;/p&gt;
 </description>
