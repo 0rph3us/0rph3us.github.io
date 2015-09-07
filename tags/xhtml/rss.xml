@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xhtml on Michael im Netz</title>
-    <link>http://localhost:1313/tags/xhtml/</link>
+    <link>https://0rph3us.github.io/tags/xhtml/</link>
     <description>Recent content in Xhtml on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Aug 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/xhtml/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/xhtml/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>&#34;Sichere&#34; Captchas programmieren</title>
-      <link>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</link>
+      <link>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</guid>
       <description>&lt;p&gt;
 Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;, oder &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; benutzen. Persönlich habe ich eine Abneigung gegen &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt; und &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;. &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen &lt;a href=&#34;http://www.w3.org/TR/xhtml1/&#34;&gt;xhtml 1.0 strict&lt;/a&gt;-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.&lt;/p&gt;
 &lt;h2&gt;Wie komme ich zum sicheren Captcha&lt;/h2&gt;

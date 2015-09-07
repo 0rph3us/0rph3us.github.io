@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Feed on Michael im Netz</title>
-    <link>http://localhost:1313/tags/feed/</link>
+    <link>https://0rph3us.github.io/tags/feed/</link>
     <description>Recent content in Feed on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 17 Sep 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/feed/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/feed/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>RSS Reader selbst betreiben</title>
-      <link>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/09/rss-reader-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2014/09/rss-reader-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Nach meinen Wissen gab es eine Zeit, in der RSS-Feeds als Old-School und damit
@@ -35,7 +35,7 @@ sowie &lt;a href=&#34;http://tt-rss.org/&#34;&gt;Tiny Tiny RSS&lt;/a&gt; als Rea
 
 &lt;h2 id=&#34;nginx-installieren:589edeb4b03d933707b2122f6cfd44ac&#34;&gt;Nginx installieren&lt;/h2&gt;
 
-&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
+&lt;p&gt;Wie man &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; installiert, habe ich in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; schon erklärt.
 Je nach dem wie paranoid bzw. nerdig man ist, sollte man die Verbindung noch
 mit SSL/TLS absichern.&lt;/p&gt;
 

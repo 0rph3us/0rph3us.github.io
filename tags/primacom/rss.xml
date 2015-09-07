@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Primacom on Michael im Netz</title>
-    <link>http://localhost:1313/tags/primacom/</link>
+    <link>https://0rph3us.github.io/tags/primacom/</link>
     <description>Recent content in Primacom on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/primacom/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/primacom/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Danke Primacom</title>
-      <link>http://localhost:1313/post/2015/03/danke-primacom/</link>
+      <link>https://0rph3us.github.io/post/2015/03/danke-primacom/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/danke-primacom/</guid>
-      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;http://localhost:1313/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
+      <guid>https://0rph3us.github.io/post/2015/03/danke-primacom/</guid>
+      <description>&lt;p&gt;Dieser Blog liegt hier, da mich die Primacom genattet hatte, wie ich &lt;a href=&#34;https://0rph3us.github.io/post/2015/02/hallo-github/&#34;&gt;damals&lt;/a&gt; geschrieben habe.
 Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder eine öffentliche
 IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
 </description>
@@ -24,10 +24,10 @@ IP. Den Blog lasse ich erst einmal auf github.&lt;/p&gt;
     
     <item>
       <title>Hallo github</title>
-      <link>http://localhost:1313/post/2015/02/hallo-github/</link>
+      <link>https://0rph3us.github.io/post/2015/02/hallo-github/</link>
       <pubDate>Mon, 09 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/hallo-github/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/hallo-github/</guid>
       <description>
 
 &lt;p&gt;Nachdem mich die &lt;a href=&#34;http://www.primacom.de/&#34;&gt;Primacom&lt;/a&gt; hinter ein NAT gesperrt hat, habe ich mich entschlossen

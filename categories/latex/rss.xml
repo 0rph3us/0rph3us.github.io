@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Latex on Michael im Netz</title>
-    <link>http://localhost:1313/categories/latex/</link>
+    <link>https://0rph3us.github.io/categories/latex/</link>
     <description>Recent content in Latex on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sat, 30 Jul 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/latex/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/categories/latex/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Briefvorlage mit LaTeX</title>
-      <link>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</link>
+      <link>https://0rph3us.github.io/post/2011/07/briefvorlage-mit-latex/</link>
       <pubDate>Sat, 30 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</guid>
+      <guid>https://0rph3us.github.io/post/2011/07/briefvorlage-mit-latex/</guid>
       <description>
 
 &lt;p&gt;Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon.
@@ -125,10 +125,10 @@ die meine Vorlage noch verbessern ;-)&lt;/p&gt;
     
     <item>
       <title>Optischer Randausgleich</title>
-      <link>http://localhost:1313/post/2010/09/optischer-randausgleich/</link>
+      <link>https://0rph3us.github.io/post/2010/09/optischer-randausgleich/</link>
       <pubDate>Fri, 03 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/09/optischer-randausgleich/</guid>
+      <guid>https://0rph3us.github.io/post/2010/09/optischer-randausgleich/</guid>
       <description>&lt;p&gt;Ich schreibe meine Diplomarbeit mit LaTeX. Da bekommt man auch einen schönen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz,
 unter beachtung möglicher Worttrennungen  berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch
 verbessern, indem man den &lt;em&gt;optischen Randausgleich&lt;/em&gt; nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert
@@ -147,10 +147,10 @@ Für das Auge sieht der linke  Rand nun gerade aus. Man muss dafür nur das Pack
     
     <item>
       <title>LaTeX: Bilder an eine bestimmte Stelle platzieren</title>
-      <link>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</link>
+      <link>https://0rph3us.github.io/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</link>
       <pubDate>Fri, 27 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</guid>
       <description>&lt;p&gt;Wenn man bei LaTeX  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
 LaTeX  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
 dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package &lt;code&gt;here&lt;/code&gt;, welches inzwischen

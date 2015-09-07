@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Verbose on Michael im Netz</title>
-    <link>http://localhost:1313/tags/verbose/</link>
+    <link>https://0rph3us.github.io/tags/verbose/</link>
     <description>Recent content in Verbose on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 06 Sep 2009 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/verbose/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/verbose/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Open Solaris gesprächiger beim booten machen</title>
-      <link>http://localhost:1313/post/2009/09/open-solaris-gespr%C3%A4chiger-beim-booten-machen/</link>
+      <link>https://0rph3us.github.io/post/2009/09/open-solaris-gespr%C3%A4chiger-beim-booten-machen/</link>
       <pubDate>Sun, 06 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2009/09/open-solaris-gespr%C3%A4chiger-beim-booten-machen/</guid>
+      <guid>https://0rph3us.github.io/post/2009/09/open-solaris-gespr%C3%A4chiger-beim-booten-machen/</guid>
       <description>&lt;p&gt;?Manchmal möchte man wissen, was Open Solaris beim booten eigenlich macht, vielleicht weil es Probleme gibt oder man einfach nur neugierig ist. Bei x86 kann man das ganze als Kerneloption mit geben. Es gib:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;tt&gt;-v&lt;/tt&gt; zeigt die Devices an&lt;/li&gt;

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dns on Michael im Netz</title>
-    <link>http://localhost:1313/tags/dns/</link>
+    <link>https://0rph3us.github.io/tags/dns/</link>
     <description>Recent content in Dns on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dns/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/dns/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>
-      <link>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</link>
+      <link>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</link>
       <pubDate>Wed, 18 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
+      <guid>https://0rph3us.github.io/post/2015/03/einen-dns-server-selbst-betreiben/</guid>
       <description>
 
 &lt;p&gt;Ich habe mir die Tage einen eigenen &lt;a href=&#34;http://de.wikipedia.org/wiki/Domain_Name_System&#34;&gt;DNS&lt;/a&gt;-Server aufgesetzt. Er macht das Leben einfacher, wenn
@@ -127,7 +127,7 @@ google.de.              299     IN      A       173.194.32.247
 eine php-Anwendung mit der man seinen PowerDNS Server einfach konfigurieren kann.&lt;/p&gt;
 
 &lt;p&gt;Als erstes installiert man einen Webserver und php. Auf dem Raspberry Pi macht sich in meinen
-Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;http://localhost:1313/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
+Augen &lt;a href=&#34;http://nginx.org/&#34;&gt;Nginx&lt;/a&gt; ganz gut. Wie man diesen installiert kann man in &lt;a href=&#34;https://0rph3us.github.io/post/2014/07/webserver-auf-dem-raspberry-pi-installieren/&#34;&gt;diesem Artikel&lt;/a&gt; nachlesen.&lt;/p&gt;
 
 &lt;p&gt;Um mit der eigenlichen Installation zu beginnen muss man nich php-mcrypt installieren.&lt;/p&gt;
 

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Syntaxhighlighting on Michael im Netz</title>
-    <link>http://localhost:1313/tags/syntaxhighlighting/</link>
+    <link>https://0rph3us.github.io/tags/syntaxhighlighting/</link>
     <description>Recent content in Syntaxhighlighting on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 18 Apr 2010 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/syntaxhighlighting/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/syntaxhighlighting/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>bunter Host in der Codeumgebung</title>
-      <link>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</link>
+      <link>https://0rph3us.github.io/post/2010/04/bunter-host-in-der-codeumgebung/</link>
       <pubDate>Sun, 18 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/bunter-host-in-der-codeumgebung/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/bunter-host-in-der-codeumgebung/</guid>
       <description>&lt;p&gt;Ich wurde gefragt, wie ich den user und den hostname in meinen Code-Umgebungen bunt bekomme. Ich benutze für das Syntaxhighlighting das Plugin &lt;a href=&#34;http://wordpress.org/extend/plugins/wp-syntax/&#34;&gt;WP-Syntax&lt;/a&gt;. Dieses wiederrum nutzt &lt;a href=&#34;http://qbnz.com/highlighter/&#34;&gt;GeSHi&lt;/a&gt; im Hintergrund.&lt;/p&gt;
 &lt;p&gt;Damit der Hostname bunt wird, habe ich die Syntax der bash etwas erweitert. Dazu habe ich in der Datei &lt;tt&gt;wp-content/plugins/wp-syntax/geshi/geshi&lt;/tt&gt; ein paar Zeilen hinzu gef&amp;uuml;gt:&lt;/p&gt;
 &lt;pre lang=&#34;php&#34;&gt;

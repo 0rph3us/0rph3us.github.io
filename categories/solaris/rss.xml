@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Solaris on Michael im Netz</title>
-    <link>http://localhost:1313/categories/solaris/</link>
+    <link>https://0rph3us.github.io/categories/solaris/</link>
     <description>Recent content in Solaris on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Mon, 28 Feb 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/solaris/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/categories/solaris/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Probleme mit dem SunRay-Server</title>
-      <link>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</link>
+      <link>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</link>
       <pubDate>Mon, 28 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</guid>
+      <guid>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</guid>
       <description>&lt;p&gt;Ich habe heute etwas l&amp;auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der &lt;a href=&#34;http://www.sun-rays.org/&#34;&gt;SunRay&lt;/a&gt;-Server nicht l&amp;auml;uft.&lt;/p&gt;
 &lt;p&gt;
 Ein Fehler war schnell gefunden: Der &lt;a href=&#34;http://projects.gnome.org/gdm/&#34;&gt;gdm&lt;/a&gt; lief nicht.&lt;/p&gt;
@@ -31,10 +31,10 @@ Nun konnte man sich via &lt;a href=&#34;http://www.opengroup.org/cde/&#34;&gt;CD
     
     <item>
       <title>Cloud Computing</title>
-      <link>http://localhost:1313/post/2011/02/cloud-computing/</link>
+      <link>https://0rph3us.github.io/post/2011/02/cloud-computing/</link>
       <pubDate>Mon, 21 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/02/cloud-computing/</guid>
+      <guid>https://0rph3us.github.io/post/2011/02/cloud-computing/</guid>
       <description>&lt;p&gt;Ich höre immer öfter von Cloud Computing. Jedes mal hört sich das ganze wie eine ganz neue Idee an. Dabei ist Cloud Computing, nach meiner Ansicht, ein alter Hut. Dieser hat bestimmt schon 50 Jahre auf dem Buckel. Was man unter &lt;a href=&#34;http://de.wikipedia.org/wiki/Cloud_Computing&#34;&gt;Cloud Computing&lt;/a&gt; versteht kann nachlesen. Was ist aber der eigentliche Kern hinter der ganzen Geschichte?&lt;/p&gt;
 &lt;p&gt;Beim   Cloud Computing werden Rechen-, Speicherkapazitäten oder Dienste dynamisch zur Verfügung gestellt. Diese Kapazitäten und Dienste werden in der Regel über ein Netzwerk zugänglich gemacht. Auf den Mainframes der 1960er Jahre wurden auch Dienste und Ressourcen dynamisch angeboten und verwaltet. Die Rechenzeit wurde zum Teil auch bei den verschiedenen Kostenstellen gebucht. Auf diese Weise kann man auch aktuelle Enterprise-Server bzw. Mainframes ansetzten und dabei die Hardware dynamisch partitionieren.  Wo ist nun der Unterschied, ob man 4 volle Racks hat oder nur einen großen Rechner (1960 oder heute)?&lt;/p&gt;
 &lt;p&gt;Der Unterschied zu 1960 ist, das man seit einigen Jahren vorkonfiguriertes Blech mit entsprechenden Diensten kaufen kann. Ich habe den Vorteil, das ich auf das Blech und dem Dienst Garantie bekommen kann. Weiterhin gibt es Dienstleister, welche einen Dienste anbieten. Als Kunde muss man sich nicht mehr mit der Hardware belasten. Es ist aber durchaus interessant  im eigenen Rechenzentrum eine private Cloud zu betreiben. So kann man schnell auf sich änderte Bedingungen  reagieren.&lt;/p&gt;
@@ -45,10 +45,10 @@ Nun konnte man sich via &lt;a href=&#34;http://www.opengroup.org/cde/&#34;&gt;CD
     
     <item>
       <title>Platz sparen mit zfs</title>
-      <link>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</link>
+      <link>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</link>
       <pubDate>Fri, 22 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/10/platz-sparen-mit-zfs/</guid>
+      <guid>https://0rph3us.github.io/post/2010/10/platz-sparen-mit-zfs/</guid>
       <description>&lt;p&gt;
 Mir sind heute meine Festplatten fast voll gelaufen. Also habe ich &lt;a href=&#34;http://en.wikipedia.org/wiki/Quick-and-dirty&#34;&gt;quick&amp;amp;dirty&lt;/a&gt; die Kompression und die Deduplikation von zfs f&amp;uuml;r die betreffenden Dateisysteme aktiviert. Da zfs (noch) kein rewrite der Daten hat, habe ich angefangen die Daten zu kopieren und anschlie&amp;szlig;end die alte Version gel&amp;ouml;scht. Für import und Export von Pool hatte ich einfach zu wenig Platz, deswegen die umständliche Aktion mit dem kopieren. Und dann kam der Schreck: &lt;tt&gt;du -hs&lt;/tt&gt; zeigte auf einmal eine kleinere Größe an. Nach einiger Nachforschung habe ich mitbekommen, dass &lt;strong&gt;d&lt;/strong&gt;isk &lt;strong&gt;u&lt;/strong&gt;sage wörtlich zu nehmen ist. &lt;tt&gt;du&lt;/tt&gt; zeigt wirklich die Größe an, welche auf dem Device verbraucht wird. Das &lt;a href=&#34;http://www.gnu.org/&#34;&gt;GNU&lt;/a&gt;-&lt;tt&gt;du&lt;/tt&gt; kann hier Abhilfe schaffen, mit &lt;tt&gt;/usr/gnu/bin/du --apparent-size -hs&lt;/tt&gt; bekommt man die Aufsummierte Größe der Dateien. In diesem Zusammenhang ist der &lt;a href=&#34;http://www.cuddletech.com/blog/pivot/entry.php?id=983&#34;&gt;Blogeintrag von Ben Rockwood&lt;/a&gt; lesenswert.&lt;/p&gt;
 &lt;p&gt;
@@ -58,10 +58,10 @@ Zum Schluss sei noch gesagt, dass sich die Aktion für meine Daten gelohnt hat. 
     
     <item>
       <title>OpenIndiana und erste Erfahrungen</title>
-      <link>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</link>
+      <link>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</link>
       <pubDate>Fri, 17 Sep 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/09/openindiana-und-erste-erfahrungen/</guid>
       <description>&lt;p&gt;Ich habe es endlich geschafft: ein Update auf &lt;strong&gt;&lt;a href=&#34;http://openindiana.org/&#34;&gt;OpenIndiana&lt;/a&gt;&lt;/strong&gt; Im großen und ganzen kann man es einigermaßen benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen&lt;/p&gt;
 &lt;h4&gt;Update auf OpenIndiana&lt;/h4&gt;
 &lt;p&gt;Man findet &lt;a href=&#34;http://wiki.openindiana.org/oi/Installing+or+Upgrading#InstallingorUpgrading-UpgradingfromOpenSolaris&#34;&gt;hier&lt;/a&gt; auch die orginale Anleitung zum Update.&lt;/p&gt;
@@ -130,10 +130,10 @@ de
     
     <item>
       <title>Wie ärgere ich mein zfs</title>
-      <link>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
+      <link>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</link>
       <pubDate>Tue, 10 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/wie-%C3%A4rgere-ich-mein-zfs/</guid>
       <description>&lt;p&gt;
 &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass &lt;a href=&#34;http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome&#34;&gt;zfs&lt;/a&gt; nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame &lt;a href=&#34;http://www.systemhelden.com/&#34;&gt;Systemheld&lt;/a&gt;, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.&lt;/p&gt;
 &lt;h4&gt;Was kann zfs nicht&lt;/h4&gt;
@@ -160,10 +160,10 @@ Das war eigenlich alles, was ich mit zfs probiert habe. Ich hatte nicht mehr dum
     
     <item>
       <title>amarok, KDE und Co</title>
-      <link>http://localhost:1313/post/2010/07/amarok-kde-und-co/</link>
+      <link>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</link>
       <pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/amarok-kde-und-co/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</guid>
       <description>&lt;p&gt;Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von &lt;a href=&#34;http://blog.hajma.cz/&#34;&gt;Pavel Heimlich&lt;/a&gt; betreut. Er hat dafür ein eigenes Repo. Ich nutze nur &lt;a href=&#34;http://amarok.kde.org/&#34;&gt;amarok&lt;/a&gt;, welches ich an eine mysql-DB gebunden habe.&lt;/p&gt;
 &lt;p&gt;
 Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an &lt;a href=&#34;http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0&#34;&gt;dbus&lt;/a&gt;. Mein aktueller Build 142 macht das ganze sicher auch besser...&lt;/p&gt;
@@ -176,10 +176,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>Erste Erfahrung mit Build 142</title>
-      <link>http://localhost:1313/post/2010/07/erste-erfahrung-mit-build-142/</link>
+      <link>https://0rph3us.github.io/post/2010/07/erste-erfahrung-mit-build-142/</link>
       <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/erste-erfahrung-mit-build-142/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/erste-erfahrung-mit-build-142/</guid>
       <description>&lt;p&gt;Ich bin dieser &lt;a href=&#34;http://www.genunix.org/dist/richlowe/README.txt&#34;&gt;Readme&lt;/a&gt; gefolgt. Die Installation lief ohne Probleme, dauert aber sehr lange, da alle Zonen nacheinander aktualisiert werden.&lt;/p&gt;
 &lt;p&gt;Ich habe das Gefühl, dass der Scheduler besser arbeitet oder die Stromsparmaßnehmen besser sind, da sich meine CPU öfter herunter taktet (&lt;tt&gt;powertop&lt;/tt&gt;). zfs werde ich erst einmal nicht updaten. Damit warte ich noch ein paar Tage. Es gibt den zpool in der Version 26 und zfs in Version 5. &lt;/p&gt;
 &lt;p&gt;Das ist das erste OpenSolaris-Release für mich, bei dem &lt;em&gt;Oracle&lt;/em&gt; im Copyright steht. Das macht mich etwas wehmütig.... &lt;/p&gt;
@@ -189,10 +189,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>Neuer OpenSolaris Build</title>
-      <link>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</link>
+      <link>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</link>
       <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/07/neuer-opensolaris-build/</guid>
+      <guid>https://0rph3us.github.io/post/2010/07/neuer-opensolaris-build/</guid>
       <description>&lt;p&gt;Es gibt inzwischen wieder einen neuen Build von OpenSolaris. Er wurde von Richard Lowe gebaut. Ich mache gearade das update und berichte später wie er läuft. Ihr könnt ihn auf &lt;a href=&#34;http://genunix.org/&#34;&gt;genunix.org&lt;/a&gt; beziehen.&lt;/p&gt;
 &lt;p&gt;
 &lt;strong&gt;Ganz Wichtig: Benutzt &lt;tt&gt;gtar&lt;/tt&gt; zum Entpacken&lt;/strong&gt;&lt;/p&gt;
@@ -201,10 +201,10 @@ Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf m
     
     <item>
       <title>R, die Statistiksoftware installieren</title>
-      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <link>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</link>
       <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</guid>
       <description>&lt;p&gt;
 Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -228,10 +228,10 @@ rennecke@walhalla /tmp/R-2.11.1 % gmake
     
     <item>
       <title>Update Thunderbird</title>
-      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
+      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;
@@ -241,10 +241,10 @@ Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a hre
     
     <item>
       <title>Java-Applet - eine sinnfreie Erfindung</title>
-      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <link>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
       <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
       <description>&lt;p&gt;
 Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -280,10 +280,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>Thunderbird 3.0.4</title>
-      <link>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</link>
+      <link>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</link>
       <pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</guid>
       <description>&lt;p&gt;
 F&amp;uuml;r Solaris 10 gibt es auch den Thunderbird 3.0.4, da ich meine Einstellungen unter Open Solaris und Solaris 10 nutzen m&amp;ouml;chte. Auf meiner Solaris 10 Installation habe ich nur einen 2.0er Thunderbird. Dieser vertr&amp;auml;gt nicht alle Einstellungen von einem 3er Thunderbird von Open Solaris&lt;/p&gt;
 &lt;p&gt;
@@ -303,10 +303,10 @@ export LD_LIBRARY_PATH=/opt/sfw/lib/:$LD_LIBRARY_PATH
     
     <item>
       <title>mehr Software für Solaris</title>
-      <link>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
+      <link>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</link>
       <pubDate>Sun, 16 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/mehr-software-f%C3%BCr-solaris/</guid>
       <description>&lt;p&gt;
 Manchmal ärgert man sich, dass es das ein oder andere Package nicht für (Open)Solaris gibt. Man kann ohne Probleme die Pakages von &lt;a href=&#34;http://www.blastwave.org/&#34;&gt;Blastwave&lt;/a&gt; bzw. &lt;a href=&#34;http://www.opencsw.org/&#34;&gt;OpenCSW&lt;/a&gt; nutzen. Es sind noch die &#34;alten&#34; SystemV-Pakages von Solaris 10 und älter. Man kann sie jedoch ohne Einschänkungen unter OpenSolaris nutzen.&lt;/p&gt;
 &lt;p&gt;
@@ -324,10 +324,10 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
     
     <item>
       <title>Was bringt Deduplikation?</title>
-      <link>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</link>
+      <link>https://0rph3us.github.io/post/2010/04/was-bringt-deduplikation/</link>
       <pubDate>Tue, 27 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/was-bringt-deduplikation/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/was-bringt-deduplikation/</guid>
       <description>&lt;p&gt;Heute war ich beim &lt;a href=&#34;http://de.sun.com/sunnews/events/2010/apr/sunday_halle_magdeburg/&#34;&gt;Sun Day in Halle&lt;/a&gt;. Detlef Drewanz hat einen interessanten Befehl im Bezug auf &lt;a href=&#34;http://0rpheus.net/solaris/deduplikation&#34;&gt;Deduplikation&lt;/a&gt; genannt: &lt;tt&gt;zdb -S &amp;lt;poolname&amp;gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;p&gt;&lt;tt&gt;&lt;/tt&gt;Damit lässt sich ermitteln, was eine Deduplikation des zpool bringen würde.&lt;/p&gt;
 &lt;p&gt;&lt;br class=&#34;spacer_&#34; /&gt;&lt;/p&gt;
@@ -336,10 +336,10 @@ mirror=http://csw.informatik.uni-erlangen.de/csw/unstable/
     
     <item>
       <title>Eigenschaften von Zonen</title>
-      <link>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</link>
+      <link>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</link>
       <pubDate>Thu, 22 Apr 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/04/eigenschaften-von-zonen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/04/eigenschaften-von-zonen/</guid>
       <description>&lt;p&gt;
 Ich wurde in Bezug auf diesen &lt;a href=&#34;http://0rpheus.net/solaris/eine-zone-in-10-minuten&#34;&gt;Blog-Eintrag&lt;/a&gt; gefragt, was es f&amp;uuml;r Zoneneigenschaften gibt, welche man f&amp;uuml;r Regelmentierungen verwenden kann.&lt;/p&gt;
 &lt;p&gt;

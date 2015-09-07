@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Solaris on Michael im Netz</title>
-    <link>http://localhost:1313/tags/solaris/</link>
+    <link>https://0rph3us.github.io/tags/solaris/</link>
     <description>Recent content in Solaris on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Sun, 06 Mar 2011 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/solaris/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/tags/solaris/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Junior System Architekt</title>
-      <link>http://localhost:1313/post/2011/03/junior-system-architekt/</link>
+      <link>https://0rph3us.github.io/post/2011/03/junior-system-architekt/</link>
       <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/03/junior-system-architekt/</guid>
+      <guid>https://0rph3us.github.io/post/2011/03/junior-system-architekt/</guid>
       <description>&lt;p&gt;
 So wie es aussieht, habe ich demnächst ein Job als Junior System Architekt. Ich freue mich schon auf meinen ersten Arbeitstag, leider werde ich nicht mit Solaris arbeiten, wenigsten Linux und nicht Windows. Demnächst ließt man sicher hier mehr ;-)&lt;/p&gt;
 </description>
@@ -23,10 +23,10 @@ So wie es aussieht, habe ich demnächst ein Job als Junior System Architekt. Ich
     
     <item>
       <title>Probleme mit dem SunRay-Server</title>
-      <link>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</link>
+      <link>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</link>
       <pubDate>Mon, 28 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/02/probleme-mit-dem-sunray-server/</guid>
+      <guid>https://0rph3us.github.io/post/2011/02/probleme-mit-dem-sunray-server/</guid>
       <description>&lt;p&gt;Ich habe heute etwas l&amp;auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der &lt;a href=&#34;http://www.sun-rays.org/&#34;&gt;SunRay&lt;/a&gt;-Server nicht l&amp;auml;uft.&lt;/p&gt;
 &lt;p&gt;
 Ein Fehler war schnell gefunden: Der &lt;a href=&#34;http://projects.gnome.org/gdm/&#34;&gt;gdm&lt;/a&gt; lief nicht.&lt;/p&gt;
@@ -42,10 +42,10 @@ Nun konnte man sich via &lt;a href=&#34;http://www.opengroup.org/cde/&#34;&gt;CD
     
     <item>
       <title>Cloud Computing</title>
-      <link>http://localhost:1313/post/2011/02/cloud-computing/</link>
+      <link>https://0rph3us.github.io/post/2011/02/cloud-computing/</link>
       <pubDate>Mon, 21 Feb 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/02/cloud-computing/</guid>
+      <guid>https://0rph3us.github.io/post/2011/02/cloud-computing/</guid>
       <description>&lt;p&gt;Ich höre immer öfter von Cloud Computing. Jedes mal hört sich das ganze wie eine ganz neue Idee an. Dabei ist Cloud Computing, nach meiner Ansicht, ein alter Hut. Dieser hat bestimmt schon 50 Jahre auf dem Buckel. Was man unter &lt;a href=&#34;http://de.wikipedia.org/wiki/Cloud_Computing&#34;&gt;Cloud Computing&lt;/a&gt; versteht kann nachlesen. Was ist aber der eigentliche Kern hinter der ganzen Geschichte?&lt;/p&gt;
 &lt;p&gt;Beim   Cloud Computing werden Rechen-, Speicherkapazitäten oder Dienste dynamisch zur Verfügung gestellt. Diese Kapazitäten und Dienste werden in der Regel über ein Netzwerk zugänglich gemacht. Auf den Mainframes der 1960er Jahre wurden auch Dienste und Ressourcen dynamisch angeboten und verwaltet. Die Rechenzeit wurde zum Teil auch bei den verschiedenen Kostenstellen gebucht. Auf diese Weise kann man auch aktuelle Enterprise-Server bzw. Mainframes ansetzten und dabei die Hardware dynamisch partitionieren.  Wo ist nun der Unterschied, ob man 4 volle Racks hat oder nur einen großen Rechner (1960 oder heute)?&lt;/p&gt;
 &lt;p&gt;Der Unterschied zu 1960 ist, das man seit einigen Jahren vorkonfiguriertes Blech mit entsprechenden Diensten kaufen kann. Ich habe den Vorteil, das ich auf das Blech und dem Dienst Garantie bekommen kann. Weiterhin gibt es Dienstleister, welche einen Dienste anbieten. Als Kunde muss man sich nicht mehr mit der Hardware belasten. Es ist aber durchaus interessant  im eigenen Rechenzentrum eine private Cloud zu betreiben. So kann man schnell auf sich änderte Bedingungen  reagieren.&lt;/p&gt;
@@ -56,20 +56,20 @@ Nun konnte man sich via &lt;a href=&#34;http://www.opengroup.org/cde/&#34;&gt;CD
     
     <item>
       <title>Tree Tab Style bei Firefox</title>
-      <link>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</link>
+      <link>https://0rph3us.github.io/post/2011/01/tree-tab-style-bei-firefox/</link>
       <pubDate>Sat, 08 Jan 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/01/tree-tab-style-bei-firefox/</guid>
+      <guid>https://0rph3us.github.io/post/2011/01/tree-tab-style-bei-firefox/</guid>
       <description>&lt;p&gt;Ich nutze schon sehr lange den &lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt;Tree Tab Style&lt;/a&gt; für Firefox. Heute ist mein Firefox unter Solaris alle 3 Minuten abgestürzt. Bis ich auf die Idee gekommen bin, dass es evtl. mein&lt;a href=&#34;https://addons.mozilla.org/en-US/firefox/addon/5890/&#34;&gt; Tree Tab Style Plugin&lt;/a&gt; ist. Der Firefox hat gemeint, dass es kein Update gibt. Also habe ich auf der &lt;a href=&#34;http://piro.sakura.ne.jp/xul/_treestyletab.html.en#download&#34;&gt;Projektseite des Entwickler&lt;/a&gt; nachgeschaut und dort gab es ein Update. Dieses funktioniert. Ob dieser Fehler nur bei Solaris auftritt weiß ich nicht.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>R, die Statistiksoftware installieren</title>
-      <link>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</link>
+      <link>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</link>
       <pubDate>Thu, 03 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/r-die-statistiksoftware-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/r-die-statistiksoftware-installieren/</guid>
       <description>&lt;p&gt;
 Ich wollte vor ein paar Tagen die aktuelle Version 2.11.1 von &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; installieren. Es gibt leider kein aktuelles R-Pakage für Solaris. Auf &lt;a href=&#34;http://www.sunfreeware.com/&#34;&gt;sunfreeware&lt;/a&gt; gibt es ein &lt;a href=&#34;http://www.sunfreeware.com/programlistsparc10.html#R&#34;&gt;R-Package&lt;/a&gt; in der Version 2.7.2. Also blieb mir nichts anderes übrig, als &lt;a href=&#34;http://www.r-project.org/&#34;&gt;R&lt;/a&gt; selbst zu übersetzten. Leider ging das nicht auf Anhieb. Ich habe folgende Fehlermeldung bekommen:&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -93,10 +93,10 @@ rennecke@walhalla /tmp/R-2.11.1 % gmake
     
     <item>
       <title>Update Thunderbird</title>
-      <link>http://localhost:1313/post/2010/06/update-thunderbird/</link>
+      <link>https://0rph3us.github.io/post/2010/06/update-thunderbird/</link>
       <pubDate>Tue, 01 Jun 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/06/update-thunderbird/</guid>
+      <guid>https://0rph3us.github.io/post/2010/06/update-thunderbird/</guid>
       <description>&lt;p&gt;
 Ich habe schon des öfteren über Thunderbird geschrieben. Heute ist es mal wieder ernst geworden. Ich wollte für den 3er Thunderbird auf meiner Solaris 10-Box (sparc) meine Lieblings-Plugins &lt;a href=&#34;http://www.mozilla.org/projects/calendar/&#34;&gt;Lightning&lt;/a&gt; und &lt;a href=&#34;http://enigmail.mozdev.org/home/index.php&#34;&gt;Enigmail&lt;/a&gt; installieren. Enigmail und Lightning meinten, dass es keine Versionen für meine Platform gibt.&lt;/p&gt;
 &lt;p&gt;
@@ -106,10 +106,10 @@ Die Lösung für mein Problem war ganz einfach: Für Lightning gibt es &lt;a hre
     
     <item>
       <title>Java-Applet - eine sinnfreie Erfindung</title>
-      <link>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
+      <link>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</link>
       <pubDate>Fri, 28 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/java-applet---eine-sinnfreie-erfindung/</guid>
       <description>&lt;p&gt;
 Ich kam leider nicht herum einmal ein Java-Applet auszuführen. Mein &lt;a href=&#34;http://www.mozilla-europe.org/de/firefox/&#34;&gt;Firefox&lt;/a&gt; hat sich geweigert und meinte, dass es kein entsprechendes Plugin gibt. Das ganze ist mir auf meinen aktuellen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt; (64-Bit Intel) und meinem &lt;a href=&#34;http://www.sun.com/software/solaris/10/&#34;&gt;Solaris 10&lt;/a&gt; auf &lt;a href=&#34;http://en.wikipedia.org/wiki/SPARC&#34;&gt;Ultrasparc&lt;/a&gt; (64-Bit) passiert. Auf beiden Systemen ist das aktuelle &lt;a href=&#34;http://java.sun.com/javase/&#34;&gt;JDK&lt;/a&gt; installiert. Auf meinen &lt;a href=&#34;http://www.opensolaris.com/&#34;&gt;Open Solaris&lt;/a&gt;-System habe ich außerdem das Package &lt;tt&gt;web/browser/firefox/plugin/firefox-java&lt;/tt&gt; installiert&lt;/p&gt;
 &lt;pre lang=&#34;bash&#34;&gt;
@@ -145,10 +145,10 @@ Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Orac
     
     <item>
       <title>Thunderbird 3.0.4</title>
-      <link>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</link>
+      <link>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</link>
       <pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/05/thunderbird-3.0.4/</guid>
+      <guid>https://0rph3us.github.io/post/2010/05/thunderbird-3.0.4/</guid>
       <description>&lt;p&gt;
 F&amp;uuml;r Solaris 10 gibt es auch den Thunderbird 3.0.4, da ich meine Einstellungen unter Open Solaris und Solaris 10 nutzen m&amp;ouml;chte. Auf meiner Solaris 10 Installation habe ich nur einen 2.0er Thunderbird. Dieser vertr&amp;auml;gt nicht alle Einstellungen von einem 3er Thunderbird von Open Solaris&lt;/p&gt;
 &lt;p&gt;
@@ -168,10 +168,10 @@ export LD_LIBRARY_PATH=/opt/sfw/lib/:$LD_LIBRARY_PATH
     
     <item>
       <title>Sensoren mit Nagios abfragen</title>
-      <link>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</link>
+      <link>https://0rph3us.github.io/post/2009/09/sensoren-mit-nagios-abfragen/</link>
       <pubDate>Thu, 10 Sep 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2009/09/sensoren-mit-nagios-abfragen/</guid>
+      <guid>https://0rph3us.github.io/post/2009/09/sensoren-mit-nagios-abfragen/</guid>
       <description>&lt;p&gt;Ich wollte verschiedene Sparc-Rechner mit &lt;a href=&#34;http://www.nagios.org/&#34;&gt;Nagios&lt;/a&gt; überwachen.
 Da ich kein passendes Plugin gefunden habe um die Sensoren zu überwachen habe ich mir selbst eins geschrieben.&lt;/p&gt;
 

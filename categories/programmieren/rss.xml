@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programmieren on Michael im Netz</title>
-    <link>http://localhost:1313/categories/programmieren/</link>
+    <link>https://0rph3us.github.io/categories/programmieren/</link>
     <description>Recent content in Programmieren on Michael im Netz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
     <lastBuildDate>Thu, 26 Feb 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/programmieren/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://0rph3us.github.io/categories/programmieren/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>go in 6 Schritten installieren</title>
-      <link>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</link>
+      <link>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</link>
       <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2015/02/go-in-6-schritten-installieren/</guid>
+      <guid>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</guid>
       <description>
 
 &lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
@@ -93,11 +93,11 @@ go version go1.4.2 linux/amd64
     
     <item>
       <title>rrdtool und json</title>
-      <link>http://localhost:1313/post/2014/10/rrdtool-und-json/</link>
+      <link>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</link>
       <pubDate>Tue, 28 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/10/rrdtool-und-json/</guid>
-      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
+      <guid>https://0rph3us.github.io/post/2014/10/rrdtool-und-json/</guid>
+      <description>&lt;p&gt;In den letzten beiden Beiträgen habe ich erklärt, wie man den &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DTH22&lt;/a&gt; bzw. &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; am
 Raspberry Pi betreibt. Es liegt nahe die Sensordaten aufzuzeichnen und zu
 visualisieren. In einen kleinen Prototyp habe ich die Daten mit &lt;a href=&#34;http://oss.oetiker.ch/rrdtool/&#34;&gt;RRDtool&lt;/a&gt; gespeichert und mit &lt;a href=&#34;http://www.highcharts.com/&#34;&gt;Highcharts&lt;/a&gt;
 angezeigt.&lt;/p&gt;
@@ -118,10 +118,10 @@ json-Export anspricht.&lt;/p&gt;
     
     <item>
       <title>BMP085 am Raspberry Pi</title>
-      <link>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</link>
+      <link>https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/</link>
       <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/10/bmp085-am-raspberry-pi/</guid>
+      <guid>https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/</guid>
       <description>
 
 &lt;h2 id=&#34;was-kann-der-bmp085:bf8a41dd39999e1a61e9724b1f94c2f6&#34;&gt;Was kann der BMP085?&lt;/h2&gt;
@@ -149,7 +149,7 @@ verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/bmp085_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/bmp085_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit BMP085 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei
@@ -219,10 +219,10 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
     
     <item>
       <title>DHT22 am Raspberry Pi</title>
-      <link>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</link>
+      <link>https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/</link>
       <pubDate>Tue, 14 Oct 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2014/10/dht22-am-raspberry-pi/</guid>
+      <guid>https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/</guid>
       <description>
 
 &lt;h2 id=&#34;was-kann-der-dht22:8d8edce1009994bb6e78cdf6135bcafc&#34;&gt;Was kann der DHT22?&lt;/h2&gt;
@@ -243,7 +243,7 @@ auf Meereshöhe. Nur der Luftdruck auf Meereshöhe ist zwischen Wetterstationen 
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://localhost:1313/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;http://localhost:1313/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/dht22_pi.png&#34; title=&#34;&#34; data-lightbox=&#34;set1&#34; data-title=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;img src=&#34;https://0rph3us.github.io/dht22_pi-thumbnail.png&#34; alt=&#34;Steckbrett mit DHT22 und Raspberry Pi&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben.&lt;/p&gt;
@@ -300,10 +300,10 @@ else:
     
     <item>
       <title>Briefvorlage mit LaTeX</title>
-      <link>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</link>
+      <link>https://0rph3us.github.io/post/2011/07/briefvorlage-mit-latex/</link>
       <pubDate>Sat, 30 Jul 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/07/briefvorlage-mit-latex/</guid>
+      <guid>https://0rph3us.github.io/post/2011/07/briefvorlage-mit-latex/</guid>
       <description>
 
 &lt;p&gt;Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon.
@@ -413,10 +413,10 @@ die meine Vorlage noch verbessern ;-)&lt;/p&gt;
     
     <item>
       <title>verschlüsselte Volumes bequem mounten</title>
-      <link>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</link>
+      <link>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</link>
       <pubDate>Sat, 26 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</guid>
+      <guid>https://0rph3us.github.io/post/2011/03/verschl%C3%BCsselte-volumes-bequem-mounten/</guid>
       <description>&lt;p&gt;Ich habe mein home verschlüsselt. Dieses wird automatisch, beim anmelden gemountet.
 Da ich in mein home noch ein paar andere verschlüsselte Dateisysteme einhänge funktionieren die Standard-Mittel,
 wie &lt;code&gt;/etc/crypttab&lt;/code&gt; nicht. Dabei ergibt sich das folgende Problem: Die Volumes werden beim booten eingehangen
@@ -567,10 +567,10 @@ Seite, da ich noch etwas &lt;em&gt;Solaris&lt;/em&gt;-geschädigt bin.&lt;/p&gt;
     
     <item>
       <title>Bilder mit css nicht vergrößern</title>
-      <link>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
+      <link>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</link>
       <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
+      <guid>https://0rph3us.github.io/post/2011/03/bilder-mit-css-nicht-vergr%C3%B6%C3%9Fern/</guid>
       <description>&lt;p&gt;
 Ich habe in meinen Blog inzwischen auch Bilder und ich nutze die &lt;a href=&#34;http://nextgen-gallery.com/&#34;&gt;NextGEN Gallery&lt;/a&gt;. Aus Platzgründen verkleinere ich die Bilder. Die Bilder, welche im Hochformat sind sehen einfach grausam aus, da sie stark vergrößert werden. Durch den folgenden Hack im &lt;a href=&#34;http://www.w3.org/TR/2002/WD-CSS21-20020802/&#34;&gt;css&lt;/a&gt; werden die Bilder nicht mehr vergrößert. Dazu muss man die Datei &lt;tt&gt;nextgen-gallery/css/nggallery.css&lt;/tt&gt; wie folgt ändern:&lt;/p&gt;
 &lt;pre lang=&#34;css&#34;&gt;
@@ -589,10 +589,10 @@ Achtung: Die Änderung geht bei einen automatischen Update des Plugins verloren!
     
     <item>
       <title>Im SunStudio die STL nutzen</title>
-      <link>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</link>
+      <link>https://0rph3us.github.io/post/2010/11/im-sunstudio-die-stl-nutzen/</link>
       <pubDate>Fri, 26 Nov 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/11/im-sunstudio-die-stl-nutzen/</guid>
+      <guid>https://0rph3us.github.io/post/2010/11/im-sunstudio-die-stl-nutzen/</guid>
       <description>&lt;p&gt;Mir ist die Tage beim programmieren negativ aufgefallen, dass sich im  Sun Studio 12 Express einige Funktionen anderst sind, als in der STL  spezifiziert. Mir ist es bei &lt;em&gt;std::sort&lt;/em&gt; aufgefallen. Man kann normal &lt;em&gt;sort&lt;/em&gt; eine Funktion übergeben, welche die Elemente vergleicht. Diese  Überladung existiert in der Sun STL nicht. Das ist bekannt und wurde  schon an anderen Stellen diskutiert. Wenn man die STL nutzen möchte,  dann muss man dem Compiler die Option &lt;em&gt;-library=stlport4&lt;/em&gt; mitgeben, dann  wird die standartkonforme STL verwendet.&lt;/p&gt;
 &lt;p&gt;Im Sun Studio kann man diese Option unter Additional Options mit angeben.&lt;/p&gt;
 </description>
@@ -600,10 +600,10 @@ Achtung: Die Änderung geht bei einen automatischen Update des Plugins verloren!
     
     <item>
       <title>Nutzer anlegen im Active Directory</title>
-      <link>http://localhost:1313/post/2010/10/nutzer-anlegen-im-active-directory/</link>
+      <link>https://0rph3us.github.io/post/2010/10/nutzer-anlegen-im-active-directory/</link>
       <pubDate>Wed, 27 Oct 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/10/nutzer-anlegen-im-active-directory/</guid>
+      <guid>https://0rph3us.github.io/post/2010/10/nutzer-anlegen-im-active-directory/</guid>
       <description>&lt;p&gt;Ich habe vor einigen Tagen mich mit dem &lt;a href=&#34;http://www.rrzn.uni-hannover.de/fileadmin/it_sicherheit/pdf/SiTaWS05-ActiveDir.pdf&#34;&gt;Active Directory&lt;/a&gt;
 beschäftigen müssen. Für mich als Solaris-User ist das eine ganz andere Welt. Deswegen habe ich mich sehr schwer getan,
 ohne &lt;a href=&#34;https://meet-unix.org/&#34;&gt;Martin&lt;/a&gt; wär dieser Artikel nicht möglich gewesen. Er stand mir mit Rat und Tat eine
@@ -743,10 +743,10 @@ es war aber die schnellste Lösung.&lt;/p&gt;
     
     <item>
       <title>&#34;Sichere&#34; Captchas programmieren</title>
-      <link>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</link>
+      <link>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/sichere-captchas-programmieren/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/sichere-captchas-programmieren/</guid>
       <description>&lt;p&gt;
 Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;, &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;, oder &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; benutzen. Persönlich habe ich eine Abneigung gegen &lt;a href=&#34;http://de.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt; und &lt;a href=&#34;http://www.adobe.com/support/documentation/de/flash/&#34;&gt;Flash&lt;/a&gt;. &lt;a href=&#34;http://www.w3.org/TR/WD-session-id&#34;&gt;Sessions&lt;/a&gt; lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen &lt;a href=&#34;http://www.w3.org/TR/xhtml1/&#34;&gt;xhtml 1.0 strict&lt;/a&gt;-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.&lt;/p&gt;
 &lt;h2&gt;Wie komme ich zum sicheren Captcha&lt;/h2&gt;
@@ -836,10 +836,10 @@ Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich gene
     
     <item>
       <title>Shared memory Allocator mit der STL</title>
-      <link>http://localhost:1313/post/2010/08/shared-memory-allocator-mit-der-stl/</link>
+      <link>https://0rph3us.github.io/post/2010/08/shared-memory-allocator-mit-der-stl/</link>
       <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/2010/08/shared-memory-allocator-mit-der-stl/</guid>
+      <guid>https://0rph3us.github.io/post/2010/08/shared-memory-allocator-mit-der-stl/</guid>
       <description>&lt;p&gt;
 Ich habe mich die letzten Tage mit der &lt;a href=&#34;http://www.cplusplus.com/reference/stl/&#34;&gt;STL&lt;/a&gt; herungeärgert. Ich wollte einen Allocator schreiben, welcher mir die STL-Container in ein Shared Memory Segment legt. Ich habe es nicht wirklich hinbekommen. Inzwischen weiß ich, dass es die Leute von &lt;a href=&#34;http://www.boost.org/&#34;&gt;boost&lt;/a&gt; auch nicht hinbekommen haben. Aus diesem Grund werde ich nun &lt;a href=&#34;http://www.boost.org/&#34;&gt;boost&lt;/a&gt; benutzen und hoffen, dass die Performance nicht zu schlecht (unter &lt;a href=&#34;http://www.microsoft.com/germany/windows/&#34;&gt;Windows&lt;/a&gt;) ist. Das geheimnis ist, dass man die Container nach implementiert und die Implementierung kommt arbeitet korrekt in einem Shared Memory Segment.&lt;/p&gt;
 </description>
