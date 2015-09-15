@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haproxy on Michael im Netz</title>
+    <link>https://0rph3us.github.io/tags/haproxy/</link>
+    <description>Recent content in Haproxy on Michael im Netz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
+    <lastBuildDate>Tue, 15 Sep 2015 05:50:08 +0200</lastBuildDate>
+    <atom:link href="https://0rph3us.github.io/tags/haproxy/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Guten Morgen</title>
+      <link>https://0rph3us.github.io/post/2015/09/guten-morgen/</link>
+      <pubDate>Tue, 15 Sep 2015 05:50:08 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/09/guten-morgen/</guid>
+      <description>
+
+&lt;p&gt;Ich habe schon länger keinen neuen Post hinterlassen. Es
+lag unter anderen daran, dass ich umgezogen bin. Der größte
+Teil des Umzuges ist inzwischen geschafft und alles ist an
+seinen Platz.&lt;/p&gt;
+
+&lt;p&gt;In der Zwischenzeit war nicht untätig, Ich habe mit &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt;
+etwas experimentiert. Ziel war es Zertifikate mit RSA und &lt;a href=&#34;http://www.cs.uni-potsdam.de/ti/lehre/05-Kryptographie/slides/Elliptische_Kurven.pdf&#34;&gt;Elliptische Kurven&lt;/a&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3fd9ce4c42cd011d05713db9016f8f87:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3fd9ce4c42cd011d05713db9016f8f87:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; für den selben Hostname/FQDN anzubieten.&lt;/p&gt;
+
+&lt;p&gt;Weswegen möchte man das eigenlich machen? Zertifikate mit
+RSA sind sehr lang (größergleich 4096 Bit), wenn man
+paranoit ist. Diese langen Zertifikate kosten Zeit bei der Übertragung und Rechenkraft beim Handshake. Aus diesem Grud liegt es nahe Zertifikate mit Elliptischen Kurven zu nutzen. Die größten Kurven haben eine Länge von 571 Bit. Dabei wird eine sehr höhere Sicherheit erreicht, als mit 8096 Bit langen RSA Schlüssel und sie lassen schneller berechnen.&lt;/p&gt;
+
+&lt;p&gt;Da ich auf meinen Raspberry Pi zahlreiche Dienste betreibe, welche per SSL abgesichert sind, habe ich Stern-Zertifiake generiert. Wenn HAProxy eine eigene (Sub)&lt;a href=&#34;https://de.wikipedia.org/wiki/Zertifizierungsstelle&#34;&gt;CA&lt;/a&gt; hat, dann ist es möglich, dass bei jeder Anfrage mit einen neuen Hostname ein neues Zertifikat generiert wird.&lt;/p&gt;
+
+&lt;h2 id=&#34;umsetzung:3fd9ce4c42cd011d05713db9016f8f87&#34;&gt;Umsetzung&lt;/h2&gt;
+
+&lt;p&gt;In den aktuellen Developer Builds von HAProxy, aktuell 1.6-dev4 ist möglich ECC und RSA Zertifikate auf der selben IP und Port zu betreiben. Weiherhin ist es möglich Zertifikate zu generieren. Das dumme war nur, dass es nicht richtig mit Elliptischen Kurven funktioniert. Nach einiger Diskussion über den Sinn dieses Setups hat mit Christopher Faulet einen Patch geschieben, welcher funktioniert. Da der Patch auch bei mir funktioniert, gibt Christopher upstream.&lt;/p&gt;
+
+&lt;h3 id=&#34;testconfig:3fd9ce4c42cd011d05713db9016f8f87&#34;&gt;Testconfig&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;global
+        daemon
+        maxconn 256
+
+        ssl-default-bind-ciphers AES256+EECDH:AES256+EDH
+        ssl-default-bind-options force-tlsv12
+        tune.ssl.default-dh-param 4096
+        tune.ssl.lifetime 600
+
+
+defaults
+        mode http
+        timeout connect 5000ms
+        timeout client 50000ms
+        timeout server 50000ms
+
+
+frontend ssl-relay
+        mode tcp
+        bind 0.0.0.0:443
+
+        use_backend ssl-ecc if { req.ssl_ec_ext 1 }
+        default_backend ssl-ecc
+
+
+backend ssl-ecc
+        mode tcp
+
+        server ecc unix@/var/run/haproxy_ssl_ecc.sock send-proxy-v2
+
+
+backend ssl-rsa
+        mode tcp
+
+        server rsa unix@/var/run/haproxy_ssl_rsa.sock send-proxy-v2
+
+
+listen webfarm
+        bind unix@/var/run/haproxy_ssl_ecc.sock accept-proxy ssl crt /etc/haproxy/ecc_test.rennecke.dyndns.dk.pem tls-ticket-keys /etc/haproxy/ticket_keys ca-sign-file /etc/haproxy/ecc_subca.pem user nobody generate-certificates ecdhe secp521r1
+        bind unix@/var/run/haproxy_ssl_rsa.sock accept-proxy ssl crt /etc/haproxy/rsa_star.rennecke.dyndns.dk.pem tls-ticket-keys /etc/haproxy/ticket_keys ecdhe secp521r1 user nobody
+        mode http
+
+        acl admin               path_beg /haproxy
+        use_backend admin       if admin
+
+        server nginx 127.0.0.1:88 check
+
+backend admin
+        stats enable
+        stats hide-version
+        stats show-legends
+        stats realm Haproxy\ Statistics
+        stats uri /haproxy?stats
+        stats refresh 30s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In dieser Config generiere ich nur die ECC-Zertifikate für alle Hosts, außer &lt;code&gt;test.rennecke.dyndns.dk&lt;/code&gt;. Das ganze Setup funktioniert, aber es läuft noch nicht ganz rund.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:3fd9ce4c42cd011d05713db9016f8f87:1&#34;&gt;Man schreibt auch oft &lt;a href=&#34;https://de.wikipedia.org/wiki/Elliptic_Curve_Cryptography&#34;&gt;ECC&lt;/a&gt; (Elliptic Curve) Cryptography
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3fd9ce4c42cd011d05713db9016f8f87:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
