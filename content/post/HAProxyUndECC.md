@@ -1,5 +1,5 @@
 +++
-Categories = ["privat", "GoLang"]
+Categories = ["privat", "Sicherheit"]
 Description = ""
 Tags = ["HAProxy", "SSL"]
 date = "2015-09-15T05:50:08+02:00"
