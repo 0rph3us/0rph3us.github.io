@@ -65,5 +65,6 @@ rssuri       = "rss.xml"
     sidebartitle   = "Michael Rennecke"
     sidebartagline = "Meine Gedanken zu Sicherheit, Linux und Random Stuff"
     highlightStyle = "solarized_light"
+#    sidebarphoto   = "solaris-vs-linux.jpg"
     Copyright      = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
 
