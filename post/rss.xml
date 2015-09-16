@@ -7,8 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Tue, 15 Sep 2015 05:50:08 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2015 05:48:57 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/post/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Stromtankstellen in Halle</title>
+      <link>https://0rph3us.github.io/post/2015/09/stromtankstellen-in-halle/</link>
+      <pubDate>Wed, 16 Sep 2015 05:48:57 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/09/stromtankstellen-in-halle/</guid>
+      <description>&lt;p&gt;Ja, es gibt sie inzwischen auch in Halle (Saale). Dummerweise hat niemand daran gedacht ein Schild aufzustellen, dass nur Elekroautos dort parken (und laden dürfen). Diese Park- bzw. Ladeplätze waren jedes mal von Autos belegt, welche mit 100 %iger Sicherheit einen flüssigen Kraftstoff tanken.&lt;/p&gt;
+
+&lt;p&gt;In meinen Augen hat sich die Stadt auch keinen Gefallen getan. Denn sie hat vorhandene Parkplätze zu einen Parkplatz mit Ladestation umfunktioniert.&lt;/p&gt;
+
+&lt;p&gt;Es gibt auch etwas positives an der ganzen Sache: Elekromobilität scheint immer mehr auf dem Vormarsch zu sein. Ich sehr immer mehr Ladestationen. Damit ist wenigsten die Frage beantwortet, wo man sein Auto Laden kann.&lt;/p&gt;
+
+&lt;p&gt;Die Norweger machen es uns vor, wie man Elekroautos zum rollen bringt. Mir ist durchaus bewusst, dass man dort Elekroautos sehr stark subventioniert. So sind sie zum Teil günstiger, als konventionelle Autos.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Guten Morgen</title>
@@ -903,41 +919,6 @@ kibana-4.0.0-rc1-linux-x64/bin/kibana
 &lt;h3 id=&#34;anmerkung:0f1926dffb36411c33c28d4643e7a8d5&#34;&gt;Anmerkung&lt;/h3&gt;
 
 &lt;p&gt;Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows nutzen. Ich habe hier alle Technologien nur angeschitten, für ein richtiges Setup muss man noch viel mehr beachten und konfigurieren.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Skripte parallelisieren</title>
-      <link>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</link>
-      <pubDate>Thu, 12 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/02/skripte-parallelisieren/</guid>
-      <description>
-
-&lt;p&gt;Für viele Aufgaben bei meiner täglichen Arbeit mit Linux nutze ich &lt;a href=&#34;http://tiswww.case.edu/php/chet/bash/bashtop.html&#34;&gt;bash&lt;/a&gt;-Skripte bzw. tippe sie gleich auf der Komandozeile ein. Es gibt viele Aufgaben welche &lt;em&gt;langwierig&lt;/em&gt; sind und leicht parallelisierbar sind. Hier kann das Programm &lt;a href=&#34;http://www.gnu.org/software/parallel/&#34;&gt;parallel&lt;/a&gt; helfen. Im einfachsten Fall stellt man es sich wie eine Art Queueing-System vor. Die Aufgabenpakete werden in eine Warteschlange gesteckt und &lt;code&gt;n&lt;/code&gt; Prozesse arbeiten die Warteschlange ab. Wenn man nichts konfiguriert, dann ist &lt;code&gt;n&lt;/code&gt; die Anzahl der Prozessorkerne.&lt;/p&gt;
-
-&lt;p&gt;Man kann &lt;code&gt;parallel&lt;/code&gt; als Ersatz für &lt;code&gt;xargs&lt;/code&gt; nehmen oder um Schleifen zu parallelisieren. Auf der Seite von &lt;code&gt;parallel&lt;/code&gt; gibt es viele &lt;a href=&#34;http://www.gnu.org/software/parallel/man.html&#34;&gt;Beispiele&lt;/a&gt;, welche über das parallelisieren von Schleifen hinaus gehen.&lt;/p&gt;
-
-&lt;h3 id=&#34;aktueller-anwendungsfall:cb1bfcf9cf27c64f5ffffa51a1dd92e0&#34;&gt;Aktueller Anwendungsfall&lt;/h3&gt;
-
-&lt;p&gt;Ich nutze &lt;code&gt;parallel&lt;/code&gt; zum erstellen von Backups. Dazu kopiere ich sehr viele kleine Dateien auf eine &lt;a href=&#34;http://de.wikipedia.org/wiki/Network_File_System&#34;&gt;NFS&lt;/a&gt;-Freigabe. Ich habe &lt;a href=&#34;http://rsync.samba.org/&#34;&gt;rsync&lt;/a&gt; und &lt;code&gt;cp&lt;/code&gt; probiert. &lt;code&gt;rsync&lt;/code&gt; ist in meinen Fall langsamer als &lt;code&gt;cp&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Aus diesem Grund habe ich &lt;code&gt;cp&lt;/code&gt;, wie folgt parallelisiert:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;find . -type f -mtime -2 | parallel --jobs 16 /usr/sbin/backup_helper.sh {}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Es werden alle Dateien gesucht, welche jünger als 2 Tage sind. Diese werden mit 16 parallelen &lt;code&gt;cp&lt;/code&gt; auf das NFS-Share kopiert. So bekomme meine 1GBit Netzwerkanbindung während des Backups ausgelastet. Beim sequenziellen kopieren bzw. mit &lt;code&gt;rsync&lt;/code&gt; bin ich nicht über 100MBit/s gekommen.&lt;/p&gt;
-
-&lt;p&gt;Das script &lt;code&gt;backup_helper.sh&lt;/code&gt; sieht wie folgt aus:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cat /usr/sbin/backup_helper.sh
-#!/bin/bash
-
-base=&amp;quot;$(dirname ${1})&amp;quot;
-mkdir -p &amp;quot;/backup/${base}&amp;quot;
-cp &amp;quot;${1}&amp;quot; &amp;quot;/backup/${1}&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
