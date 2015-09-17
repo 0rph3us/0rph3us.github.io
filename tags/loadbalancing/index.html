@@ -3,7 +3,7 @@
 
 <head>
   <title>
-    Mein neuer Blog // Michael im Netz
+    Loadbalancing // Michael im Netz
   </title>
 
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -17,11 +17,11 @@
 <meta name="author" content="">
 <meta name="generator" content="Hugo 0.15-DEV" />
 
-  <meta property="og:title" content="Mein neuer Blog" />
+  <meta property="og:title" content="Loadbalancing" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://0rph3us.github.io/post/2010/01/mein-neuer-blog/" />
+<meta property="og:url" content="https://0rph3us.github.io/tags/loadbalancing/" />
 
 
   
@@ -41,7 +41,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
+  <link href="https://0rph3us.github.io/tags/loadbalancing/index.xml" rel="alternate" type="application/rss+xml" title="Michael im Netz" />
 
     
   
@@ -59,8 +59,6 @@
 </head>
 
 <body>
-	
-
 	<div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
   <div class="header">
@@ -106,77 +104,51 @@
   </div>
 </div>
 
-	
-	
 
     <div class="content pure-u-1 pure-u-md-3-4">
-		<a id="top"></a>
-		
+      <a id="top"></a>
+      
 
-		
-			
-	    
-  		<section class="post">
-            <h1 class="post-title">
-              <a href="/post/2010/01/mein-neuer-blog/">Mein neuer Blog</a>
-            </h1>
-            <h3 class="post-subtitle">
-            	
-            </h3>
-            
-            	<span class="post-date">
-                	<span class="post-date-day"><sup>15</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Januar</span> <span class="post-date-year">2010</span>
-            	</span>
-            	
-            
-            	
-            
-
-			
-			
-				<div class="post-categories">
-				
-					<a class="post-category post-category-privat" href="https://0rph3us.github.io/categories/privat">privat</a>
-				
-				</div>
-			
-
-			
-
-			
-
-            Da ich bei [Sun Microsystems](http://www.sun.com/) nicht mehr arbeite steht mir
-mein [Blog](http://blogs.sun.com/rennecke/) bei Sun nicht mehr zur Verfügung.
-Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
-
-	
-			
-
-			
-
-			
-				<div class="paging">
-					<span class="paging-label">Mehr zum lesen</span>
-					
-					<div class="paging-newer">
-						<span class="dark-red">Neuer</span><span class="decorative-marker">//</span>
-						<a class="paging-link" href="/post/2010/01/mein-neuer-blog/">Mein neuer Blog</a>
-		            </div>
-		            
-
-					
-					<div class="paging-older">
-						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
-			            <a class="paging-link" href="/post/2010/01/die-liebe-post/">Die liebe Post</a>
-		            </div>
-		            
-	            </div>
-            
-          </section>
-          
-          	
-          
+      <div class="posts">
         
+          <section  class="post">
+            <header class="post-header">
+            
+            <h1 class="post-title">
+              <a href="/post/2015/09/deterministisches-loadbalancing/">Deterministisches Loadbalancing</a>
+            </h1>
+            </header>
+            <p class="post-meta">
+            	
+		          <span class="post-date">
+		            <span class="post-date-day"><sup>17</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Sep</span> <span class="post-date-year">2015</span>
+		          </span>
+      				
+      				
+      					
+      				
+              
+                <span class="post-reading-time"><i class="fa fa-clock-o"></i> <em>2 Min. lesen</em></span>
+              
+      				
+      					<div class="post-categories">
+				        
+      					
+					        <a class="post-category post-category-tools" href="https://0rph3us.github.io/categories/tools">Tools</a>
+      					
+      					</div>
+      				
+            </p>
+            <article class="post-summary">
+            	Beim Loadbalancing verteilet ein Loadbalancer, wie HAProxy die Last auf mehrere Server. In vielen Fällen macht man das Roud-Robin oder nach Last. Es ergibt auch durchaus Sinn nach einer ID die Backendserver auszuwählen. Daraus ergeben sich zwei Vorteile. Zum einen kann es für Backendserver besser sein, wenn die selbe ID immer auf den selben Server kommt. Dadurch können interene Caches evtl. besser ausgenutzt werden. Da eine ID immer einen Server zugeordnet ist, wird das Loadbalancing deterministisch.
+            </article>
+			<div class="read-more-link">
+				<a href="/post/2015/09/deterministisches-loadbalancing/"><span class="read-more-slashes">//</span>Weiter...</a>
+			</div>
+          </section>
+        
+      </div>
+
       <div class="footer">
 	<hr class="thin" />
 	<div class="pure-menu pure-menu-horizontal pure-menu-open">
@@ -189,10 +161,6 @@ Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren
 </div>
     </div>
   </div>
-	
-
-	
-
   
 
 </body>

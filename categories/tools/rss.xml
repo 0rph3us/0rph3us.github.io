@@ -7,8 +7,53 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2015 05:58:20 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/tools/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Deterministisches Loadbalancing</title>
+      <link>https://0rph3us.github.io/post/2015/09/deterministisches-loadbalancing/</link>
+      <pubDate>Thu, 17 Sep 2015 05:58:20 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/09/deterministisches-loadbalancing/</guid>
+      <description>
+
+&lt;p&gt;Beim Loadbalancing verteilet ein Loadbalancer, wie HAProxy die Last auf mehrere Server. In vielen Fällen macht man das Roud-Robin oder nach Last. Es ergibt auch durchaus Sinn nach einer ID die Backendserver auszuwählen. Daraus ergeben sich zwei Vorteile. Zum einen kann es für Backendserver besser sein, wenn die selbe ID immer auf den selben Server kommt. Dadurch können interene Caches evtl. besser ausgenutzt werden. Da eine ID immer einen Server zugeordnet ist, wird das Loadbalancing deterministisch. Das hat den unschätzbaren Vorteil, dass z.B. eine Anfrage die fehl schlägt immer fehl schlägt.&lt;/p&gt;
+
+&lt;p&gt;Bei meinen Arbeitgeber hatten wir das Problem, dass bestimmte URLs konsequent nicht gehen. Bei einen naiven Test hat der Entwickler festgestellt, dass sein Dienst auf die URL korrekt antwortet. Durch meinen Test der Proxykonfiguration konnte ich ausschließen, dass das Routing im HAProxy Schuld am Fehlverhalten ist. Da dieser Dienst mit einer konsistenten Hashfunktion deterministisch geroutet wird, trat der Fehler immer auf. Dabei stellte sich heraus, dass eine Instanz nicht in der richtigen Version&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:69d192c4ad0750c8f53fe9a830e4a70c:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:69d192c4ad0750c8f53fe9a830e4a70c:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; lief.&lt;/p&gt;
+
+&lt;p&gt;Da Fehler immer wieder vorgekommen, ist es wichtig sie schnell und zuverlässig zu beseitigen. In solchen Situationen ist es besser, den Fehler &lt;strong&gt;immer&lt;/strong&gt; zu haben, anstatt bei jeder x-ten Anfrage.&lt;/p&gt;
+
+&lt;h2 id=&#34;umsetzung-von-deterministischen-loadbalancing:69d192c4ad0750c8f53fe9a830e4a70c&#34;&gt;Umsetzung von deterministischen Loadbalancing&lt;/h2&gt;
+
+&lt;p&gt;Mein favorisierter Loadbalancer für HTTP ist &lt;a href=&#34;http://www.haproxy.org/&#34;&gt;HAProxy&lt;/a&gt;. Ich hatte die Anforderung nach einer ID, welche im Path der URL steht zu balancen. Das ist nicht ganz offensichtlich mit HAProxy. Meine Umsetzung sieht wie folgt aus:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;backend Webserver
+        balance hdr(X-MyID)
+        hash-type consistent
+
+        http-request set-header     X-MyID %[url]
+        http-request replace-header X-MyID ^/foo/bar/lol/([0-9]{5,5}).* \1
+        http-request replace-header X-MyID ^/foo/barbar/([0-9]{5,5}).* \1
+
+        server webserver1 10.0.0.1:80
+        server webserver2 10.0.0.2:80
+        server webserver3 10.0.0.3:80
+        server webserver4 10.0.0.4:80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Als erstes wird die URL in den Header &lt;strong&gt;X-MyID&lt;/strong&gt; kopiert. Die folgenden regulären Ausdrücke schmeißen alles weg, außer die 5-stellige ID. Falls keiner der beiden Ausdrücke angewendet werden kann, steht die URL noch im Header. Dann wird diese als Kriterium für die Verteilung genommen. Der &lt;code&gt;hash-type consistent&lt;/code&gt; bei HAProxy verteilt die Anfragen auf die anderen Server, falls ein Server aus dem Loadbalancing geht.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:69d192c4ad0750c8f53fe9a830e4a70c:1&#34;&gt;Es gab auch schon den Fall, dass eine Instanz auf bestimmte Anfragen nicht beantworten konnte, weil ein Teil der Applikation Ammok lief. Dieser Fehler war auch nicht von außen ersichtlich.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:69d192c4ad0750c8f53fe9a830e4a70c:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>kaputtes System nach Restore mit Obnam</title>
@@ -558,35 +603,6 @@ Für das Auge sieht der linke  Rand nun gerade aus. Man muss dafür nur das Pack
 \usepackage{microtype}             % ist auf alten Installation nicht immer vorhanden
 % \usepackage[activate]{pdfcprot}  % wird nicht mehr weiter entwickelt
 ...
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>LaTeX: Bilder an eine bestimmte Stelle platzieren</title>
-      <link>https://0rph3us.github.io/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</link>
-      <pubDate>Fri, 27 Aug 2010 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2010/08/latex-bilder-an-eine-bestimmte-stelle-platzieren/</guid>
-      <description>&lt;p&gt;Wenn man bei LaTeX  Bilder einfügt, dann wundert man sich vielleicht, dass sie an einer anderden Stelle sind.
-LaTeX  setzt normal die Bilder so, dass man möglichst wenig weiße Fläche hat. Manchmal möchte man erzwingen,
-dass ein Bild an einer bestimmten Position ist. Dafür gibt es das alte Package &lt;code&gt;here&lt;/code&gt;, welches inzwischen
-bei &lt;a href=&#34;http://tug.org/texlive/&#34;&gt;TeX Live&lt;/a&gt; durch &lt;code&gt;float&lt;/code&gt; ersetzt wurde.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-tex&#34;&gt;\usepackage{float} % lädt das Paket zum erzwingen der Grafikposition
-%\usepackage{here} auf älteren LaTeX Distributionen
-
-\begin{document}
-
-\begin{figure}[H]
-   %mit dem großen H wird die Grafikposition auf HERE gesetzt
-   \centering
-   \fbox{ %erzeugt einen Rahmen um die Grafik
-      \includegraphics[angle=0,width=5cm]{Bild.png}
-   }
-\end{figure}
-
-\end{document}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
