@@ -16,7 +16,7 @@ Da Fehler immer wieder vorgekommen, ist es wichtig sie schnell und zuverlässig 
 
 ## Umsetzung von deterministischen Loadbalancing
 
-Mein Loadbalancer für HTTP ist [HAProxy]. Ich hatte die Anforderung nach einer ID, welche im Path der URL steht zu balancen. Das ist nicht ganz offensichtlich mit HAProxy. Meine Umsetzung sieht wie folgt aus:
+Mein favorisierter Loadbalancer für HTTP ist [HAProxy]. Ich hatte die Anforderung nach einer ID, welche im Path der URL steht zu balancen. Das ist nicht ganz offensichtlich mit HAProxy. Meine Umsetzung sieht wie folgt aus:
 
 ```
 backend Webserver
@@ -33,9 +33,7 @@ backend Webserver
         server webserver4 10.0.0.4:80
 ```
 
-Als erstes wird die URL in den Header **X-MyID** kopiert. Die folgenden regulären Ausdrücke schmeißen alles weg, außer die 5-stellige ID. Falls keiner der beiden Ausdrücke angewendet werden kann, steht die URL noch im Header. Dann wird diese als Kriterium für die Verteilung genommen.
-
-Der `hash-type consistent` bei HAProxy verteilt die Anfragen auf die anderen Server, falls ein Server aus dem Loadbalancing geht.
+Als erstes wird die URL in den Header **X-MyID** kopiert. Die folgenden regulären Ausdrücke schmeißen alles weg, außer die 5-stellige ID. Falls keiner der beiden Ausdrücke angewendet werden kann, steht die URL noch im Header. Dann wird diese als Kriterium für die Verteilung genommen. Der `hash-type consistent` bei HAProxy verteilt die Anfragen auf die anderen Server, falls ein Server aus dem Loadbalancing geht.
 
 [HAProxy]: http://www.haproxy.org/
 [^1]: Es gab auch schon den Fall, dass eine Instanz auf bestimmte Anfragen nicht beantworten konnte, weil ein Teil der Applikation Ammok lief. Dieser Fehler war auch nicht von außen ersichtlich.
