@@ -121,11 +121,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#nginx-mit-php-installieren-und-einrichten:db017475119777d596b8e698842c0f61">Nginx mit php installieren und einrichten</a></li>
-</ul></li>
-<li><a href="#zu-root-werden:db017475119777d596b8e698842c0f61">zu root werden</a>
-<ul>
-<li>
+<li><a href="#nginx-mit-php-installieren-und-einrichten:db017475119777d596b8e698842c0f61">Nginx mit php installieren und einrichten</a>
 <ul>
 <li><a href="#nginx-konfigurieren:db017475119777d596b8e698842c0f61">Nginx konfigurieren</a></li>
 <li><a href="#test-der-konfiguration:db017475119777d596b8e698842c0f61">Test der Konfiguration</a></li>
@@ -194,17 +190,14 @@ und an den Nginx weiter geben.</p>
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
 gerade wenn sie öffentlich erreichbar sind.</p>
 
-<p>{% highlight bash %}</p>
+<pre><code># zu root werden
+sudo su -
 
-<h1 id="zu-root-werden:db017475119777d596b8e698842c0f61">zu root werden</h1>
+apt-get update
+apt-get upgrade
 
-<p>sudo su -</p>
-
-<p>apt-get update
-apt-get upgrade</p>
-
-<p>apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
-{% endhighlight %}</p>
+apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
+</code></pre>
 
 <h3 id="nginx-konfigurieren:db017475119777d596b8e698842c0f61">Nginx konfigurieren</h3>
 
@@ -226,49 +219,44 @@ Der Host lauscht auf die Namen <em>localhost</em> und <em>awesomephp.example.com
 Standardport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
 wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.</p>
 
-<p>{% highlight nginx %}
-server {
+<pre><code>server {
     listen 80;
-    server_name localhost awesomephp.example.com;</p>
+    server_name localhost awesomephp.example.com;
+    
+    root /var/www/awesomephp;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
 
-<pre><code>root /var/www/awesomephp;
-index index.html index.php;
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
 
-location / {
-    try_files $uri $uri/ /index.php?$args;
+    access_log      /var/log/nginx/awesome.access.log;
+    error_log       /var/log/nginx/awesome.error.log;
 }
-
-location ~ ^(.+\.php)(.*)$ {
-    try_files $fastcgi_script_name =404;
-    fastcgi_split_path_info  ^(.+\.php)(.*)$;
-    fastcgi_pass   unix:/var/run/php5-fpm.sock;
-    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-    fastcgi_param  PATH_INFO        $fastcgi_path_info;
-    include        /etc/nginx/fastcgi_params;
-}
-
-access_log      /var/log/nginx/awesome.access.log;
-error_log       /var/log/nginx/awesome.error.log;
 </code></pre>
-
-<p>}
-{% endhighlight %}</p>
 
 <p>Nachdem der Nginx konfiguriert ist muss man die Konfiguration nur noch neu laden.</p>
 
-<p>{% highlight bash %}
-service nginx reload
-{% endhighlight %}</p>
+<pre><code>service nginx reload
+</code></pre>
 
 <h3 id="test-der-konfiguration:db017475119777d596b8e698842c0f61">Test der Konfiguration</h3>
 
 <p>Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
 folgenden Minimalbeispiel testen:</p>
 
-<p>{% highlight bash %}
-mkdir -p /var/www/awesomephp
-echo &ldquo;&lt;? phpinfo(); /&gt;&rdquo; &gt; /var/www/awesomephp/info.php
-{% endhighlight %}</p>
+<pre><code>mkdir -p /var/www/awesomephp
+echo &quot;&lt;? phpinfo(); /&gt;&quot; &gt; /var/www/awesomephp/info.php
+</code></pre>
 
 <p>Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser <code>http://192.168.1.100/info.php</code> aufrufen
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP

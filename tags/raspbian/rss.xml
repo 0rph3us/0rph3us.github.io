@@ -359,17 +359,14 @@ und an den Nginx weiter geben.&lt;/p&gt;
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
 gerade wenn sie öffentlich erreichbar sind.&lt;/p&gt;
 
-&lt;p&gt;{% highlight bash %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# zu root werden
+sudo su -
 
-&lt;h1 id=&#34;zu-root-werden:db017475119777d596b8e698842c0f61&#34;&gt;zu root werden&lt;/h1&gt;
+apt-get update
+apt-get upgrade
 
-&lt;p&gt;sudo su -&lt;/p&gt;
-
-&lt;p&gt;apt-get update
-apt-get upgrade&lt;/p&gt;
-
-&lt;p&gt;apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
-{% endhighlight %}&lt;/p&gt;
+apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;nginx-konfigurieren:db017475119777d596b8e698842c0f61&#34;&gt;Nginx konfigurieren&lt;/h3&gt;
 
@@ -391,49 +388,44 @@ Der Host lauscht auf die Namen &lt;em&gt;localhost&lt;/em&gt; und &lt;em&gt;awes
 Standardport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
 wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.&lt;/p&gt;
 
-&lt;p&gt;{% highlight nginx %}
-server {
+&lt;pre&gt;&lt;code&gt;server {
     listen 80;
-    server_name localhost awesomephp.example.com;&lt;/p&gt;
+    server_name localhost awesomephp.example.com;
+    
+    root /var/www/awesomephp;
+    index index.html index.php;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
 
-&lt;pre&gt;&lt;code&gt;root /var/www/awesomephp;
-index index.html index.php;
+    location ~ ^(.+\.php)(.*)$ {
+        try_files $fastcgi_script_name =404;
+        fastcgi_split_path_info  ^(.+\.php)(.*)$;
+        fastcgi_pass   unix:/var/run/php5-fpm.sock;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        fastcgi_param  PATH_INFO        $fastcgi_path_info;
+        include        /etc/nginx/fastcgi_params;
+    }
 
-location / {
-    try_files $uri $uri/ /index.php?$args;
+    access_log      /var/log/nginx/awesome.access.log;
+    error_log       /var/log/nginx/awesome.error.log;
 }
-
-location ~ ^(.+\.php)(.*)$ {
-    try_files $fastcgi_script_name =404;
-    fastcgi_split_path_info  ^(.+\.php)(.*)$;
-    fastcgi_pass   unix:/var/run/php5-fpm.sock;
-    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-    fastcgi_param  PATH_INFO        $fastcgi_path_info;
-    include        /etc/nginx/fastcgi_params;
-}
-
-access_log      /var/log/nginx/awesome.access.log;
-error_log       /var/log/nginx/awesome.error.log;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}
-{% endhighlight %}&lt;/p&gt;
 
 &lt;p&gt;Nachdem der Nginx konfiguriert ist muss man die Konfiguration nur noch neu laden.&lt;/p&gt;
 
-&lt;p&gt;{% highlight bash %}
-service nginx reload
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;service nginx reload
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;test-der-konfiguration:db017475119777d596b8e698842c0f61&#34;&gt;Test der Konfiguration&lt;/h3&gt;
 
 &lt;p&gt;Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
 folgenden Minimalbeispiel testen:&lt;/p&gt;
 
-&lt;p&gt;{% highlight bash %}
-mkdir -p /var/www/awesomephp
-echo &amp;ldquo;&amp;lt;? phpinfo(); /&amp;gt;&amp;rdquo; &amp;gt; /var/www/awesomephp/info.php
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p /var/www/awesomephp
+echo &amp;quot;&amp;lt;? phpinfo(); /&amp;gt;&amp;quot; &amp;gt; /var/www/awesomephp/info.php
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser &lt;code&gt;http://192.168.1.100/info.php&lt;/code&gt; aufrufen
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
