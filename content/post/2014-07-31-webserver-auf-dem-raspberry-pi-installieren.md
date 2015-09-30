@@ -40,7 +40,7 @@ Vor der Installation von neuen Pakten sollte man nachsehen, ob es Updates gibt. 
 sicherheitsbewusster Admin aktualisiert jeden Tag seine Systeme,
 gerade wenn sie öffentlich erreichbar sind.
 
-{% highlight bash %}
+```
 # zu root werden
 sudo su -
 
@@ -48,7 +48,7 @@ apt-get update
 apt-get upgrade
 
 apt-get install nginx php5-fpm php5-cgi php5-cli php5-common
-{% endhighlight %}
+```
 
 ### Nginx konfigurieren ####
 
@@ -71,7 +71,7 @@ Der Host lauscht auf die Namen *localhost* und *awesomephp.example.com*. Port 80
 Standardport für http. Wenn ihr nur einen Host konfiguriert habt (nur ein server-Abschnitt), dann
 wird dieser immer genommen, unabhängig davon was im host-Header der Anfrage steht.
 
-{% highlight nginx %}
+```
 server {
     listen 80;
     server_name localhost awesomephp.example.com;
@@ -95,23 +95,23 @@ server {
     access_log      /var/log/nginx/awesome.access.log;
     error_log       /var/log/nginx/awesome.error.log;
 }
-{% endhighlight %}
+```
 
 Nachdem der Nginx konfiguriert ist muss man die Konfiguration nur noch neu laden.
 
-{% highlight bash %}
+```
 service nginx reload
-{% endhighlight %}
+```
 
 ### Test der Konfiguration ###
 
 Nachdem der Nginx fehlerfrei seine Konfiguration neu geladen hat bzw. neu gestartet wurde kann man sie mit dem
 folgenden Minimalbeispiel testen: 
 
-{% highlight bash %}
+```
 mkdir -p /var/www/awesomephp
 echo "<? phpinfo(); />" > /var/www/awesomephp/info.php
-{% endhighlight %}
+```
 
 Wenn nur ein Host konfiguriert ist, dann kann man jetzt Browser `http://192.168.1.100/info.php` aufrufen
 und es erscheint eine Übersicht der php-Einstellungen. Ich gehe davon aus, dass der Raspberry Pi die IP
