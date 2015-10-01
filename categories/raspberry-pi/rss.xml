@@ -7,8 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Wed, 18 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2015 19:44:06 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/raspberry-pi/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Raspbian Jessie</title>
+      <link>https://0rph3us.github.io/post/2015/10/raspbian-jessie/</link>
+      <pubDate>Thu, 01 Oct 2015 19:44:06 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/10/raspbian-jessie/</guid>
+      <description>&lt;p&gt;Seit dem 24.09.2015 gibt es die &lt;a href=&#34;https://www.raspberrypi.org/blog/raspbian-jessie-is-here/&#34;&gt;Raspbian&lt;/a&gt;-Version, welche auf &lt;a href=&#34;https://www.debian.org/News/2015/20150426&#34;&gt;Jessie&lt;/a&gt; basiert. Ich habe auch meinen Raspberry Pi ein Update auf die neue Version gegönnt.&lt;/p&gt;
+
+&lt;p&gt;Es wird empfohlen, dass man eine Neuinstallation macht. Das habe ich auch gemacht. Vorher sollte man noch ein Backup von der SD-Karte machen.&lt;/p&gt;
+
+&lt;p&gt;Die Installation und das Einspielen der Daten war kein Problem. Meine Anleitungen haben alle noch funktioniert, was die Installation der Software sehr einfach gemacht hat.&lt;/p&gt;
+
+&lt;p&gt;Also viel Spaß beim Update.&lt;/p&gt;
+
+&lt;p&gt;Ich werde in den nächsten Tagen noch einmal einen Artikel schreiben, wie man einfach ein Backup von der SD-Karte macht.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Einen DNS Server selbst betreiben</title>

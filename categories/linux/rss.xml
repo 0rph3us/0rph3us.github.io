@@ -7,8 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Mon, 20 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2015 19:44:06 +0200</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/linux/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Raspbian Jessie</title>
+      <link>https://0rph3us.github.io/post/2015/10/raspbian-jessie/</link>
+      <pubDate>Thu, 01 Oct 2015 19:44:06 +0200</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/10/raspbian-jessie/</guid>
+      <description>&lt;p&gt;Seit dem 24.09.2015 gibt es die &lt;a href=&#34;https://www.raspberrypi.org/blog/raspbian-jessie-is-here/&#34;&gt;Raspbian&lt;/a&gt;-Version, welche auf &lt;a href=&#34;https://www.debian.org/News/2015/20150426&#34;&gt;Jessie&lt;/a&gt; basiert. Ich habe auch meinen Raspberry Pi ein Update auf die neue Version gegönnt.&lt;/p&gt;
+
+&lt;p&gt;Es wird empfohlen, dass man eine Neuinstallation macht. Das habe ich auch gemacht. Vorher sollte man noch ein Backup von der SD-Karte machen.&lt;/p&gt;
+
+&lt;p&gt;Die Installation und das Einspielen der Daten war kein Problem. Meine Anleitungen haben alle noch funktioniert, was die Installation der Software sehr einfach gemacht hat.&lt;/p&gt;
+
+&lt;p&gt;Also viel Spaß beim Update.&lt;/p&gt;
+
+&lt;p&gt;Ich werde in den nächsten Tagen noch einmal einen Artikel schreiben, wie man einfach ein Backup von der SD-Karte macht.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>kaputtes System nach Restore mit Obnam</title>
@@ -945,19 +963,6 @@ apt-get install acroread
       <description>&lt;p&gt;Seit gestern, den 04.05.2013 ist &lt;a href=&#34;http://www.debian.org/News/2013/20130504&#34;&gt;Debian Wheezy stable&lt;/a&gt;. Nun beginnt die gute Zeit für meine produktiven Systeme. Ich habe schon letzten Sommer einige Systeme auf Wheezy laufen, da ich ein paar Features benötigt habe bzw. haben wollte.&lt;/p&gt;
 &lt;p&gt;Ich bin gespannt ob Unschönheiten/Bugs in &lt;a href=&#34;https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt&#34;&gt;cgroups&lt;/a&gt; gefixt wurden. Ich würde gerne mit Hilfe von cgroups die Stabilität eines Hadoop/Hypertable-Clusters erhöhen. Unter Vollast habe ich immer wieder mit partiellen Abstürzen zu kämpfen, was bei zu viel CPU-Last über Memory-Leaks bis zu Timeouts geht, also die gesamte Palette.&lt;/p&gt;
 &lt;p&gt;P.S. Das mit dem Bild ist noch nicht vergessen ;-)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Letzte Rettung von MySQL</title>
-      <link>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</link>
-      <pubDate>Mon, 08 Aug 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2011/08/letzte-rettung-von-mysql/</guid>
-      <description>&lt;p&gt;
-Ich hatte heute wieder Spaß mit &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt;. Die &lt;a href=&#34;http://www.innodb.com/&#34;&gt;InnoDB&lt;/a&gt; Tabelle einer Datenbank hat sich erfolgreich selbst zerstört. Das hat sich dahingehend geäußert, dass sich &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; immer wieder neu gestartet hat. &lt;a href=&#34;http://www.mysql.com/&#34;&gt;MySQL&lt;/a&gt; war leider nicht in der Lage die betroffene Tabelle selbst wieder her zu stellen.&lt;/p&gt;
-&lt;p&gt;
-Mit Hilfe von &lt;a href=&#34;http://dev.mysql.com/doc/refman/5.0/en/forcing-innodb-recovery.html&#34;&gt;innodb_force_recovery&lt;/a&gt; kann man MySQL dazu bringen, dass es Tabellen wieder her stellt. Diese Option schreibt man einfach in die &lt;tt&gt;my.cnf&lt;/tt&gt;. Er kann die Werte von 1 bis 6 annehmen. Je höher der Wert ist, desto höher ist die Wahrscheinlichkeit, dass die Tabelle wieder hergestellt werden kann. Aber Achtung: Je größer der Wert ist, desto mehr Daten kann MySQL beim Wiederherstellen zerstören. Es ist deswegen ratsam den Wert inkrementell zu erhöhen, dieses Vorgehen dauert evtl. länger, aber man geht nicht in Gefahr unnötig Daten zu verlieren.&lt;/p&gt;
 </description>
     </item>
     
