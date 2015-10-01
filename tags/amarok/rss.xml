@@ -16,13 +16,34 @@
       <pubDate>Wed, 28 Jul 2010 00:00:00 +0000</pubDate>
       
       <guid>https://0rph3us.github.io/post/2010/07/amarok-kde-und-co/</guid>
-      <description>&lt;p&gt;Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden von &lt;a href=&#34;http://blog.hajma.cz/&#34;&gt;Pavel Heimlich&lt;/a&gt; betreut. Er hat dafür ein eigenes Repo. Ich nutze nur &lt;a href=&#34;http://amarok.kde.org/&#34;&gt;amarok&lt;/a&gt;, welches ich an eine mysql-DB gebunden habe.&lt;/p&gt;
-&lt;p&gt;
-Es scheint prinzipell alles zu funktionieren. Ich habe nur den Eindruck, dass alles etwas langsam ist. Das schreibt auch Pavel in seinen Blog. Das liegt an &lt;a href=&#34;http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0&#34;&gt;dbus&lt;/a&gt;. Mein aktueller Build 142 macht das ganze sicher auch besser...&lt;/p&gt;
-&lt;p&gt;
-Der primäre Server ist &lt;a href=&#34;http://solaris.bionicmutton.org:10000/&#34;&gt;http://solaris.bionicmutton.org:10000/&lt;/a&gt; Die nimmt keine neuen Verbindungen mehr an, wenn seine Downloadgeschwindigkeit ca. 100kBit/s ist. Ich habe gute Erfahrungen mit den Mirror gemacht: &lt;a href=&#34;http://pkg.osladil.cz:30000/&#34;&gt;http://pkg.osladil.cz:30000/&lt;/a&gt;. Vielleicht kommt das mal in die offizellen Repos mit rein, die sind aber auch nicht gerade schnell....&lt;/p&gt;
-&lt;p&gt;
-Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf meinen Build 142. Ich hoffe, dass Illumos bals aus den Puschen kommt...&lt;/p&gt;
+      <description>Es gibt inzwischen KDE Pakte für Open Solaris. Diese werden
+von [Pavel Heimlich] betreut. Er hat dafür ein eigenes
+Repo. Ich nutze nur [amarok], welches ich an eine MySQL-DB
+gebunden habe.
+
+
+Es scheint prinzipell alles zu funktionieren.
+Ich habe nur den Eindruck, dass alles etwas langsam ist.
+Das schreibt auch Pavel in seinen Blog. Das liegt an
+[dbus]. Mein aktueller Build 142 macht das ganze sicher auch besser...
+
+
+Der primäre Server ist [http://solaris.bionicmutton.org:10000/].
+Die nimmt keine neuen Verbindungen mehr an, wenn seine
+Downloadgeschwindigkeit ca. 100kBit/s ist. Ich habe gute
+Erfahrungen mit den Mirror gemacht:
+[http://pkg.osladil.cz:30000] Vielleicht kommt das mal in die offizellen
+Repos mit rein, die sind aber auch nicht gerade schnell....
+
+
+Es gibt eine neue Versiom im Repo. Aber sie läuft auch noch etwas harklig auf meinen Build 142.
+Ich hoffe, dass Illumos bals aus den Puschen kommt...
+
+[Pavel Heimlich]: http://blog.hajma.cz/
+[amarok]: http://amarok.kde.org/
+[http://pkg.osladil.cz:30000]: http://pkg.osladil.cz:30000
+[http://solaris.bionicmutton.org:10000/]: http://solaris.bionicmutton.org:10000/
+[dbus]: http://www.opensolaris.org/jive/thread.jspa?threadID=130031&amp;tstart=0
 </description>
     </item>
     

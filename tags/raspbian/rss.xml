@@ -18,13 +18,13 @@
       <guid>https://0rph3us.github.io/post/2015/10/raspbian-jessie/</guid>
       <description>&lt;p&gt;Seit dem 24.09.2015 gibt es die &lt;a href=&#34;https://www.raspberrypi.org/blog/raspbian-jessie-is-here/&#34;&gt;Raspbian&lt;/a&gt;-Version, welche auf &lt;a href=&#34;https://www.debian.org/News/2015/20150426&#34;&gt;Jessie&lt;/a&gt; basiert. Ich habe auch meinen Raspberry Pi ein Update auf die neue Version gegönnt.&lt;/p&gt;
 
-&lt;p&gt;Es wird empfohlen, dass man eine Neuinstallation macht. Das habe ich auch gemacht. Vorher sollte man noch ein Backup von der SD-Karte machen.&lt;/p&gt;
+&lt;p&gt;Es wird empfohlen, dass man eine Neuinstallation macht. Das habe ich auch gemacht. Vorher sollte man noch ein [Backup von der SD-Karte] machen.&lt;/p&gt;
 
 &lt;p&gt;Die Installation und das Einspielen der Daten war kein Problem. Meine Anleitungen haben alle noch funktioniert, was die Installation der Software sehr einfach gemacht hat.&lt;/p&gt;
 
 &lt;p&gt;Also viel Spaß beim Update.&lt;/p&gt;
 
-&lt;p&gt;Ich werde in den nächsten Tagen noch einmal einen Artikel schreiben, wie man einfach ein Backup von der SD-Karte macht.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://0rph3us.github.io/post/2015/10/images-mit-partionstabellen-mounten/&#34;&gt;Backup von der SD-Karte&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
