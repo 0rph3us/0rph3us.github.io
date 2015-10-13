@@ -123,6 +123,7 @@
 <li><a href="#md5sum-eines-verzeichnisses-bestimmen:dc3f97ce3e9cd85b4f8ab16d833bfb1f">MD5SUM eines Verzeichnisses bestimmen</a></li>
 <li><a href="#systemmail-verteiler:dc3f97ce3e9cd85b4f8ab16d833bfb1f">Systemmail-Verteiler</a></li>
 <li><a href="#alle-abhänigkeiten-eines-go-projektes-rekursiv-holen-und-updaten:dc3f97ce3e9cd85b4f8ab16d833bfb1f">Alle Abhänigkeiten eines go-Projektes rekursiv holen und updaten</a></li>
+<li><a href="#golang-cross-kompilieren:dc3f97ce3e9cd85b4f8ab16d833bfb1f">golang cross kompilieren</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -165,6 +166,13 @@ newaliases
 <h3 id="alle-abhänigkeiten-eines-go-projektes-rekursiv-holen-und-updaten:dc3f97ce3e9cd85b4f8ab16d833bfb1f">Alle Abhänigkeiten eines go-Projektes rekursiv holen und updaten</h3>
 
 <pre><code class="language-sh">go get -u ./...
+</code></pre>
+
+<h3 id="golang-cross-kompilieren:dc3f97ce3e9cd85b4f8ab16d833bfb1f">golang cross kompilieren</h3>
+
+<p>Für den Raspberry Pi 2 sieht es wie folgt aus:</p>
+
+<pre><code class="language-sh">env GOOS=linux GOARCH=arm GOARM=7 go build  main.go
 </code></pre>
 
 	
