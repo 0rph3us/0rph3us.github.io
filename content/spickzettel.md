@@ -17,3 +17,10 @@ nopaging = true
 ``` sh
 go get -u ./...
 ```
+
+
+### golang cross kompilieren
+Für den Raspberry Pi 2 sieht es wie folgt aus:
+``` sh
+env GOOS=linux GOARCH=arm GOARM=7 go build  main.go
+```
