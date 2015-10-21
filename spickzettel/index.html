@@ -124,6 +124,7 @@
 <li><a href="#systemmail-verteiler:dc3f97ce3e9cd85b4f8ab16d833bfb1f">Systemmail-Verteiler</a></li>
 <li><a href="#alle-abhänigkeiten-eines-go-projektes-rekursiv-holen-und-updaten:dc3f97ce3e9cd85b4f8ab16d833bfb1f">Alle Abhänigkeiten eines go-Projektes rekursiv holen und updaten</a></li>
 <li><a href="#golang-cross-kompilieren:dc3f97ce3e9cd85b4f8ab16d833bfb1f">golang cross kompilieren</a></li>
+<li><a href="#journalctl-als-nicht-root-ausführen:dc3f97ce3e9cd85b4f8ab16d833bfb1f">journalctl als nicht root ausführen</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -173,6 +174,11 @@ newaliases
 <p>Für den Raspberry Pi 2 sieht es wie folgt aus:</p>
 
 <pre><code class="language-sh">env GOOS=linux GOARCH=arm GOARM=7 go build  main.go
+</code></pre>
+
+<h3 id="journalctl-als-nicht-root-ausführen:dc3f97ce3e9cd85b4f8ab16d833bfb1f">journalctl als nicht root ausführen</h3>
+
+<pre><code class="language-sh">usermod -a -G systemd-journal rennecke
 </code></pre>
 
 	
