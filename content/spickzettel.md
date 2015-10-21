@@ -24,3 +24,8 @@ Für den Raspberry Pi 2 sieht es wie folgt aus:
 ``` sh
 env GOOS=linux GOARCH=arm GOARM=7 go build  main.go
 ```
+
+### journalctl als nicht root ausführen
+``` sh
+usermod -a -G systemd-journal rennecke
+```
