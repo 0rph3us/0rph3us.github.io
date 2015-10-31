@@ -34,7 +34,12 @@ Nun kann man Prosody installieren
 ``` sh
 apt-get update && apt-get install prosody lua-sec-prosody
 ```
-Das Paket `lua-sec-prosody` wird für TLS benötigt.
+Das Paket `lua-sec-prosody` wird für TLS benötigt. Wenn man die aktuellste Version
+installieren möchte, dann muss man das `prosody-0.10` statt `prosody` installieren.
+Ich habe bis jetzt keine Probleme mit den nighly Builds gehabt.
+
+
+## Konfiguration
 
 
 [2 Tage nicht verfügbar]: https://ccc.de/de/updates/2015/jabbercccde
