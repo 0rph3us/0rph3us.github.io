@@ -41,6 +41,65 @@ Ich habe bis jetzt keine Probleme mit den nighly Builds gehabt.
 
 ## Konfiguration
 
+Die Konfiguration wird in `/etc/prosody/prosody.cfg.lua` erledigt. Als erstes
+In der Zeile `admins = { "admin@jabber.0rpheus.net" }` kann gleich
+ein entsprechender Admin eingetragen werden. Um zusätzliche User
+anzulegen gibt es zwei Möglichkeiten. Entweder direkt über einen
+Jabber Client oder auf Zuruf durch einen Administrator. Ersteres
+würde bedeuteten, dass sich jeder, der den Server kennt,
+registrieren kann. Dazu muss die Zeile `allow_registration = false;`
+auf `allow_registration = true;` geändert werden. Einen Nutzer
+legt so an:
+
+``` sh
+prosodyctl adduser foo@jabber.0rpheus.net
+```
+
+Als nächstes wird die Domain konfiguriert.
+
+``` lua
+VirtualHost "jabber.0rpheus.net"
+        enabled = true
+
+        -- Assign this host a certificate for TLS, otherwise it would use the one
+        -- set in the global section (if any).
+        -- Note that old-style SSL on port 5223 only supports one certificate, and will always
+        -- use the global one.
+        ssl = {
+                ciphers     = "AES256+EECDH:AES256+EDH:AES128+EECDH:AES128+EDH";
+                key         = "/etc/prosody/certs/jabber.0rpheus.net.key";
+                certificate = "/etc/prosody/certs/jabber.0rpheus.net.crt";
+                dhparam     = "/etc/prosody/certs/dh-4096.pem";
+                protocol    = "tlsv1_2";
+        }
+```
+
+Die globalen SSL Einstellungen können entweder entfernt oder
+ebenfalls mit denselben Werten nochmal befüllt werden.
+
+Per Default speichert Prosody die Passwörter im Klartext ab,
+um mit alten Clients kompatibel zu sein. Wer das nicht möchte bzw.
+nicht braucht, kann die Passwörter gehashed abspeichern.
+Dazu muss eine zusätzliche Zeile hinzugefügt werden.
+
+``` lua
+authentication = "internal_hashed"
+```
+
+Um die Änderungen zu aktivieren, muss der Prosody Dienst
+einmal durchgestartet werden.
+
+```sh
+systemctl restart prosody
+```
+
+Folgende Portfreischaltungen werden für einen reibungslosen Betrieb noch benötigt.
+
+Port 5222 eingehend = Clientverbindungen
+Port 5280 eingehend = Clientverbindungen (http-bind)
+Port 5281 eingehend = Clientverbindungen (http-bind)
+Port 5269 ein- und ausgehend = Verbindung zu fremden Servern
+
 
 [2 Tage nicht verfügbar]: https://ccc.de/de/updates/2015/jabbercccde
 [XMPP]: https://de.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol
