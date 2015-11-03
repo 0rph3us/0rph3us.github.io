@@ -19,3 +19,4 @@ source/assets/themes/hooligan/fonts/*
 node_modules/
 
 public
+static/js/mathjax
