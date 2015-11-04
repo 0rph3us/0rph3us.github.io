@@ -7,8 +7,108 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Thu, 01 Oct 2015 21:27:34 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2015 06:55:11 +0100</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Einen Jabber Server selbst betreiben</title>
+      <link>https://0rph3us.github.io/post/2015/11/einen-jabber-server-selbst-betreiben/</link>
+      <pubDate>Wed, 04 Nov 2015 06:55:11 +0100</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/11/einen-jabber-server-selbst-betreiben/</guid>
+      <description>
+
+&lt;p&gt;Am 30.09.2015 war &lt;code&gt;jabber.ccc.de&lt;/code&gt; für &lt;a href=&#34;https://ccc.de/de/updates/2015/jabbercccde&#34;&gt;2 Tage nicht verfügbar&lt;/a&gt;.
+Das hat mich motiviert endlich einen eigenen jabber-Server zu
+betreiben.&lt;/p&gt;
+
+&lt;p&gt;Hinter Jabber steckt das offene Protokoll &lt;a href=&#34;Extensible Messaging and Presence Protocol&#34;&gt;XMPP&lt;/a&gt;, welches dem
+&lt;a href=&#34;https://de.wikipedia.org/wiki/Extensible_Markup_Language&#34;&gt;XML&lt;/a&gt; Standard folgt und für Instant Messaging (Chats) genutzt wird.
+Ich habe mich für &lt;a href=&#34;http://prosody.im/&#34;&gt;Prosody&lt;/a&gt; als Jabber-Server entschieden. Für
+Prosody sprechen, aus meiner Sicht, seine einefache Konfiguration
+sowie seine Schlankheit. Eine Alternatibe ist &lt;a href=&#34;https://www.ejabberd.im/&#34;&gt;ejabberd&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;installation:9cdd19a5faf21f7205a2e96d6a467276&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;Damit man Prosody installieren kann, sollte man das Repository
+der Entwickler einbinden. Ich nehme auch bei &lt;code&gt;jessie&lt;/code&gt; als
+Distribution &lt;code&gt;whezzy&lt;/code&gt;, weil &lt;a href=&#34;https://de.wikipedia.org/wiki/Transport_Layer_Security&#34;&gt;TLS&lt;/a&gt; mit mit den &lt;code&gt;jessie&lt;/code&gt; Paketen
+nicht funktioniert.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# zu root werden bzw. sudo vor echo und tee schreiben
+echo deb http://packages.prosody.im/debian wheezy main | tee -a /etc/apt/sources.list.d/prosody.list
+wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add -
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Nun kann man Prosody installieren&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;apt-get update &amp;amp;&amp;amp; apt-get install prosody lua-sec-prosody
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Das Paket &lt;code&gt;lua-sec-prosody&lt;/code&gt; wird für TLS benötigt. Wenn man die aktuellste Version
+installieren möchte, dann muss man das &lt;code&gt;prosody-0.10&lt;/code&gt; statt &lt;code&gt;prosody&lt;/code&gt; installieren.
+Ich habe bis jetzt keine Probleme mit den nighly Builds gehabt.&lt;/p&gt;
+
+&lt;h2 id=&#34;konfiguration:9cdd19a5faf21f7205a2e96d6a467276&#34;&gt;Konfiguration&lt;/h2&gt;
+
+&lt;p&gt;Die Konfiguration wird in &lt;code&gt;/etc/prosody/prosody.cfg.lua&lt;/code&gt; erledigt. Als erstes
+In der Zeile &lt;code&gt;admins = { &amp;quot;admin@jabber.0rpheus.net&amp;quot; }&lt;/code&gt; kann gleich
+ein entsprechender Admin eingetragen werden. Um zusätzliche User
+anzulegen gibt es zwei Möglichkeiten. Entweder direkt über einen
+Jabber Client oder auf Zuruf durch einen Administrator. Ersteres
+würde bedeuteten, dass sich jeder, der den Server kennt,
+registrieren kann. Dazu muss die Zeile &lt;code&gt;allow_registration = false;&lt;/code&gt;
+auf &lt;code&gt;allow_registration = true;&lt;/code&gt; geändert werden. Einen Nutzer
+legt so an:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;prosodyctl adduser foo@jabber.0rpheus.net
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Als nächstes wird die Domain konfiguriert.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;VirtualHost &amp;quot;jabber.0rpheus.net&amp;quot;
+        enabled = true
+
+        -- Assign this host a certificate for TLS, otherwise it would use the one
+        -- set in the global section (if any).
+        -- Note that old-style SSL on port 5223 only supports one certificate, and will always
+        -- use the global one.
+        ssl = {
+                ciphers     = &amp;quot;AES256+EECDH:AES256+EDH:AES128+EECDH:AES128+EDH&amp;quot;;
+                key         = &amp;quot;/etc/prosody/certs/jabber.0rpheus.net.key&amp;quot;;
+                certificate = &amp;quot;/etc/prosody/certs/jabber.0rpheus.net.crt&amp;quot;;
+                dhparam     = &amp;quot;/etc/prosody/certs/dh-4096.pem&amp;quot;;
+                protocol    = &amp;quot;tlsv1_2&amp;quot;;
+        }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Die globalen SSL Einstellungen können entweder entfernt oder
+ebenfalls mit denselben Werten nochmal befüllt werden.&lt;/p&gt;
+
+&lt;p&gt;Per Default speichert Prosody die Passwörter im Klartext ab,
+um mit alten Clients kompatibel zu sein. Wer das nicht möchte bzw.
+nicht braucht, kann die Passwörter gehashed abspeichern.
+Dazu muss eine zusätzliche Zeile hinzugefügt werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-lua&#34;&gt;authentication = &amp;quot;internal_hashed&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Um die Änderungen zu aktivieren, muss der Prosody Dienst
+einmal durchgestartet werden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;systemctl restart prosody
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Folgende Portfreischaltungen werden für einen reibungslosen Betrieb noch benötigt.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Port 5222 eingehend (Clientverbindungen)&lt;/li&gt;
+&lt;li&gt;Port 5280 eingehend (Clientverbindungen) (http-bind)&lt;/li&gt;
+&lt;li&gt;Port 5281 eingehend (Clientverbindungen) (https-bind)&lt;/li&gt;
+&lt;li&gt;Port 5269 ein- und ausgehend Verbindung zu fremden Servern&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Images mit Partionstabellen mounten</title>
@@ -672,87 +772,6 @@ etwas zäh.&lt;/p&gt;
 &lt;p&gt;Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
 dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
 Images.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>go in 6 Schritten installieren</title>
-      <link>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</link>
-      <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/02/go-in-6-schritten-installieren/</guid>
-      <description>
-
-&lt;p&gt;Die Installation von &lt;a href=&#34;https://golang.org/&#34;&gt;go&lt;/a&gt; kann etwas tricky bei Debian und Ubuntu sein. Da die Versionen im Repository
-veraltet sind. Manchmal ist es auch nötig mehrere Versionen der Programmierspache go parallel zu installieren.
-Das ist mit Bordmitteln fast unmöglich.&lt;/p&gt;
-
-&lt;p&gt;Für diese Probleme gibt es Abhilfe: Den go Versionsmanager &lt;a href=&#34;https://github.com/moovweb/gvm&#34;&gt;gvm&lt;/a&gt;. Ich gebe zu, dass das ganze etwas von einem
-Rüttelskript hat, aber es funktioniert und ist nach meinen Wissen der einfachste Weg &lt;code&gt;go&lt;/code&gt; zu installieren&lt;/p&gt;
-
-&lt;h3 id=&#34;1-voraussetzungen:68e336974a9292a1000070f844d9d073&#34;&gt;1. Voraussetzungen&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sudo apt-get install curl git mercurial make binutils bison gcc build-essential
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Damit installiert man die Voraussetzungen, um &lt;code&gt;go&lt;/code&gt; compilieren zu können.&lt;/p&gt;
-
-&lt;h3 id=&#34;2-clone-das-repo-in-dein-home:68e336974a9292a1000070f844d9d073&#34;&gt;2. clone das Repo in Dein home&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;bash &amp;lt; &amp;lt;(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Diese Komandozeile lädt mit &lt;a href=&#34;http://curl.haxx.se/&#34;&gt;curl&lt;/a&gt; ein Skript herunter und lässt es von der &lt;a href=&#34;http://www.gnu.org/software/bash/&#34;&gt;bash&lt;/a&gt; ausführen. Dabei
-der Inhalt vom git-Repository nach &lt;code&gt;~/.gvm&lt;/code&gt; kopiert&lt;/p&gt;
-
-&lt;h3 id=&#34;3-gvm-in-der-shell-verfügbar-machen:68e336974a9292a1000070f844d9d073&#34;&gt;3. gvm in der shell verfügbar machen&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;[[ -s &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot; ]] &amp;amp;&amp;amp; source &amp;quot;$HOME/.gvm/scripts/gvm&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Die Zeile muss man in seine &lt;code&gt;~/.bashrc&lt;/code&gt; bzw. &lt;code&gt;~/.zshrc&lt;/code&gt; einfügen, damit die Umgebungsvariablen und Komandos
-von gvm in der jeweiligen shell verfügbar sind. Nach Änderung ist es nötig eine neue Shell zu öffnen oder man
-führt das Komando noch einmal in der aktuellen Shell aus.&lt;/p&gt;
-
-&lt;h3 id=&#34;4-nachsehen-ob-gvm-installiert-ist:68e336974a9292a1000070f844d9d073&#34;&gt;4. nachsehen, ob gvm installiert ist&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm version
-Go Version Manager v1.0.22 installed at /home/rennecke/.gvm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;5-go-golang-installieren:68e336974a9292a1000070f844d9d073&#34;&gt;5. go (golang) installieren&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm listall
-
-gvm gos (available` sh
-...
-   go1.4
-   go1.4.1
-   go1.4.2
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Man sieht alle Versionen von &lt;code&gt;go&lt;/code&gt; So installiert man eine spezifische &lt;code&gt;go&lt;/code&gt; Version, z.B. 1.4.2.
-&lt;em&gt;Installieren&lt;/em&gt; ist eigentlich der falsche Ausdruck, denn der neue go-Compiler wird compiliert,
-d.h. es werden &lt;strong&gt;keine&lt;/strong&gt; Binärpakete heruntergeladen.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm install go1.4.2
-Downloading Go source...
-Installing go1.4...
-* Compiling...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;6-gvm-mitteilen-welche-version-von-go-man-nutzen-möchte:68e336974a9292a1000070f844d9d073&#34;&gt;6. gvm mitteilen, welche Version von go man nutzen möchte&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ gvm use go1.4.2
-Now using version go1.4.2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Nun kann noch nachsehen, welche Version &lt;code&gt;go&lt;/code&gt; hat.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go version
-go version go1.4.2 linux/amd64
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
