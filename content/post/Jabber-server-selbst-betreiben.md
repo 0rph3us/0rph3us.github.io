@@ -2,7 +2,7 @@
 Categories = ["Tools", "Linux", "Raspberry Pi"]
 Description = ""
 Tags = ["xmpp", "jabber", "prosody"]
-date = "2015-10-25T14:55:11+01:00"
+date = "2015-11-04T06:55:11+01:00"
 title = "Einen Jabber Server selbst betreiben"
 
 +++
@@ -95,10 +95,10 @@ systemctl restart prosody
 
 Folgende Portfreischaltungen werden für einen reibungslosen Betrieb noch benötigt.
 
-Port 5222 eingehend = Clientverbindungen
-Port 5280 eingehend = Clientverbindungen (http-bind)
-Port 5281 eingehend = Clientverbindungen (http-bind)
-Port 5269 ein- und ausgehend = Verbindung zu fremden Servern
+* Port 5222 eingehend (Clientverbindungen)
+* Port 5280 eingehend (Clientverbindungen) (http-bind)
+* Port 5281 eingehend (Clientverbindungen) (https-bind)
+* Port 5269 ein- und ausgehend Verbindung zu fremden Servern
 
 
 [2 Tage nicht verfügbar]: https://ccc.de/de/updates/2015/jabbercccde
