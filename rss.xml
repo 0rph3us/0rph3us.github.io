@@ -7,8 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Wed, 04 Nov 2015 06:55:11 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2015 07:21:17 +0100</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Continuous Lifecycle 2015</title>
+      <link>https://0rph3us.github.io/post/2015/11/continuous-lifecycle-2015/</link>
+      <pubDate>Fri, 13 Nov 2015 07:21:17 +0100</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/11/continuous-lifecycle-2015/</guid>
+      <description>&lt;p&gt;Ich war vom 10.11. bis 12.11.2015 auf der Continuous Lifecycle
+in Mannheim. Die Konferenz hat sich rund um das Thema Continuous
+Delivery gedreht, weiterhin war &lt;a href=&#34;https://docker.com&#34;&gt;Docker&lt;/a&gt; in aller Munde. Durch
+die Konferenz wurde mir gezeigt, dass Docker inzwischen/langsam
+reif für den produktiven Betrieb ist.&lt;/p&gt;
+
+&lt;p&gt;Damit Continuous Delivery funktioniert nutzen viele interdisziplinäre
+Teams. Dabei hat das einzelne Team in der Regel viele Freiheiten,
+aber es gibt auch unumstößliche Regeln. Die folgenden Dinge habe ich
+oft gehört und die Reihenfolge ist willkürlich gewählt.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;der gesamte Code ist in einem Repo und alle arbeiten auf einen Branch&lt;/li&gt;
+&lt;li&gt;es gibt ein einheitliches Logging und Monitoring&lt;/li&gt;
+&lt;li&gt;Entwickler sind für den Betrieb der Software verantwortlich&lt;/li&gt;
+&lt;li&gt;der Betrieb (Admins) sitzt bei den Entwicklern und es gibt keine wirkliche Unterscheidung&lt;/li&gt;
+&lt;li&gt;kleine Teams&lt;/li&gt;
+&lt;li&gt;wenige bis gar keine Schnittstellen zwischen den Teams&lt;/li&gt;
+&lt;li&gt;gute automatische Tests&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Sehr beeindruckend fand ich den Vortrag von &lt;a href=&#34;http://www.gameduell.de/&#34;&gt;GameDuell&lt;/a&gt;. Sie machen Continuous Delivery
+mit &lt;a href=&#34;https://glassfish.java.net/&#34;&gt;GlassFish&lt;/a&gt;. Jeder der GlassFish kennt, weiß wie schwerfällig sich
+dieser Application Server anfühlt. Dieser Talk hat mir sehr deutlich gemacht,
+dass man seine Werkzeuge nur richtig nutzen muss, um innovative
+Dinge zu machen&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:dd0573e8a873648dc318693be9446728:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:dd0573e8a873648dc318693be9446728:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;In der nächsten Zeit werde mir privat und beruflich Docker genauer
+ansehen. Da ich definitiv auf tolle Technologien stehe.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:dd0573e8a873648dc318693be9446728:1&#34;&gt;Innovativ ist für mich die Art, wie GameDuell entwickelt und Software ausrollt. Wie innovativ das Angebot von GameDuell ist, kann und möchte ich nicht einschätzen ;-)
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:dd0573e8a873648dc318693be9446728:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Einen Jabber Server selbst betreiben</title>
@@ -755,23 +802,6 @@ das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34
 &lt;pre&gt;&lt;code&gt;dtparam=i2c1=on
 dtparam=spi=on
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Ein Pi wird kommen</title>
-      <link>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</link>
-      <pubDate>Thu, 05 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/03/ein-pi-wird-kommen/</guid>
-      <description>&lt;p&gt;Mein &lt;a href=&#34;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&#34;&gt;Raspberry Pi 2&lt;/a&gt; ist heute angekommen. Ich hatte leider nicht Zeit, mit ihm herum zu spielen. Der erste Eindruck
-ist sehr gut. Der alte Raspberry Pi hat sich immer etwas zäh angefühlt. Das ist beim neuen Modell nicht so. Es fühlt
-sich alles viel flüssiger an. Da ich &lt;a href=&#34;http://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; nutze, habe ich auch gleich &lt;code&gt;aptitude&lt;/code&gt; ausprobiert. Das immer noch
-etwas zäh.&lt;/p&gt;
-
-&lt;p&gt;Sonst ist der Raspberry Pi 2 in allen Punkten besser als sein Vorgänger. Es gibt Einplatinencomputer, welche auf
-dem Papier leistungsstärker als der Pi sind, aber dieser besticht durch seine große Community und sie ausrefeiten
-Images.&lt;/p&gt;
 </description>
     </item>
     
