@@ -57,7 +57,7 @@ prosodyctl adduser foo@jabber.0rpheus.net
 
 Als nächstes wird die Domain konfiguriert.
 
-``` lua
+```
 VirtualHost "jabber.0rpheus.net"
         enabled = true
 

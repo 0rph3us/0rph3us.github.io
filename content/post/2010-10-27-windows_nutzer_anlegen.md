@@ -31,7 +31,7 @@ schön, aber da habe ich nicht mitbekommen, aber da weiß ich nicht wie der [Dis
 
 Zum Schluss bin ich zu folgen Skript gekommen:
 
-~~~ vb.net
+```
 Set args = WScript.Arguments
 profile_pfad = "\odin\homes\%username%\profile"
 gruppe_neu = "benutzer"
@@ -145,7 +145,7 @@ function genPasswort()
 	next
 	genPasswort = password
 end function
-~~~
+```
 
 Der AD-Guru oder Windows-Hardcore User wird sicher sagen, wie dumm ist das denn, das geht in einen 3-Zeiler.
 Aber ich kann kein Windows und will es eigentlich auch nicht lernen :P Wenn ich Zeit hätte wüsste ich wie man
