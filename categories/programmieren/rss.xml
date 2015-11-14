@@ -735,8 +735,8 @@ end function
 
 &lt;p&gt;Der AD-Guru oder Windows-Hardcore User wird sicher sagen, wie dumm ist das denn, das geht in einen 3-Zeiler.
 Aber ich kann kein Windows und will es eigentlich auch nicht lernen :P Wenn ich Zeit hätte wüsste ich wie man
-mit den &lt;code&gt;ds&lt;/code&gt;&lt;em&gt;-Tools das ganze schöner machen könnte. Ich habe das komplette Skript hier rein gestellt, da
-man sicher die ein oder andere Zeile klauen kann *g&lt;/em&gt;. Der Passwortgenerator ist schlecht,
+mit den &lt;code&gt;ds&lt;/code&gt;*-Tools das ganze schöner machen könnte. Ich habe das komplette Skript hier rein gestellt, da
+man sicher die ein oder andere Zeile klauen kann &lt;em&gt;g&lt;/em&gt;. Der Passwortgenerator ist schlecht,
 es war aber die schnellste Lösung.&lt;/p&gt;
 </description>
     </item>
