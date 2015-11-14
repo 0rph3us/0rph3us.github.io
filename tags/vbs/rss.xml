@@ -30,7 +30,7 @@ schön, aber da habe ich nicht mitbekommen, aber da weiß ich nicht wie der &lt;
 
 &lt;p&gt;Zum Schluss bin ich zu folgen Skript gekommen:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-vb.net&#34;&gt;Set args = WScript.Arguments
+&lt;pre&gt;&lt;code&gt;Set args = WScript.Arguments
 profile_pfad = &amp;quot;\odin\homes\%username%\profile&amp;quot;
 gruppe_neu = &amp;quot;benutzer&amp;quot;
 if args.count &amp;lt;&amp;gt; 1 then
