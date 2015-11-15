@@ -6,11 +6,13 @@ theme        = "redlounge"
 paginate     = 30
 rssuri       = "rss.xml"
 
+
 [[menu.main]]
     name = "Spickzettel"
     weight = -90
     identifier = "spickzettel"
     url = "/spickzettel/"
+
 
 [[menu.main]]
     name = "Links"
@@ -18,11 +20,13 @@ rssuri       = "rss.xml"
     identifier = "links"
     url = "/links/"
 
+
 [[menu.main]]
     name = "Über mich"
     weight = -110
     identifier = "about"
     url = "/about/"
+
 
 [[menu.social]]
     pre        = "<i class='fa fa-github'></i>"
@@ -30,11 +34,13 @@ rssuri       = "rss.xml"
     identifier = "github"
     weight     = 30
 
+
 [[menu.social]]
     pre        = "<i class='fa fa-twitterhack'></i>"
     url        = "https://twitter.com/0rph3us"
     identifier = "twitter"
     weight     = 50
+
 
 [[menu.social]]
     pre        = "<i class='fa fa-rss'></i>"
@@ -46,20 +52,24 @@ rssuri       = "rss.xml"
 [author]
     name = "Michael Rennecke"
 
+
 [permalinks]
     # Optional. Change the permalink format for the 'post' content type.
     # The format shown here is the same one Jekyll/Octopress uses by default.
     #post = "/blog/:year/:month/:day/:title/"
     post = "/:section/:year/:month/:title/"
 
+
 [taxonomies]
   tag = "tags"
   category = "categories"
   series = "series"
 
+
 [indexes]
     category = "categories"
     tag      = "tags"
+
 
 [params]
     sidebartitle   = "Michael Rennecke"
