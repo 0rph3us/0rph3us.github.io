@@ -7,8 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Wed, 04 Nov 2015 06:55:11 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2015 22:37:08 +0100</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/categories/linux/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LibreSSL und HAProxy</title>
+      <link>https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/</link>
+      <pubDate>Mon, 28 Dec 2015 22:37:08 +0100</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/</guid>
+      <description>
+
+&lt;p&gt;Wenn man &lt;a href=&#34;https://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; einsetzt (oder eine fast beliebige andere Linux-Distribution)
+hat man das &lt;em&gt;Problem&lt;/em&gt;, dass die mitgelieferten Webserver und Loadbalancer &lt;a href=&#34;https://www.openssl.org/&#34;&gt;OpenSSL&lt;/a&gt;
+nutzen. OpenSSL ist 2015 durch eine Sicherheitslücken negativ aufgefallen, außerdem
+gibt es keine Unterstützung&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; für &lt;a href=&#34;https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/&#34;&gt;ChaCha20 Cipher Suiten&lt;/a&gt;. Diese haben den Vorteil,
+dass sie in Software schneller sind als &lt;a href=&#34;https://de.wikipedia.org/wiki/Advanced_Encryption_Standard&#34;&gt;AES&lt;/a&gt;. Das macht sich insbesondere bei meinen
+Raspberry Pi und bei Smartphones bemerkbar. Diese haben Hardware AES.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.libressl.org/&#34;&gt;LibreSSL&lt;/a&gt; ist eine Alternative zu OpenSSL. Es hat die Unterstützung für ChaCha20. Bei
+LibreSSL liegt der Fokus auf Sicherheit und weniger auf die Unterstützung von alten
+Schnittstellen. Deswegen ist davon auszugehen, dass es in der Zukunft auch weniger
+kritische Sicherheitslücken geben wird.&lt;/p&gt;
+
+&lt;h2 id=&#34;libressl-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;LibreSSL bauen&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd
+wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.1.tar.gz
+tar xfvz libressl-2.3.1.tar.gz
+cd libressl-2.3.1/
+./configure
+make -j 4
+sudo make install
+sudo ln -s /usr/local/lib/libssl.so.37 /usr/lib/libssl.so.37
+sudo ln -s /usr/local/lib/libcrypto.so.36 /usr/lib/libcrypto.so.36
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# /usr/local/bin/openssl version
+LibreSSL 2.3.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;haproxy-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;HAProxy bauen&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd 
+git clone http://git.haproxy.org/git/haproxy-1.6.git/
+cd haproxy-1.6/
+git checkout v1.6.3
+export LIBRESSL=/usr/local/
+make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRESSL}/lib ADDLIB=-ldl
+sudo cp haproxy /usr/local/sbin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;In den kommenden Versionen von OpenSSL wird es Unterstützung für ChaCha20 Cipher Suiten geben. Ich finde die Quelle gerade nicht :-(
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Einen Jabber Server selbst betreiben</title>
@@ -1071,34 +1130,6 @@ Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufe
 
 &lt;p&gt;ändert. Nach dem neu anmelden bzw. Neustarten ist der Fehler weg. Ich habe diesen Fehler unter &lt;a href=&#34;http://www.debian.org/&#34;&gt;Debian&lt;/a&gt; und &lt;a href=&#34;http://xubuntu.org/&#34;&gt;Xubuntu&lt;/a&gt; beobachtet.
 Der Fehler scheint &lt;a href=&#34;http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=649408&#34;&gt;dieser Bug&lt;/a&gt; zu sein.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hadoop Cluster und das Netzwerk</title>
-      <link>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</link>
-      <pubDate>Tue, 28 May 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2013/05/hadoop-cluster-und-das-netzwerk/</guid>
-      <description>&lt;p&gt;Ich habe mich heute wieder mit der Architektur von Hadoop-Clustern beschäftigt. Der Softwarestack ist relativ unspektakulär: Linux -&amp;gt; Java -&amp;gt; &lt;a href=&#34;http://hadoop.apache.org/&#34;&gt;Hadoop&lt;/a&gt;.
-Beim Hardware-Stack scheiden sich etwas die Geister. Ich habe immer noch mit dem Gerücht zu kämpfen, dass man für Hadoop &lt;em&gt;Schrott-Rechner&lt;/em&gt;
-verwenden kann. Hier wird der Begriff &lt;em&gt;Commodity Hardware&lt;/em&gt; etwas falsch interpretiert. Commodity Hardware bezeichnet im
-Hadoop-Kontext keine spezielle Hardware verwendet wird. Große Datenbankensysteme verwenden in der Regel sehr spezielle Hardware.&lt;/p&gt;
-
-&lt;p&gt;Ich beobachte einen Trend, dass es immer mehr &lt;a href=&#34;http://de.wikipedia.org/wiki/Appliance&#34;&gt;Appliances&lt;/a&gt; gibt, welche schon recht spezielle Netzwerktechnik verwenden,
-welche man ehr im klassischen HPC mit MPI vermuten würde. Wenn man sich die folgende Frage stellt, dann kommt man schnell
-selbst zu der Erkenntnis, dass man auch im Hadoop-Umfeld sehr spezielle Hardware benötigt.&lt;/p&gt;
-
-&lt;p&gt;Ich möchte das ganze einmal an einem Beispiel vorführen: Wenn man in einem Hadoop-Knoten 12 3TB große SAS Platten verbaut,
-dann ist es nicht unrealistisch, dass man 120 MB/s von jeder Platte lesen bzw. 100 MB/s schreiben kann und das über einen
-längeren Zeitraum. Daraus resultiert eine gesamte Bandbreite von 1440 MB/s bzw. 1200 MB/s. Wenn man sich diese Zahlen ansieht,
-dann ergibt es durchaus Sinn 2 10 GBit-Interfaces pro Node zu haben. Wenn man von komprimierten Daten im hdfs ausgeht,
-welche unkomprimiert versendet werden, dann können auch 2 QDR &lt;a href=&#34;http://de.wikipedia.org/wiki/InfiniBand&#34;&gt;Infiniband&lt;/a&gt;-Interfaces (40 GBit/s) Sinn. Es gibt durchaus Anbieter,
-welche auf Infiniband setzten.&lt;/p&gt;
-
-&lt;p&gt;Durch die Administration und den Ausbau das Hadoop-Clusters meines Arbeitgebers kann ich bestätigen, dass die Daten nicht so lokal
-bleiben, wie man es sich das wünschen würde. Das ganze kann sich verschärfen, wenn man im
-Cluster noch eine Datenbank, wie &lt;a href=&#34;http://hypertable.com/&#34;&gt;Hypertable&lt;/a&gt; betreibt.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-DE" lang="de-DE">
+
+<head>
+  <title>
+    LibreSSL und HAProxy // Michael im Netz
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.16-DEV" />
+
+  <meta property="og:title" content="LibreSSL und HAProxy" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/" />
+
+
+  
+  
+  
+
+    
+    
+    <link rel="stylesheet" href="https://0rph3us.github.io/css/6c4ae43c-ac4d-4a71-ab4f-4cd485c2ac5f.css">
+
+  
+  
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+    
+  
+  <link rel="stylesheet" href="https://0rph3us.github.io/css/solarized_light-8.7.min.css">
+  
+  <script src="https://0rph3us.github.io/js/highlight-8.7.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title"><a href="https://0rph3us.github.io">Michael Rennecke</a></h1>
+    <h2 class="brand-tagline">Meine Gedanken zu Sicherheit, Linux und Random Stuff</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://0rph3us.github.io">Home</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about/">Über mich</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/links/">Links</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/spickzettel/">Spickzettel</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="zozial-buttons">
+      
+        
+        <a href="https://github.com/0rph3us" target="_blank"><i class='fa fa-github'></i></a>
+        
+      
+        
+        <a href="https://twitter.com/0rph3us" target="_blank"><i class='fa fa-twitterhack'></i></a>
+        
+      
+        
+        <a href="https://0rph3us.github.io/rss.xml" target="_blank"><i class='fa fa-rss'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a id="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Inhalt</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#libressl-bauen:bddda923aec4e8e8e36a0066c730c514">LibreSSL bauen</a></li>
+<li><a href="#haproxy-bauen:bddda923aec4e8e8e36a0066c730c514">HAProxy bauen</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/post/2015/12/libressl-und-haproxy/">LibreSSL und HAProxy</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>28</sup></span><span class="post-date-separator">/</span><span class="post-date-month"> Dezember</span> <span class="post-date-year">2015</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+				<div class="post-categories">
+				
+					<a class="post-category post-category-sicherheit" href="https://0rph3us.github.io/categories/sicherheit">Sicherheit</a>
+				
+					<a class="post-category post-category-linux" href="https://0rph3us.github.io/categories/linux">Linux</a>
+				
+				</div>
+			
+
+			
+
+			
+
+            
+
+<p>Wenn man <a href="https://www.raspbian.org/">Raspbian</a> einsetzt (oder eine fast beliebige andere Linux-Distribution)
+hat man das <em>Problem</em>, dass die mitgelieferten Webserver und Loadbalancer <a href="https://www.openssl.org/">OpenSSL</a>
+nutzen. OpenSSL ist 2015 durch eine Sicherheitslücken negativ aufgefallen, außerdem
+gibt es keine Unterstützung<sup class="footnote-ref" id="fnref:bddda923aec4e8e8e36a0066c730c514:1"><a rel="footnote" href="#fn:bddda923aec4e8e8e36a0066c730c514:1">1</a></sup> für <a href="https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/">ChaCha20 Cipher Suiten</a>. Diese haben den Vorteil,
+dass sie in Software schneller sind als <a href="https://de.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a>. Das macht sich insbesondere bei meinen
+Raspberry Pi und bei Smartphones bemerkbar. Diese haben Hardware AES.</p>
+
+<p><a href="http://www.libressl.org/">LibreSSL</a> ist eine Alternative zu OpenSSL. Es hat die Unterstützung für ChaCha20. Bei
+LibreSSL liegt der Fokus auf Sicherheit und weniger auf die Unterstützung von alten
+Schnittstellen. Deswegen ist davon auszugehen, dass es in der Zukunft auch weniger
+kritische Sicherheitslücken geben wird.</p>
+
+<h2 id="libressl-bauen:bddda923aec4e8e8e36a0066c730c514">LibreSSL bauen</h2>
+
+<pre><code class="language-sh">cd
+wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.1.tar.gz
+tar xfvz libressl-2.3.1.tar.gz
+cd libressl-2.3.1/
+./configure
+make -j 4
+sudo make install
+sudo ln -s /usr/local/lib/libssl.so.37 /usr/lib/libssl.so.37
+sudo ln -s /usr/local/lib/libcrypto.so.36 /usr/lib/libcrypto.so.36
+</code></pre>
+
+<pre><code># /usr/local/bin/openssl version
+LibreSSL 2.3.1
+</code></pre>
+
+<h2 id="haproxy-bauen:bddda923aec4e8e8e36a0066c730c514">HAProxy bauen</h2>
+
+<pre><code class="language-sh">cd 
+git clone http://git.haproxy.org/git/haproxy-1.6.git/
+cd haproxy-1.6/
+git checkout v1.6.3
+export LIBRESSL=/usr/local/
+make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRESSL}/lib ADDLIB=-ldl
+sudo cp haproxy /usr/local/sbin
+</code></pre>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:bddda923aec4e8e8e36a0066c730c514:1">In den kommenden Versionen von OpenSSL wird es Unterstützung für ChaCha20 Cipher Suiten geben. Ich finde die Quelle gerade nicht :-(
+ <a class="footnote-return" href="#fnref:bddda923aec4e8e8e36a0066c730c514:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+	
+			
+
+			
+				<div class="tags-list">
+					<span class="dark-red">Tags</span><span class="decorative-marker">//</span>
+					
+	                <a class="post-tag post-tag-libressl" href="https://0rph3us.github.io/tags/libressl">LibreSSL</a>,
+	                
+	                <a class="post-tag post-tag-haproxy" href="https://0rph3us.github.io/tags/haproxy">HAProxy</a>,
+	                
+	                <a class="post-tag post-tag-raspberry-pi" href="https://0rph3us.github.io/tags/raspberry-pi">Raspberry Pi</a>,
+	                
+	                <a class="post-tag post-tag-security" href="https://0rph3us.github.io/tags/security">Security</a>,
+	                
+	                <a class="post-tag post-tag-raspbian" href="https://0rph3us.github.io/tags/raspbian">Raspbian</a>,
+	                
+				</div>
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">Mehr zum lesen</span>
+					
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Älter</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/post/2015/11/continuous-lifecycle-2015/">Continuous Lifecycle 2015</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+</body>
+</html>

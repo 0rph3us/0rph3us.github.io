@@ -7,8 +7,67 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Diese Seite ist unter der &lt;a href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt; lizenziert.</copyright>
-    <lastBuildDate>Fri, 13 Nov 2015 07:21:17 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2015 22:37:08 +0100</lastBuildDate>
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LibreSSL und HAProxy</title>
+      <link>https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/</link>
+      <pubDate>Mon, 28 Dec 2015 22:37:08 +0100</pubDate>
+      
+      <guid>https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/</guid>
+      <description>
+
+&lt;p&gt;Wenn man &lt;a href=&#34;https://www.raspbian.org/&#34;&gt;Raspbian&lt;/a&gt; einsetzt (oder eine fast beliebige andere Linux-Distribution)
+hat man das &lt;em&gt;Problem&lt;/em&gt;, dass die mitgelieferten Webserver und Loadbalancer &lt;a href=&#34;https://www.openssl.org/&#34;&gt;OpenSSL&lt;/a&gt;
+nutzen. OpenSSL ist 2015 durch eine Sicherheitslücken negativ aufgefallen, außerdem
+gibt es keine Unterstützung&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; für &lt;a href=&#34;https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/&#34;&gt;ChaCha20 Cipher Suiten&lt;/a&gt;. Diese haben den Vorteil,
+dass sie in Software schneller sind als &lt;a href=&#34;https://de.wikipedia.org/wiki/Advanced_Encryption_Standard&#34;&gt;AES&lt;/a&gt;. Das macht sich insbesondere bei meinen
+Raspberry Pi und bei Smartphones bemerkbar. Diese haben Hardware AES.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.libressl.org/&#34;&gt;LibreSSL&lt;/a&gt; ist eine Alternative zu OpenSSL. Es hat die Unterstützung für ChaCha20. Bei
+LibreSSL liegt der Fokus auf Sicherheit und weniger auf die Unterstützung von alten
+Schnittstellen. Deswegen ist davon auszugehen, dass es in der Zukunft auch weniger
+kritische Sicherheitslücken geben wird.&lt;/p&gt;
+
+&lt;h2 id=&#34;libressl-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;LibreSSL bauen&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd
+wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.1.tar.gz
+tar xfvz libressl-2.3.1.tar.gz
+cd libressl-2.3.1/
+./configure
+make -j 4
+sudo make install
+sudo ln -s /usr/local/lib/libssl.so.37 /usr/lib/libssl.so.37
+sudo ln -s /usr/local/lib/libcrypto.so.36 /usr/lib/libcrypto.so.36
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# /usr/local/bin/openssl version
+LibreSSL 2.3.1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;haproxy-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;HAProxy bauen&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd 
+git clone http://git.haproxy.org/git/haproxy-1.6.git/
+cd haproxy-1.6/
+git checkout v1.6.3
+export LIBRESSL=/usr/local/
+make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRESSL}/lib ADDLIB=-ldl
+sudo cp haproxy /usr/local/sbin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;In den kommenden Versionen von OpenSSL wird es Unterstützung für ChaCha20 Cipher Suiten geben. Ich finde die Quelle gerade nicht :-(
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:bddda923aec4e8e8e36a0066c730c514:1&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Continuous Lifecycle 2015</title>
@@ -781,27 +840,6 @@ service nginx reload
 &lt;p&gt;Nun kann man seinen Server einfach konfigurieren. Dazu öffnet man http://&lt;IP Raspberry Pi&gt; im Browser
 und konfiguriert erst einmal Poweradmin und dann kann man gleich loslegen mit dem anlegfen von neuen
 Zonen. Das ganze ist recht selbsterklärend.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Probleme beim Upgrade auf den Pi 2</title>
-      <link>https://0rph3us.github.io/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</link>
-      <pubDate>Wed, 11 Mar 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://0rph3us.github.io/post/2015/03/probleme-beim-upgrade-auf-den-pi-2/</guid>
-      <description>&lt;p&gt;Ich wollte meine Sensoren (&lt;a href=&#34;https://0rph3us.github.io/post/2014/10/bmp085-am-raspberry-pi/&#34;&gt;BMP085&lt;/a&gt; und &lt;a href=&#34;https://0rph3us.github.io/post/2014/10/dht22-am-raspberry-pi/&#34;&gt;DHT22&lt;/a&gt;) an meinen Raspberry Pi 2 anschließen und gleich noch
-ein paar Experimente mit dem 2,4 GHz Sender &lt;a href=&#34;http://www.mikrocontroller.net/articles/NRF24L01_Tutorial&#34;&gt;NRF24L01&lt;/a&gt;. Dabei musste ich feststellen, dass der &lt;a href=&#34;http://de.wikipedia.org/wiki/I%C2%B2C&#34;&gt;I²C-Bus&lt;/a&gt; und
-das &lt;a href=&#34;http://de.wikipedia.org/wiki/Serial_Peripheral_Interface&#34;&gt;SPI (Serial Peripheral Interface)&lt;/a&gt; nicht wie gewohnt funktionieren.&lt;/p&gt;
-
-&lt;p&gt;Beim Kernel 3.18 gab es einige Änderungen, die einen das Leben schwer machen. Es gibt auf stackechange eine
-&lt;a href=&#34;http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f&#34;&gt;kurze Zusammenfassung&lt;/a&gt; und eine &lt;a href=&#34;http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658&#34;&gt;sehr Ausführliche auf raspberrypi.org&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Wer es kurz und knackig mag, der fügt die folgenden Zeilen in &lt;code&gt;/boot/config.txt&lt;/code&gt; ein und startet den Pi neu.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;dtparam=i2c1=on
-dtparam=spi=on
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
