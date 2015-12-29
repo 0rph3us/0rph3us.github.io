@@ -20,6 +20,13 @@ Schnittstellen. Deswegen ist davon auszugehen, dass es in der Zukunft auch wenig
 kritische Sicherheitslücken geben wird.
 
 
+## HAProxy
+
+In meinen Setup ist [HAProxy] vor dem Webserver (Nginx). Es ist vielleicht sinnlos
+einen Loadbalancer auf dem Pi zu nutzen aber ich finde, dass sich HAProxy ein einigen
+Stellen einfacher konfigurieren lässt als Nginx.
+
+
 ## LibreSSL bauen
 
 ``` sh
@@ -50,11 +57,16 @@ make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRES
 sudo cp haproxy /usr/local/sbin
 ```
 
+## ToDo
+
+* Konfiguration von HAProxy
+
 
 [Raspbian]: https://www.raspbian.org/
 [OpenSSL]: https://www.openssl.org/
 [ChaCha20 Cipher Suiten]: https://blog.cloudflare.com/do-the-chacha-better-mobile-performance-with-cryptography/
 [AES]: https://de.wikipedia.org/wiki/Advanced_Encryption_Standard
 [LibreSSL]: http://www.libressl.org/
+[HAProxy]: http://www.haproxy.org/
 
 [^1]: In den kommenden Versionen von OpenSSL wird es Unterstützung für ChaCha20 Cipher Suiten geben. Ich finde die Quelle gerade nicht :-(
