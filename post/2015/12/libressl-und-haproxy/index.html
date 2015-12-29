@@ -118,8 +118,10 @@
 <ul>
 <li>
 <ul>
+<li><a href="#haproxy:bddda923aec4e8e8e36a0066c730c514">HAProxy</a></li>
 <li><a href="#libressl-bauen:bddda923aec4e8e8e36a0066c730c514">LibreSSL bauen</a></li>
 <li><a href="#haproxy-bauen:bddda923aec4e8e8e36a0066c730c514">HAProxy bauen</a></li>
+<li><a href="#todo:bddda923aec4e8e8e36a0066c730c514">ToDo</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -171,6 +173,12 @@ LibreSSL liegt der Fokus auf Sicherheit und weniger auf die Unterstützung von a
 Schnittstellen. Deswegen ist davon auszugehen, dass es in der Zukunft auch weniger
 kritische Sicherheitslücken geben wird.</p>
 
+<h2 id="haproxy:bddda923aec4e8e8e36a0066c730c514">HAProxy</h2>
+
+<p>In meinen Setup ist <a href="http://www.haproxy.org/">HAProxy</a> vor dem Webserver (Nginx). Es ist vielleicht sinnlos
+einen Loadbalancer auf dem Pi zu nutzen aber ich finde, dass sich HAProxy ein einigen
+Stellen einfacher konfigurieren lässt als Nginx.</p>
+
 <h2 id="libressl-bauen:bddda923aec4e8e8e36a0066c730c514">LibreSSL bauen</h2>
 
 <pre><code class="language-sh">cd
@@ -198,6 +206,12 @@ export LIBRESSL=/usr/local/
 make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRESSL}/lib ADDLIB=-ldl
 sudo cp haproxy /usr/local/sbin
 </code></pre>
+
+<h2 id="todo:bddda923aec4e8e8e36a0066c730c514">ToDo</h2>
+
+<ul>
+<li>Konfiguration von HAProxy</li>
+</ul>
 <div class="footnotes">
 
 <hr />
