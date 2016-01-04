@@ -36,32 +36,85 @@ kritische Sicherheitslücken geben wird.&lt;/p&gt;
 einen Loadbalancer auf dem Pi zu nutzen aber ich finde, dass sich HAProxy ein einigen
 Stellen einfacher konfigurieren lässt als Nginx.&lt;/p&gt;
 
-&lt;h2 id=&#34;libressl-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;LibreSSL bauen&lt;/h2&gt;
+&lt;h2 id=&#34;haproxy-mit-libressl-und-pcre-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;HAProxy mit LibreSSL und PCRE bauen&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd
-wget http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.3.1.tar.gz
-tar xfvz libressl-2.3.1.tar.gz
-cd libressl-2.3.1/
-./configure
-make -j 4
-sudo make install
-sudo ln -s /usr/local/lib/libssl.so.37 /usr/lib/libssl.so.37
-sudo ln -s /usr/local/lib/libcrypto.so.36 /usr/lib/libcrypto.so.36
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;kopiere das folgende Script in eine Datei und führe es aus:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;# /usr/local/bin/openssl version
-LibreSSL 2.3.1
-&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;#!/bin/bash
 
-&lt;h2 id=&#34;haproxy-bauen:bddda923aec4e8e8e36a0066c730c514&#34;&gt;HAProxy bauen&lt;/h2&gt;
+# names of latest versions of each package
+export HAPROXY_VERSION=1.6.3
+export VERSION_PCRE=pcre-8.38
+export VERSION_LIBRESSL=libressl-2.3.1
+export VERSION_HAPROXY=haproxy-$HAPROXY_VERSION
 
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cd 
-git clone http://git.haproxy.org/git/haproxy-1.6.git/
-cd haproxy-1.6/
-git checkout v1.6.3
-export LIBRESSL=/usr/local/
-make TARGET=linux2628 USE_OPENSSL=1 SSL_INC=${LIBRESSL}/include SSL_LIB=${LIBRESSL}/lib ADDLIB=-ldl
-sudo cp haproxy /usr/local/sbin
+# URLs to the source directories
+export SOURCE_LIBRESSL=ftp://ftp.openbsd.org/pub/OpenBSD/LibreSSL/
+export SOURCE_PCRE=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/
+export SOURCE_HAPROXY=http://www.haproxy.org/download
+
+
+# clean out any files from previous runs of this script
+rm -rf build
+mkdir build
+
+# proc for building faster
+NB_PROC=$(grep -c ^processor /proc/cpuinfo)
+
+# ensure that we have the required software
+#sudo apt-get -y install curl wget build-essential libgd-dev libgeoip-dev checkinstall git
+
+# grab the source files
+echo &amp;quot;Download sources&amp;quot;
+wget -P ./build &amp;quot;${SOURCE_PCRE}${VERSION_PCRE}.tar.gz&amp;quot;
+wget -P ./build &amp;quot;${SOURCE_LIBRESSL}${VERSION_LIBRESSL}.tar.gz&amp;quot;
+wget -P ./build &amp;quot;${SOURCE_HAPROXY}/$(echo $HAPROXY_VERSION | cut -d. -f 1-2)/src/$VERSION_HAPROXY.tar.gz&amp;quot;
+
+# expand the source files
+echo &amp;quot;Extract Packages&amp;quot;
+cd build || exit 1
+
+tar xfz &amp;quot;${VERSION_HAPROXY}.tar.gz&amp;quot;
+tar xfz &amp;quot;${VERSION_LIBRESSL}.tar.gz&amp;quot;
+tar xfz &amp;quot;${VERSION_PCRE}.tar.gz&amp;quot;
+cd ../ || exit 1
+
+export BPATH=&amp;quot;${PWD}/build&amp;quot;
+export STATICLIBSSL=&amp;quot;${BPATH}/${VERSION_LIBRESSL}&amp;quot;
+
+# build static LibreSSL
+echo &amp;quot;Configure &amp;amp; Build LibreSSL&amp;quot;
+cd &amp;quot;${STATICLIBSSL}&amp;quot; || exit 1
+./configure --prefix=&amp;quot;${STATICLIBSSL}/_openssl/&amp;quot; --enable-shared=no &amp;amp;&amp;amp; make install-strip -j &amp;quot;${NB_PROC}&amp;quot;
+
+# build pcre
+export STATICLIPCRE=&amp;quot;${BPATH}/${VERSION_PCRE}&amp;quot;
+cd &amp;quot;${STATICLIPCRE}&amp;quot; || exit 1
+./configure --prefix=&amp;quot;${STATICLIPCRE}/_pcre&amp;quot; --enable-shared=no --enable-utf8 --enable-jit
+make -j &amp;quot;${NB_PROC}&amp;quot;
+make install
+
+
+echo &amp;quot;Build HAProxy&amp;quot;
+cd &amp;quot;${BPATH}/${VERSION_HAPROXY}&amp;quot; || exit 1
+
+make \
+-j &amp;quot;${NB_PROC}&amp;quot; \
+TARGET=linux2628 \
+USE_STATIC_PCRE=1 \
+USE_PCRE_JIT=1 \
+PCRE_LIB=&amp;quot;${STATICLIPCRE}/_pcre/lib&amp;quot; \
+PCRE_INC=&amp;quot;${STATICLIPCRE}/_pcre/include&amp;quot; \
+USE_OPENSSL=1 \
+SSL_INC=&amp;quot;${STATICLIBSSL}/_openssl/include&amp;quot; \
+SSL_LIB=&amp;quot;${STATICLIBSSL}/_openssl/lib&amp;quot; \
+USE_ZLIB=1 \
+DEFINE=&amp;quot;-fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2&amp;quot;
+
+
+echo &amp;quot;All done.&amp;quot;
+echo &amp;quot;become root and type: &amp;quot;
+echo &amp;quot;  cp build/haproxy-${HAPROXY_VERSION}/haproxy /usr/local/sbin&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;todo:bddda923aec4e8e8e36a0066c730c514&#34;&gt;ToDo&lt;/h2&gt;
