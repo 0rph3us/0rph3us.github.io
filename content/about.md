@@ -19,14 +19,18 @@ Spreadshirt.
 
 ## Email
 
-Bei Fragen kann man mir Emails senden. Die Adresse lautet *<Vorname>.<Nachname>@gmail.com*. Mein
-Vor- und Nachnamen findet man oben bzw. am linken Rand :D. Man kann mir verschlüsselte Mails
-schicken. 
+Bei Fragen kann man mir Emails senden. Die Adresse lautet **Vorname.Nachname@gmail.com**. Mein
+Vor- und Nachnamen findet man oben bzw. am linken Rand :D. Man kann mir mit GnuPG verschlüsselte
+Mails schicken.
 
-KeyID: *EE75C6FE*
-Fingerprint: *ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE*
+* KeyID: **EE75C6FE**
+* Fingerprint: **ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE**
+* [Hier] ist der Key zum download.
 
+## Jabber
 
+Ich betreiben meinen eigenen jabber Server. Meine JabberID ist
+**michael@jabber.0rpheus.net**.
 
 [MLU]: http://uni-halle.de
 [Instituts für Informatik]: http://informatik.uni-halle.de
@@ -36,3 +40,4 @@ Fingerprint: *ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE*
 [Hadoop]: https://hadoop.apache.org/#What+Is+Apache+Hadoop%3F
 [Hypertable]: http://hypertable.org/
 [AWS]: http://aws.amazon.com/de/
+[Hier]: /Michael_Rennecke_EE75C6FE.asc
