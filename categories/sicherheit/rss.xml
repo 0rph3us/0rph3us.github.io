@@ -117,7 +117,7 @@ echo &amp;quot;become root and type: &amp;quot;
 echo &amp;quot;  cp build/haproxy-${HAPROXY_VERSION}/haproxy /usr/local/sbin&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;konfiguration:bddda923aec4e8e8e36a0066c730c514&#34;&gt;Konfiguration&lt;/h1&gt;
+&lt;h2 id=&#34;konfiguration:bddda923aec4e8e8e36a0066c730c514&#34;&gt;Konfiguration&lt;/h2&gt;
 
 &lt;p&gt;Hier ist eine Beispielkonfiguration. Wobei die SSL Konfiguration sehr
 paranoid ist.&lt;/p&gt;
