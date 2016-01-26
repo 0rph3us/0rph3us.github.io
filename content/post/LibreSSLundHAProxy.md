@@ -109,10 +109,70 @@ echo "become root and type: "
 echo "  cp build/haproxy-${HAPROXY_VERSION}/haproxy /usr/local/sbin"
 ```
 
-## ToDo
+# Konfiguration
 
-* Konfiguration von HAProxy
+Hier ist eine Beispielkonfiguration. Wobei die SSL Konfiguration sehr
+paranoid ist.
 
+
+```
+global
+        maxconn 100
+        ssl-default-bind-ciphers CHACHA20+EECDH:AES256+EECDH
+        ssl-default-bind-options force-tlsv12
+
+        daemon
+        user haproxy
+        chroot /var/lib/haproxy
+        stats socket /var/run/haproxy.sock mode 660 level admin
+
+
+defaults
+        mode http
+        timeout connect 5s
+        timeout client 5s
+        timeout server 5s
+
+        stats scope .
+
+        option socket-stats
+        option forwardfor
+
+
+frontend myfrontend
+        # primary cert is /etc/haproxy/certs/server.pem
+        # /etc/haproxy/certs/ contains additional certificates for SNI clients
+        bind :443 tfo ssl crt /etc/haproxy/certs/server.pem crt /etc/haproxy/certs/ ecdhe secp384r1 name ssl-traffic
+        bind :80 name http-traffic
+
+        http-response set-header X-Frame-Options                DENY
+        http-response set-header X-Content-Type-Options         nosniff
+        http-response set-header Strict-Transport-Security      max-age=31536000;\ includeSubdomains;\ preload
+
+        http-request redirect scheme https code 301 if !{ ssl_fc }
+
+        http-request set-header X-Forwarded-Proto                https
+
+
+        use_backend stats               if { path_beg /haproxy/stats }
+
+        default_backend mybackend
+
+
+backend mybackend
+        # a http backend
+        server s3 10.0.0.3:80
+        server s4 10.0.0.3:443 ssl verify none
+
+
+backend stats
+        stats enable
+        stats show-legends
+        stats realm Haproxy\ Statistics
+        stats uri /haproxy/stats
+        stats refresh 30s
+
+```
 
 [Raspbian]: https://www.raspbian.org/
 [OpenSSL]: https://www.openssl.org/
