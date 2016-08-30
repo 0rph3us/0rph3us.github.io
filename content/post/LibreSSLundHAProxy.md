@@ -109,7 +109,7 @@ echo "become root and type: "
 echo "  cp build/haproxy-${HAPROXY_VERSION}/haproxy /usr/local/sbin"
 ```
 
-# Konfiguration
+## Konfiguration
 
 Hier ist eine Beispielkonfiguration. Wobei die SSL Konfiguration sehr
 paranoid ist.
