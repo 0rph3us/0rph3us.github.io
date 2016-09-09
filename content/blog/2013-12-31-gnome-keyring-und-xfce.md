@@ -15,27 +15,21 @@ tags:
 ---
 Ich bin seit kurzen von [Gnome][1] auf [Xfce][2] umgestiegen. Dabei ist mir die folgende Fehlermeldung öfter einmal durch die Konsole gelaufen:
 
-<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:635px;">
-  <div class="text codecolorer">
+```
     WARNING: gnome-keyring:: couldn't connect to: /home/rennecke/.cache/keyring-4OkyiQ/pkcs11: No such file or directory
-  </div>
-</div>
+```
 
-Das ganze lässt sich beheben, wenn man in der <tt>/etc/xdg/autostart/gnome-keyring-pkcs11.desktop</tt> die folgende Zeile von:
+Das ganze lässt sich beheben, wenn man in der `/etc/xdg/autostart/gnome-keyring-pkcs11.desktop` die folgende Zeile von:
 
-<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:635px;">
-  <div class="text codecolorer">
-    OnlyShowIn=GNOME;Unity;
-  </div>
-</div>
+```
+OnlyShowIn=GNOME;Unity;
+```
 
 in
 
-<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:635px;">
-  <div class="text codecolorer">
-    OnlyShowIn=GNOME;Unity;XFCE
-  </div>
-</div>
+```
+OnlyShowIn=GNOME;Unity;XFCE
+```
 
 ändert. Nach dem neu anmelden bzw. Neustarten ist der Fehler weg. Ich habe diesen Fehler unter [Debian][3] und [Xubuntu][4] beobachtet. Der Fehler scheint [dieser offizielle Bug][5] zu sein.
 
