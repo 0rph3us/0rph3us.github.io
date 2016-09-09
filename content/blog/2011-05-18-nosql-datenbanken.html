@@ -1,0 +1,23 @@
+---
+type: post
+title: noSQL Datenbanken
+date: 2011-05-18
+categories:
+- Linux
+- Tools
+tags:
+- Datenbank
+- hpc
+- mongoDB
+- noSQL
+- performance
+status: publish
+type: post
+
+---
+<p>
+Ich arbeite inzwischen bei <a href="http://www.unister.de/">Unister</a> als <a href="http://0rpheus.net/privat/junior-system-architekt">Junior Systemarchitekt</a>. Zu meinen ersten Aufgaben hat gezählt eine Architektur für eine eine Datenbank zu schaffen, welche mit sehr hohen Schreibaufkommen zurecht kommt. Als Datenbank haben wir <a href="http://www.mongodb.org/">mongoDB</a> benutzt. Dabei handelt es sich um eine <a href="http://nosql-database.org/">noSQL</a>-Datenbank. Diese Dazenbanken haben kein festes Datenbankschema.</p>
+<p>
+Die ersten Ergebnisse waren sehr erschütternd. Die Schreibperformence war einfach zu gering. Da man bei <a href="http://www.mongodb.org/">mongoDB</a> nichts konfigurieren kann (Im Vergleich zu klassischen Datenbanken, wie MySQL oder PostgreSQL) war ich erst einmal ratlos. Das ganze konnte mit Clustern nicht verbessert werden. Eine genaue Untersuchung der Applikation hat ergeben, dass die Daten synchron und damit blockierend geschrieben wurden. Nachdem die Inserts nicht blockierend und in Batches umgesetzt wurden konnte schon ein Performancesprung festgestellt werden. Das konnte weiter verbessert werden, als wir die einzufügenden Daten in der Applikation nach dem Index vorsortiert eingefügt haben. Die Ursache liegt darin, das die Datenbank den Batch schneller abarbeiten kann und weniger Operationen auf dem Index nötig sind.</p>
+<p>
+Zum Schluss möchte ich noch ein paar Worte zum Clustern von <a href="http://www.mongodb.org/">mongoDB</a> verlieren. Es wird alles mitgebracht um schnell einen Cluster aufzusetzten. Ich habe es es leider geschafft, durch den Absturz von einem Knoten, den gesamten Cluster zu zerstören. Also sollte man bei Wichtigen Daten für Redundanz im Cluster sorgen. Es gibt auch viele Mittel in mongoDB um diese Redundanz zu erreichen.</p>

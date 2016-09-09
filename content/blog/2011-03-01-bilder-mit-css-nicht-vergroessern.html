@@ -1,0 +1,25 @@
+---
+type: post
+title: Bilder mit css nicht vergrößern
+date: 2011-03-01
+categories:
+ - Programmieren
+tags:
+ - css
+ - hack
+ - nextgen-gallery
+ - wordpress
+---
+<p>
+Ich habe in meinen Blog inzwischen auch Bilder und ich nutze die <a href="http://nextgen-gallery.com/">NextGEN Gallery</a>. Aus Platzgründen verkleinere ich die Bilder. Die Bilder, welche im Hochformat sind sehen einfach grausam aus, da sie stark vergrößert werden. Durch den folgenden Hack im <a href="http://www.w3.org/TR/2002/WD-CSS21-20020802/">css</a> werden die Bilder nicht mehr vergrößert. Dazu muss man die Datei <tt>nextgen-gallery/css/nggallery.css</tt> wie folgt ändern:</p>
+<pre lang="css">
+.ngg-imagebrowser img {
+    border: 1px solid #A9A9A9;
+    display: block !important;
+    margin: 10px auto;
+    max-width: 100%;
+    padding: 5px;
+}
+</pre>
+<p>
+Achtung: Die Änderung geht bei einen automatischen Update des Plugins verloren!</p>

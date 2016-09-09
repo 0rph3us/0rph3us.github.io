@@ -1,52 +1,95 @@
-baseurl      = "https://0rph3us.github.io"
+baseurl      = "http://test.0rpheus.net"
 languageCode = "de-DE"
-copyright    = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
 title        = "Michael im Netz"
-theme        = "redlounge"
-paginate     = 30
-rssuri       = "rss.xml"
+theme        = "hugo-future-imperfect"
+paginate     = 20
+preserveTaxonomyNames = true
+#rssuri       = "rss.xml"
+
+
+# parms.intro will appear on the sidebar
+# This is optional, but it's suggested to use
+[params.intro]
+    header    = "Michael im Netz"
+    paragraph = "Meine Gedanke zu den verschieden Dingen."
+    about     = "Mein Name ist Michael Rennecke. Ich bin Administrator, DevOps Mensch und Papa. Es Ich setzte mich immer wieder mit verschiedenen Dingen auseinander. Deswegen wird dieser Blog keinen roten Faden and Themen haben."
+
+
+[params.intro.pic]
+    src       = "/img/solaris-vs-linux.jpg"
+    # modify your picture in the shape of a circle or
+    # future imperfect's hexagonal shape
+    circle    = false
+    imperfect = true
+    width     = ""
+    alt       = "Halb Mensch, Halb Pinguin"
+
+
+# Adjust the amount of recent posts on the sidebar.
+# This is optional. The default value 5 will be used
+[params.postAmount]
+    sidebar = 5
+
+[[menu.main]]
+    name = "Blog"
+    url = "/blog"
+    identifier = "fa fa-newspaper-o"
+    weight = 1
+
 
 
 [[menu.main]]
     name = "Spickzettel"
-    weight = -90
-    identifier = "spickzettel"
-    url = "/spickzettel/"
+    weight = 2
+    identifier = "fa fa-linux"
+    url = "/spickzettel"
 
 
 [[menu.main]]
     name = "Links"
-    weight = -100
-    identifier = "links"
-    url = "/links/"
+    weight = 3
+    identifier = "fa fa-external-link"
+    url = "/links"
 
 
 [[menu.main]]
     name = "Über mich"
-    weight = -110
+    weight = 4
     identifier = "about"
-    url = "/about/"
+    url = "/about"
 
-
-[[menu.social]]
-    pre        = "<i class='fa fa-github'></i>"
-    url        = "https://github.com/0rph3us"
-    identifier = "github"
-    weight     = 30
-
-
-[[menu.social]]
-    pre        = "<i class='fa fa-twitterhack'></i>"
-    url        = "https://twitter.com/0rph3us"
-    identifier = "twitter"
-    weight     = 50
-
-
-[[menu.social]]
-    pre        = "<i class='fa fa-rss'></i>"
-    url        = "https://0rph3us.github.io/rss.xml"
-    identifier = "rss"
-    weight     = 100
+# Insert your username and the icon will apear on the page as long as
+# socialAppearAtTop or socialAppearAtBottom is set to true in the params area
+# The social media icons will appear on the sidebar
+[social]
+    github          = "0rph3us"
+    bitbucket       = ""
+    jsfiddle        = ""
+    codepen         = ""
+    foursquare      = ""
+    dribbble        = ""
+    deviantart      = ""
+    behance         = ""
+    flickr          = ""
+    instagram       = ""
+    youtube         = ""
+    vimeo           = ""
+    vine            = ""
+    medium          = ""
+    wordpress       = ""
+    tumblr          = ""
+    xing            = ""
+    linkedin        = ""
+    slideshare      = ""
+    stackoverflow   = ""
+    reddit          = ""
+    pinterest       = ""
+    googleplus      = ""
+    facebook        = ""
+    facebook_admin  = ""
+    twitter_domain  = ""
+    twitter         = "0rph3us"
+	email 			= ""
 
 
 [author]
@@ -72,9 +115,34 @@ rssuri       = "rss.xml"
 
 
 [params]
-    sidebartitle   = "Michael Rennecke"
-    sidebartagline = "Meine Gedanken zu Sicherheit, Linux und Random Stuff"
-    highlightStyle = "solarized_light"
-#    sidebarphoto   = "solaris-vs-linux.jpg"
-    Copyright      = 'Diese Seite ist unter der <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
+    # Sets the meta tag description, usually reserved for the main page
+    description          = "Meine Gedanken zu Sicherheit, Linux und verschiedenen Sachen. Powered by Hugo"
+    # This will appear on the top left of the navigation bar
+    navbarTitle          = "Michael Rennecke"
+    # Social media buttons that appear on the sidebar
+    socialAppearAtTop    = true
+    socialAppearAtBottom = true
+    # set this to the section name if section is not post
+    viewMorePostLink     = "/blog/"
+    copyright            = 'Diese Seite ist unter der <a href="//creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
+    
+# Optional Params
+    categoriesByCount    = true
+    includeReadingTime   = true
+    # The set of favicons used are based on the write-up from this link:
+    # https://github.com/audreyr/favicon-cheat-sheet
+    # Please see the favicon partial template for more information
+    loadFavicon          = false
+    faviconVersion       = ""
+
+    # Load custom CSS or JavaScript files. This replaces the deprecated params
+    # minifiedFilesCSS and minifiedFilesJS. The variable is an array so that you
+    # can load multiple files if necessary. You can also load the standard theme
+    # files by adding the value, "default".
+    # customCSS            = ["default", "/path/to/file"]
+    # customJS             = ["default", "/path/to/file"]
+
+    # Loading min files for exampleSite
+#    customCSS            = ["/css/main.min.css"]
+#    customJS = ["/js/main.min.js"]
 

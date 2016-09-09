@@ -1,0 +1,38 @@
+---
+type: post
+title: CF-Karten mounten
+date: 2010-09-07
+categories:
+- Linux
+tags:
+- blkid
+- Compact Flash
+- Debian
+- fstab
+- mount
+---
+<p>
+Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man <a href="http://de.wikipedia.org/wiki/CompactFlash">Compact Flash</a>-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen.</p>
+<pre lang="bash">
+rennecke@trantor ~ % blkid
+/dev/sda1: UUID="5C8CF5697CA93BD8" TYPE="ntfs"
+/dev/sda5: UUID="f1b2836f-81bf-4f75-9ae0-f2c284871891" TYPE="swap"
+/dev/sda6: LABEL="debian-root" UUID="c00a4da53-1763-42e1-878d-3e096cad760b" TYPE="ext4"
+/dev/sda7: UUID="60eca5b7-09ef-4b82-bf59-1a8360c8c6c1" TYPE="crypto_LUKS"
+/dev/mapper/home: UUID="6cbebba6-e725-4549-bafe-8809ff73f27f" TYPE="ext4"
+/dev/hda1: SEC_TYPE="msdos" LABEL="EOS_DIGITAL" TYPE="vfat"
+rennecke@trantor ~ % su
+Passwort:
+root@trantor /home/rennecke $ mkdir /media/flash
+</pre>
+<p>Nun weiß ich, dass meine CF-Karten das Device <tt>/dev/hda1</tt> haben. Nun füge ich die folgende Zeile der <tt>/etc/fstab</tt> hinzu:</p>
+<pre lang="config">
+/dev/hda1       /media/flash    auto        rw,user,noauto,exec     0       0
+</pre>
+<p>
+Nun kann man als  normaler User mittels</p>
+<pre lang="bash">
+rennecke@trantor ~ % mount /media/flash
+rennecke@trantor ~ % umount /media/flash
+</pre>
+<p>die CF-Karte mounten und abmounten. Alternativ kann man das ganz nun auch grafisch mounten. Wo man klicken muss hängt vom Window-Manager ab.</p>

@@ -1,0 +1,22 @@
+---
+type: post
+title: Update-Probleme bei Open Solaris
+date: 2010-02-04
+categories:
+- Solaris
+tags:
+- OpenSolaris
+- pkg
+status: publish
+type: post
+---
+<p>Mein neuer Blog ist noch nicht so lange online und ich arbeite noch daran. Deswegen kommt diese Meldung etwas verspätet. Ich konnte bei meinen Rechnern nicht auf Build 131 updaten. Der Fehler äußerte sich wie folgt:</p>
+<pre lang="bash"> root@walhalla Videos $ pkg install -q SUNWipkg</pre>
+<p>pkg: Angeforderter "install"-Vorgang würde sich auf Dateien auswirken, die im Live-Abbild nicht geändert werden können.<br />
+Versuchen Sie diesen Vorgang in einer alternativen Startumgebung erneut.<br />
+Der Grund sind "falsche" Pakte im <a href="http://pkg.opensolaris.org/contrib">contrib-Repository</a>. Diese Pakte haben einen nicht korrekten Verweis auf das Paket entire, welche Pakte das sind kann man wie folgt raus finden:</p>
+<pre lang="bash">root@walhalla Videos $ pkg contents -Ho pkg.name,action.raw -t depend | grep fmri=entire@ | cut -f1
+wine</pre>
+<p>Nun habe ich das entsprechnende Paket mit</p>
+<pre lang="bash">root@walhalla Videos $ pkg uninstall wine</pre>
+<p>destinstalliert. Dadnach ging das update ohne Probleme</p>

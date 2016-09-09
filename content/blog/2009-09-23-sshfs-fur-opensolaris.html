@@ -1,0 +1,65 @@
+---
+type: post
+title: sshfs für OpenSolaris
+date: 2009-09-23
+categories:
+- Solaris
+- Tools
+tags:
+- fuse
+- OpenSolaris
+- ssh
+- sshfs
+status: publish
+type: post
+---
+<p>Ich wollte mal endlich auch unter Open Solaris <a href="http://de.wikipedia.org/wiki/SSHFS">sshfs</a> haben, deswegen habe ich mich informiert wie man das anstellt. Infos findet man unter</p>
+<ul>
+<li><a href="http://www.opensolaris.org/os/project/fuse/">Projekt fuse</a></li>
+<li><a href="http://fuse.sourceforge.net/sshfs.html">Projekt sshfs</a></li>
+</ul>
+<h4>Vorarbeiten für Open Solaris</h4>
+<p>folgende Packte muss man installiert haben:</p>
+<ul>
+<li>SUNWgnome-common-devel</li>
+<li>sunstudioexpress</li>
+<li>SUNWmercurial</li>
+</ul>
+<h4>Installation von SUNWonbld</h4>
+<ul>
+<li>Packet für die eigene Architektur <a href="http://dlc.sun.com/osol/on/downloads/current/">hier</a> herunterladen
+<pre lang="bash">rennecke@trantor ~ $ bunzip2 SUNWonbld.i386.tar.bz2
+rennecke@trantor ~ $ tar xfv SUNWonbld.i386.tar  rennecke@trantor ~ $ pfexec /usr/sbin/pkgadd -d onbld SUNWonbld</pre>
+<p>Alternativ kann man auch das Packet <em>SUNWonbld</em> über <tt>pkg</tt> installieren</li>
+</ul>
+<h4>Pfad anpassen</h4>
+<ul>
+<li><tt>$ export PATH=/opt/onbld/bin:/opt/onbld/bin/i386:/opt/SunStudioExpress/bin:/usr/bin:/usr/sfw/bin:$PATH</tt></li>
+</ul>
+<h4>fuse installieren</h4>
+<pre lang="bash">rennecke@trantor ~ $ mkdir fuse; cd fuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/libfuse libfuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/fusefs fusefs
+rennecke@trantor fuse $ cd libfuse/
+rennecke@trantor libfuse $ make
+rennecke@trantor libfuse $ make install
+rennecke@trantor libfuse $ make pkg
+rennecke@trantor libfuse $ cd ../fusefs/kernel
+rennecke@trantor kernel $ make
+rennecke@trantor kernel $ make install
+rennecke@trantor kernel $ make pkg
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d packages SUNWfusefs
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d ../../libfuse/packages SUNWlibfuse </pre>
+<h4>sshfs installieren</h4>
+<ul>
+<li><a href="http://fuse.sourceforge.net/sshfs.html">Quellen von sshfs bei sourceforge runter laden</a></li>
+</ul>
+<pre lang="bash">rennecke@trantor fuse $ gunzip sshfs-fuse-2.2.tar.gz
+rennecke@trantor fuse $ tar xf sshfs-fuse-2.2.tar
+rennecke@trantor fuse $ cd sshfs-fuse-2.2
+rennecke@trantor sshfs-fuse-2.2 $ ./configure --prefix=/usr
+rennecke@trantor sshfs-fuse-2.2 $ make
+rennecke@trantor sshfs-fuse-2.2 $ pfexec make install</pre>
+<h4>sshfs benutzen</h4>
+<pre lang="bash">rennecke@trantor ~ $ sshfs rennecke@zeus:/home/rennecke /mnt</pre>
+<p>Es gibt auch eine Manpage zu <tt>sshfs</tt> ;-)</p>
