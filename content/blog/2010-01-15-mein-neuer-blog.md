@@ -1,9 +1,13 @@
 ---
-type: post
 title: Mein neuer Blog
-date: 2010-01-15
+author: Michael Rennecke
+type: post
+date: 2010-01-15T03:07:15+00:00
+url: /privat/mein-neuer-blog
 categories:
- - privat
-tags: []
+  - privat
+
 ---
-<p>Da ich bei <a href="http://www.sun.com/">Sun Microsystems</a> nicht mehr arbeite steht mir mein <a href="http://www.sun.com/">Blog</a> bei Sun nicht mehr zur Verfügung. 						Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.</p>
+Da ich bei [Sun Microsystems][1] nicht mehr arbeite steht mir mein [Blog][1] bei Sun nicht mehr zur Verfügung. Ich werde jetzt hier weiter schreiben und den ein oder anderen Eintrag portieren.
+
+ [1]: http://www.sun.com/
