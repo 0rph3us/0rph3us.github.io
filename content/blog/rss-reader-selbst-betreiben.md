@@ -153,6 +153,6 @@ folgende Ports (80 und 443) im Router freigegeben werden.
 [Tiny Tiny RSS]: http://tt-rss.org/
 [MySQL]: http://www.mysql.de/
 [Nginx]: http://nginx.org/
-[diesem Artikel]: {{< ref "2014-07-31-webserver-auf-dem-raspberry-pi-installieren.md" >}}
+[diesem Artikel]: {{< ref "webserver-auf-dem-raspberry-pi-installieren.md" >}}
 [aktuellste Version]: https://github.com/gothfox/Tiny-Tiny-RSS/releases
 [dieses Archiv]: https://github.com/mboinet/ttrss-mobile/archive/1.0-1.tar.gz

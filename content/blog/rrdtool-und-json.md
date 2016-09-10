@@ -35,8 +35,8 @@ Nach etwas Recherche im Netz, bin ich auch auf ein [Bug-Ticket] gestoßen, welch
 json-Export anspricht.
 
 
-[BMP085]: {{< ref "2014-10-17-bmp085-am-raspberry-pi.md" >}}
-[DTH22]: {{< ref "2014-10-14-dht22-am-raspberry-pi.md" >}}
+[BMP085]: {{< ref "bmp085-am-raspberry-pi.md" >}}
+[DTH22]: {{< ref "dht22-am-raspberry-pi.md" >}}
 [RRDtool]: http://oss.oetiker.ch/rrdtool/
 [Highcharts]: http://www.highcharts.com/
 [Bug-Ticket]: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=686825

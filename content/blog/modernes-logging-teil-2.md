@@ -48,4 +48,4 @@ Es wurde [Kibana 4.0.1] released. Diese Version hat ein paar Bugfixes und man au
 [Kibana]: http://www.elasticsearch.org/overview/kibana/
 [Repository von Elasticsearch]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
 [Repository]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html
-[letzten Beitrag über Logging]: {{< ref "2015-02-15-modernes-logging.md" >}}
+[letzten Beitrag über Logging]: {{< ref "modernes-logging.md" >}}

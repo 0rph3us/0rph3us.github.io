@@ -31,7 +31,7 @@ dtparam=spi=on
 [kurze Zusammenfassung]: http://raspberrypi.stackexchange.com/questions/27073/firmware-3-18-x-breaks-i2c-spi-audio-lirc-1-wire-e-g-dev-i2c-1-no-such-f
 [sehr Ausführliche auf raspberrypi.org]: http://www.raspberrypi.org/forums/viewtopic.php?p=675658#p675658
 [NRF24L01]: http://www.mikrocontroller.net/articles/NRF24L01_Tutorial
-[BMP085]: {{< ref "2014-10-17-bmp085-am-raspberry-pi.md" >}}
-[DHT22]: {{< ref "2014-10-14-dht22-am-raspberry-pi.md" >}}
+[BMP085]: {{< ref "bmp085-am-raspberry-pi.md" >}}
+[DHT22]: {{< ref "dht22-am-raspberry-pi.md" >}}
 [SPI (Serial Peripheral Interface)]: http://de.wikipedia.org/wiki/Serial_Peripheral_Interface
 [I²C-Bus]: http://de.wikipedia.org/wiki/I%C2%B2C

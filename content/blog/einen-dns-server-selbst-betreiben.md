@@ -193,6 +193,6 @@ Zonen. Das ganze ist recht selbsterklärend.
 [Zone]: http://de.wikipedia.org/wiki/Zone_%28DNS%29
 [Raspberry Pi]: http://www.raspberrypi.org/help/what-is-a-raspberry-pi/
 [Raspbian]: http://www.raspbian.org/
-[diesem Artikel]: {{< ref "2014-07-31-webserver-auf-dem-raspberry-pi-installieren.md" >}}
+[diesem Artikel]: {{< ref "webserver-auf-dem-raspberry-pi-installieren.md" >}}
 [Nginx]: http://nginx.org/
 [php-mcrypt]: http://php.net/manual/de/book.mcrypt.php

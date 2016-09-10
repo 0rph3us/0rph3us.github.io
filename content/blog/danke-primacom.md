@@ -16,4 +16,4 @@ Mein Bug-Ticket ist zwar nach wie vor unbearbeitet, aber ich habe jetzt wieder e
 IP. Den Blog lasse ich erst einmal auf github.
 
 
-[damals]: {{<ref "2015-02-09-hallo-github.md">}}
+[damals]: {{<ref "hallo-github.md">}}

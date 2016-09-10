@@ -167,4 +167,4 @@ Das es rsyslog auch für Windows gibt, kann man diesen Stack auch für Windows n
 [Mapping]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping.html
 [nicht analysieren]:http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-core-types.html
 [90 Tagen gelöscht]: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/mapping-ttl-field.html
-[2. Teil des Artikels]: {{< ref "2015-02-24-modernes-logging-teil-2.md" >}}
+[2. Teil des Artikels]: {{< ref "modernes-logging-teil-2.md" >}}
