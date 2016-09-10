@@ -3,7 +3,6 @@ title: Zertifikatfehler bei gmx
 author: Michael Rennecke
 type: post
 date: 2010-08-23T14:56:28+00:00
-url: /sonstiges/zertifikatfehler-bei-gmx
 categories:
   - sonstiges
 tags:

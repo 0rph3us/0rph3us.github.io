@@ -3,7 +3,6 @@ title: Probleme mit dem SunRay-Server
 author: Michael Rennecke
 type: post
 date: 2011-02-28T19:36:50+00:00
-url: /solaris/probleme-mit-dem-sunray-server
 categories:
   - Solaris
 tags:

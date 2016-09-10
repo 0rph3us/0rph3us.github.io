@@ -3,7 +3,6 @@ title: Richtfest einer Mensa in Halle
 author: Michael Rennecke
 type: post
 date: 2011-02-28T22:02:10+00:00
-url: /privat/richtfest-einer-mensa-in-halle
 categories:
   - privat
   - sonstiges

@@ -3,7 +3,6 @@ title: Junior System Architekt
 author: Michael Rennecke
 type: post
 date: 2011-03-06T11:09:02+00:00
-url: /privat/junior-system-architekt
 categories:
   - privat
 tags:

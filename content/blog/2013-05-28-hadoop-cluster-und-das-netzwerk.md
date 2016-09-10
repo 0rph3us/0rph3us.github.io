@@ -3,7 +3,6 @@ title: Hadoop Cluster und das Netzwerk
 author: Michael Rennecke
 type: post
 date: 2013-05-28T20:11:20+00:00
-url: /hpc/hadoop-cluster-und-das-netzwerk
 categories:
   - HPC
   - Linux

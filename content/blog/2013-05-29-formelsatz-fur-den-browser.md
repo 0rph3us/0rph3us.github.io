@@ -3,7 +3,6 @@ title: Formelsatz für den Browser
 author: Michael Rennecke
 type: post
 date: 2013-05-29T18:26:13+00:00
-url: /sonstiges/formelsatz-fur-den-browser
 categories:
   - sonstiges
 tags:

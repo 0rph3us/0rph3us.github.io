@@ -3,7 +3,6 @@ title: Mercurial
 author: Michael Rennecke
 type: post
 date: 2011-02-21T23:32:47+00:00
-url: /tools/mercurial
 categories:
   - Tools
 tags:

@@ -3,7 +3,6 @@ title: Was bringt Deduplikation?
 author: Michael Rennecke
 type: post
 date: 2010-04-27T19:09:07+00:00
-url: /solaris/was-bringt-deduplikation
 categories:
   - Solaris
 tags:

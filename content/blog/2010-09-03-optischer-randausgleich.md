@@ -3,7 +3,6 @@ title: Optischer Randausgleich
 author: Michael Rennecke
 type: post
 date: 2010-09-03T16:41:42+00:00
-url: /tools/optischer-randausgleich
 categories:
   - sonstiges
   - Tools

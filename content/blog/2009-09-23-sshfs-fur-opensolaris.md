@@ -3,7 +3,6 @@ title: sshfs für OpenSolaris
 author: Michael Rennecke
 type: post
 date: 2009-09-22T22:40:47+00:00
-url: /solaris/sshfs-fur-opensolaris
 categories:
   - Solaris
   - Tools

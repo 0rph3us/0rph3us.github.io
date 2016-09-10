@@ -3,7 +3,6 @@ title: Neues Logo für Iceweasel
 author: Michael Rennecke
 type: post
 date: 2010-08-16T13:27:19+00:00
-url: /sonstiges/neues-logo-fur-iceweasel
 categories:
   - Linux
   - sonstiges

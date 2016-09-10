@@ -3,7 +3,6 @@ title: korrekte Uhrzeit
 author: Michael Rennecke
 type: post
 date: 2010-04-13T06:10:40+00:00
-url: /solaris/korrekte-uhrzeit
 categories:
   - Solaris
   - Tools

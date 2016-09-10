@@ -3,7 +3,6 @@ title: Neuer OpenSolaris Build
 author: Michael Rennecke
 type: post
 date: 2010-07-19T10:00:09+00:00
-url: /solaris/neuer-opensolaris-build
 categories:
   - Solaris
 tags:

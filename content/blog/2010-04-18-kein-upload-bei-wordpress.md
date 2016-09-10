@@ -3,7 +3,6 @@ title: Kein Upload bei WordPress
 author: Michael Rennecke
 type: post
 date: 2010-04-18T08:19:09+00:00
-url: /sonstiges/kein-upload-bei-wordpress
 categories:
   - sonstiges
 tags:

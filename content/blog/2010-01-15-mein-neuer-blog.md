@@ -3,7 +3,6 @@ title: Mein neuer Blog
 author: Michael Rennecke
 type: post
 date: 2010-01-15T03:07:15+00:00
-url: /privat/mein-neuer-blog
 categories:
   - privat
 

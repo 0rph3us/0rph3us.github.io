@@ -6,7 +6,6 @@ date: 2010-09-07T18:34:51+00:00
 excerpt: |
   <p>
   Wie ihr gelesen habt, bin ich unter die Digitalfotografen gegangen. Nun weiß ich endlich wozu der CF-Slot in meinen Notebook gut ist. Da muss man <a href="http://de.wikipedia.org/wiki/CompactFlash">Compact Flash</a>-Karten hineinstecken und solche stecken in meiner Kamera. Das dumme ist nur, dass mein Debian die CF-Karten nicht automatisch mountet. Zuerst habe ich nachgesehen, welches Device die CF-Karten haben. Anschließend erstellt man ein Verzeichnis in das die CF-Karten gemountet werden sollen.</p>
-url: /linux/cf-karten-mounten
 categories:
   - Linux
 tags:

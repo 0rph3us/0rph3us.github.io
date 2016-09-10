@@ -3,7 +3,6 @@ title: Virtual Box-Clienten auf raw-Devices
 author: Michael Rennecke
 type: post
 date: 2010-02-08T21:18:16+00:00
-url: /solaris/virtual-box-clienten-auf-raw-devices
 categories:
   - Solaris
   - Tools

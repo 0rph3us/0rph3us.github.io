@@ -3,7 +3,6 @@ title: Briefvorlage mit LaTeX
 author: Michael Rennecke
 type: post
 date: 2011-07-30T19:26:59+00:00
-url: /privat/briefvorlage-mit-latex
 categories:
   - privat
   - Programmieren

@@ -23,7 +23,6 @@ excerpt: |
   <p>
   Noch ein Wort zum Schluss: Wann hört dieser Java-Wahnsinn aus? Wenn es Sun/Oracle nicht hinbekommt eine 64-Bit JRE zu bauen, welche auch Applets ausführt? Man kann es auch <a href="http://en.wikipedia.org/wiki/Quick-and-dirty">quick&dirty</a> lösen: Einfach den 32-Bit Müll mit in das 64-Bit Paket packen, so wie ich es händisch mache.
   </p>
-url: /solaris/java-applet-eine-sinnfreie-erfindung
 categories:
   - Solaris
 tags:

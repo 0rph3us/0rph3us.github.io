@@ -3,7 +3,6 @@ title: Die liebe Post Teil 2
 author: Michael Rennecke
 type: post
 date: 2010-01-17T13:46:15+00:00
-url: /privat/die-liebe-post-teil-2
 categories:
   - privat
 

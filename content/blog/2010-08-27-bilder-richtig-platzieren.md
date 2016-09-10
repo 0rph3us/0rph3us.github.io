@@ -3,7 +3,6 @@ title: 'LaTeX: Bilder an eine bestimmte Stelle platzieren'
 author: Michael Rennecke
 type: post
 date: 2010-08-27T11:31:17+00:00
-url: /tools/bilder-richtig-platzieren
 wp_jd_wp:
   - http://0rpheus.net/?p=3862
 wp_jd_target:

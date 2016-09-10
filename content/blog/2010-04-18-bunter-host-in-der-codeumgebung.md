@@ -3,7 +3,6 @@ title: bunter Host in der Codeumgebung
 author: Michael Rennecke
 type: post
 date: 2010-04-18T11:58:35+00:00
-url: /tools/bunter-host-in-der-codeumgebung
 categories:
   - sonstiges
   - Tools

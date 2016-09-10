@@ -3,7 +3,6 @@ title: Im SunStudio die STL nutzen
 author: Michael Rennecke
 type: post
 date: 2010-11-26T07:08:37+00:00
-url: /tools/im-sunstudio-die-stl-nutzen
 categories:
   - Programmieren
   - Tools

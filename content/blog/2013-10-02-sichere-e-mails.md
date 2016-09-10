@@ -3,7 +3,6 @@ title: Sichere E-Mails
 author: Michael Rennecke
 type: post
 date: 2013-10-02T14:27:36+00:00
-url: /sicherheit/sichere-e-mails
 categories:
   - Sicherheit
 tags:

@@ -3,7 +3,6 @@ title: mplayer für OpenSolaris
 author: Michael Rennecke
 type: post
 date: 2010-03-12T21:28:33+00:00
-url: /solaris/mplayer-fuer-opensolaris
 categories:
   - Solaris
 tags:

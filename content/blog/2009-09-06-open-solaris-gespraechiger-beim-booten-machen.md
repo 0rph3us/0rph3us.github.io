@@ -3,7 +3,6 @@ title: Open Solaris gesprächiger beim booten machen
 author: Michael Rennecke
 type: post
 date: 2009-09-05T22:16:15+00:00
-url: /solaris/open-solaris-gespraechiger-beim-booten-machen
 categories:
   - Solaris
 tags:

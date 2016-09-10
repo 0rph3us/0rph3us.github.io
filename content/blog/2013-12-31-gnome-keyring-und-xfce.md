@@ -3,7 +3,6 @@ title: Gnome-Keyring und Xfce
 author: Michael Rennecke
 type: post
 date: 2013-12-31T15:14:05+00:00
-url: /linux/gnome-keyring-und-xfce
 categories:
   - Linux
 tags:

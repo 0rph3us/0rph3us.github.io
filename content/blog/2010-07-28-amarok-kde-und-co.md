@@ -3,7 +3,6 @@ title: amarok, KDE und Co
 author: Michael Rennecke
 type: post
 date: 2010-07-28T07:53:37+00:00
-url: /solaris/amarok-kde-und-co
 wp_jd_wp:
   - http://0rpheus.net/?p=3092
 wp_jd_target:

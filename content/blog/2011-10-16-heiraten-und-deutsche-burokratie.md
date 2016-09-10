@@ -3,7 +3,6 @@ title: Heiraten und deutsche Bürokratie
 author: Michael Rennecke
 type: post
 date: 2011-10-16T08:51:54+00:00
-url: /privat/heiraten-und-deutsche-burokratie
 categories:
   - privat
 

@@ -3,7 +3,6 @@ title: wordpress
 author: Michael Rennecke
 type: post
 date: 2010-04-13T07:26:02+00:00
-url: /sonstiges/wordpress
 categories:
   - sonstiges
 tags:

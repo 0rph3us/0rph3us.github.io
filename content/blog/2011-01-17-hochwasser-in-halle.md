@@ -3,7 +3,6 @@ title: Hochwasser in Halle
 author: Michael Rennecke
 type: post
 date: 2011-01-17T22:21:59+00:00
-url: /sonstiges/hochwasser-in-halle
 categories:
   - sonstiges
 tags:

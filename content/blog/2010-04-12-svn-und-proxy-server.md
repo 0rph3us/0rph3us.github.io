@@ -3,7 +3,6 @@ title: svn und Proxy-Server
 author: Michael Rennecke
 type: post
 date: 2010-04-12T17:14:14+00:00
-url: /tools/svn-und-proxy-server
 categories:
   - Tools
 tags:

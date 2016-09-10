@@ -3,7 +3,6 @@ title: Cloud Computing
 author: Michael Rennecke
 type: post
 date: 2011-02-21T16:22:25+00:00
-url: /solaris/cloud-computing
 categories:
   - HPC
   - Linux

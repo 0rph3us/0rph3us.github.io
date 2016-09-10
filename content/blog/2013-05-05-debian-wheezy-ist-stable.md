@@ -3,7 +3,6 @@ title: Debian wheezy ist stable
 author: Michael Rennecke
 type: post
 date: 2013-05-05T10:13:59+00:00
-url: /linux/debian-wheezy-ist-stable
 categories:
   - Linux
 tags:

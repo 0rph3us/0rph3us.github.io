@@ -3,7 +3,6 @@ title: verschlüsseltes home automatisch mounten
 author: Michael Rennecke
 type: post
 date: 2011-03-25T20:14:07+00:00
-url: /linux/verschlusseltes-home-automatisch-mounten
 categories:
   - Linux
 tags:

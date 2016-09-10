@@ -3,7 +3,6 @@ title: Update Thunderbird
 author: Michael Rennecke
 type: post
 date: 2010-06-01T10:29:38+00:00
-url: /solaris/update-thunderbird
 categories:
   - Solaris
 tags:

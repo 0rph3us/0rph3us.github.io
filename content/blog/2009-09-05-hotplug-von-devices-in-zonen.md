@@ -3,7 +3,6 @@ title: Hotplug von Devices in Zonen
 author: Michael Rennecke
 type: post
 date: 2009-09-04T22:20:37+00:00
-url: /solaris/hotplug-von-devices-in-zonen
 categories:
   - Solaris
 tags:

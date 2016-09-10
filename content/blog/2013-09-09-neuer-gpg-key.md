@@ -3,7 +3,6 @@ title: Neuer GPG-Key
 author: Michael Rennecke
 type: post
 date: 2013-09-09T18:38:06+00:00
-url: /tools/neuer-gpg-key
 categories:
   - Sicherheit
   - Tools

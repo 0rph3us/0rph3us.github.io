@@ -3,7 +3,6 @@ title: Meine Canon EOS 40D
 author: Michael Rennecke
 type: post
 date: 2010-09-07T11:10:54+00:00
-url: /privat/meine-canon-eos-40d
 categories:
   - privat
   - sonstiges

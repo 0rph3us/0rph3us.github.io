@@ -3,7 +3,6 @@ title: Superlinearer Speedup
 author: Michael Rennecke
 type: post
 date: 2010-05-14T09:12:27+00:00
-url: /hpc/superlinearer-speedup
 categories:
   - HPC
 tags:

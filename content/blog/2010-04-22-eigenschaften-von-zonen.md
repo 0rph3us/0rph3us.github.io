@@ -3,7 +3,6 @@ title: Eigenschaften von Zonen
 author: Michael Rennecke
 type: post
 date: 2010-04-22T19:57:28+00:00
-url: /solaris/eigenschaften-von-zonen
 categories:
   - Solaris
 tags:

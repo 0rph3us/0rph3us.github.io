@@ -3,7 +3,6 @@ title: Tree Tab Style bei Firefox
 author: Michael Rennecke
 type: post
 date: 2011-01-08T11:58:31+00:00
-url: /tools/tree-tab-style-bei-firefox
 categories:
   - Tools
 tags:

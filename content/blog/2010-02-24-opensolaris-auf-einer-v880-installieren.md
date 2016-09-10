@@ -3,7 +3,6 @@ title: OpenSolaris auf einer V880 installieren
 author: Michael Rennecke
 type: post
 date: 2010-02-24T19:44:18+00:00
-url: /solaris/opensolaris-auf-einer-v880-installieren
 categories:
   - Solaris
 tags:

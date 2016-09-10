@@ -3,7 +3,6 @@ title: Sensoren mit Nagios abfragen
 author: Michael Rennecke
 type: post
 date: 2009-09-09T22:24:56+00:00
-url: /solaris/sensoren-mit-nagios-abfragen
 categories:
   - Solaris
 tags:

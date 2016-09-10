@@ -7,7 +7,6 @@ excerpt: |
   <p>
   <a href="http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome">zfs</a> hat den Ruf, dass es unzerstörbar ist. Ab und zu hört man, dass User xy sein zfs kaputt bekommen hat und meint, dass <a href="http://hub.opensolaris.org/bin/view/Community+Group+zfs/WebHome">zfs</a> nicht mehr kann als sein altes Dateisystem. Wenn man sich mal ansieht, was der User xy gemacht hat, dann bemerkt der aufmerksame <a href="http://www.systemhelden.com/">Systemheld</a>, dass man mit derartigen Attacken auch Enterprise Storage-Systeme im Wert von mehreren Millionen kaputt bekommt.
   </p>
-url: /solaris/wie-argere-ich-mein-zfs
 categories:
   - Solaris
 tags:

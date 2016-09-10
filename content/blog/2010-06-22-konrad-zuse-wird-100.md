@@ -7,7 +7,6 @@ excerpt: |
   <p>
   Der Vater des modernen Rechner würde heute 100 Jahre alt werden. Konrad Zuse verstarb am 1995 im Alter von 85 Jahren. Zu seiner größten Leistung zählt, meiner Meinung nach, die <a href="http://www.horst-zuse.homepage.t-online.de/z3.html">Z3</a>. Sie war der erste voll programmierbare, funktionsfähige und turingmächtige Digitalrechner der Erde. Die <a href="http://www.horst-zuse.homepage.t-online.de/z3.html">Z3</a> konnte ihr Programm von Lochstreifen lesen. Das unterschied sie von anderen Rechnern ihrer Zeit. 
   </p>
-url: /sonstiges/konrad-zuse-wird-100
 categories:
   - sonstiges
 tags:

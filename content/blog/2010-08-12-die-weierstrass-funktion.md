@@ -3,7 +3,6 @@ title: Die Weierstraß-Funktion
 author: Michael Rennecke
 type: post
 date: 2010-08-12T09:25:25+00:00
-url: /sonstiges/die-weierstrass-funktion
 categories:
   - sonstiges
 tags:

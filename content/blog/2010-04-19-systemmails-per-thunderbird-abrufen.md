@@ -3,7 +3,6 @@ title: Systemmails per Thunderbird abrufen
 author: Michael Rennecke
 type: post
 date: 2010-04-19T06:57:24+00:00
-url: /solaris/systemmails-per-thunderbird-abrufen
 categories:
   - Solaris
 tags:

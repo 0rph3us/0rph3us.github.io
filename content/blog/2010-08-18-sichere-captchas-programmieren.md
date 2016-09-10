@@ -7,7 +7,6 @@ excerpt: |
   <p>
   Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahlreiche fertige Varianten, auch für wordpress. Diese haben fast immer den Nachteil, dass sie <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a>, <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>, oder <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> benutzen. Persönlich habe ich eine Abneigung gegen <a href="http://de.wikipedia.org/wiki/JavaScript">JavaScript</a> und <a href="http://www.adobe.com/support/documentation/de/flash/">Flash</a>. <a href="http://www.w3.org/TR/WD-session-id">Sessions</a> lassen sich nicht immer nachträglich nutzen und man erzeugt serverseitig etwas Last. Fakt ist, dass ich keine Sessions mag! Das schlimmste an fertigen Captcha-Lösungen ist der zum Teil invalide html-Code. Ich möchte validen <a href="http://www.w3.org/TR/xhtml1/">xhtml 1.0 strict</a>-Code haben und das Captcha sollte in mein Design passen. Wenn man die ganzen Anforderungen erfüllt haben möchte, so muss man wohl oder übel sein Captcha selbst programmieren.
   </p>
-url: /tools/sichere-captchas-programmieren
 wp_jd_wp:
   - http://0rpheus.net/?p=3682
 wp_jd_target:

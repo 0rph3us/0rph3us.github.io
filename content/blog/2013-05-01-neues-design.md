@@ -3,7 +3,6 @@ title: Neues Design
 author: Michael Rennecke
 type: post
 date: 2013-05-01T10:13:02+00:00
-url: /sonstiges/neues-design
 categories:
   - sonstiges
 

@@ -3,7 +3,6 @@ title: Nutzer anlegen im Active Directory
 author: Michael Rennecke
 type: post
 date: 2010-10-27T14:32:10+00:00
-url: /tools/windows_nutzer_anlegen
 categories:
   - Programmieren
   - sonstiges

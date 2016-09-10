@@ -3,7 +3,6 @@ title: partielle Sonnenfinsternis
 author: Michael Rennecke
 type: post
 date: 2011-01-04T09:35:42+00:00
-url: /privat/partielle-sonnenfinsternis
 categories:
   - privat
   - sonstiges

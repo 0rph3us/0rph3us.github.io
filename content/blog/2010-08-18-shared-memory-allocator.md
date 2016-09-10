@@ -3,7 +3,6 @@ title: Shared memory Allocator mit der STL
 author: Michael Rennecke
 type: post
 date: 2010-08-18T17:10:30+00:00
-url: /programmieren/shared-memory-allocator
 wp_jd_wp:
   - http://0rpheus.net/?p=3802
 wp_jd_target:

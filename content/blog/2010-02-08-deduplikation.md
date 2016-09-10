@@ -3,7 +3,6 @@ title: Deduplikation
 author: Michael Rennecke
 type: post
 date: 2010-02-08T12:55:43+00:00
-url: /solaris/deduplikation
 categories:
   - Solaris
 tags:

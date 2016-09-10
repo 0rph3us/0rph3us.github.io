@@ -3,7 +3,6 @@ title: Ich bin Vater
 author: Michael Rennecke
 type: post
 date: 2013-09-30T15:44:35+00:00
-url: /privat/ich-bin-vater
 categories:
   - privat
 

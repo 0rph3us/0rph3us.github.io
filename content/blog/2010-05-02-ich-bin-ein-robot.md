@@ -3,7 +3,6 @@ title: Ich bin ein robot
 author: Michael Rennecke
 type: post
 date: 2010-05-02T12:17:04+00:00
-url: /sonstiges/ich-bin-ein-robot
 categories:
   - sonstiges
 tags:

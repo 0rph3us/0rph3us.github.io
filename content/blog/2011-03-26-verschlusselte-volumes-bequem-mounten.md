@@ -3,7 +3,6 @@ title: verschlüsselte Volumes bequem mounten
 author: Michael Rennecke
 type: post
 date: 2011-03-26T12:51:27+00:00
-url: /linux/verschlusselte-volumes-bequem-mounten
 categories:
   - Linux
   - Programmieren

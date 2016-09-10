@@ -6,7 +6,6 @@ date: 2010-09-17T09:04:31+00:00
 excerpt: |
   <p>
   Ich habe es endlich geschafft: ein Update auf <strong><a href="http://openindiana.org/">OpenIndiana</a></strong> Im gro&szlig;en und ganzen kann man es einigerma&szlig;en benutzen. Die Lokalisierung ist mehr als schlecht. Das meiste kann man irgendwie fixen</p>
-url: /solaris/openindiana-und-erste-erfahrungen
 categories:
   - Solaris
 tags:

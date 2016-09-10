@@ -3,7 +3,6 @@ title: BigData mit Hypertable
 author: Michael Rennecke
 type: post
 date: 2011-12-11T16:50:31+00:00
-url: /datenbank/bigdata-mit-hypertable
 categories:
   - Datenbank
 tags:

@@ -3,7 +3,6 @@ title: Mehrkern oder nicht Mehrkern, dass ist die Frage
 author: Michael Rennecke
 type: post
 date: 2010-06-21T18:25:59+00:00
-url: /hpc/mehrkern-oder-nicht-mehrkern-dass-ist-die-frage
 categories:
   - HPC
 tags:

@@ -3,7 +3,6 @@ title: Bilder mit css nicht vergrößern
 author: Michael Rennecke
 type: post
 date: 2011-03-01T13:13:39+00:00
-url: /programmieren/bilder-mit-css-nicht-vergroessern
 categories:
   - Programmieren
 tags:

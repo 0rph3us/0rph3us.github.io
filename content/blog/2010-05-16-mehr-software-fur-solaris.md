@@ -14,7 +14,6 @@ excerpt: |
     
     Wenn man <a href="http://www.blastwave.org/">Blastwave</a> bzw. <a href="http://www.opencsw.org/">OpenCSW</a> noch nicht nutzt, dann kann man <a href="http://csw.informatik.uni-erlangen.de/csw/README">hier</a> nachlesen, wie man sich diese Packages zugänglich macht. Auf jeden Fall sollte man in der  <tt>/opt/csw/etc/pkgutil.conf</tt> nachsehen, ob <a href="http://csw.informatik.uni-erlangen.de/csw/unstable/">http://csw.informatik.uni-erlangen.de/csw/unstable/</a> als mirror eingetragen ist.
     </p>
-url: /solaris/mehr-software-fur-solaris
 categories:
   - Solaris
 tags:

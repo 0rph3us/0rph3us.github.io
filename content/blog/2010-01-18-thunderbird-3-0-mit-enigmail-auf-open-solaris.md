@@ -3,7 +3,6 @@ title: Thunderbird 3.0 mit Enigmail auf Open Solaris
 author: Michael Rennecke
 type: post
 date: 2010-01-18T21:10:54+00:00
-url: /solaris/thunderbird-3-0-mit-enigmail-auf-open-solaris
 categories:
   - Solaris
 tags:

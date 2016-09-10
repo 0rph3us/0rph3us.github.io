@@ -10,7 +10,6 @@ excerpt: |
   <p>
   Dazu muss man nur die Matrix B transponiert abspeichern. Wenn man jetzt duch die Spalten der Matrix B geht hat man eine h&ouml;here Lokalit&auml;t und damit weniger Cachemisses.
   </p>
-url: /hpc/dein-freund-der-cachemiss
 categories:
   - HPC
 tags:

@@ -3,7 +3,6 @@ title: Erste Erfahrung mit Build 142
 author: Michael Rennecke
 type: post
 date: 2010-07-19T17:57:49+00:00
-url: /solaris/erste-erfahrung-mit-build-142
 jd_tweet_this:
   - yes
 wp_jd_wp:

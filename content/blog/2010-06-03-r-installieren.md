@@ -3,7 +3,6 @@ title: R, die Statistiksoftware installieren
 author: Michael Rennecke
 type: post
 date: 2010-06-03T07:58:42+00:00
-url: /solaris/r-installieren
 categories:
   - Solaris
 tags:

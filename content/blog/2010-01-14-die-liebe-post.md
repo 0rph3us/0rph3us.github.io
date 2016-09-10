@@ -3,7 +3,6 @@ title: Die liebe Post
 author: Michael Rennecke
 type: post
 date: 2010-01-14T09:08:21+00:00
-url: /privat/die-liebe-post
 categories:
   - privat
 

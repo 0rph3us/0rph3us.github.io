@@ -3,7 +3,6 @@ title: noSQL Datenbanken
 author: Michael Rennecke
 type: post
 date: 2011-05-18T20:48:39+00:00
-url: /tools/nosql-datenbanken
 categories:
   - Linux
   - Tools

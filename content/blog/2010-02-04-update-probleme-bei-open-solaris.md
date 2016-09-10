@@ -3,7 +3,6 @@ title: Update-Probleme bei Open Solaris
 author: Michael Rennecke
 type: post
 date: 2010-02-04T05:32:56+00:00
-url: /solaris/update-probleme-bei-open-solaris
 categories:
   - Solaris
 tags:

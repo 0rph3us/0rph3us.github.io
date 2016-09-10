@@ -3,7 +3,6 @@ title: Platz sparen mit zfs
 author: Michael Rennecke
 type: post
 date: 2010-10-22T08:16:19+00:00
-url: /solaris/platz-sparen-mit-zfs
 categories:
   - Solaris
 tags:

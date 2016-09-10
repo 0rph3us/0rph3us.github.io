@@ -3,7 +3,6 @@ title: Zonen retten
 author: Michael Rennecke
 type: post
 date: 2010-02-19T11:21:26+00:00
-url: /solaris/zonen-retten
 categories:
   - Solaris
 tags:

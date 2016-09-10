@@ -3,7 +3,6 @@ title: Letzte Rettung von MySQL
 author: Michael Rennecke
 type: post
 date: 2011-08-08T20:35:44+00:00
-url: /tools/letzte-rettung-von-mysql
 categories:
   - Datenbank
   - Linux

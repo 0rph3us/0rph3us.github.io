@@ -3,7 +3,6 @@ title: Eine Zone in 10 Minuten
 author: Michael Rennecke
 type: post
 date: 2010-04-15T05:39:40+00:00
-url: /solaris/eine-zone-in-10-minuten
 categories:
   - Solaris
 tags:
