@@ -1,10 +1,10 @@
-baseurl      = "http://test.0rpheus.net"
+baseurl      = "https://blog.0rpheus.net"
 languageCode = "de-DE"
 title        = "Michael im Netz"
 theme        = "hugo-future-imperfect"
 paginate     = 20
 preserveTaxonomyNames = true
-#rssuri       = "rss.xml"
+rssuri      = "rss.xml"
 
 
 # parms.intro will appear on the sidebar
@@ -96,23 +96,11 @@ preserveTaxonomyNames = true
     name = "Michael Rennecke"
 
 
-[permalinks]
-    # Optional. Change the permalink format for the 'post' content type.
-    # The format shown here is the same one Jekyll/Octopress uses by default.
-    #post = "/blog/:year/:month/:day/:title/"
-    post = "/:section/:year/:month/:title/"
-
-
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  series = "series"
-
-
-[indexes]
-    category = "categories"
-    tag      = "tags"
-
+#[permalinks]
+#    # Optional. Change the permalink format for the 'post' content type.
+#    # The format shown here is the same one Jekyll/Octopress uses by default.
+#    #post = "/blog/:year/:month/:day/:title/"
+#    blog = "/:section/:year/:month/:title/"
 
 [params]
     # Sets the meta tag description, usually reserved for the main page
@@ -127,7 +115,7 @@ preserveTaxonomyNames = true
     copyright            = 'Diese Seite ist unter der <a href="//creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> lizenziert.'
     
 # Optional Params
-    categoriesByCount    = true
+    categoriesByCount    = false
     includeReadingTime   = true
     # The set of favicons used are based on the write-up from this link:
     # https://github.com/audreyr/favicon-cheat-sheet
