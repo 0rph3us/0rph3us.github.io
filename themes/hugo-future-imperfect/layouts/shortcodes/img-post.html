@@ -54,15 +54,15 @@
 
     {{ if eq $type "left" }}
         <span class="image left">
-            <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" />
+            <a class="sb" href="{{ $path }}/{{ $file }}" title="{{ $alt }}" data-lightbox="{{ .Site.Title }}"><img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" /></a>
         </span>
     {{ else if eq $type "right" }}
         <span class="image right">
-            <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" />
+            <a class="sb" href="{{ $path }}/{{ $file }}" title="{{ $alt }}" data-lightbox="{{ .Site.Title }}"><img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" /></a>
         </span>
     {{ else }}
         <p><span class="image center-image">
-            <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" />
+            <a class="sb" href="{{ $path }}/{{ $file }}" title="{{ $alt }}" data-lightbox="{{ .Site.Title }}"><img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}" /></a>
         </span></p>
     {{ end }}
 {{ end }}

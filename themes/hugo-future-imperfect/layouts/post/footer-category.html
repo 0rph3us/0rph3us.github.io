@@ -1,3 +1,4 @@
+<div class="stats">
 <ul class="stats">
     {{ if isset .Params "categories" }}
         {{ $categoryCount := (len .Params.categories) }}
@@ -42,3 +43,25 @@
         <li><a href='{{ add ($.Scratch.Get "categoryUrl") . | urlize }}'>{{ . }}</a></li>
     {{ end }}
 </ul>
+
+<ul class="stats">
+    {{- if isset .Params "tags" -}}
+        {{- $tagCount := (len .Params.tags) -}}
+        <!--
+            Set the title before displaying the tags associated with this post.
+        -->
+            <li>
+               {{- $.Scratch.Set "TagUrl" "/tags/" -}}
+               {{- if gt $tagCount 1 -}}
+                   Tags
+               {{- else -}}
+                   Tag
+               {{- end -}}
+            </li>
+    {{- end -}}
+    <!-- Display the tags associated with this post -->
+    {{- range .Params.tags -}}
+        <li><a href='{{ add ($.Scratch.Get "TagUrl") . | urlize }}'>{{ . }}</a></li>
+    {{- end -}}
+</ul>
+</div>

@@ -89,6 +89,14 @@ article.post footer .stats {
     opacity: 0.70;
 }
 
+div.stats ul {
+    margin:  0 0 0 0;
+}
+
+div .stats {
+    margin: 0 0 2em 0
+}
+
     article.post p,
     article.post h2,
     article.post h3,
@@ -223,6 +231,7 @@ blockquote p {
 .s-btn.stumbleupon { background: #EB4823; }
 .s-btn.reddit      { background: #ff5700; }
 .s-btn.email       { background: #444444; }
+.s-btn.whatsapp    { background: #4dc247; }
 
 .s-btn.twitter:hover     { background: #4c9ad6 }
 .s-btn.google-p:hover { background: #c64333; }
