@@ -19,15 +19,9 @@ Wie findet [zfs][3] eigenlich die doppelten Blöcke? In der default-Einstellung 
 
 Das ganze aktiviert man wie folgt:
 
-<div class="wp_syntax">
-  <table>
-    <tr>
-      <td class="code">
-        <pre class="bash" style="font-family:monospace;">rennecke<span style="color: #000000; font-weight: bold;">@</span>walhalla ~ $  pfexec zfs <span style="color: #000000; font-weight: bold;">set</span> <span style="color: #007800;">dedup</span>=on rpool</pre>
-      </td>
-    </tr>
-  </table>
-</div>
+``` sh
+rennecke@walhalla ~ $  pfexec zfs set dedup=on rpool
+```
 
  [1]: http://www.marioranieri.at/
  [2]: http://de.wikipedia.org/wiki/Microsoft_Windows

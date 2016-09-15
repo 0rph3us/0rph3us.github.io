@@ -4,6 +4,7 @@ Description = ""
 Tags = ["Fail"]
 date = "2015-09-16T05:48:57+02:00"
 title = "Stromtankstellen in Halle"
+type = "post"
 
 +++
 

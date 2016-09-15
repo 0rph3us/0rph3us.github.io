@@ -28,79 +28,60 @@ folgende Packte muss man installiert haben:
 
 #### Installation von SUNWonbld
 
-  * Packet für die eigene Architektur [hier][4] herunterladen <div class="wp_syntax">
-      <table>
-        <tr>
-          <td class="code">
-            <pre class="bash" style="font-family:monospace;">rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor ~ $ <span style="color: #c20cb9; font-weight: bold;">bunzip2</span> SUNWonbld.i386.tar.bz2
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor ~ $ <span style="color: #c20cb9; font-weight: bold;">tar</span> xfv SUNWonbld.i386.tar  rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor ~ $ pfexec <span style="color: #000000; font-weight: bold;">/</span>usr<span style="color: #000000; font-weight: bold;">/</span>sbin<span style="color: #000000; font-weight: bold;">/</span>pkgadd <span style="color: #660033;">-d</span> onbld SUNWonbld</pre>
-          </td>
-        </tr>
-      </table>
-    </div>
-    
-    Alternativ kann man auch das Packet _SUNWonbld_ über <tt>pkg</tt> installieren
+Packet für die eigene Architektur [hier][4] herunterladen
+
+``` sh
+rennecke@trantor ~ $ bunzip2 SUNWonbld.i386.tar.bz2
+rennecke@trantor ~ $ tar xfv SUNWonbld.i386.tar  rennecke@trantor ~ $ pfexec /usr/sbin/pkgadd -d onbld SUNWonbld
+```
+
+Alternativ kann man auch das Packet _SUNWonbld_ über `pkg` installieren
 
 #### Pfad anpassen
 
-  * <tt>$ export PATH=/opt/onbld/bin:/opt/onbld/bin/i386:/opt/SunStudioExpress/bin:/usr/bin:/usr/sfw/bin:$PATH</tt>
+``` sh
+$ export PATH=/opt/onbld/bin:/opt/onbld/bin/i386:/opt/SunStudioExpress/bin:/usr/bin:/usr/sfw/bin:$PATH
+```
 
 #### fuse installieren
 
-<div class="wp_syntax">
-  <table>
-    <tr>
-      <td class="code">
-        <pre class="bash" style="font-family:monospace;">rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor ~ $ <span style="color: #c20cb9; font-weight: bold;">mkdir</span> fuse; <span style="color: #7a0874; font-weight: bold;">cd</span> fuse
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ hg clone ssh:<span style="color: #000000; font-weight: bold;">//</span>anon<span style="color: #000000; font-weight: bold;">@</span>hg.opensolaris.org<span style="color: #000000; font-weight: bold;">/</span>hg<span style="color: #000000; font-weight: bold;">/</span>fuse<span style="color: #000000; font-weight: bold;">/</span>libfuse libfuse
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ hg clone ssh:<span style="color: #000000; font-weight: bold;">//</span>anon<span style="color: #000000; font-weight: bold;">@</span>hg.opensolaris.org<span style="color: #000000; font-weight: bold;">/</span>hg<span style="color: #000000; font-weight: bold;">/</span>fuse<span style="color: #000000; font-weight: bold;">/</span>fusefs fusefs
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ <span style="color: #7a0874; font-weight: bold;">cd</span> libfuse<span style="color: #000000; font-weight: bold;">/</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor libfuse $ <span style="color: #c20cb9; font-weight: bold;">make</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor libfuse $ <span style="color: #c20cb9; font-weight: bold;">make</span> <span style="color: #c20cb9; font-weight: bold;">install</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor libfuse $ <span style="color: #c20cb9; font-weight: bold;">make</span> pkg
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor libfuse $ <span style="color: #7a0874; font-weight: bold;">cd</span> ..<span style="color: #000000; font-weight: bold;">/</span>fusefs<span style="color: #000000; font-weight: bold;">/</span>kernel
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor kernel $ <span style="color: #c20cb9; font-weight: bold;">make</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor kernel $ <span style="color: #c20cb9; font-weight: bold;">make</span> <span style="color: #c20cb9; font-weight: bold;">install</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor kernel $ <span style="color: #c20cb9; font-weight: bold;">make</span> pkg
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor kernel $ pfexec <span style="color: #000000; font-weight: bold;">/</span>usr<span style="color: #000000; font-weight: bold;">/</span>sbin<span style="color: #000000; font-weight: bold;">/</span>pkgadd <span style="color: #660033;">-d</span> packages SUNWfusefs
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor kernel $ pfexec <span style="color: #000000; font-weight: bold;">/</span>usr<span style="color: #000000; font-weight: bold;">/</span>sbin<span style="color: #000000; font-weight: bold;">/</span>pkgadd <span style="color: #660033;">-d</span> ..<span style="color: #000000; font-weight: bold;">/</span>..<span style="color: #000000; font-weight: bold;">/</span>libfuse<span style="color: #000000; font-weight: bold;">/</span>packages SUNWlibfuse</pre>
-      </td>
-    </tr>
-  </table>
-</div>
+``` sh
+rennecke@trantor ~ $ mkdir fuse; cd fuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/libfuse libfuse
+rennecke@trantor fuse $ hg clone ssh://anon@hg.opensolaris.org/hg/fuse/fusefs fusefs
+rennecke@trantor fuse $ cd libfuse/
+rennecke@trantor libfuse $ make
+rennecke@trantor libfuse $ make install
+rennecke@trantor libfuse $ make pkg
+rennecke@trantor libfuse $ cd ../fusefs/kernel
+rennecke@trantor kernel $ make
+rennecke@trantor kernel $ make install
+rennecke@trantor kernel $ make pkg
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d packages SUNWfusefs
+rennecke@trantor kernel $ pfexec /usr/sbin/pkgadd -d ../../libfuse/packages SUNWlibfuse
+```
 
 #### sshfs installieren
 
-  * [Quellen von sshfs bei sourceforge runter laden][3]
+[Quellen von sshfs bei sourceforge runter laden][3]
 
-<div class="wp_syntax">
-  <table>
-    <tr>
-      <td class="code">
-        <pre class="bash" style="font-family:monospace;">rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ <span style="color: #c20cb9; font-weight: bold;">gunzip</span> sshfs-fuse-<span style="color: #000000;">2.2</span>.tar.gz
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ <span style="color: #c20cb9; font-weight: bold;">tar</span> xf sshfs-fuse-<span style="color: #000000;">2.2</span>.tar
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor fuse $ <span style="color: #7a0874; font-weight: bold;">cd</span> sshfs-fuse-<span style="color: #000000;">2.2</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor sshfs-fuse-<span style="color: #000000;">2.2</span> $ .<span style="color: #000000; font-weight: bold;">/</span>configure <span style="color: #660033;">--prefix</span>=<span style="color: #000000; font-weight: bold;">/</span>usr
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor sshfs-fuse-<span style="color: #000000;">2.2</span> $ <span style="color: #c20cb9; font-weight: bold;">make</span>
-rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor sshfs-fuse-<span style="color: #000000;">2.2</span> $ pfexec <span style="color: #c20cb9; font-weight: bold;">make</span> <span style="color: #c20cb9; font-weight: bold;">install</span></pre>
-      </td>
-    </tr>
-  </table>
-</div>
+``` sh
+rennecke@trantor fuse $ gunzip sshfs-fuse-2.2.tar.gz
+rennecke@trantor fuse $ tar xf sshfs-fuse-2.2.tar
+rennecke@trantor fuse $ cd sshfs-fuse-2.2
+rennecke@trantor sshfs-fuse-2.2 $ ./configure --prefix=/usr
+rennecke@trantor sshfs-fuse-2.2 $ make
+rennecke@trantor sshfs-fuse-2.2 $ pfexec make install
+```
+
 
 #### sshfs benutzen
 
-<div class="wp_syntax">
-  <table>
-    <tr>
-      <td class="code">
-        <pre class="bash" style="font-family:monospace;">rennecke<span style="color: #000000; font-weight: bold;">@</span>trantor ~ $ sshfs rennecke<span style="color: #000000; font-weight: bold;">@</span>zeus:<span style="color: #000000; font-weight: bold;">/</span>home<span style="color: #000000; font-weight: bold;">/</span>rennecke <span style="color: #000000; font-weight: bold;">/</span>mnt</pre>
-      </td>
-    </tr>
-  </table>
-</div>
+```
+rennecke@trantor ~ $ sshfs rennecke@zeus:/home/rennecke /mnt
+```
 
-Es gibt auch eine Manpage zu <tt>sshfs</tt> 😉
+Es gibt auch eine Manpage zu `sshfs` 😉
 
  [1]: http://de.wikipedia.org/wiki/SSHFS
  [2]: http://www.opensolaris.org/os/project/fuse/

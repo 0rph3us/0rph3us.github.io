@@ -1,5 +1,4 @@
 ---
-type: post
 title: Acrobat Reader für Debian wheezy
 date: 2013-05-13
 categories:

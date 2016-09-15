@@ -1,18 +1,18 @@
 ---
 type: post
 title: "Modernes Logging"
-date: 2015-02-15
+date: "2015-02-15T22:37:08+01:00"
 description: ""
 categories:
-  - 'linux'
-  - 'tools'
+  - linux
+  - tools
 tags:
-  - 'logging'
-  - 'elasticsearch'
-  - 'kibana'
-  - 'syslog'
-  - 'rsyslog'
-  - 'logstash'
+  - logging
+  - elasticsearch
+  - kibana
+  - syslog
+  - rsyslog
+  - logstash
 ---
 
 
