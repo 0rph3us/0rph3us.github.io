@@ -4,7 +4,6 @@ title        = "Michael im Netz"
 theme        = "hugo-future-imperfect"
 paginate     = 20
 preserveTaxonomyNames = true
-rssuri      = "rss.xml"
 
 
 # parms.intro will appear on the sidebar
