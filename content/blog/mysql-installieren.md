@@ -20,14 +20,14 @@ Dateizugriffe für Prozesse bzw. Anwendungen überwacht. So wurde aktiv verhinde
 seine Dateien an die neue Stelle schreiben konnte. Zum Schluss bin ich mit `dmesg -T` Apparmor 
 auf die Schliche gekommen. Die Fehler sehen wie folgt aus:
 
-```
+{{< highlight sh >}}
 ...
 [Fri Sep  9 23:03:36 2016] audit: type=1400 audit(1473455017.174:68): apparmor="DENIED" operation="mknod" profile="/usr/sbin/mysqld" name="/srv/mysql/data/0rpheus.lower-test" pid=13709 comm="mysqld" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
 [Fri Sep  9 23:03:45 2016] audit: type=1400 audit(1473455026.698:69): apparmor="DENIED" operation="open" profile="/usr/sbin/mysqld" name="/srv/mysql/data/" pid=13710 comm="mysqld" requested_mask="r" denied_mask="r" fsuid=0 ouid=111
 [Fri Sep  9 23:05:48 2016] audit: type=1400 audit(1473455149.078:70): apparmor="DENIED" operation="open" profile="/usr/sbin/mysqld" name="/srv/mysql/data/" pid=13719 comm="mysqld" requested_mask="r" denied_mask="r" fsuid=0 ouid=111
 [Fri Sep  9 23:06:10 2016] audit: type=1400 audit(1473455171.034:71): apparmor="DENIED" operation="mkdir" profile="/usr/sbin/mysqld" name="/srv/mysql/data/" pid=13724 comm="mysqld" requested_mask="c" denied_mask="c" fsuid=0 ouid=0
 ...
-```
+{{< /highlight >}}
 
 ## MySQL mit eigener Verzeichnisstruktur installieren
 
@@ -37,7 +37,7 @@ zum Nutzter *root* werden, alternativ schreibt man `sudo` vor jedes Komando.
 
 Zuerst installiert man ganz klassisch MySQL mittels `apt install mysql-server`.
 Ich habe mich für die folgende Verzeichnisstruktur entschieden:
-```
+{{< highlight sh >}}
 # tree  /srv/mysql/
 /srv/mysql/
 ├── binlog
@@ -45,14 +45,14 @@ Ich habe mich für die folgende Verzeichnisstruktur entschieden:
 ├── log
 ├── relay
 └── tmp
-```
+{{< /highlight >}}
 Diese habe ich klassisch mit `mkdir -p` angelegt. Der Nutzer *mysql* bekommt die Verzeichnisse mit dem 
 Komando `chown -R mysql:mysql /srv/mysql/` übertragen. Als nächstes kommt die Hauptarbeit,
 eine Konfiguration für MySQL. Bei Ubuntu 16.04 befindet sich diese unter `/etc/mysql/mysql.conf.d/mysqld.cnf`
 
 #### Beispielkonfiguration
 
-```
+{{< highlight ini >}}
 [mysqld_safe]
 socket          = /var/run/mysqld/mysqld.sock
 nice            = 0
@@ -228,14 +228,14 @@ innodb_log_file_size           = 256M                                # Bigger me
 # wsrep_sst_method               = mysqldump                           # SST method (initial full sync): mysqldump, rsync, rsync_wan, xtrabackup-v2
 # wsrep_sst_auth                 = sst:secret                          # Username/password for sst user
 # wsrep_sst_receive_address      = 192.168.0.1                         # Our address where to receive SST
-```
+{{< /highlight >}}
 
 ## Apparmor konfigurieren
 
 Ich mache es mir einfach und erlaube MySQL, dass es unter `/srv/mysql/` alles machen darf. Dazu habe die Datei
 `/etc/apparmor.d/local/usr.sbin.mysqld` mit dem folgenden Inhalt erstellt:
 
-```
+{{< highlight sh >}}
 # Site-specific additions and overrides for usr.sbin.mysqld.
 # For more details, please see /etc/apparmor.d/local/README.
 
@@ -243,8 +243,7 @@ Ich mache es mir einfach und erlaube MySQL, dass es unter `/srv/mysql/` alles ma
 
 /run/mysqld/mysql.sock.lock rw,
 /var/run/mysqld/mysql.sock.lock rw,
-```
-
+{{< /highlight >}}
 
 ## Installation abschließen
 
@@ -256,10 +255,9 @@ Ich mache es mir einfach und erlaube MySQL, dass es unter `/srv/mysql/` alles ma
 
 
 Man kann sich nun als Nutzer *root* mit dem Passwort aus Schritt 4 einloggen:
-```
+{{< highlight sh >}}
 mysql -uroot -p
-```
-
+{{< /highlight >}}
 
 [MySQL]: https://www.mysql.de/
 [Ubuntu 16.04]: https://wiki.ubuntuusers.de/Xenial_Xerus/
