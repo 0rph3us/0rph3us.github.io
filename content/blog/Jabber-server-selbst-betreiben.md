@@ -25,16 +25,17 @@ der Entwickler einbinden. Ich nehme auch bei `jessie` als
 Distribution `whezzy`, weil [TLS] mit mit den `jessie` Paketen
 nicht funktioniert.
 
-``` sh
+{{< highlight sh >}}
 # zu root werden bzw. sudo vor echo und tee schreiben
 echo deb http://packages.prosody.im/debian wheezy main | tee -a /etc/apt/sources.list.d/prosody.list
 wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add -
-```
+{{< /highlight >}}
+
 Nun kann man Prosody installieren
 
-``` sh
+{{< highlight sh >}}
 apt-get update && apt-get install prosody lua-sec-prosody
-```
+{{< /highlight >}}
 Das Paket `lua-sec-prosody` wird für TLS benötigt. Wenn man die aktuellste Version
 installieren möchte, dann muss man das `prosody-0.10` statt `prosody` installieren.
 Ich habe bis jetzt keine Probleme mit den nighly Builds gehabt.
@@ -52,13 +53,13 @@ registrieren kann. Dazu muss die Zeile `allow_registration = false;`
 auf `allow_registration = true;` geändert werden. Einen Nutzer
 legt so an:
 
-``` sh
+{{< highlight sh >}}
 prosodyctl adduser foo@jabber.0rpheus.net
-```
+{{< /highlight >}}
 
 Als nächstes wird die Domain konfiguriert.
 
-```
+{{< highlight cfg >}}
 VirtualHost "jabber.0rpheus.net"
         enabled = true
 
@@ -73,7 +74,7 @@ VirtualHost "jabber.0rpheus.net"
                 dhparam     = "/etc/prosody/certs/dh-4096.pem";
                 protocol    = "tlsv1_2";
         }
-```
+{{< /highlight >}}
 
 Die globalen SSL Einstellungen können entweder entfernt oder
 ebenfalls mit denselben Werten nochmal befüllt werden.
@@ -83,16 +84,16 @@ um mit alten Clients kompatibel zu sein. Wer das nicht möchte bzw.
 nicht braucht, kann die Passwörter gehashed abspeichern.
 Dazu muss eine zusätzliche Zeile hinzugefügt werden.
 
-``` lua
+{{< highlight lua >}}
 authentication = "internal_hashed"
-```
+{{< /highlight >}}
 
 Um die Änderungen zu aktivieren, muss der Prosody Dienst
 einmal durchgestartet werden.
 
-```sh
+{{< highlight sh >}}
 systemctl restart prosody
-```
+{{< /highlight >}}
 
 Folgende Portfreischaltungen werden für einen reibungslosen Betrieb noch benötigt.
 
