@@ -6,7 +6,7 @@ $(function(){
         //duration of the top scrolling animation (in ms)
         scroll_top_duration = 700,
         //grab the "back to top" link
-        $backToTop = $('#back-to-top');
+        $backToTop = $('#nach-oben');
         $shareNav = $('#share-navigation');
 
     //hide or show the "back to top" link

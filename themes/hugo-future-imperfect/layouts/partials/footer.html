@@ -1,5 +1,5 @@
             </div>
-        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        <a id="nach-oben" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
         <!-- Scripts -->
 
         <!-- Keeping the deprecated param, minifiedFilesJS, for now. The new param
@@ -22,7 +22,6 @@
             <script src="/js/util.js"></script>
             <script src="/js/main.js"></script>
             <script src="/js/backToTop.js"></script>
-            <script src="/js/highlight.pack.js"></script>
         {{ end }}
 
         {{ if ne ($.Scratch.Get "jsFiles") false }}
@@ -33,8 +32,6 @@
             {{ end }}
         {{ end }}
 
-            <!-- This is called by default since this theme uses highlight.js -->
-            <script>hljs.initHighlightingOnLoad();</script>
             <!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
     </body>
 </html>
