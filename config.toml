@@ -5,6 +5,8 @@ theme        = "hugo-future-imperfect"
 paginate     = 20
 preserveTaxonomyNames = true
 
+pygmentsuseclasses = true
+
 
 # parms.intro will appear on the sidebar
 # This is optional, but it's suggested to use
