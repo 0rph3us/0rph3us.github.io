@@ -32,7 +32,7 @@ Stellen einfacher konfigurieren lässt als Nginx.
 
 kopiere das folgende Script in eine Datei und führe es aus:
 
-``` sh
+{{< highlight bash >}}
 #!/bin/bash
 
 # names of latest versions of each package
@@ -108,7 +108,7 @@ DEFINE="-fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-secu
 echo "All done."
 echo "become root and type: "
 echo "  cp build/haproxy-${HAPROXY_VERSION}/haproxy /usr/local/sbin"
-```
+{{< / highlight >}}
 
 ## Konfiguration
 
@@ -116,7 +116,7 @@ Hier ist eine Beispielkonfiguration. Wobei die SSL Konfiguration sehr
 paranoid ist.
 
 
-```
+{{< highlight yaml >}}
 global
         maxconn 100
         ssl-default-bind-ciphers CHACHA20+EECDH:AES256+EECDH
@@ -172,8 +172,8 @@ backend stats
         stats realm Haproxy\ Statistics
         stats uri /haproxy/stats
         stats refresh 30s
+{{< / highlight >}}
 
-```
 
 [Raspbian]: https://www.raspbian.org/
 [OpenSSL]: https://www.openssl.org/
