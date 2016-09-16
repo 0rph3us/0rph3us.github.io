@@ -1,6 +1,6 @@
 +++
 author = ""
-categories = ["Linux"]
+categories = ["Linux", "Datenbank"]
 date = "2016-09-13T23:06:41+02:00"
 description = ""
 featured = ""
