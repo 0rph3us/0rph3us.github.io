@@ -136,7 +136,8 @@
                 {{ end }}
             </ul>
 
-            <p class="copyright">&copy; {{ with .Site.Params.copyright }}{{ . | safeHTML }}{{ else }} {{.Now.Format "2006"}}. All rights reserved.{{end}} - Powered by <a href="//gohugo.io" target="_blank">Hugo</a> - Design: <a href="//html5up.net" target="_blank">HTML5 UP</a></p>
+            <p class="copyright">{{ with .Site.Params.imprint }}{{ . | safeHTML }} &mdash; {{ end }} <a href="//gohugo.io" target="_blank">Powered by Hugo</a> &mdash; <a href="//html5up.net" target="_blank">Design by HTML5 UP</a></p>
+            <p class="copyright">&copy; {{ with .Site.Params.copyright }}{{ . | safeHTML }}{{ else }} {{.Now.Format "2006"}}. All rights reserved.{{end}}</p>
         </section>
 
 </section>
