@@ -4,7 +4,7 @@ title: "Passwortmanager"
 date: 2015-02-11
 description: ""
 categories:
- - 'sicherheit'
+ - 'Sicherheit'
 tags:
  - 'Security'
  - 'linux'

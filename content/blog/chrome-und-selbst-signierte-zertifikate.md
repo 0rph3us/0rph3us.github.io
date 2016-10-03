@@ -4,7 +4,7 @@ title: "Chrome und selbst signierte Zertifikate"
 date: 2014-08-29
 description: ""
 categories: 
-  - sicherheit
+  - Sicherheit
   - privat
 tags:
   - chrome
