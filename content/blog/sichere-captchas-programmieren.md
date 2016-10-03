@@ -1,5 +1,5 @@
 ---
-title: "Sichere" Captchas programmieren
+title:  „Sichere“ Captchas programmieren
 author: Michael Rennecke
 type: post
 date: 2010-08-18T12:34:59+00:00
@@ -21,170 +21,91 @@ Man möchte manchmal Teile seiner Seite mittels Captchas schützen. Es gibt zahl
 
 Wenn ich auf Sessions verzichten möchte, so muss ich die Lösung des Captcha mit auf die Seite schreiben. Das kann man in einen _nicht sichtbaren_ Feld machen. Damit man dieses Feld nicht so einfach auslesen kann, schreibt man einen [Hash][5] hinein bzw. man verschlüsselt den Inhalt. 
 
-<div class="wp_syntax">
-  <table>
-    <tr>
-      <td class="line_numbers">
-        <pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-</pre>
-      </td>
-      
-      <td class="code">
-        <pre class="php" style="font-family:monospace;"><span style="color: #990000;">define</span><span style="color: #009900;">&#40;</span><span style="color: #990000;">KEY</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">"Ich bin ein Key"</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #990000;">define</span><span style="color: #009900;">&#40;</span>IV<span style="color: #339933;">,</span> <span style="color: #0000ff;">"KlyV6gxG3MOPzlfuj8azF6sKKTnsdsiN58i0zjHA0EU="</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-<span style="color: #000000; font-weight: bold;">function</span> <span style="color: #990000;">Crypt</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$plaintext</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-    <span style="color: #000088;">$td</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mcrypt_module_open</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'rijndael-256'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'ofb'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">''</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #000088;">$iv</span> <span style="color: #339933;">=</span> <span style="color: #990000;">base64_decode</span><span style="color: #009900;">&#40;</span>IV<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #000088;">$ks</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mcrypt_enc_get_key_size</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-     <span style="color: #666666; font-style: italic;">/* Create key */</span>
-    <span style="color: #000088;">$key</span> <span style="color: #339933;">=</span> <span style="color: #990000;">substr</span><span style="color: #009900;">&#40;</span><span style="color: #990000;">md5</span><span style="color: #009900;">&#40;</span><span style="color: #990000;">KEY</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;"></span><span style="color: #339933;">,</span> <span style="color: #000088;">$ks</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #666666; font-style: italic;">/* Intialize encryption */</span>
-    <span style="color: #990000;">mcrypt_generic_init</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #339933;">,</span> <span style="color: #000088;">$key</span><span style="color: #339933;">,</span> <span style="color: #000088;">$iv</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #666666; font-style: italic;">/* Encrypt data */</span>
-    <span style="color: #000088;">$encrypted</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mcrypt_generic</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #339933;">,</span> <span style="color: #000088;">$plaintext</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #666666; font-style: italic;">/* Terminate decryption handle and close module */</span>
-    <span style="color: #990000;">mcrypt_generic_deinit</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #990000;">mcrypt_module_close</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #b1b100;">return</span> <span style="color: #990000;">base64_encode</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$encrypted</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #000000; font-weight: bold;">function</span> Decrypt<span style="color: #009900;">&#40;</span><span style="color: #000088;">$chiffre</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-    <span style="color: #000088;">$td</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mcrypt_module_open</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'rijndael-256'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">''</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">'ofb'</span><span style="color: #339933;">,</span> <span style="color: #0000ff;">''</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #000088;">$iv</span> <span style="color: #339933;">=</span> <span style="color: #990000;">base64_decode</span><span style="color: #009900;">&#40;</span>IV<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #000088;">$ks</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mcrypt_enc_get_key_size</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-     <span style="color: #666666; font-style: italic;">/* Create key */</span>
-    <span style="color: #000088;">$key</span> <span style="color: #339933;">=</span> <span style="color: #990000;">substr</span><span style="color: #009900;">&#40;</span><span style="color: #990000;">md5</span><span style="color: #009900;">&#40;</span><span style="color: #990000;">KEY</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">,</span> <span style="color: #cc66cc;"></span><span style="color: #339933;">,</span> <span style="color: #000088;">$ks</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #000088;">$chiffre</span> <span style="color: #339933;">=</span> <span style="color: #990000;">base64_decode</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$chiffre</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #990000;">mcrypt_generic_init</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #339933;">,</span> <span style="color: #000088;">$key</span><span style="color: #339933;">,</span> <span style="color: #000088;">$iv</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #000088;">$plaintext</span> <span style="color: #339933;">=</span> <span style="color: #990000;">mdecrypt_generic</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #339933;">,</span> <span style="color: #000088;">$chiffre</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #990000;">mcrypt_generic_deinit</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #990000;">mcrypt_module_close</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$td</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-&nbsp;
-    <span style="color: #b1b100;">return</span> <span style="color: #000088;">$plaintext</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #000000; font-weight: bold;">function</span> draw_captcha_form<span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-    <span style="color: #339933;">.....</span>
-    <span style="color: #000088;">$time</span> <span style="color: #339933;">=</span> <span style="color: #990000;">time</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">+</span> <span style="color: #cc66cc;">60</span><span style="color: #339933;">*</span><span style="color: #cc66cc;">30</span><span style="color: #339933;">;</span>
-    <span style="color: #000088;">$captchaSolution</span> <span style="color: #339933;">=</span> <span style="color: #0000ff;">"Test"</span>
-    <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\t</span><span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\t</span>Bitte Captcha lösen&lt;br/&gt;<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">;</span>
-    <span style="color: #666666; font-style: italic;">// erzeuge ein Captcha</span>
-    <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\t</span><span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">;</span>
-    <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\t</span>"</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">'
-&lt;input name="captvalue" id="captvalue" value="" size="40" tabindex="4" type="text"/&gt;'</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">;</span>
-    <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\t</span>"</span>    <span style="color: #339933;">.</span> <span style="color: #0000ff;">'
-&lt;input name="captcha" value="'</span><span style="color: #339933;">.</span> <span style="color: #990000;">Crypt</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$time</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">"~"</span> <span style="color: #339933;">.</span> <span style="color: #000088;">$captchaSolution</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">"~"</span> <span style="color: #339933;">.</span> <span style="color: #000088;">$REMOTE_ADDR</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">'" type="hidden"/&gt;'</span> <span style="color: #339933;">.</span> <span style="color: #0000ff;">"<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">;</span>
-<span style="color: #009900;">&#125;</span>
-&nbsp;
-<span style="color: #000000; font-weight: bold;">function</span> check_post<span style="color: #009900;">&#40;</span>$<span style="color: #009900;">&#41;</span> <span style="color: #009900;">&#123;</span>
-    <span style="color: #339933;">....</span>
-    <span style="color: #000088;">$captcha</span> <span style="color: #339933;">=</span> <span style="color: #000088;">$_POST</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'captvalue'</span><span style="color: #009900;">&#93;</span><span style="color: #339933;">;</span>
-    <span style="color: #990000;">list</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$timeOld</span><span style="color: #339933;">,</span> <span style="color: #000088;">$secret</span><span style="color: #339933;">,</span> <span style="color: #000088;">$addr</span><span style="color: #009900;">&#41;</span> <span style="color: #339933;">=</span> <span style="color: #990000;">explode</span><span style="color: #009900;">&#40;</span><span style="color: #0000ff;">'~'</span><span style="color: #339933;">,</span>Decrypt<span style="color: #009900;">&#40;</span><span style="color: #000088;">$_POST</span><span style="color: #009900;">&#91;</span><span style="color: #0000ff;">'captcha'</span><span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span>
-    <span style="color: #339933;">....</span>
-    <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$timeOld</span> <span style="color: #339933;">&lt;=</span> <span style="color: #990000;">time</span><span style="color: #009900;">&#40;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-            <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"Deine Zeit ist abgelaufen"</span><span style="color: #339933;">;</span>
-            <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span>
-    <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$addr</span> <span style="color: #339933;">!=</span> <span style="color: #000088;">$REMOTE_ADDR</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-            <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"Falsche IP"</span><span style="color: #339933;">;</span>
-            <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span>
-    <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span><span style="color: #000088;">$secret</span> <span style="color: #339933;">!=</span> <span style="color: #000088;">$captcha</span><span style="color: #009900;">&#41;</span><span style="color: #009900;">&#123;</span>
-            <span style="color: #b1b100;">echo</span> <span style="color: #0000ff;">"Falsches Captcha"</span><span style="color: #339933;">;</span>
-            <span style="color: #b1b100;">return</span><span style="color: #339933;">;</span>
-    <span style="color: #009900;">&#125;</span>
-    <span style="color: #339933;">.....</span>
-<span style="color: #009900;">&#125;</span></pre>
-      </td>
-    </tr>
-  </table>
-</div>
+{{< highlight php >}}
+<?php
+
+define(KEY, "Ich bin ein Key");
+define(IV, "KlyV6gxG3MOPzlfuj8azF6sKKTnsdsiN58i0zjHA0EU=");
+
+function Crypt($plaintext){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    /* Intialize encryption */
+    mcrypt_generic_init($td, $key, $iv);
+
+    /* Encrypt data */
+    $encrypted = mcrypt_generic($td, $plaintext);
+
+    /* Terminate decryption handle and close module */
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return base64_encode($encrypted);
+}
+
+function Decrypt($chiffre){
+    $td = mcrypt_module_open('rijndael-256', '', 'ofb', '');
+
+    $iv = base64_decode(IV);
+    $ks = mcrypt_enc_get_key_size($td);
+
+     /* Create key */
+    $key = substr(md5(KEY), 0, $ks);
+
+    $chiffre = base64_decode($chiffre);
+    mcrypt_generic_init($td, $key, $iv);
+    $plaintext = mdecrypt_generic($td, $chiffre);
+
+    mcrypt_generic_deinit($td);
+    mcrypt_module_close($td);
+
+    return $plaintext;
+}
+
+function draw_captcha_form(){
+    .....
+
+    $time = time() + 60*30;
+    $captchaSolution = "Test"
+    echo "\t\n\tBitte Captcha lösen<br/>\n";
+    // erzeuge ein Captcha
+    echo "\t\n";
+    echo "\t" . '<input name="captvalue" id="captvalue" value="" size="40" tabindex="4" type="text"/>' . "\n";
+    echo "\t" . '<input name="captcha" value="'. Crypt($time . "~" . $captchaSolution . "~" . $REMOTE_ADDR) . '" type="hidden"/>' . "\n";
+}
+
+function check_post($) {
+    ....
+
+    $captcha = $_POST['captvalue'];
+    list($timeOld, $secret, $addr) = explode('~',Decrypt($_POST['captcha']));
+    
+    ....
+
+    if($timeOld <= time()){
+            echo "Deine Zeit ist abgelaufen";
+            return;
+    }
+    if($addr != $REMOTE_ADDR){
+            echo "Falsche IP";
+            return;
+    }
+    if($secret != $captcha){
+            echo "Falsches Captcha";
+            return;
+    }
+
+    .....
+}
+?>
+{{< /highlight >}}
+
 
 Mit diesen Ideen kann man sich nun sein eigenes Captcha zusammen bauen. Ich generiere z.B. Matheaufgaben.
 
