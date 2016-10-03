@@ -11,6 +11,16 @@
     <atom:link href="https://0rph3us.github.io/rss/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Ich bin umgezogen</title>
+      <link>https://blog.0rpheus.net/</link>
+      <pubDate>Thu, 03 Oct 2016 19:44:06 +0200</pubDate>
+      
+      <guid>https://blog.0rpheus.net/</guid>
+      <description>Mein Blog ist umgezogen. Ihr findet ihn nun unter https://blog.0rpheus.net/
+</description>
+    </item>
+
+    <item>
       <title>LibreSSL und HAProxy</title>
       <link>https://0rph3us.github.io/post/2015/12/libressl-und-haproxy/</link>
       <pubDate>Mon, 28 Dec 2015 22:37:08 +0100</pubDate>
