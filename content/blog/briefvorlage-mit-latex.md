@@ -5,7 +5,7 @@ type: post
 date: 2011-07-30T19:26:59+00:00
 categories:
   - privat
-  - Programmieren
+  - programmieren
   - sonstiges
 tags:
   - Brief

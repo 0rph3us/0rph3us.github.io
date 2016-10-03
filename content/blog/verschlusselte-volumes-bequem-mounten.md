@@ -5,7 +5,7 @@ type: post
 date: 2011-03-26T12:51:27+00:00
 categories:
   - Linux
-  - Programmieren
+  - programmieren
 tags:
   - crypt
   - crypttab

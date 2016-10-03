@@ -4,8 +4,8 @@ title: "Einen DNS Server selbst betreiben"
 date: 2015-03-18
 description: ""
 categories: 
- - linux
- - 'raspberry pi'
+ - Linux
+ - 'Raspberry Pi'
 tags:
  - Linux
  - DNS

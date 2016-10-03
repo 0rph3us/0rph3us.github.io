@@ -4,7 +4,7 @@ title: "Probleme beim Upgrade auf den Pi 2"
 date: 2015-03-11
 description: ""
 categories: 
- - 'raspberry pi'
+ - 'Raspberry Pi'
 tags:
  - I²C
  - spi

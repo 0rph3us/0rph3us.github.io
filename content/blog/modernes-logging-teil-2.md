@@ -4,8 +4,8 @@ title: "Modernes Logging Teil 2"
 date: 2015-02-24
 description: ""
 categories:
-  - 'linux'
-  - 'tools'
+  - 'Linux'
+  - 'Tools'
 tags:
  - 'elasticsearch'
  - 'kibana'

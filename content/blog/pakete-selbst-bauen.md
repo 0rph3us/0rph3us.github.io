@@ -4,7 +4,7 @@ title: "Pakete selbst bauen"
 date: 2015-02-19
 description: ""
 categories:
- - 'linux'
+ - 'Linux'
 tags:
  - 'deb'
  - 'fpm'

@@ -7,7 +7,6 @@ categories:
  - 'Sicherheit'
 tags:
  - 'Security'
- - 'linux'
  - 'GnuPG'
  - 'git'
   

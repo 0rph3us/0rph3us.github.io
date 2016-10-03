@@ -6,7 +6,7 @@ description: ""
 categories:
   - Raspberry Pi
   - Elektronik
-  - Programmieren
+  - programmieren
 tags:
   - python
   - BMP085

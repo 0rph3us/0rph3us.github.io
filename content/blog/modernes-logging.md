@@ -4,8 +4,8 @@ title: "Modernes Logging"
 date: "2015-02-15T22:37:08+01:00"
 description: ""
 categories:
-  - linux
-  - tools
+  - Linux
+  - Tools
 tags:
   - logging
   - elasticsearch

@@ -4,8 +4,8 @@ title: "Neuer Blog"
 date: 2014-07-17
 description: ""
 categories: 
-  - tools
-  - linux
+  - Tools
+  - Linux
 tags: [juvia, jekyll, bootstrap, git, Raspberry Pi]
 ---
 

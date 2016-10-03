@@ -4,8 +4,8 @@ title: "Skripte parallelisieren"
 date: 2015-02-12
 description: ""
 categories:
- - 'linux'
- - 'tools'
+ - 'Linux'
+ - 'Tools'
 tags:
  - 'parallel'
  - 'bash'

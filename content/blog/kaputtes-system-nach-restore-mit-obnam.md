@@ -4,8 +4,8 @@ title: "kaputtes System nach Restore mit Obnam"
 date: 2015-04-20
 description: ""
 categories: 
- - 'linux'
- - 'tools'
+ - 'Linux'
+ - 'Tools'
 tags:
  - 'obnam'
  - 'backup'
