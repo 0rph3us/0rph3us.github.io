@@ -14,8 +14,9 @@ tags = ["ssh"]
 +++
 
 [SSH] gilt als sichere Möglichkeit, um sich auf einen entfernten Server zu verbinden. Man sollte aber
-wissen, dass bei SSH, wie bei HTTPS, verschiedene Algorithmen für die Verschlüsselung gibt. Einige
-davon gelten sicherer als andere. Mit Hilfe von `nmap` kann man schnell sehen, welche Algorithmen
+wissen, dass bei es SSH, wie bei HTTPS, verschiedene Algorithmen für die Verschlüsselung gibt. Einige
+davon gelten sicherer als andere. Ich bin in Sachen Sicherheit etwas vorsichtiger, aus diesem Grund 
+härte ich auch den SSH-Server. Mit Hilfe von `nmap` kann man schnell sehen welche Algorithmen
 erlaubt sind:
 
 {{< highlight sh >}}
