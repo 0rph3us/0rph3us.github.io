@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/0rpheus
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.0rpheus.net
+  * I am 0rpheus (https://keybase.io/0rpheus) on keybase.
+  * I have a public key with fingerprint ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01202e5a21e0b44856747d2601d3ae565379ccf87d31e9f171d806c46b35db2be5ac0a",
+            "fingerprint": "eccf44f5ecb2e2065404e029617eb806ee75c6fe",
+            "host": "keybase.io",
+            "key_id": "617eb806ee75c6fe",
+            "kid": "010156fb466fed5cd0a526b505693ec8ed51c33ea856190cbf3c914e1f39435cd7ec0a",
+            "uid": "e2f9ad2f229196bd2c9e453382b0d719",
+            "username": "0rpheus"
+        },
+        "service": {
+            "hostname": "blog.0rpheus.net",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1475666259,
+    "expire_in": 157680000,
+    "prev": "432571ac158b7c2055693da7960241d0e02bf45daf840e5715c7a35879aa4380",
+    "seqno": 13,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+owFtUntQVFUcXkAwYBahVh1EIq9jQ7bAfZ17965hoYyTGf6BBo6i632cC5fHvhdQ
+EjK1eExTTdm4kZsC1lACrgpDyKNC5TXIYEmEDOUUCJIYlmINQecS/tf558z5zvd9
+v+/3O+c9rZ/G14cvbAyYcl2d8+mZEDSpf97aVYAJFukAZizAsuDCBrMl6HCashQJ
+M2I4QeIkBDxJQFygaQNgWJqVSAYnJIqHgAEUy4mibGAlioCcTLCEZMAZkWYECkgC
+KSCpiPOYHpMVczq0W+2K2YlsIdLQtAygKJCQxBlA4zTESY4hWCggAwhZIDIyRMIM
+i0NVoHAC74CxigVh6GBaiPc//Me5cQIwskAzCJWAKOE8IBkB4IDhKCgaEEaIFAV5
+1BHB4aIgUyJH0JCQKY6mEJ+F/+V2LdhBUuZ4iZRJkiM4RpBIkYM0oCgDKeASS3Aq
+0QHtZj4HqsXt1gzocmCH9BgCcxURqnNVG1kkCNmW9NhFVqwZOpHcarc4LaIlG91m
+OJ1Wh1FVOw9YVXoeFEyLRiZBMUtolEiRC+0OxWLGjARiik5FdSZoFjAMQwJOj8F8
+q2KHJkVlAJYx4GipdWAusqQpEqSxBC8SwCCwIokDdTASz3IMTtKEhKPXEGQaSLxs
+oHEIWAKILE8BA8vxPE0ZcEztzWa2IHMKBeXTkalDSTfzTpcdYoeCSnxXL9H4+GoC
+/H3VX6YJCgx9/PUyJ0I1N+72EY9sD87W3fecoDBd9ycTez48uiI+wxSzXdNz+Grs
+cMvWtsG46yPnbqcN3Hw1te6zxtMNdYkJR0Mu1V6cXHWONeZEnXlat2f5MsEUF9m8
+ZmtiYvmlolNV12YezY5GVHTOv7PrenKb32velZ7Xl90JqdZdnPWvDLwdsHZbUabu
+3oRvaJ/uVHnu3JFNZ+oH05uW6hXJ2G6Je8o2vSJz5s6Qp3wOzGRF65c0rfyjJjDR
+naFl7EcifurZ7OoNbq96MsT4omfycmdJf39Y31irocQbltLdte8ku7za5hke3X86
+7se761oiNNq1HbOvFAdNB5YWjRlN1bqTDRHXPv3r4c+/v6Dxv+/Nry5za9oSkm6M
+lX6TKn1XdGXiwVBx+I637Gl5vVMjad1lt2Jazg+6vev2H49OSfrK1VCozNx898uO
+4u9h/vEvvG6bsed8R0Fz0uRU6/Sb/d6YDd3vb1vf/LU7fsfGChCl34eVHvMjI1uv
+1DCeLR1Kx9LKkJ34S9EbLjwRPv7yPHa59pfG+NiRAb/VA2E/nFjfHJwbTU4njEvf
+Mtsfzh9u4COb2nXD2oE3DtZ3JQdfqKhqe6YtNSal4LneX3M671GNO2tHn/1b8/bu
+Vckfp4aXjc9puypr1iiZhP1Y4Aeg3L2pZShq4+46n6l/mL3ag0EKvdd29qPfunsK
+P4etY1vyguufT/kX
+=R7bm
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/0rpheus
+
+==================================================================
