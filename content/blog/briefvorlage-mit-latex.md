@@ -14,7 +14,9 @@ tags:
   - Telefon
 
 ---
-Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefon. Aus diesem Grund wollte ich in meiner <img src='http://s0.wp.com/latex.php?latex=%5CLaTeX&#038;bg=ffffff&#038;fg=000000&#038;s=0' alt='\LaTeX' title='\LaTeX' class='latex' />-Vorlage für meine Briefe beide Nummern stehen haben. Die [KOMA-Skript][1] Pakte können von Haus aus, nur eine Telefonnummer, deswegen habe ich meine Vorlage, welche ich von [meet-unix][2] habe, wie folgt angepasst. 
+Ich bin vor kurzem umgezogen und bin inzwischen Besitzer eines Festnetztelefons. Aus diesem Grund wollte ich in meiner LaTeX-Vorlage
+für meine Briefe beide Nummern stehen haben. Die [KOMA-Skript][1] Pakte können von Haus aus nur eine Telefonnummer, deswegen
+habe ich meine Vorlage, welche ich von [meet-unix][2] habe, wie folgt angepasst.
 
 ``` tex
 \ProvidesFile{letter_options.lco}[letter-class-option file]
@@ -113,8 +115,7 @@ So sieht nun ein Beipieldokument aus:
 \end{document}
 ```
 
-Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar, die meine Vorlage noch verbessern 😉 Wie das aussieht kann man [hier][3] sehen
+Ich hoffe ich konnte allen helfen, die ein ähnliches Problem haben. Ich bin für Anmerkungen dankbar, die meine Vorlage noch verbessern 😉
 
  [1]: http://developer.berlios.de/projects/koma-script3/
  [2]: http://meet-unix.org/
- [3]: /uploads/test.pdf
