@@ -12,8 +12,8 @@ pygmentsuseclasses = true
 # This is optional, but it's suggested to use
 [params.intro]
     header    = "Michael im Netz"
-    paragraph = "Meine Gedanke zu den verschieden Dingen."
-    about     = "Mein Name ist Michael Rennecke. Ich bin Administrator, DevOps Mensch und Papa. Es Ich setzte mich immer wieder mit verschiedenen Dingen auseinander. Deswegen wird dieser Blog keinen roten Faden and Themen haben."
+    paragraph = "Meine unsortierten Gedanken"
+    about     = "Mein Name ist Michael Rennecke. Ich bin Administrator, DevOps Mensch und Papa. Dieser Blog wird sicherlich keinen roten Faden haben, da ich mich immer wieder mit unterschiedlichen Sachen beschäftige."
 
 
 [params.intro.pic]
