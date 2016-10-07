@@ -7,10 +7,9 @@ categories:
   - Sicherheit
   - privat
 tags:
-  - chrome
+  - Chrome
   - SSL
-  - zertifikat
-  - Security
+  - Zertifikat
 ---
 
 

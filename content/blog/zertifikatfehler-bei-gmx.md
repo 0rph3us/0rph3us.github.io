@@ -8,7 +8,7 @@ categories:
 tags:
   - gmx
   - mediacenter
-  - zertifikat
+  - Zertifikat
 
 ---
 Ich habe mich heute früh mit meinem thunderbird und icedove herumgeärgert, weil ich Zertifikatfehler von gmx bekommen habe. Ich dachte erst, dass es das [pop3][1]-Zertifikat ist. Bis ich auf die Idee gekommen bin, dass es das Zertifikat für den mediacenter ist. Dort habe ich meine Kalender abgelegt. 

@@ -11,8 +11,6 @@ tags:
   - Java Desktop
   - Solaris
   - Sun Ray
-  - SunRay
-  - tmp
 
 ---
 Ich habe heute etwas l&auml;nger geschlafen. Als erste Tagesaufgabe habe ich pflichtbewusst meine Mails gelesen und schon kam eine User-Mail, dass der [SunRay][1]-Server nicht l&auml;uft.

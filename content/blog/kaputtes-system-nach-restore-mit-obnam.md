@@ -8,8 +8,8 @@ categories:
  - 'Tools'
 tags:
  - 'obnam'
- - 'backup'
- - 'ubuntu'
+ - 'Backup'
+ - 'Ubuntu'
 ---
 
 

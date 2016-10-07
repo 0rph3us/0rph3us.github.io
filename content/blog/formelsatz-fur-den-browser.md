@@ -6,7 +6,7 @@ date: 2013-05-29T18:26:13+00:00
 categories:
   - sonstiges
 tags:
-  - latex
+  - LaTeX
   - MathJax
 
 ---

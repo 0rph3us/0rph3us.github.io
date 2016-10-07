@@ -6,10 +6,9 @@ description: ""
 categories:
  - programmieren
 tags:
- - go
  - golang
- - debian
- - ubuntu
+ - Debian
+ - Ubuntu
  - gvm
  - git
 ---

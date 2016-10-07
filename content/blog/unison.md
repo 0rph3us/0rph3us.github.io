@@ -7,9 +7,9 @@ categories:
   - Solaris
   - Tools
 tags:
-  - backup
+  - Backup
   - OpenSolaris
-  - synchronisation
+  - Synchronisation
   - unison
 
 ---

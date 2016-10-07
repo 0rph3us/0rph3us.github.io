@@ -8,12 +8,12 @@ categories:
   - Tools
 tags:
   - blocksatz
-  - latex
+  - LaTeX
   - optischer Randausgleich
   - Word
 
 ---
-Ich schreibe meine Diplomarbeit mit <img src='http://s0.wp.com/latex.php?latex=%5CLaTeX&#038;bg=ffffff&#038;fg=000000&#038;s=0' alt='\LaTeX' title='\LaTeX' class='latex' />. Da bekommt man auch einen sch&ouml;nen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz, unter beachtung m&ouml;glicher Worttrennungen berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch verbessern, indem man den _optischen Randausgleich_ nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert des linken Rand gleich ist. Ein Bindestrich ragt z.B. mehr in Rand hinein als ein m. da ein Bindestrich weniger schwarz enth&auml;lt als ein m. F&uuml;r das Auge sieht der linke Rand nun gerade aus. Man muss daf&uuml;r nur das Package **microtype** einbinden. [Hier][1] ist die Doku dazu. 
+Ich schreibe meine Diplomarbeit mit LaTeX. Da bekommt man auch einen sch&ouml;nen Blocksatz hin. Der Blocksatz wird auf dem gesamten Absatz, unter beachtung m&ouml;glicher Worttrennungen berechnet. Deswegen sieht der Blocksatz besser aus als mit Word. Man kann den Blocksatz noch verbessern, indem man den _optischen Randausgleich_ nutzt. Das funktioniert wie normaler Blocksatz, mit dem unterschied, dass der Grauwert des linken Rand gleich ist. Ein Bindestrich ragt z.B. mehr in Rand hinein als ein m. da ein Bindestrich weniger schwarz enth&auml;lt als ein m. F&uuml;r das Auge sieht der linke Rand nun gerade aus. Man muss daf&uuml;r nur das Package **microtype** einbinden. [Hier][1] ist die Doku dazu. 
 
 <div class="wp_syntax">
   <table>
