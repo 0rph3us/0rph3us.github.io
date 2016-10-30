@@ -9,6 +9,7 @@ featuredpath = ""
 linktitle = ""
 title = "SSH Angriffe abwehren"
 type = "post"
+tags = ["ssh"]
 
 +++
 
