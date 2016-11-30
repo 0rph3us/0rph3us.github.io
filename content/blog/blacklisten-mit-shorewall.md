@@ -16,7 +16,7 @@ tags = ["shorewall", "Firewall"]
 
 ## Was ist Shorewall? ##
 
-Man kann mit [shorewall] einfach [netfilter], aus dem Linux-Kernel, nutzen. Shorewall an sich st keine
+Man kann mit [shorewall] einfach [netfilter], aus dem Linux-Kernel, nutzen. Shorewall an sich keine
 Firewall. Es werden iptables-Regeln generiert.
 
 

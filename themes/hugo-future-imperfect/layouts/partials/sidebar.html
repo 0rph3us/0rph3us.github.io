@@ -127,8 +127,8 @@
     <!-- Footer -->
         <section id="footer">
             <ul class="icons">
-                {{ if .RSSLink }}
-                    <li><a href="{{ .RSSLink }}" type="application/rss+xml"
+                {{ if .Site.RSSLink }}
+                    <li><a href="{{ .Site.RSSLink }}" type="application/rss+xml"
                         target="_blank" title="RSS" class="fa fa-rss-sym"></a></li>
                 {{ end }}
                 {{ if .Site.Params.socialAppearAtBottom }}
