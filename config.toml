@@ -1,138 +1,76 @@
 baseurl      = "https://blog.0rpheus.net"
 languageCode = "de-DE"
+defaultContentLanguage = "de"
 title        = "Michael im Netz"
-theme        = "hugo-future-imperfect"
-paginate     = 20
-preserveTaxonomyNames = true
+theme        = "BluestNight"
+paginate     = 10
+PygmentsCodeFences = true
+PygmentsStyle = "xcode"
+enableRobotsTXT = true # Suggested, enable robots.txt file
 
-pygmentsuseclasses = true
-
-
-# parms.intro will appear on the sidebar
-# This is optional, but it's suggested to use
-[params.intro]
-    header    = "Michael im Netz"
-    paragraph = "Meine unsortierten Gedanken"
-    about     = "Mein Name ist Michael Rennecke. Ich bin Administrator, DevOps Mensch und Papa. Dieser Blog wird sicherlich keinen roten Faden haben, da ich mich immer wieder mit unterschiedlichen Sachen beschäftige."
-
-
-[params.intro.pic]
-    src       = "/img/solaris-vs-linux.jpg"
-    # modify your picture in the shape of a circle or
-    # future imperfect's hexagonal shape
-    circle    = false
-    imperfect = true
-    width     = ""
-    alt       = "Halb Mensch, Halb Pinguin"
-
-
-# Adjust the amount of recent posts on the sidebar.
-# This is optional. The default value 5 will be used
-[params.postAmount]
-    sidebar = 5
-
-[[menu.main]]
-    name = "Blog"
-    url = "/blog"
-    identifier = "fa fa-newspaper-o"
-    weight = 1
-
-
-
-[[menu.main]]
-    name = "Spickzettel"
-    weight = 2
-    identifier = "fa fa-linux"
-    url = "/spickzettel"
-
-
-[[menu.main]]
-    name = "Links"
-    weight = 3
-    identifier = "fa fa-external-link"
-    url = "/links"
-
-
-[[menu.main]]
-    name = "Über mich"
-    weight = 4
-    identifier = "about"
-    url = "/about"
-
-# Insert your username and the icon will apear on the page as long as
-# socialAppearAtTop or socialAppearAtBottom is set to true in the params area
-# The social media icons will appear on the sidebar
-[social]
-    github          = "0rph3us"
-    bitbucket       = ""
-    jsfiddle        = ""
-    codepen         = ""
-    foursquare      = ""
-    dribbble        = ""
-    deviantart      = ""
-    behance         = ""
-    flickr          = ""
-    instagram       = ""
-    youtube         = ""
-    vimeo           = ""
-    vine            = ""
-    medium          = ""
-    wordpress       = ""
-    tumblr          = ""
-    xing            = ""
-    linkedin        = ""
-    slideshare      = ""
-    stackoverflow   = ""
-    reddit          = ""
-    pinterest       = ""
-    googleplus      = ""
-    facebook        = ""
-    facebook_admin  = ""
-    twitter_domain  = ""
-    twitter         = "0rph3us"
-	email 			= ""
-
-
-[author]
-    name = "Michael Rennecke"
-
-
-#[permalinks]
-#    # Optional. Change the permalink format for the 'post' content type.
-#    # The format shown here is the same one Jekyll/Octopress uses by default.
-#    #post = "/blog/:year/:month/:day/:title/"
-#    blog = "/:section/:year/:month/:title/"
+[outputs]
+    home = ["HTML", "CSS", "JSON", "RSS"]
 
 [params]
-    # Sets the meta tag description, usually reserved for the main page
-    description          = "Meine Gedanken zu Sicherheit, Linux und verschiedenen Sachen. Powered by Hugo"
-    # This will appear on the top left of the navigation bar
-    navbarTitle          = "Michael Rennecke"
-    # Social media buttons that appear on the sidebar
-    socialAppearAtTop    = true
-    socialAppearAtBottom = true
-    # set this to the section name if section is not post
-    viewMorePostLink     = "/blog/"
-    imprint              = '<a href="/impressum/">Impressum</a>'
-    copyright            = 'Dieses Werk ist lizenziert unter einer <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/de/">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Deutschland Lizenz</a>.'
+dateFormat = "2 January 2006"
 
-# Optional Params
-    categoriesByCount    = false
-    includeReadingTime   = true
-    # The set of favicons used are based on the write-up from this link:
-    # https://github.com/audreyr/favicon-cheat-sheet
-    # Please see the favicon partial template for more information
-    loadFavicon          = false
-    faviconVersion       = ""
 
-    # Load custom CSS or JavaScript files. This replaces the deprecated params
-    # minifiedFilesCSS and minifiedFilesJS. The variable is an array so that you
-    # can load multiple files if necessary. You can also load the standard theme
-    # files by adding the value, "default".
-    # customCSS            = ["default", "/path/to/file"]
-    # customJS             = ["default", "/path/to/file"]
 
-    # Loading min files for exampleSite
-#    customCSS            = ["/css/main.min.css"]
-#    customJS = ["/js/main.min.js"]
+[Params]
+    tagline = "Meine unsortierten Gedanken"
+    description = "Blog über Linux Sicherheit und andere verschiedene Sachen" # Description of your site
+    authorbox = true
+    author = "Michael Rennecke"
+    post_navigation = false
+
+[Params.widgets]
+    search = false
+    recent_articles = true
+    categories = true
+    tags = true
+    tags_counter = true
+
+[Params.color]
+    page_background = "#f4f4f4"
+    main_background = "#ffffff"
+    alt_background = "#d4d4d4"
+    main_text = "#020202"
+    alt_text = "#333333"
+    accent = "#FF8000"
+    accent_text = "#020202"
+    #accent_text = "#e2e2e2"
+
+[Params.social]
+    github = "0rph3us"
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    weight = 1
+    url = "#"
+
+  [[menu.main]]
+    name = "Sonstiges"
+    identifier = "stuff"
+    weight = 10
+    [[menu.main]]
+      name = "Link-Sammlung"
+      parent = "stuff"
+      weight = 1
+      url = "links"
+    [[menu.main]]
+      name = "Spickzettel"
+      parent = "stuff"
+      weight = 1
+      url = "spickzettel"
+
+  [[menu.main]]
+    name = "Über mich"
+    weight = 1000
+    url = "about"
+
+  [[menu.main]]
+    name = "Impressum"
+    weight = 10000
+    url = "impressum"
 
