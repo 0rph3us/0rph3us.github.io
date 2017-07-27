@@ -1,5 +1,5 @@
 +++
-title = "Sicherheitsluecke In CDNs"
+title = "Sicherheitslücke in CDNs"
 date = "2017-07-27T21:28:03+02:00"
 hide_authorbox = false
 disable_comments = false
