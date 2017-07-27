@@ -7,8 +7,7 @@ nopaging = true
 ## Hinweis
 
 Das ist ein rein privater Blog. Es werden keine Ressourcen von anderen Domains 
-nachgeladen. Bei den Schaltflächen zum *teilen* der Artikel handelt es sich
-um ganz normale Links.
+nachgeladen.
 
 
 ## Angaben gemäß § 5 TMG
