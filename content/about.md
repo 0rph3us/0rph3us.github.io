@@ -22,7 +22,7 @@ Schwerpunkt auf Infrastruktur und PostgreSQL liegt.
 
 ## Email
 
-Bei Fragen kann man mir Emails senden. Die Adresse lautet **micha@0rpheus<Punkt>net**. Mein
+Bei Fragen kann man mir Emails senden. Die Adresse lautet **micha@0rpheus(Punkt)net**. Mein
 Vor- und Nachnamen findet man oben bzw. am linken Rand :D. Man kann mir mit GnuPG verschlüsselte
 Mails schicken.
 
