@@ -1,5 +1,5 @@
 +++
-Categories = ["Sicherheit", "Linux"]
+Categories = ["Sicherheit", "Linux", "Infrastruktur"]
 Description = ""
 Tags = ["LibreSSL", "HAProxy", "Raspberry Pi", "Security", "Raspbian"]
 date = "2015-12-28T22:37:08+01:00"

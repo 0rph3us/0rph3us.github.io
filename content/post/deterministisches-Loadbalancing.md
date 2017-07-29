@@ -1,5 +1,5 @@
 +++
-Categories = ["Tools"]
+Categories = ["Tools", "Infrastruktur"]
 Description = ""
 Tags = ["HAProxy", "Loadbalancing"]
 date = "2015-09-17T05:58:20+02:00"
