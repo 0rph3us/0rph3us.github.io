@@ -59,6 +59,13 @@ passiert es, dass meistens gar keine Cache-Header implementiert sind. Die fehlen
 Header setzen seine Admins im CDN die passenden Header, weil es dort ein schönes Frontend gibt.
 
 
+### Parameter
+Paula benutzt **GET**-Parameter in ihren Ressoucen. Dummerweise ist nicht sicher gestellt, dass
+die Parameter immer in der identischen Reihenfolge angehangen werden. Damit sie eine hohe Hit-Rate
+im CDN erreicht, lässt die Parameter immer sortieren. Denn die Reihenfolge der Parameter ist
+egal, es handelt sich immer um die identische Ressource.
+
+
 ## Zusammenfassung
 Der beschriebene Fehler ist in meinen Augen durchaus kritisch. Die CDN Anbieter sind begrenzt dafür
 zuständig. Bei ihnen bekommt man einen großen Werkzeugkasten bekommt, den man **richtig** benutzen
