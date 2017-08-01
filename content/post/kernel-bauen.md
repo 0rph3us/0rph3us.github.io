@@ -16,7 +16,7 @@ zu bauen.
 
 ## Abhänigkeiten
 Zum bauen des Kernels unter Ubuntu benötigt man `build-essential`
-und `libssl-dev`. Mit `ccache` kann man das bauen beschleunigen aus
+und `libssl-dev`. Mit `ccache` kann man das bauen beschleunigen[^1] aus
 diesem Grund nutze ich es. Auf [kernel.org] findet man die neusten
 Kernel als tarball zum download.
 
@@ -50,6 +50,13 @@ Entweder man führt `make install` aus oder man kopiert die fehlenden
 Blobs nach `/lib/firmware/`. Ich kopiere die fehlenden Blobs immer per
 Hand hin, welche Blobs fehlen verrät `dmesg` in der Regel.
 
+### andere make targets
+Wenn man statt `yes '' | make oldconfig` `yes '' | make localmodconfig` verwendet
+enthält der neue Kernel nur die Module, welche der aktuelle Kernel geladen hat. Dadurch
+spart massiv Zeit beim bauen und der Kernel wird auch viel kleiner[^2].
+
  
 [kernel.org]: https://www.kernel.org/
 [linux-firmware]: https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+[^1]: Ich habe [hier]({{< relref "ccache.md" >}}) noch einige Anmerkungen zu ccache.
+[^2]: Ich gehe davon aus, dass man  in der Regel nur ein Bruchteil der Kernelmodule nutzt.
