@@ -22,6 +22,15 @@ Kernel als tarball zum download.
 
 
 ## Kernel bauen
+Wenn man die alte Konfiguration beibehalten möchte, dann muss man
+vorher die laufende Konfiguration in das aktuelle Verzeichnis vom
+entpackten Kernel kopieren:
+
+{{< highlight sh >}}
+ cp "/boot/config-$(uname -r)" .config
+{{< /highlight >}}
+
+
 {{< highlight sh >}}
 tar xfvJ linux-4.12.3.tar.xz
 cd linux-4.12.3
