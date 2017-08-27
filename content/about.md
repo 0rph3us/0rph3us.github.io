@@ -22,9 +22,8 @@ Schwerpunkt auf Infrastruktur und PostgreSQL liegt.
 
 ## Email
 
-Bei Fragen kann man mir Emails senden. Die Adresse lautet **micha@0rpheus(Punkt)net**. Mein
-Vor- und Nachnamen findet man oben bzw. am linken Rand :D. Man kann mir mit GnuPG verschlüsselte
-Mails schicken.
+Bei Fragen kann man mir Emails senden. Die Adresse lautet **micha@0rpheus(Punkt)net**.
+Man kann mir mit GnuPG verschlüsselte Mails schicken.
 
 * KeyID: **EE75C6FE**
 * Fingerprint: **ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE**
