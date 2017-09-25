@@ -23,6 +23,7 @@ dateFormat = "2 January 2006"
     author = "Michael Rennecke"
     post_navigation = false
     local_css = true
+    css_version = 2
 
 [Params.widgets]
     search = false
