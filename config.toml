@@ -2,6 +2,7 @@ baseurl      = "https://blog.0rpheus.net"
 languageCode = "de-DE"
 defaultContentLanguage = "de"
 title        = "Michael im Netz"
+author       = "Michael Rennecke"
 theme        = "BluestNight"
 paginate     = 10
 PygmentsCodeFences = true
@@ -10,23 +11,22 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
 
 [outputs]
     home = ["HTML", "CSS", "JSON", "RSS"]
-
-[params]
-dateFormat = "2 January 2006"
+    section = ["HTML"]
 
 
 
 [Params]
     tagline = "Meine unsortierten Gedanken"
     description = "Blog über Linux Sicherheit und andere verschiedene Sachen" # Description of your site
-    authorbox = true
+    authorbox = false
     author = "Michael Rennecke"
     post_navigation = false
     local_css = true
     css_version = 2
+    dateFormat = "02.01.2006"
 
 [Params.widgets]
-    search = false
+    search = true
     recent_articles = true
     categories = true
     tags = true
@@ -40,7 +40,6 @@ dateFormat = "2 January 2006"
     alt_text = "#333333"
     accent = "#FF8000"
     accent_text = "#020202"
-    #accent_text = "#e2e2e2"
 
 [Params.social]
     github = "0rph3us"
