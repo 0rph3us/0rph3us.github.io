@@ -121,6 +121,38 @@ Suchphrasen herumspielen.
 EXECUTE search('gibb', 2);
 ```
 
+## Optimierung
+
+Auf die Spalte `autocomplete` kann man in diesen Fall auch verzichten.
+Dadruch kann man etwas Speicherplatz sparen. Dadurch kann es passieren,
+dass die Anfrage etwas langsamer ist. Auf der anderen Seite hat man
+somit keine Probleme beim Update bzw. einfügen von Datensätzen.
+
+
+```sql
+DROP INDEX customer_autocomplete_idx;
+ALTER TABLE customer DROP COLUMN autocomplete;
+
+-- create a new index on columns first_name, last_name and city
+CREATE INDEX IF NOT EXISTS customer_autocomplete_idx ON customer USING GIN((first_name || ' ' || last_name || ' ' || city) gin_trgm_ops);
+```
+
+```sql
+DEALLOCATE search;
+PREPARE search (text, int) AS
+    SELECT
+        word_similarity($1, (first_name || ' ' || last_name || ' ' || city)) AS similarity,
+        (first_name || ' ' || last_name || ' ' || city) <-> $1 AS distance,
+        *
+    FROM
+        customer
+    WHERE
+        $1 <% (first_name || ' ' || last_name || ' ' || city)
+    ORDER BY
+        similarity DESC, (first_name || ' ' || last_name || ' ' || city) <-> $1
+    LIMIT $2;
+```
+
 
 [Elasticsearch]: https://www.elastic.co/de/products/elasticsearch
 [Präfixbaum]: https://de.wikipedia.org/wiki/Trie
