@@ -21,7 +21,17 @@ Synchronistaion von Elasticsearch mit PostgreSQL.
 
 Eine "einfache" Autovervollständigung basiert auf einen [Präfixbaum][^1]. Dieser
 hat den Nachtteil, dass man genau wissen muss, wie der Suchbegriff geschrieben
-wird.
+wird und die Reihenfole muss stimmen, falls man über mehrere Wörter sucht
+bzw. vervollständigt.
+
+Wenn man eine Autovervollständigung bzw. Suche auf Kundendaten implentiert, dann
+werden die Informationen, in der Regel, in getrennten Feldern gespeichert.
+Wenn man nur ein Such- bzw. Eingabefeld hat, dann kann es mitunter ungeschickt
+sein alle Felder mit **oder** zu verknüfen. Beispiel man hat in seiner Datenbank
+100 Leute, die Peter heißen und davon heißen auch noch 20 Müller. Sowie man
+anfängt auf 2 Feldern zu suchen funktioniert eine einfaches **oder** nicht mehr.
+Aus diesem Grund ist es evtl. notwendig über den Inhalt von meheren Feldern zu
+suchen.
 
 Wenn man ein [n-Gramm]-Index baut, dann spielen die Reihenfolge der Wörter und
 Tippfehler keine Rolle mehr. Einen solchen Index kann man mit der [pg_trgm]
