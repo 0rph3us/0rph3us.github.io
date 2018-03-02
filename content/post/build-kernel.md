@@ -27,8 +27,6 @@ set -e
 VERSION=
 KERNEL_KEY=38DBBDC86092693E
 
-base_url=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${VERSION}
-
 function usage()
 {
     echo ''
@@ -65,6 +63,8 @@ then
     usage
     exit 1
 fi
+
+base_url=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${VERSION}
 
 if [ ! -f "linux-${VERSION}.tar" ] && [ ! -f "linux-${VERSION}.tar.xz" ]
 then
