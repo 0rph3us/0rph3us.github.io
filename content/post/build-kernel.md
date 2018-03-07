@@ -68,6 +68,7 @@ base_url=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-${VERSION}
 
 if [ ! -f "linux-${VERSION}.tar" ] && [ ! -f "linux-${VERSION}.tar.xz" ]
 then
+    echo "download $base_url".tar.xz
     curl "$base_url".tar.xz > "linux-${VERSION}.tar.xz"
     curl "$base_url".tar.sign > "linux-${VERSION}.tar.sign"
 fi
