@@ -78,9 +78,7 @@ then
     unxz "linux-${VERSION}.tar.xz"
 fi
 
-gpg2 -k "$KERNEL_KEY" > /dev/null 2>&1
-rc=$?
-if [[ $rc != 0 ]]
+if ! gpg2 -k "$KERNEL_KEY" > /dev/null 2>&1
 then
     gpg2 --keyserver hkp://keys.gnupg.net --recv-keys "$KERNEL_KEY"
 fi
