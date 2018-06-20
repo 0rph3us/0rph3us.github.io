@@ -1,0 +1,33 @@
+
+- id: "recent_post"
+  translation: "Recent Posts"
+
+- id: "categories"
+  translation: "Categories"
+
+- id: "reading_time"
+  translation: "Estimated reading time"
+
+- id: "minutes"
+  translation: "minutes"
+
+- id: "subscribe_rss"
+  translation: "Subscribe with RSS"
+
+- id: "read_more"
+  translation: "Read more..."
+
+- id: "next_page"
+  translation: "Next"
+
+- id: "previous_page"
+  translation: "Previous"
+
+- id: "of_page"
+  translation: "of"
+
+- id: "page"
+  translation: "Page"
+
+- id: "search"
+  translation: "Search"

@@ -1,0 +1,25 @@
+{{- if or .HasPrev .HasNext -}}
+<ul class="paginate menu">
+  <li class="pagination-previous small-right small-full medium-third">
+    {{ if .HasPrev }}
+    <a class="button pagination" href="{{ .Prev.URL | absLangURL }}">
+    {{else}}
+    <span class="pagination button disabled">
+    {{end}}
+      <span class="fa fa-chevron-circle-left"></span> {{ i18n "previous_page" }}
+    {{ if .HasPrev }}</a>{{else}}</span>{{end}}
+  </li>
+  <li class="pagination-page-number small-left small-full medium-third">
+    {{ i18n "page" }} {{ .PageNumber }}  {{ i18n "of_page" }} {{ .TotalPages }}
+  </li>
+  <li class="pagination-next small-full medium-third">
+    {{ if .HasNext }}
+    <a class="button pagination" href="{{ .Next.URL | absLangURL }}">
+    {{else}}
+    <span class="pagination button disabled">
+    {{end}}
+    {{ i18n "next_page" }} <span class="fa fa-chevron-circle-right"></span>
+    {{ if .HasNext }}</a>{{ else }}</span>{{end}}
+  </li>
+</ul>
+{{- end -}}
