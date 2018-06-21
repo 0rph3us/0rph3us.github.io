@@ -30,7 +30,7 @@ Um den DHT22 am Raspberry Pi zu betreiben ist noch ein [Pullup-Widerstand] von 4
 Dieser wird zwischen Datenleitung und der 3,3V Spannungsversorgung geschaltet. Man darf den Sensor
 nur mit 3,3V Spannung versorgen, da die Logik des Raspberry Pi nur 3,3V verträgt.
 
-{{< img-post path="/img/blog" file="dht22_pi.png" alt="Steckbrett mit DHT22 und Raspberry Pi" >}}
+![Steckbrett mit DHT22 und Raspberry Pi]({{< static "/img/blog/dht22_pi.png" >}})
 
 Die roten Leitungen liegen auf 3,3V, die schwarzen Leitungen liegen auf Masse und die weiße Leitung ist die Datenleitung. Man kann den
 DHT22 an jedem GPIO-Pin betreiben, hier wird er an Pin GPIO 4 des Raspberry Pi betrieben. 

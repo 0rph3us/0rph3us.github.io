@@ -1,79 +1,10 @@
 +++
-title    = "Impressum"
-nodate   = true
-nopaging = true
+title = "Datenschutzerklärung"
 +++
-
-## Hinweis
-
-Das ist ein rein privater Blog. Es werden keine Ressourcen von anderen Domains 
-nachgeladen.
-
-
-## Angaben gemäß § 5 TMG
-
-Michael Rennecke <br/>
-06112 Halle (Saale)
-
-Die genaue, ladungsfähige Postaddresse kann bei mir via Mail erfragt werden oder via 
-*whois* für die Domain **0rpheus.net** abgefragt werden (dafür wurde whois schließlich erfunden).
-Ich möchte meine Adresse nicht für Crawler lesbar im Netz haben.
-
-
-## Kontakt
-
-E-Mail: michael (punkt) rennecke (at) gmail (punkt) com
-
-
-## Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
-
-Michael Rennecke, die selbe Anschrift wie oben. 
-
-
-## Haftungsausschluss (Disclaimer)
-
-### Haftung für Inhalte
-
-Die Inhalte meiner Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit 
-und Aktualität der Inhalte gebe ich jedoch kein Gewähr. 
-
-Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen
-Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet,
-übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf
-eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von
-Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist
-jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von
-entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-
-
-### Haftung für Links
-
-Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben.
-Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
-Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum
-Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
-Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
-Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir
-derartige Links umgehend entfernen.
-
-
-### Urheberrecht
-
-Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
-Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
-Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit
-die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.
-Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
-Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden
-von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-
-
-## Datenschutzerklärung
 
 Personenbezogene Daten (nachfolgend zumeist nur „Daten“ genannt) werden von uns nur im Rahmen der Erforderlichkeit sowie zum Zwecke der Bereitstellung eines funktionsfähigen und nutzerfreundlichen Internetauftritts, inklusive seiner Inhalte und der dort angebotenen Leistungen, verarbeitet.
 
-Gemäß Art. 4 Ziffer 1. der Verordnung (EU) 2016/679, also der Datenschutz-Grundverordnung (nachfolgend nur „DSGVO“ genannt), gilt als „Verarbeitung“ jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführter Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten, wie das Erheben, das Erfassen, die Organisation, das Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung.
+Gemäß Art. 4 Ziffer 1. der Verordnung (EU) 2016 / 679, also der Datenschutz-Grundverordnung (nachfolgend nur „DSGVO“ genannt), gilt als „Verarbeitung“ jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführter Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit personenbezogenen Daten, wie das Erheben, das Erfassen, die Organisation, das Ordnen, die Speicherung, die Anpassung oder Veränderung, das Auslesen, das Abfragen, die Verwendung, die Offenlegung durch Übermittlung, Verbreitung oder eine andere Form der Bereitstellung, den Abgleich oder die Verknüpfung, die Einschränkung, das Löschen oder die Vernichtung.
 
 Mit der nachfolgenden Datenschutzerklärung informieren wir Sie insbesondere über Art, Umfang, Zweck, Dauer und Rechtsgrundlage der Verarbeitung personenbezogener Daten, soweit wir entweder allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung entscheiden. Zudem informieren wir Sie nachfolgend über die von uns zu Optimierungszwecken sowie zur Steigerung der Nutzungsqualität eingesetzten Fremdkomponenten, soweit hierdurch Dritte Daten in wiederum eigener Verantwortung verarbeiten.
 
@@ -83,7 +14,7 @@ Unsere Datenschutzerklärung ist wie folgt gegliedert:
 * II. Rechte der Nutzer und Betroffenen
 * III. Informationen zur Datenverarbeitung
 
-### I. Informationen über uns als Verantwortliche
+## I. Informationen über uns als Verantwortliche
 Verantwortlicher Anbieter dieses Internetauftritts im datenschutzrechtlichen Sinne ist:
 
 Michael Rennecke <br/>
@@ -91,7 +22,7 @@ Michael Rennecke <br/>
 E-Mail: michael (punkt) rennecke (at) gmail (punkt) com
 
 
-### II. Rechte der Nutzer und Betroffenen
+## II. Rechte der Nutzer und Betroffenen
 Mit Blick auf die nachfolgend noch näher beschriebene Datenverarbeitung haben die Nutzer und Betroffenen das Recht
 
 * auf Bestätigung, ob sie betreffende Daten verarbeitet werden, auf Auskunft über die verarbeiteten Daten, auf weitere Informationen über die Datenverarbeitung sowie auf Kopien der Daten (vgl. auch Art. 15 DSGVO);
@@ -104,10 +35,10 @@ Darüber hinaus ist der Anbieter dazu verpflichtet, alle Empfänger, denen gegen
 
 **Ebenfalls haben die Nutzer und Betroffenen nach Art. 21 DSGVO das Recht auf Widerspruch gegen die künftige Verarbeitung der sie betreffenden Daten, sofern die Daten durch den Anbieter nach Maßgabe von Art. 6 Abs. 1 lit. f) DSGVO verarbeitet werden. Insbesondere ist ein Widerspruch gegen die Datenverarbeitung zum Zwecke der Direktwerbung statthaft.**
 
-### III. Informationen zur Datenverarbeitung
+## III. Informationen zur Datenverarbeitung
 Ihre bei Nutzung unseres Internetauftritts verarbeiteten Daten werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt, der Löschung der Daten keine gesetzlichen Aufbewahrungspflichten entgegenstehen und nachfolgend keine anderslautenden Angaben zu einzelnen Verarbeitungsverfahren gemacht werden.
 
-#### Serverdaten
+### Serverdaten
 Aus technischen Gründen, insbesondere zur Gewährleistung eines sicheren und stabilen Internetauftritts, werden Daten durch Ihren Internet-Browser an uns bzw. an unseren Webspace-Provider übermittelt. Mit diesen sog. Server-Logfiles werden u.a. Typ und Version Ihres Internetbrowsers, das Betriebssystem, die Website, von der aus Sie auf unseren Internetauftritt gewechselt haben (Referrer URL), die Website(s) unseres Internetauftritts, die Sie besuchen, Datum und Uhrzeit des jeweiligen Zugriffs sowie die IP-Adresse des Internetanschlusses, von dem aus die Nutzung unseres Internetauftritts erfolgt, erhoben.
 
 Diese so erhobenen Daten werden vorrübergehend gespeichert, dies jedoch nicht gemeinsam mit anderen Daten von Ihnen.
@@ -116,9 +47,9 @@ Diese Speicherung erfolgt auf der Rechtsgrundlage von Art. 6 Abs. 1 lit. f) DSGV
 
 Die Daten werden spätestens nach sieben Tage wieder gelöscht, soweit keine weitere Aufbewahrung zu Beweiszwecken erforderlich ist. Andernfalls sind die Daten bis zur endgültigen Klärung eines Vorfalls ganz oder teilweise von der Löschung ausgenommen.
 
-#### Cookies
+### Cookies
 
-##### a) Sitzungs-Cookies/Session-Cookies
+#### a) Sitzungs-Cookies/Session-Cookies
 Wir verwenden mit unserem Internetauftritt sog. Cookies. Cookies sind kleine Textdateien oder andere Speichertechnologien, die durch den von Ihnen eingesetzten Internet-Browser auf Ihrem Endgerät ablegt und gespeichert werden. Durch diese Cookies werden im individuellen Umfang bestimmte Informationen von Ihnen, wie beispielsweise Ihre Browser- oder Standortdaten oder Ihre IP-Adresse, verarbeitet.
 
 Durch diese Verarbeitung wird unser Internetauftritt benutzerfreundlicher, effektiver und sicherer, da die Verarbeitung bspw. die Wiedergabe unseres Internetauftritts in unterschiedlichen Sprachen oder das Angebot einer Warenkorbfunktion ermöglicht.
@@ -129,12 +60,12 @@ Falls die Verarbeitung nicht der Vertragsanbahnung oder Vertragsabwicklung dient
 
 Mit Schließen Ihres Internet-Browsers werden diese Session-Cookies gelöscht.
 
-##### b) Drittanbieter-Cookies
+#### b) Drittanbieter-Cookies
 Gegebenenfalls werden mit unserem Internetauftritt auch Cookies von Partnerunternehmen, mit denen wir zum Zwecke der Werbung, der Analyse oder der Funktionalitäten unseres Internetauftritts zusammenarbeiten, verwendet.
 
 Die Einzelheiten hierzu, insbesondere zu den Zwecken und den Rechtsgrundlagen der Verarbeitung solcher Drittanbieter-Cookies, entnehmen Sie bitte den nachfolgenden Informationen.
 
-##### c) Beseitigungsmöglichkeit
+#### c) Beseitigungsmöglichkeit
 Sie können die Installation der Cookies durch eine Einstellung Ihres Internet-Browsers verhindern oder einschränken. Ebenfalls können Sie bereits gespeicherte Cookies jederzeit löschen. Die hierfür erforderlichen Schritte und Maßnahmen hängen jedoch von Ihrem konkret genutzten Internet-Browser ab. Bei Fragen benutzen Sie daher bitte die Hilfefunktion oder Dokumentation Ihres Internet-Browsers oder wenden sich an dessen Hersteller bzw. Support. Bei sog. Flash-Cookies kann die Verarbeitung allerdings nicht über die Einstellungen des Browsers unterbunden werden. Stattdessen müssen Sie insoweit die Einstellung Ihres Flash-Players ändern. Auch die hierfür erforderlichen Schritte und Maßnahmen hängen von Ihrem konkret genutzten Flash-Player ab. Bei Fragen benutzen Sie daher bitte ebenso die Hilfefunktion oder Dokumentation Ihres Flash-Players oder wenden sich an den Hersteller bzw. Benutzer-Support.
 
 Sollten Sie die Installation der Cookies verhindern oder einschränken, kann dies allerdings dazu führen, dass nicht sämtliche Funktionen unseres Internetauftritts vollumfänglich nutzbar sind.
@@ -143,8 +74,5 @@ Sollten Sie die Installation der Cookies verhindern oder einschränken, kann die
 [Muster-Datenschutzerklärung] der [Anwaltskanzlei Weiß & Partner]
 
 
-
-[Einzelheiten zur Lizenz.]: https://creativecommons.org/licenses/by-sa/3.0/de/
-[eRecht24 Disclaimer]: https://www.e-recht24.de/muster-disclaimer.html
 [Muster-Datenschutzerklärung]: https://www.ratgeberrecht.eu/leistungen/muster-datenschutzerklaerung.html
 [Anwaltskanzlei Weiß & Partner]: https://www.ratgeberrecht.eu/
