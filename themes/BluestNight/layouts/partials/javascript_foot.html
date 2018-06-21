@@ -1,0 +1,23 @@
+{{ partial "matomo/foot.html" . }}
+{{ partial "iubenda/foot.html" . }}
+
+{{ if $.Site.Params.thumbnail -}}
+  {{- if $.Site.Params.no_minimize -}}
+  <script type="text/javascript" src="{{ "js/thumbnail.js" | absLangURL | safeHTMLAttr }}"></script>
+  {{ else }}
+  <script type="text/javascript" src="{{ "js/thumbnail.min.js" | absLangURL | safeHTMLAttr }}"></script>
+  {{ end }}
+{{- end -}}
+
+{{- /* Include any code from shortcodes */ -}}
+{{- partial "shortcodes/get_list.html" $ -}}
+{{- range $name := ($.Scratch.Get "shortcodes") -}}
+    {{- if $.Page.HasShortcode $name -}}
+        {{- $.Scratch.Set "shortcode_name" $name -}}
+        {{- partial "shortcodes/definition.html" $ -}}
+        {{- $shortcode := $.Scratch.Get "shortcode" -}}
+        {{- with $shortcode.js -}}
+            {{- partial . $ -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
