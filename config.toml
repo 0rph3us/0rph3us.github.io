@@ -1,38 +1,65 @@
-baseurl      = "https://blog.0rpheus.net"
 languageCode = "de-DE"
-defaultContentLanguage = "de"
 title        = "Michael im Netz"
+baseurl      = "https://blog.0rpheus.net"
+
+defaultContentLanguage = "de"
 author       = "Michael Rennecke"
 theme        = "BluestNight"
-paginate     = 10
+
+## Allow the use of GitHub-style code fences
 PygmentsCodeFences = true
+
+## Apply classes to styled elements instead
+## Necessary to use the built-in code styles that
+## automatically change to fit the theme colors
+PygmentsUseClasses = true
+
+## Number of posts to show before paginating
+paginate = 10
+
 PygmentsStyle = "xcode"
-enableRobotsTXT = true # Suggested, enable robots.txt file
 
-[outputs]
-    home = ["HTML", "CSS", "JSON", "RSS"]
-    section = ["HTML"]
+## Enable robots.txt file generation. Highly recommended.
+enableRobotsTXT = true
 
 
-
-[Params]
+[params]
     tagline = "Meine unsortierten Gedanken"
     description = "Blog über Linux Sicherheit und andere verschiedene Sachen" # Description of your site
+
+    ## 'authorbox' enables/disables the authorbox sitewide (can be disabled per page).
+    ## 'author' is the name of the default author of all pages (can change per page).
+    ## See also: https://bluestnight.shadow53.com/docs/pages/authorbox/
     authorbox = false
     author = "Michael Rennecke"
-    post_navigation = false
-    local_css = true
-    css_version = 2
+
+    ## Enable next/previous page buttons sitewide
+    ## See also: https://bluestnight.shadow53.com/docs/pages/next-prev-page/
+    post_navigation = true
+    #local_css = true
+    #css_version = 2
     dateFormat = "02.01.2006"
 
-[Params.widgets]
-    search = true
-    recent_articles = true
-    categories = true
-    tags = true
-    tags_counter = true
+    ## Enable comments provided by Muut/Hashover sitewide (can be disabled per page)
+    ## See also: https://bluestnight.shadow53.com/docs/pages/comments/
+    #hashover = true
+    #muut = "shadow53"
 
-[Params.color]
+    ## Set a site thumbnail/logo that appears next to the site title
+    ## Optionally make the corners of the logo rounded by a given amount
+    ## See also: https://bluestnight.shadow53.com/docs/site/appearance/#header-thumbnail
+    #thumbnail = "images/thumbnail.png"
+    #thumbnail_radius = "0%"
+
+    ## Disable the use of minified JavaScript and CSS
+    ## Useful only for debugging purposes
+    #no_minimize = true
+
+
+## Change the color scheme of the site
+## The commented out values are the defaults used
+## See also: https://bluestnight.shadow53.com/docs/site/appearance/#custom-colors
+[params.color]
     page_background = "#f4f4f4"
     main_background = "#ffffff"
     alt_background = "#d4d4d4"
@@ -41,37 +68,95 @@ enableRobotsTXT = true # Suggested, enable robots.txt file
     accent = "#FF8000"
     accent_text = "#020202"
 
-[Params.social]
-    github = "0rph3us"
+## Set custom font styles
+## Values can be one of the following: "serif", "sans-serif", "slab-serif"
+## See also: https://bluestnight.shadow53.com/docs/site/appearance/#font-customization
+#[params.fonts]
+    #header_style = "sans-serif"
+    #body_style = "sans-serif"
+    #print_header_style = "sans-serif"
+    #print_body_style = "serif"
+
+## Add social media icons to the footer of the website
+## For author-specific social icons that appear in the authorbox,
+## see https://bluestnight.shadow53.com/docs/shortcodes/members/#social-links
+## See also: https://bluestnight.shadow53.com/docs/site/social-icons/
+#[params.social]
+#    github = "0rph3us/0rph3us.github.io"
+
+## Enable/disable sidebar widgets
+[params.sidebar]
+    ## Specify the order you want sidebar widgets to appear in.
+    ## Omitted widgets are not displayed. You can also specify names
+    ## for your own custom sidebar widgets (see below)
+    order = [
+        ## Enable a Patreon widget that links to your Patreon page
+        ## See also: https://bluestnight.shadow53.com/docs/sidebar/patreon-banner/
+        #"patreon",
+        ## Enable a search field
+        ## See also: https://bluestnight.shadow53.com/docs/sidebar/search/
+        "search",
+        ## Enable a recent articles list
+        ## See also: https://bluestnight.shadow53.com/docs/sidebar/recent-posts/
+        "recent",
+        ## Enable a list of upcoming events
+        ## See also: https://bluestnight.shadow53.com/docs/sidebar/events/
+        #"events",
+        ## Enable a list of page categories
+        ## Will cause errors if no categories are defined
+        "categories",
+        ## Enable a "cloud" of page tags ordered by most common
+        ## Will cause errors if no tags are defined    
+        #"taglist"
+    ]
+    ## Some sidebar widgets require extra configuration, like the Patreon one.
+    ## If you use the Patreon widget, replace the quoted "username" with your
+    ## Patreon username.
+    #[params.sidebar.patreon]
+        #username = "username"
+
+## Define output formats for different kinds of pages
+[outputs]
+    ## CSS is required in order for BluestNight to generate your stylesheet
+    ## RSS is required to allow users to subscribe to a feed of updates
+    ## JSON is required for search functionality
+    home = ["HTML", "CSS", "RSS", "JSON"]
+
+    ## RSS is required here for section RSS feeds
+    section = ["HTML", "RSS"]
+
+    ## RSS is required here for tag/category RSS feeds
+    taxonomy = ["HTML", "RSS"]
 
 [menu]
   [[menu.main]]
+    identifier = "home"
     name = "Blog"
     weight = 1
-    url = "#"
+    url = "/"
 
   [[menu.main]]
     name = "Sonstiges"
     identifier = "stuff"
     weight = 10
-    [[menu.main]]
+    url = "/sonstiges/"
+   
+     [[menu.main]]
+      identifier = "links"
       name = "Link-Sammlung"
       parent = "stuff"
-      weight = 1
-      url = "links"
+      weight = 10
+      url = "/links/"
+
     [[menu.main]]
+      identifier = "spickzettel"
       name = "Spickzettel"
       parent = "stuff"
-      weight = 1
-      url = "spickzettel"
+      weight = 20
+      url = "/spickzettel/"
 
   [[menu.main]]
+    identifier = "about"
     name = "Über mich"
     weight = 1000
-    url = "about"
-
-  [[menu.main]]
-    name = "Impressum"
-    weight = 10000
-    url = "impressum"
-
+    url = "/about/"
