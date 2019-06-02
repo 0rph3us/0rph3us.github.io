@@ -15,7 +15,7 @@ PygmentsCodeFences = true
 PygmentsUseClasses = true
 
 ## Number of posts to show before paginating
-paginate = 10
+paginate = "10"
 
 PygmentsStyle = "xcode"
 
@@ -132,31 +132,31 @@ enableRobotsTXT = true
   [[menu.main]]
     identifier = "home"
     name = "Blog"
-    weight = 1
+    weight = "1"
     url = "/"
 
   [[menu.main]]
     name = "Sonstiges"
     identifier = "stuff"
-    weight = 10
+    weight = "10"
     url = "/sonstiges/"
    
      [[menu.main]]
       identifier = "links"
       name = "Link-Sammlung"
       parent = "stuff"
-      weight = 10
+      weight = "10"
       url = "/links/"
 
     [[menu.main]]
       identifier = "spickzettel"
       name = "Spickzettel"
       parent = "stuff"
-      weight = 20
+      weight = "20"
       url = "/spickzettel/"
 
   [[menu.main]]
     identifier = "about"
     name = "Über mich"
-    weight = 1000
+    weight = "1000"
     url = "/about/"

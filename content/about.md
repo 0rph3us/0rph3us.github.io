@@ -10,15 +10,14 @@ Aufgaben, später habe ich hauptsächlich nur noch mit Solaris beschäftigt. Auf
 da ich eine Stelle als Sun Campus Ambassador von Sun Microsystems hatte.
 
 Nach dem Studium habe ich in der Forschungs- und Entwicklungsabteilung von Unister als Systemarchitekt gearbeitet.
-Zu meinen Aufgaben zählte der Aufbau und die Betreuung des [Hadoop]-/[Hypertable]-Clusters sowie der Continuous Deployment Infrastruktur auf Basis von [AWS] für die Abteilung.
-
-Bei [Spreadshirt] habe ich innerhalb von Operations den Schwerpunkt [DevOp]/Releasemangement ausgefüllt. Meine
-Hauptaufgaben waren das Layer 7 Routing, die [Puppet]isierung von neuen Komponenten sowie der 
-Aufbau Continuous Deployment Infrastruktur für Spreadshirt. Das Layer 7 Routing habe ich mit [HAProxy] umgesetzt.
-
-Nach einen kurzen Zwischenstop bei der Deutschen Bahn, arbeite ich jetzt bei [busnetworx]. Dort bin ich wieder mit
-dem Aufbau einer Continuous Deployment Infrastruktur beschäftigt und ich arbeite als Python-Entwickler. Wobei mein
-Schwerpunkt auf Infrastruktur und PostgreSQL liegt.
+Zu meinen Aufgaben zählte der Aufbau und die Betreuung des Hadoop-/Hypertable-Clusters sowie der Continuous Deployment
+Infrastruktur auf Basis von AWS für die Abteilung. Bei [Spreadshirt] habe ich innerhalb von Operations den
+Schwerpunkt [DevOp]/Releasemangement ausgefüllt. Meine Hauptaufgaben waren das Layer 7 Routing, die [Puppet]isierung
+von neuen Komponenten sowie der Aufbau Continuous Deployment Infrastruktur für Spreadshirt. Das Layer 7 Routing habe
+ich mit [HAProxy] umgesetzt. Nach einen kurzen Zwischenstop bei der Deutschen Bahn, habe ich bei busnetworx angefangen.
+Neben dem Aufbau und Betrieb der Infrastruktur habe ich als Python- und PostgreSQL Entwickler gearbeitet. Seit der
+Insolvenz von busnetworx arbeite ich bei der [SDS]. Bei der SDS arbeite ich wieder als *klassicher* Devop Engineer 
+und betreue die Java- und PHP-Teams.
 
 ## Email
 
@@ -31,7 +30,7 @@ Man kann mir mit GnuPG verschlüsselte Mails schicken.
 
 ## Jabber
 
-Ich betreiben meinen eigenen jabber Server. Meine JabberID ist
+Ich betreibe meinen eigenen jabber Server. Meine JabberID ist
 **michael@jabber.0rpheus.net**.
 
 [MLU]: http://uni-halle.de
@@ -44,4 +43,4 @@ Ich betreiben meinen eigenen jabber Server. Meine JabberID ist
 [AWS]: http://aws.amazon.com/de/
 [Hier]: /Michael_Rennecke_EE75C6FE.asc
 [HAProxy]: http://www.haproxy.org/
-[busnetworx]: https://www.busnetworx.com/
+[SDS]: https://www.stulz-digitronic.com/
