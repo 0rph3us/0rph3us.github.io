@@ -2,9 +2,7 @@
 title = "Impressum"
 +++
 
-{{% alert %}}
 Das ist ein rein privater Blog, für mich und meine Bekannte.
-{{% /alert %}}
 
 
 ## Angaben gemäß § 5 TMG

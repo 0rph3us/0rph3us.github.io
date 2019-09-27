@@ -16,6 +16,6 @@ tags:
 ---
 Es werden [neue Logos][1] f&uuml;r Ice[weasel | ape | dove] gesucht. Ich habe mir mit Martin, einmal ein Paar gedanken gemacht. Das Ergebinis sieht wie folgt aus 
 
-![Iceweasel-Logo]({{< static "/img/blog/Iceweasel.png" >}})
+![Iceweasel-Logo](/img/blog/Iceweasel.png)
 
  [1]: http://mozilla.debian.net/en-US/logos/

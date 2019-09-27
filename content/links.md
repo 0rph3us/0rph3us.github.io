@@ -1,7 +1,5 @@
 +++
 title    = "Linksammlung"
-nodate   = true
-nopaging = true
 +++
 
 * [Monitoring - uptimerobot](https://stats.uptimerobot.com/08xlXSEMQ)

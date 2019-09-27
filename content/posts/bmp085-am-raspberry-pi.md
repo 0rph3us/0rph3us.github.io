@@ -35,7 +35,7 @@ verschiedenen Hersteller verschiedene Pin-Belegungen haben. Die Belegung
 steht auf der Vorder- oder Rückseite der Platine. Es gibt auch Sensoren,
 bei denen man die Pins noch anlöten muss.
 
-![Steckbrett mit BMP085 und Raspberry Pi]({{< static "/img/blog/bmp085_pi.png" >}})
+![Steckbrett mit BMP085 und Raspberry Pi](/img/blog/bmp085_pi.png)
 
 An den roten Leitungen liegen 3,3V an, die schwarzen Leitungen liegen auf Masse.
 Die orange und violette Leitung sind der I²C-Bus, wobei 

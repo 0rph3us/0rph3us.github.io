@@ -20,7 +20,7 @@ Das Skript befindet sich unten.
 
 ## build-kernel.sh
 
-```bash
+{{< highlight bash>}}
 #!/bin/bash
 set -e
 
@@ -92,6 +92,6 @@ cd "linux-${VERSION}"
 cp "/boot/config-$(uname -r)" .config
 yes '' | make oldconfig
 make -j "$(nproc)" deb-pkg LOCALVERSION=-custom
-```
+{{< / highlight >}}
 
 [Kernel bauen]: {{< relref "kernel-bauen.md" >}}

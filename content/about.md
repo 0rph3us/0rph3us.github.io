@@ -1,7 +1,5 @@
 +++
 title    = "Über mich"
-nodate   = true
-nopaging = true
 +++
 
 Ich habe mein Diplom für Informatik an der [MLU] erworben. In dieser Zeit habe ich in der Rechnerbetriebsgruppe
