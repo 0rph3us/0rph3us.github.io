@@ -189,6 +189,9 @@ Problem mit SQL löst, anstatt in einer Hochsprache. Durch den wenigen Code ist 
 Ich halte es nicht für zweckmäßig, wenn man Daten Gigabyteweise durch das Netzwerk schickt. So werden die Daten dort verarbeitet wo sie sind. Da
 sich viele Datenbanken langweilen, können die CPUs auch mal etwas berechnen.
 
+Es werden wahrscheinlich nie viele mit MAC Adressen zu tun haben, aber der Beitrag soll eine Inspiration sein, dass man mit SQL viel mehr machen
+kann.
+
 [^1]: Keine Ahnung wie die Sprache richtig heißt, meine Leser wissen was ich meine :D
 [^2]: mathematisch ist es ein Intervall. Ich versuche es überall Range zu nennen, weil der Datentyp so heißt.
 [^3]: obere Schranke des kleinern halboffenen Intervall ist die untere Schranke des größeren halboffenen Intervalls
