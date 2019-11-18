@@ -14,13 +14,12 @@ tags = ["shorewall", "Firewall"]
 +++
 
 
-## Was ist Shorewall? ##
+## Was ist Shorewall?
 
 Man kann mit [shorewall] einfach [netfilter], aus dem Linux-Kernel, nutzen. Shorewall an sich keine
 Firewall. Es werden iptables-Regeln generiert.
 
-
-## Backlisten von Spamhaus und DShield nutzen ##
+## Backlisten von Spamhaus und DShield nutzen
 
 [Spamhaus] und [DShield] veröffentlichen Blacklisten mit IP-Blöcken, welche von Spammern und Cyberkriminellen
 verwendet werden. Mit dem folgenden Skript kann man sie sehr einfach in shorewall als statische Blacklist
@@ -45,19 +44,17 @@ mv /tmp/blrules /etc/shorewall/blrules
 In der `/etc/shorewall/shorewall.conf` muss *BLACKLIST_DISPOSITION* auf *DROP* stehen. Bei Ubuntu 16.04 ist das nach der
 Installation von shorewall schon der Fall.
 
-### Achtung! ###
+### Achtung!
 
 Man muss auf jeden Fall das Skript beim ersten mal ohne `/sbin/shorewall refresh` testen. Wenn ich eine neue
 Konfiguration für shorewall teste, dann gehe ich wie folgt vor:
 
-
-    shorewall check
-    shorewall try /etc/shorewall/ 30s
-
-
+{{< highlight text >}}
+shorewall check
+shorewall try /etc/shorewall/ 30s
+{{< /highlight >}}
 
 [shorewall]: http://shorewall.net/
 [netfilter]: http://www.netfilter.org/
 [Spamhaus]: https://www.spamhaus.org/
 [DShield]: http://www.dshield.org/
-
