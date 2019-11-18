@@ -14,7 +14,6 @@ offensichtlicher Vorteil ist das Sparen von Festplattenplatz. Ein kleines Image
 kann auch sicherer sein, da der mögliche Angriffsvektor kleiner wird, wenn man keine
 zusätzlichen Tools, Compiler oder Laufzeitumgebungen im Image hat.
 
-
 Bis jetzt war es realtiv schwierig kleine Images mit Docker zu bauen. Da es nicht
 möglich ist, ein einmal erzeugten Layer wieder los zu werden. Um das Problem zu
 lösen wurde mit Docker Version 17.05 ein Feature mit dem Namen Multi-Stage-Build
@@ -23,7 +22,6 @@ definieren und Projektdateien von einer Stage zur nächsten zu kopieren. Zusamme
 mit der Möglichkeit in jeder Stage ein anderes Image als Basis zu nutzen, ergibt
 sich dadurch die Möglichkeit die Abhängigkeiten, die es zum Kompilieren/Bauen
 benötigt, von den Abhängigkeiten, die es zur Laufzeit braucht, zu trennen.
-
 
 ## Was heißt das?
 
@@ -45,18 +43,17 @@ Die laufende Anwendung benötigt zum Schluss nur einen Nginx, JRE[^4], die JAR s
 die Assets. Das ist viel weniger als die komplette Build-Umgebung mit ihren ganzen
 temporären Output.
 
-
 ## Beispiel
 
 Im folgenden sieht man, wie ein kleines Image für eine go Anwendung gebaut wird. 
 
-```
+{{< highlight text >}}
 REPOSITORY   TAG         IMAGE ID        CREATED          SIZE
 go-carbon    latest      c03b2725b270    3 seconds ago    16MB
 <none>       <none>      7dfec15cda13    7 seconds ago    346MB
 golang       1.8-alpine  310e63753884    5 weeks ago      257MB
 alpine       latest      7328f6f8b418    5 weeks ago      3.97MB
-```
+{{< /highlight >}}
 
 Das *golang:1.8-alpine*-Image basiert auf alpine-Linux und ist schon 257MB groß. Ein 
 Images, welches die Anwendung und die gesamte Build-Umgebung enthält ist 346MB groß.
@@ -64,7 +61,8 @@ Das Ziel-Image benötigt nur 16MB. Das ist eine große Ersparnis.
 
 
 ### Dockerfile
-```
+
+{{< highlight dockerfile >}}
 # Stage: Build
 FROM golang:1.8-alpine as builder
 
@@ -93,7 +91,7 @@ COPY --from=builder /go/src/go-carbon/go-carbon /sbin/
 
 EXPOSE 2003 2004 7002 7007 2003/udp
 ENTRYPOINT [ "/sbin/go-carbon" ]
-```
+{{< /highlight >}}
 
 Das Dockerfile enthält 2 Stages. Im *Build*-Stage wird die Anwendung gebaut und in der
 *Run*-Stage wird das Ziel-Image gebaut. Die erste Stage basiert auf dem Image 
@@ -104,7 +102,6 @@ Anweisung `COPY --from=builder /go/src/go-carbon/go-carbon /sbin/` kopiert das B
 *go-carbon* von der *Build*-Stage in die *Run*-Stage. Ein derartiges Dockerfile kann man
 ganz normal mit `docker build` bauen.
 
-
 ## Anmerkung
 
 Ich persönlich finde Multi-Stage-Builds echt super. Das Feature schon von [Rocker] und ich
@@ -114,7 +111,6 @@ Man sollte vielleicht nicht auf Krampf Multi-Stage-Builds einzuführen, insbeson
 man mit Docker nocht nicht so vertraut ist. Deswegen ist meine Empfehlung sich zuerst die
 [Best Practices] von Docker umzusetzten und anschließend kann man Multi-Stage-Builds in
 Angriff nehmen.
-
 
 ## Erklärungen
 
@@ -132,7 +128,6 @@ haben wollen, wird die Bandbreite bei der Registry zum Problem.
 Wenn man schnelles IO möchte, greift man zu SSDs. Diese sind pro GByte sehr viel teurer
 als Festplatten. Aus diesem Grund ist es durchaus ein Unterschied, ob die Images ein
 Faktor 10 größer oder kleiner sind.
-
 
 [Best Practices]: https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
 [Docker]: https://www.docker.com/what-docker
