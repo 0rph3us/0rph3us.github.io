@@ -4,7 +4,7 @@ date: 2019-10-23T18:47:00+02:00
 draft: false
 description:
 categories:
- - Datenbanken
+ - Datenbank
 tags:
  - PostgreSQL
 featured_image:

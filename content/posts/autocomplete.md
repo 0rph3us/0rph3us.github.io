@@ -5,7 +5,7 @@ author = "Michael Rennecke"
 hide_authorbox = true
 disable_comments = true
 draft = false
-categories = ["Datenbanken"]
+categories = ["Datenbank"]
 tags = ["PostgreSQL"]
 +++
 

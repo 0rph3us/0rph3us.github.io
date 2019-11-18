@@ -3,7 +3,7 @@ title: "SQL Für Fortgeschrittene Teil 2"
 date: 2019-11-17T14:27:03+01:00
 description:
 categories:
- - Datenbanken
+ - Datenbank
 tags:
  - PostgreSQL
 featured_image:
