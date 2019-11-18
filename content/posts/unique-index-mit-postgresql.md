@@ -18,7 +18,6 @@ dass es keine doppelten Tupel gibt.
 >
 > Causes the system to check for duplicate values in the table when the index is created (if data already exist) and each time data is added. Attempts to insert or update data which would result in duplicate entries will generate an error.
 
-
 Ich habe eine Tabelle, welche Key-Value-Paare für Benutzer[^1] speichert. Wenn die `user_id` `NULL` ist, dann
 handelt es sich um eine globale Konfiguration. Durch das Hinzufügen eines Unique Indexes, soll sichergestellt
 werden, dass der Key immer global eindeutig bzw. eindeutig für einen Nutzer ist.
@@ -33,7 +32,7 @@ CREATE TABLE conf (
 CREATE UNIQUE INDEX ON conf (user_id, key);
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
 test=# \d conf
                                Table "public.conf"
  Column  |       Type        |                     Modifiers                     
@@ -45,7 +44,7 @@ test=# \d conf
 Indexes:
     "conf_pkey" PRIMARY KEY, btree (id)
     "conf_user_id_key_idx" UNIQUE, btree (user_id, key)
-```
+{{< /highlight >}}
 
 Was passiert, wenn man nun ein paar globale Konfigurationen hinzufügt? 
 
@@ -57,14 +56,14 @@ INSERT INTO conf
 SELECT * FROM conf;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
  id | user_id | key  | value 
 ----+---------+------+-------
   1 |         | ohoh | peng
   2 |         | ohoh | peng
   3 |         | ohoh | peng
 (3 rows)
-```
+{{< /highlight >}}
 
 Wie man sieht, wurde der Key mit dem Namen *ohoh* dreimal hinzugefügt. Das ganze ist kein Fehler,
 sondern ein [dokumentieres Verhalten]:
@@ -90,10 +89,10 @@ CREATE UNIQUE INDEX ON conf (key) WHERE user_id IS NULL;
 
 Falls man jetzt wieder doppelte globale *Keys* anlegen möchte, gibt es einen Fehler.
 
-```
+{{< highlight text >}}
 ERROR:  duplicate key value violates unique constraint "conf_key_idx"
 DETAIL:  Key (key)=(ohoh) already exists.
-```
+{{< /highlight >}}
 
 In meinen Fall darf `key` nicht `NULL` sein. Wenn der Fall auftritt, dass `key` und
 `user_id` den Wert `NULL` annehmen können, dann muss man noch einen dritten Index anlegen.
@@ -103,7 +102,6 @@ Dieser prüft, ob `user_id` eindeutig ist, wenn der `key` `NULL` ist.
 ALTER TABLE conf ALTER key DROP NOT NULL;
 CREATE UNIQUE INDEX ON conf (user_id) WHERE key IS NULL;
 {{< /highlight >}}
-
 
 ## Schluss
 
@@ -115,7 +113,6 @@ zu bekommen.
 Bei einem Index denken wahrscheinlich die wenigen, wie auch ich, an `NULL`-Werte. Nachdem man
 diesen Artikel gelesen hat, sollte man beim Anlegen des nächsten Index nachdenken, ob `NULL`-Werte
 vorkommen können.
-
 
 [PostgreSQL]: https://de.wikipedia.org/wiki/PostgreSQL
 [UNIQUE]: https://www.postgresql.org/docs/9.6/static/sql-createindex.html
