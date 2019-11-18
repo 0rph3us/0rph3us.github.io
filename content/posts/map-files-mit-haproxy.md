@@ -16,9 +16,9 @@ und dann nach Hostnamen, dann *muss* man auch ACLs definieren. Falls man keine A
 Default-Backend bei der [map]-Funktion angibt, wird auch Default-Backend ignoriert, welches 
 mit `default_backend` konfiguriert wird.
 
-
 ## Minimalbeispiel
-```
+
+{{< highlight config >}}
 global
     log /dev/log    local0
     log /dev/log    local1 notice
@@ -60,14 +60,12 @@ backend bk_path1
 
 backend bk_path2
     server a4 127.0.0.1:9004
-```
+{{< /highlight >}}
 
 Die ACL `{ path,map_beg(/etc/haproxy/path2backends.map) -m found }` ist wahr, wenn der Pfad in der Datei
 `path2backends.map` gefunden wurde. Falls das nicht Fall ist, wird diese Zeile übersprungen. 
 Wird der Hostname von Request nicht in der Datei `host2backends.map` gefunden, dann wird das Backend
 `bk_stats` genommen.
-
-
 
 [HAProxy]: http://www.haproxy.org/
 [Loadbalancer und Webserver härten]: {{< relref "Loadbalancer-haerten.md" >}}
