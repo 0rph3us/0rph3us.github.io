@@ -43,7 +43,6 @@ Frontend relaisiert ist, schnell genug ist. Die Qualität der Suchergebnisse sti
 auch, in meinen Augen. In der Praxis habe ich diesen Ansatz auf einer Tabelle mit
 ca. 260.000 Datensätzen im Einsatz.
 
-
 ## Beispiel
 
 An diesem Beispiel möchte ich zeigen, wie man so etwas mit PostgreSQL umsetzen kann.
@@ -52,7 +51,7 @@ Als erstes erzeugt man eine Tabelle `customer` und befüllt sie mit Daten. Man k
 Demodaten schnell mit [mockaroo] erzeugen. Diese sind zwar nicht gut, aber man kann so
 das Prinzip sehen.
 
-```sql
+{{< highlight sql >}}
 -- is needed for gin_trgm_ops
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
@@ -65,14 +64,14 @@ create table customer (
 	city VARCHAR(50),
 	street VARCHAR(50)
 );
-```
+{{< /highlight >}}
 
 Wenn die Tabelle, wie oben erzeugt wurde und Daten eingefügt sind, dann erstellt man 
 die Spalte `autocomplete` und legt einen Index darauf an. In einer praktischen Anwendung
 muss man diese Spalte über Trigger immer aktualisieren, wenn sich `first_name`, `last_name`
 oder `city` ändern. Das kann man auch in der Anwendung machen.
 
-```sql
+{{< highlight sql >}}
 -- add column autocomplete in table customer
 ALTER TABLE customer ADD COLUMN IF NOT EXISTS autocomplete TEXT;
 
@@ -81,13 +80,13 @@ UPDATE customer SET autocomplete = concat_ws(' ', first_name, last_name, city) W
 
 -- add trigram index on column autocomplete in table customer
 CREATE INDEX IF NOT EXISTS customer_autocomplete_idx ON customer USING GIN(autocomplete gin_trgm_ops);
-```
+{{< /highlight >}}
 
 Als nächstes legt man ein prepared Statement an bzw. man nutzt nur die Anfrage. Das prepared Statement hat
 den Vorteil, dass man der Konsole bessere spielen kann. Die verwendeten Operatoren sind in der [Dokumention]
 beschrieben.
 
-```sql
+{{< highlight sql >}}
 PREPARE search (text, int) AS
     SELECT
         word_similarity($1, autocomplete) AS similarity,
@@ -100,7 +99,7 @@ PREPARE search (text, int) AS
     ORDER BY
         similarity DESC, autocomplete <-> $1
     LIMIT $2;
-```
+{{< /highlight >}}
 
 Im prepared Statement ist `$1` die Suchphrase und `$2` die Anzahl der
 Zeilen, die zurückgegeben werden.
@@ -117,9 +116,9 @@ und distance (`<->`) kann man in der [pg_trgm] Dokumentation nachlesen.
 Man kann das prepared Statement einfach ausführen und mit verschiedenen
 Suchphrasen herumspielen.
 
-```sql
+{{< highlight sql >}}
 EXECUTE search('gibb', 2);
-```
+{{< /highlight >}}
 
 ## Optimierung
 
@@ -128,16 +127,15 @@ Dadruch kann man etwas Speicherplatz sparen. Dadurch kann es passieren,
 dass die Anfrage etwas langsamer ist. Auf der anderen Seite hat man
 somit keine Probleme beim Update bzw. einfügen von Datensätzen.
 
-
-```sql
+{{< highlight sql >}}
 DROP INDEX customer_autocomplete_idx;
 ALTER TABLE customer DROP COLUMN autocomplete;
 
 -- create a new index on columns first_name, last_name and city
 CREATE INDEX IF NOT EXISTS customer_autocomplete_idx ON customer USING GIN((first_name || ' ' || last_name || ' ' || city) gin_trgm_ops);
-```
+{{< /highlight >}}
 
-```sql
+{{< highlight sql >}}
 DEALLOCATE search;
 PREPARE search (text, int) AS
     SELECT
@@ -151,7 +149,7 @@ PREPARE search (text, int) AS
     ORDER BY
         similarity DESC, (first_name || ' ' || last_name || ' ' || city) <-> $1
     LIMIT $2;
-```
+{{< /highlight >}}
 
 
 [Elasticsearch]: https://www.elastic.co/de/products/elasticsearch
