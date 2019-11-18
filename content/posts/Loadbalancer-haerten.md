@@ -18,8 +18,8 @@ Wenn man beides zulässt, dann **muss** festlegen und auch sicherstellen, dass z
 Anschließend routet man nur noch anhand von Hostnamen. Wenn man keine Reihenfolge sicher stellt baut man
 evtl. eine Backdoor ein.
 
-
 ## Apache und Nginx
+
 Mit [Apache] und [Nginx] lässt sich ein auch ein hostbasiertes Routing bauen. Wenn man die folgenden Punkte beachtet,
 gibt es auch weniger Überraschungen:
 
@@ -35,38 +35,36 @@ man denkt. Es gewinnt in der Regel der First-Match und nicht der Best-Match. Ich
 Konstruktionen gesehen, die offen wie ein Scheunentor waren.
 
 ### Fallstrick
+
 Die Host-Header werden in Zusammenhang [mit Ports] nicht immer richtig ausgewert, d.h. es findet mitunter
 keine Unterscheidung zwichen *expample.com*, *example.com:80* und *example.com:8080* statt.
 
-
 ## HAProxy
+
 Ich muss zugeben, dass ich ein [HAProxy]-Fanboy bin, aber wenn man es mit *Routingfasching* zu tun hat, dann
 gibt es kein besseres Tool. Wenn man bei HAProxy nur nach Hostnames routen möchte, dann hat sich die folgende
 Syntax, mit Map-Files, bewährt:
 
-```
+{{< highlight text >}}
 use_backend bk_%[req.hdr(host),lower,map(/etc/haproxy/host2backends.map,error)]
-```
+{{< /highlight >}}
 
 Die Datei `/etc/haproxy/host2backends.map` besteht aus Key-Value Paaren. Der Key ist der Hostname und der Value
 ist der Name des HAProxy-Backends ohne den Prefix *bk_*
 
-```
+{{< highlight text >}}
 cat /etc/haproxy/host2backends.map
 # Hostname     backend name
 example.com    example.com
 example.de     example.com
 foo.org        foo.org
 foo.net        foo.net
-```
+{{< /highlight >}}
 
 Die Backends nach dem Beispiel haben die Namen `bk_example.com`, `foo.org` und `foo.net`. Diese Map-Dateien sind
 auch performanter, als einzelne `use_backend`-Anweisungen, da beim Start ein [Präfixbaum] aus der Datei generiert
 wird. Wenn kein Treffer gefunden wurde, dann wird das Backend `bk_error` genommen. Falls es kein Default-Backend
-gibt, dann gibt HAProxy den Status-Code 500 zurück. 
-
-
-
+gibt, dann gibt HAProxy den Status-Code 500 zurück.
 
 [Nginx]: https://nginx.org
 [Apache]: https://httpd.apache.org/
