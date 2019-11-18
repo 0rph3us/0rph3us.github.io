@@ -1,3 +1,0 @@
-{{- if not .Page.Draft -}}
-    {{- errorf "REMINDER (%v): %v" .Page.File.Path (trim .Inner "\r\n") -}}
-{{- end -}}
