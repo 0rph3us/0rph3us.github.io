@@ -21,18 +21,19 @@ Es hat sich bewährt, dass man die Kurve **secp256r1** nutzt, **secp384r1** funk
 manchen Android 7 Geräten nicht richtig und längere Kurven werden z.B. von Chrome nicht 
 unterstützt.
 
-
 Im folgenden möchte ich zeigen, wie man ein SAN-Zertifikat anfordert
 
 ## ECC-Zertifikat anfordern
 
 ### Privaten Schlüssel erzeugen
-```
+
+{{< highlight sh >}}
 openssl ecparam -genkey -name prime256v1 > domain.key
-```
+{{< /highlight >}}
 
 ### Certificate Signing Request erstellen
-```
+
+{{< highlight sh >}}
 domain=blog.0rpheus.net
 country=DE
 state=Saxony-Anhalt
@@ -44,14 +45,13 @@ openssl req -new -sha256 \
     -config <(cat /etc/ssl/openssl.cnf \
         <(printf "\n[SAN]\nsubjectAltName=DNS:$domain")) \
     -out domain.csr
-```
-
+{{< /highlight >}}
 
 ### Zertifikat anfordern
-```
+
+{{< highlight sh >}}
 email=meine@email.de
 outdir=/etc/certs
-
 
 mkdir -p "$outdir/fullchain/"
 mkdir -p "$outdir/chain/"
@@ -65,7 +65,7 @@ letsencrypt certonly \
     --chain-path "$outdir/chain" \
     --cert-path "$outdir/cert" \
     --csr domain.csr
-```
+{{< /highlight >}}
 
 Anschließden erhält man die Zertifikatsdateien in den entsprechenden
 Verzeichnissen. Das ganz ist nur ein kurzer Abriss wie man ECC Zertifikate
