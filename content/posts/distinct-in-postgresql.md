@@ -18,7 +18,7 @@ und ich möchte es im einmal erklären.
 Ich habe eine einfache Mitarbeitertabelle angelegt, wie man sie in vielen Tutorials findet.
 Die Testdaten habe ich mit [mockaroo] generiert.
 
-```
+{{< highlight text >}}
 test=# \d employee
                                   Table "public.employee"
    Column   |         Type          |                       Modifiers                       
@@ -38,7 +38,7 @@ test=# SELECT * FROM employee limit 3;
   2 | Cecily     | Churm   | Engineering |   3728
   3 | King       | Tribell | Training    |   3780
 (3 rows)
-```
+{{< /highlight >}}
 
 ### Was macht DISTINCT
 
@@ -50,7 +50,7 @@ So erhält man eine Liste mit allen Abteilungen:
 SELECT DISTINCT department FROM employee;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
         department        
 --------------------------
  Engineering
@@ -66,7 +66,7 @@ SELECT DISTINCT department FROM employee;
  Product Management
  Human Resources
 (12 rows)
-```
+{{< /highlight >}}
 
 Mir ist durchaus bewusst, dass das Schema nit normalisiert ist. Aber das Beispiel
 sollte sehr einfach sein, um das Verhalten von `DISTINCT` zu zeigen.
@@ -78,7 +78,6 @@ auf großen Tabellen von Vorteil.
 {{< highlight sql >}}
 SELECT department FROM employee GROUP BY department;
 {{< /highlight >}}
-
 
 ## DISTINCT ON
 
@@ -106,7 +105,7 @@ ORDER BY
     department;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
   id  | first_name |   name    |        department        | salary 
 ------+------------+-----------+--------------------------+--------
  4841 | Caresse    | Simonian  | Accounting               |   9971
@@ -123,7 +122,7 @@ ORDER BY
  5988 | Grier      | Gotcliffe | Support                  |   9984
  5920 | Gray       | Bizley    | Training                 |   9955
 (13 rows)
-```
+{{< /highlight >}}
 
 Wenn 2 Mitarbeiter das höchste Gehalt einer Abteilung haben, dann werden
 beide ausgegeben. So ist es bei der Abteilung Marketing der Fall.
@@ -152,7 +151,7 @@ ORDER BY
   department;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
  row |  id  | first_name |   name    |        department        | salary 
 -----+------+------------+-----------+--------------------------+--------
    1 | 4841 | Caresse    | Simonian  | Accounting               |   9971
@@ -168,7 +167,7 @@ ORDER BY
    1 | 5988 | Grier      | Gotcliffe | Support                  |   9984
    1 | 5920 | Gray       | Bizley    | Training                 |   9955
 (12 rows)
-```
+{{< /highlight >}}
 
 Wie man sieht, enthält diese Ausgabe keine Duplikate mehr. In PostgreSQL kann
 man diese Anfrage auch sehr elegant mit [DISTINCT ON] schreiben. Das ist aber
@@ -184,9 +183,7 @@ ORDER BY
   salary DESC;
 {{< /highlight >}}
 
-
 > SELECT DISTINCT ON ( expression [, ...] ) keeps only the first row of each set of rows where the given expressions evaluate to equal. 
-
 
 ## IS DISTINCT FROM
 
@@ -201,7 +198,6 @@ CREATE TABLE t AS (
 );
 {{< /highlight >}}
 
-
 In SQL kann eine Abfrage die 3 verschiedene Ergebisse haben: `TRUE`, `FALSE` und `NULL`.
 
 {{< highlight sql >}}
@@ -213,19 +209,18 @@ FROM
   t;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
   a   |  b   | equals 
 ------+------+--------
     1 |    1 | t
     1 |    2 | f
  NULL |    1 | NULL
  NULL | NULL | NULL
-```
+{{< /highlight >}}
 
 Wie man sieht, kann man in SQL nicht mit `NULL` auf Gleichheit vergleichen. Sowie man mit
 `NULL` vergleicht, kommt immer `NULL` heraus. In vielen Fällen möchte man aber trotzdem mit
 `NULL` vergleichen und `TRUE` bzw. `FALSE` erhalten. Das funktioniert mit einen komplexen Ausdruck.
-
 
 {{< highlight sql >}}
 SELECT
@@ -241,15 +236,14 @@ FROM
   t;
 {{< /highlight >}}
 
-
-```
+{{< highlight text >}}
   a   |  b   | equals | full_condition 
 ------+------+--------+----------------
     1 |    1 | t      | t
     1 |    2 | f      | f
  NULL |    1 | NULL   | f
  NULL | NULL | NULL   | t
-```
+{{< /highlight >}}
 
 Der verwendete Ausdruck ist sehr komplex. Die meisten sind wahrscheinlich nicht in der Lage
 ihn schnell aufzuschreiben. Im SQL Standard gibt es einen Operator für einen sicheren
@@ -265,18 +259,16 @@ FROM
   t;
 {{< /highlight >}}
 
-
-```
+{{< highlight text >}}
   a   |  b   | equal | is_distinct_from 
 ------+------+-------+------------------
     1 |    1 | t     | f
     1 |    2 | f     | t
  NULL |    1 | NULL  | t
  NULL | NULL | NULL  | f
-```
+{{< /highlight >}}
 
 Im [PostgreSQL Wiki] findet die Wertetabellen für `IS DISTINCT FROM`.
-
 
 ## ARRAY_AGG(DISTINCT)
 
@@ -294,7 +286,7 @@ ORDER BY
     department;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
      department     |              employees               
 --------------------+--------------------------------------
  Accounting         | {"Devlin Klulik"}
@@ -303,7 +295,7 @@ ORDER BY
  Product Management | {"Glenda Trout"}
  Services           | {"Francklin Gurr"}
  Training           | {"King Tribell"}
-```
+{{< /highlight >}}
 
 Nun sieht man, welche Mitarbeiter in einer Abteilung arbeiten. Man kann auch
 `DISTINCT` verwenden, um das höchste Gehalt innerhalb einer Abteilung zu finden.
@@ -320,7 +312,7 @@ ORDER BY
     department;
 {{< /highlight >}}
 
-```
+{{< highlight text >}}
      department     |  salaries   
 --------------------+-------------
  Accounting         | {3785}
@@ -329,12 +321,11 @@ ORDER BY
  Product Management | {3982}
  Services           | {4207}
  Training           | {3780}
-```
+{{< /highlight >}}
 
 Man sieht, dass die Legal-Abteilung 2 Mitarbeiter hat, aber es git nur ein Gehalt. Daraus folgt,
 dass alle Mitarbeiter dasselbe Gehalt haben müssen. Die `ORDER BY department` Befehle, sorgen dafür,
 dass die Ausgabe immer gleiche Reihenfolge hat. Sie sind für die Anfragen nicht notwendig.
-
 
 ## Schluss
 
@@ -342,8 +333,6 @@ Ich wollte einmal auf die verschiedenen Verwendungen von `DISTINCT` hinweisen. A
 bin ich erst beim Schreiben des Artikels gestoßen. Was ich mitnehme (und ihr mitnehmen solltet), man
 sollte öfter einmal in die Dokumention von PostgreSQL schauen, anstatt umständliches SQL zu schreiben
 oder die Daten noch einmal in der Applikation verarbeiten.
-
-
 
 [MySQL]: https://de.wikipedia.org/wiki/MySQL
 [PostgreSQL]: https://de.wikipedia.org/wiki/PostgreSQL
