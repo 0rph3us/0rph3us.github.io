@@ -1,5 +1,5 @@
 ---
-title: "Haproxy Testen"
+title: "Haproxy testen"
 date: 2019-11-21T13:31:10+01:00
 description:
 categories:
