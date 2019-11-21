@@ -29,7 +29,7 @@ In den aktuellen Developer Builds von HAProxy, aktuell 1.6-dev4 ist möglich ECC
 
 ### Testconfig ###
 
-```
+{{< highlight config >}}
 global
         daemon
         maxconn 256
@@ -84,7 +84,7 @@ backend admin
         stats realm Haproxy\ Statistics
         stats uri /haproxy?stats
         stats refresh 30s
-```
+{{< /highlight >}}
 
 In dieser Config generiere ich nur die ECC-Zertifikate für alle Hosts, außer `test.rennecke.dyndns.dk`. Das ganze Setup funktioniert, aber es läuft noch nicht ganz rund.
 
