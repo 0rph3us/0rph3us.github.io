@@ -53,7 +53,7 @@ gawk -i inplace '{gsub("NRNR",NR,$0);print}' "$config"
 
 ## Dummyserver
 
-Dieser kleine http-Server gibt auf bei jedem Request auf irgendeine Ressource ein JSON zurück. In diesem
+Dieser kleine http-Server[^1] gibt auf bei jedem Request auf irgendeine Ressource ein JSON zurück. In diesem
 JSON findet man den Host-Header, Path und den Namen vom Backend. Der Name des Backends wird über den
 `X-Backend` bestimmt. Diese Information kann man die HAProxy-Konfiguration testen:
 `curl -H 'Host: example.com' http://192.0.2.10/hallo/welt | jq .backend`
@@ -117,6 +117,8 @@ Lasttest starten und schauen wo es klemmt.
 Ich nutze diesen Ansatz zum Testen von komplexen Konfigurationen. Es wird noch ein Betrag folgen, wie ich das genau
 bewerkstellige.
 
+[^1]: Der server ist in [go] geschrieben
+[go]: https://golang.org/
 [Ceph]: https://ceph.io/
 [Vegeta]: https://github.com/tsenart/vegeta
 [HAProxy]: http://www.haproxy.org/
