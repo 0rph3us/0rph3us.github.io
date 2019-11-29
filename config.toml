@@ -6,14 +6,52 @@ defaultContentLanguage = "de"
 author       = "Michael Rennecke"
 theme        = "KeepIt"
 
-## Allow the use of GitHub-style code fences
-PygmentsCodeFences = true
-
-## Apply classes to styled elements instead
-## Necessary to use the built-in code styles that
-## automatically change to fit the theme colors
-PygmentsUseClasses = true
-PygmentsStyle = "xcode"
+# https://gohugo.io/getting-started/configuration-markup/
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.blackFriday]
+    angledQuotes = false
+    footnoteAnchorPrefix = ""
+    footnoteReturnLinkContents = ""
+    fractions = true
+    hrefTargetBlank = false
+    latexDashes = true
+    nofollowLinks = false
+    noreferrerLinks = false
+    plainIDAnchors = true
+    skipHTML = false
+    smartDashes = true
+    smartypants = true
+    smartypantsQuotesNBSP = false
+    taskLists = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xHTML = false
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "xcode"
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 2
 
 
 ## Number of posts to show before paginating
