@@ -40,10 +40,10 @@ usermod -a -G systemd-journal rennecke
 
 ## parallel packen
 
+Alle Varianten nutzen automatisch alle Kerne. Man kann die Anzahl auch explizit angeben.
+
 {{< highlight sh >}}
-tar cf - . | pigz -9 -p 16 > ~/backup.tar.gz
-# nutzt alle Kerne
+tar cf - . | pigz -9 > ~/backup.tar.gz
 tar cf - . | pxz -9 > ~/backup.tar.xz
-# nutzt alle Kerne
 tar cf - . | pbzip2 -9 > ~/backup.tar.bz2
 {{< /highlight >}}
