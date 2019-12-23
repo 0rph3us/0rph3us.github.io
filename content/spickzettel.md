@@ -37,3 +37,13 @@ env GOOS=linux GOARCH=arm GOARM=7 go build  main.go
 {{< highlight sh >}}
 usermod -a -G systemd-journal rennecke
 {{< /highlight >}}
+
+## parallel packen
+
+{{< highlight sh >}}
+tar cf - . | pigz -9 -p 16 > ~/backup.tar.gz
+# nutzt alle Kerne
+tar cf - . | pxz -9 > ~/backup.tar.xz
+# nutzt alle Kerne
+tar cf - . | pbzip2 -9 > ~/backup.tar.bz2
+{{< /highlight >}}
