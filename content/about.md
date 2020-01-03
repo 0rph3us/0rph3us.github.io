@@ -14,7 +14,7 @@ Schwerpunkt [DevOp]/Releasemangement ausgefüllt. Meine Hauptaufgaben waren das 
 von neuen Komponenten sowie der Aufbau Continuous Deployment Infrastruktur für Spreadshirt. Das Layer 7 Routing habe
 ich mit [HAProxy] umgesetzt. Nach einen kurzen Zwischenstop bei der Deutschen Bahn, habe ich bei busnetworx angefangen.
 Neben dem Aufbau und Betrieb der Infrastruktur habe ich als Python- und PostgreSQL Entwickler gearbeitet. Seit der
-Insolvenz von busnetworx arbeite ich bei der [SDS]. Bei der SDS arbeite ich wieder als *klassicher* Devop Engineer 
+Insolvenz von busnetworx arbeite ich bei der [SDS]. Bei der SDS arbeite ich wieder als *klassischer* Devop Engineer 
 und betreue die Java- und PHP-Teams.
 
 ## Email
