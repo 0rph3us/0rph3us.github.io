@@ -134,7 +134,7 @@ Durch den Umbau schrumpfte der Platzbedarf für Indizes und Tabellen auf ca. 25%
 warm ist, dann sind Zeiten weiter unter einer Sekunde keine Seltenheit. Die Anwendung braucht mit den Daten nichts mehr zu machen. Die Entwickler haben geflucht,
 weil meine kreative Anfrage nicht vom [OR Mapper] vorgesehen war.
 
-Seit SQL '92 hat sich eine Menge geändert. Jeder, der eine SQL Datenbank nutzt, sollte sich mit seiner Datenbank und den Anfragen auseinander setzen.
+Seit SQL '92 hat sich eine Menge geändert[^4]. Jeder, der eine SQL Datenbank nutzt, sollte sich mit seiner Datenbank und den Anfragen auseinander setzen.
 Die OR Mapper nehmen einen das nachdenken nicht ab. Wenn man eine gute Anfrage hat, dann ist es *egal* wie groß die Datenbank ist. Ich hätte nicht mit so einer
 großen Verbesserung gerechnet. Deswegen werde ich mich **nicht** intensiver mit [Partionierung] bei PostgreSQL beschäftigen. Es gibt für mich kein Problem[^3],
 welches ich damit lösen kann.
@@ -145,3 +145,4 @@ welches ich damit lösen kann.
 [^1]: Zeiten wurden in der Anwendung gemessen. Die reine Anfrage lief zwischen 5 und 20 Minuten.
 [^2]: Je nach Verteilung der Daten kann auch ein BRIN- bzw. partieller Index vorteilthaft sein.
 [^3]: Man benötigt Partionierung für *schlechte Anfragen*, das war das Fazit nach einer Diskussion mit einem Bekannten.
+[^4]: Ausspruch von [Markus Winand](https://modern-sql.com/de) geklaut
