@@ -49,13 +49,13 @@ WHERE
 ;
 {{< /highlight >}}
 
-Das ganze sieht noch nicht so gefährlich aus, obwohl es mir weh tut, dass `data` vom Typ `text` ist,
-obwohl nur `integer` gespeichert werden. Es gab auch keinen Grund, weswegen `date_` und `time_` separat gespeichert werden.
-Die Indizes `idx_foo` und `idx_bar` sind vollkommen nutzlos (auch für die anderen Anfragen) und der Primärschlüssel ist
-einfach nur extrem riesg und nutzlos. Er ist ca. 30% größer als die Tabelle. Dabei hat er noch fachliche Fehler. `special_id2`
+Das ganze sieht noch nicht so gefährlich aus, obwohl es mir weh tut, dass `data` vom Typ `text` ist.
+Es werden nur Integer gespeichert. Es gibt auch keinen Grund, weswegen `date_` und `time_` separat gespeichert werden[^5].
+Die Indizes `idx_foo` und `idx_bar` sind vollkommen nutzlos, auch für die anderen Anfragen. Der Primärschlüssel ist
+extrem groß und bringt keine Vorteile. Er ist ca. 30% größer als die Tabelle. Dabei hat er noch fachliche Fehler, `special_id2`
 muss eindeutig sein.
 
-Die Tabelle `foo` hat über eine Millarde Zeilen. Ein gibt ein paar 100 `special_id1` und `special_id2` Kombinationen, für jede
+Die Tabelle `foo` hat über eine Millarde Zeilen. Es gibt ein paar 100 `special_id1` und `special_id2` Kombinationen. Für jede
 Kombination wird in unterschiedlichen Intervallen ein neuer Datenpunkt erzeugt. Das Intervall ist zwischen wenigen Sekunden und
 unter 10 Minuten. Man hat einen bunten Blumenstrauß an Datensätzen. Es kam der Punkt an dem die Platten der Datenbank
 voll wurden. Die Anwendung hat zwischen 5 und 30 Minuten für die Anfragen benötigt[^1]. Man war sich einig, dass der
@@ -64,7 +64,7 @@ Datenbankserver das Problem ist. Das ganze lässt sich nur mit Partionierung und
 ## Lösung
 
 Ich möchte die Größe der Tabelle reduzieren, zweckmäßige Datentypen verwenden, sinnvolle Indizes einführen und die fachlichen
-Anforderungen sicherstellen. Das ganze ist relativ einfach, denn man muss die Tabelle nur normalisieren.
+Anforderungen sicherstellen. Das ganze ist relativ einfach, dazu muss man die Tabelle normalisieren.
 
 {{< highlight sql >}}
 CREATE TABLE id_table (
@@ -83,9 +83,9 @@ CREATE TABLE better_foo (
 );
 {{< /highlight >}}
 
-Durch die Aufteilung der Daten in 2 Tabellen speichert man viel weniger Daten und die Indizes sind viel kleiner. Während der Arbeiten
-am neuen Schema kam heraus, dass die Daten in der Anwendung über Teilintervalle aggegiert werden. Es ist eine ganze schlechte
-Idee Tonnen an Daten per Netzwerk zu übertragen, um dann nur wenige Aggregate zu berechnen.
+Durch die Aufteilung der Daten in 2 Tabellen werden die Tabellen kleiner. Das gilt auch für die Indizes. Im Zuge der
+Optimierung wurde festgestellt, dass man nur Aggegate benötigt. Diese habe ich auch in der Datenbank berechnet. Dadurch
+müssen nicht Tonnen an Daten verschickt werden.
 
 {{< highlight sql >}}
 SELECT
@@ -146,3 +146,4 @@ welches ich damit lösen kann.
 [^2]: Je nach Verteilung der Daten kann auch ein BRIN- bzw. partieller Index vorteilthaft sein.
 [^3]: Man benötigt Partionierung für *schlechte Anfragen*, das war das Fazit nach einer Diskussion mit einem Bekannten.
 [^4]: Ausspruch von [Markus Winand](https://modern-sql.com/de) geklaut
+[^5]: Wenn man das unbedingt benötigt, dann kann man einen [Funktionsindex](https://www.postgresql.org/docs/12/indexes-expressional.html) nutzen
