@@ -96,7 +96,7 @@ mit go versuchen. Alternativ kann ich es als Elektron App bauen. :D
 [superlinearen Speedup]: {{< ref "superlinearer-speedup.md" >}}
 [Intel Xeon X5570]: https://ark.intel.com/content/www/de/de/ark/products/37111/intel-xeon-processor-x5570-8m-cache-2-93-ghz-6-40-gt-s-intel-qpi.html
 [Matrixmultiplikation nach Strassen]: https://de.wikipedia.org/wiki/Strassen-Algorithmus
-[Cilk]: https://en.wikipedia.org/wiki/Cilk
+[Cilk++]: https://en.wikipedia.org/wiki/Cilk
 [^1]: https://gcc.gnu.org/gcc-8/changes.html
 [AMD Ryzen 7 2700]: https://en.wikichip.org/wiki/amd/ryzen_7/2700
 [AMD Epyc 7502P]: https://en.wikichip.org/wiki/amd/epyc/7502p
