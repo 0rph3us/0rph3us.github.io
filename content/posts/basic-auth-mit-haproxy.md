@@ -11,7 +11,7 @@ featured_image:
 author: ""
 ---
 
-Ich habe öft das Problem, dass Dienste keine Authentifizierung haben und bequem per Internet erreichbar sein müssen oder
+Ich habe häufiger das Problem, dass Dienste keine Authentifizierung haben und bequem per Internet erreichbar sein müssen oder
 man möchte bestimmte Ressourcen schützen. Weiterhin möchte man aus Bequemlichkeit ein Whitelisting für bestimmte IP-Netze
 oder IPs. Es gibt auch ein LDAP oder Active Directory. Im folgenden Beispiel gilt das Netz 192.88.99.0/24 und die 
 IP 203.0.113.42 als vertrauenswürdig. Wir haben die Domains foo.example, bar.example, geheim.example und streng.geheim.example.
