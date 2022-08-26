@@ -21,9 +21,7 @@ Aus der Diffenzierbarkeit folgt die Stetigkeit. Diese Umkehrung dieser Aussage g
 
 Das ist nicht die Orginale Funktion von ihm, welche er zuerst vorgestellt hat. Diese Funktion sieht aber aus wie eine Sinuskurve. Die Zacken im Plot entstehen, weil die Summe nicht bis Unendlich läuft. Aus Gründen der Zahlendarstellung im Rechner, habe ich die Summe nur bis 50 laufen lassen.
 
-<p style="text-align: center;">
-  <a href="http://0rpheus.net/uploads/2010/08/weierstrass.png" rel="lightbox[3192]"><img class="aligncenter" title="Weierstraß-Funktion" src="http://0rpheus.net/uploads/2010/08/weierstrass-300x300.png" alt="Plots der Weierstraß- und Sinusfunktion" width="300" height="300" /></a>
-</p>
+![Plots der Weierstraß- und Sinusfunktion](/img/weierstrass.png)
 
 Seine erste Funktion sah wie folgt aus:
 
