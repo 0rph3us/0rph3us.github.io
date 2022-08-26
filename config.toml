@@ -4,11 +4,11 @@ baseurl      = "https://blog.0rpheus.net"
 
 defaultContentLanguage = "de"
 author       = "Michael Rennecke"
-theme        = "KeepIt"
+theme        = "hugo-xmin"
 
 # https://gohugo.io/getting-started/configuration-markup/
 [markup]
-  defaultMarkdownHandler = "goldmark"
+  defaultMarkdownHandler = "blackfriday"
   [markup.blackFriday]
     angledQuotes = false
     footnoteAnchorPrefix = ""
@@ -48,7 +48,7 @@ theme        = "KeepIt"
     lineNumbersInTable = true
     noClasses = true
     style = "xcode"
-    tabWidth = 4
+    tabWidth = 2
   [markup.tableOfContents]
     endLevel = 3
     startLevel = 2
@@ -65,8 +65,8 @@ Twitter = false
 Facebook = false
 Linkedin = false
 
-#[Permalinks]
-  #posts = "/:year/:filename/"
+[Permalinks]
+  posts = "/posts/:filename/"
 
 [sitemap]
   changefreq = "monthly"
@@ -79,14 +79,25 @@ Linkedin = false
     home_mode = "post"
     license= 'Released under <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank">CC BY-NC 4.0</a>'
     avatar = "/img/solaris-vs-linux.jpg"
+    footer = "&copy; [Michael Rennecke](https://blog.0rpheus.net) 2009 -- {Year} | [Impressum](/terms-of-use/) | [Datenschutzerklärung](/privacy-policy/) | [RSS-Feed](/index.xml)"
 
 
 [menu]
+  [[menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+
   [[menu.main]]
     name = "Kategorien"
     url = "/categories/"
     weight = 3
  
+  [[menu.main]] 
+    name = "Tags"
+      url = "/tags/"
+      weight = 4
+
   [[menu.main]]
     identifier = "links"
     name = "Link-Sammlung"
