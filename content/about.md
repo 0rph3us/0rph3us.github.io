@@ -13,18 +13,15 @@ Infrastruktur auf Basis von AWS für die Abteilung. Bei [Spreadshirt] habe ich i
 Schwerpunkt [DevOp]/Releasemangement ausgefüllt. Meine Hauptaufgaben waren das Layer 7 Routing, die [Puppet]isierung
 von neuen Komponenten sowie der Aufbau Continuous Deployment Infrastruktur für Spreadshirt. Das Layer 7 Routing habe
 ich mit [HAProxy] umgesetzt. Nach einen kurzen Zwischenstop bei der Deutschen Bahn, habe ich bei busnetworx angefangen.
-Neben dem Aufbau und Betrieb der Infrastruktur habe ich als Python- und PostgreSQL Entwickler gearbeitet. Seit der
-Insolvenz von busnetworx arbeite ich bei der [SDS]. Bei der SDS arbeite ich wieder als *klassischer* Devop Engineer 
-und betreue die Java- und PHP-Teams.
+Neben dem Aufbau und Betrieb der Infrastruktur habe ich als Python- und PostgreSQL Entwickler gearbeitet. Nach der
+Insolvenz von busnetworx habe ich bei der [SDS] gearbeitet. Dort war ich wieder als *klassischer* Devops Engineer
+angestellt und die Java- und PHP-Teams betreut. Die SDS hat sich langsam einen Weg eingeschlagen, den ich nicht
+mitgehen wollte. Aus diesem Grund bin ich dann zu [powercloud] gegangen. Dort arbeite ich inzwischen als
+Platform Engineer.
 
 ## Email
 
 Bei Fragen kann man mir Emails senden. Die Adresse lautet **micha@0rpheus(Punkt)net**.
-Man kann mir mit GnuPG verschlüsselte Mails schicken.
-
-* KeyID: **EE75C6FE**
-* Fingerprint: **ECCF 44F5 ECB2 E206 5404  E029 617E B806 EE75 C6FE**
-* [Hier] ist der Key zum download.
 
 ## Jabber
 
@@ -42,3 +39,4 @@ Ich betreibe meinen eigenen jabber Server. Meine JabberID ist
 [Hier]: /Michael_Rennecke_EE75C6FE.asc
 [HAProxy]: http://www.haproxy.org/
 [SDS]: https://www.stulz-digitronic.com/
+[powercloud]: https://power.cloud/
